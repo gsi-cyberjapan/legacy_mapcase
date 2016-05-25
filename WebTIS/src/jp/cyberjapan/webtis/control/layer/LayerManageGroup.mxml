@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:HGroup xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:drawing="org.openscales.fx.control.drawing.*"
+			   xmlns:exdraw="jp.cyberjapan.webtis.control.drawing.*"
+			   width="100%" height="25" horizontalAlign="left"
+			   paddingBottom="3" paddingLeft="3" paddingTop="5" paddingRight="3"
+			   includeInLayout="true" gap="20" creationComplete="configure()">	
+<!--<s:Group visible="{this._displayDrawing}" includeInLayout="{this._displayDrawing}">
+-->	<drawing:AddVectorLayer id="addBtn" />
+	<exdraw:ExImportFeature id="importBtn" />
+	<exdraw:ExExportFeature id="exportBtn" />
+	<!--<exdraw:LoadExif id="exifBtn" />--><!-- ←Google Chromeで正しく機能しないため削除 -->
+	<!--<exdraw:SaveAsHTML id="saveHtmlBtn" />--><!-- ←Google Chromeで正しく機能しないため削除 -->
+	<exdraw:SaveAsURL id="saveUrlBtn" />
+	<fx:Script>
+		<![CDATA[
+			import jp.cyberjapan.webtis.components.TISMap;
+			import org.openscales.core.Map;
+			import jp.cyberjapan.webtis.control.drawing.ExExportFeature;
+			
+			[Bindable]
+			private var _map:Map;
+
+			public function configure():void
+			{
+				exportBtn.mode = ExExportFeature.ALL_EXPORT;
+			}
+			
+			public function get map():Map 
+			{
+				return _map;
+			}
+			
+			public function set map(value:Map):void 
+			{
+				_map = value;
+				if (_map)
+				{
+					addBtn.map = _map;
+					importBtn.map = _map;
+					exportBtn.map = _map;
+					//exifBtn.map = _map;
+					//saveHtmlBtn.map = _map;
+					saveUrlBtn.map = _map;
+				}
+			}
+		]]>
+</fx:Script>	
+</s:HGroup>

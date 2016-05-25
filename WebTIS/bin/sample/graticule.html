@@ -1,0 +1,80 @@
+<html>
+<head>
+  <title>電子国土Web.NEXT+ サンプル（経緯度線の表示）</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="Javascript" src="../js/webtis_flash.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+</head>
+<body onload="init()">
+	<h1>経緯度線を表示する</h1>
+	<table><tr valign="top">
+	<td width="500">
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="500" height="600">
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="../WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars"value="locale=ja_JP"/>
+	<embed name="externalMap" src="../WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="500" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	
+	<p>
+	<!-- API呼び出しボタン -->
+	<input id="Graticule0" type="radio" name="Graticule"  onclick="Graticule(-1, 0)" />非表示<br/>
+	<input id="Graticule1" type="radio" name="Graticule" onclick="Graticule(5, 4)" />5度単位 （ズームレベル4以上で表示されます）<br/>
+	<input id="Graticule1" type="radio" name="Graticule" onclick="Graticule(1, 6)" />1度単位 （ズームレベル6以上で表示されます）<br/>
+	<input id="Graticule2" type="radio" name="Graticule" onclick="Graticule(1/60, 12)" />1分単位 （ズームレベル12以上で表示されます）<br/>
+	<input id="Graticule3" type="radio" name="Graticule" onclick="Graticule(1/120, 13)" />30秒単位 （ズームレベル13以上で表示されます）<br/>
+	<input id="Graticule4" type="radio" name="Graticule" onclick="Graticule(1/240, 14)" />15秒単位 （ズームレベルが14以上で表示されます）<br/>
+	</p>
+	
+	</td>
+	<td>
+		<h2>【解説】</h2>
+		地図に経緯度線を表示するには、<code>webtis.createGraticule()</code>で経緯度線を表示する設定に切り替えた後、
+		<code>webtis.setGraticuleInterval()</code>で経緯度線の間隔および表示するズームレベルを設定します。
+		<pre class="source"><code>
+// 経緯度線が表示されるようにします。
+webtis.createGraticule();
+
+// 経緯度線の間隔を5度単位に設定し、
+// ズームレベル4以上で表示されるようにします。
+webtis.setGraticuleInterval(5, 4);
+		</code></pre>
+	</td>
+	</tr></table>	
+	<style type="text/css">
+	.source {
+		background-color : #CCCCFF;
+		border: 1px solid #000;
+		padding: 10px;
+	}
+	</style>
+	<script>
+	// ページの初期化
+	function init() {
+		// チェック状態の初期化
+		document.getElementById("Graticule0").checked = true;
+	}
+
+	// 電子国土地図の初期化
+	function initMap() {
+		webtis.setMetadata();
+		webtis.setZoomLevel(12);
+		webtis.setMapCenter(140.085278, 36.104167);
+		webtis.createGraticule();
+	}
+	
+	// 表示
+	function Graticule(interval, minZoomLevel ) {
+		webtis.setGraticuleInterval(interval, minZoomLevel);
+	}	
+	</script>
+</body>
+</html>

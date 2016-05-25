@@ -1,0 +1,69 @@
+<html>
+<head>
+  <title>eventtest</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="Javascript" src="js/webtis_flash.js" charset="UTF-8"></script>	
+  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="800" height="600" >
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars"value="locale=ja_JP"/>
+	<embed name="externalMap" src="WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="800" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	<p>
+	<textarea id="info1" rows="1" cols="64" ></textarea><br/>
+	<textarea id="info2" rows="1" cols="64" ></textarea>
+	</p>
+	<script>
+	function initMap() {
+		setMetadata();
+		event("leftdown", "mouseLeftDown");
+		event("leftup", "mouseLeftUp");
+		event("selected", "objectSelect");
+		event("unselected", "objectUnselect");
+		event("mapmove", "mapMove");
+		event("zoomchange", "zoomChange");
+		event("dblclick", "mouseLeftDoubleClick");
+	}
+
+	function mouseLeftDown() {
+		document.getElementById("info1").value = "マウスの左ボタンが下がりました。";
+	}
+
+	function mouseLeftUp() {
+		document.getElementById("info1").value = "マウスの左ボタンが上がりました。";
+	}
+
+	function mouseLeftDoubleClick() {
+		document.getElementById("info1").value = "マウスの左ボタンがダブルクリックされました。";
+	}
+
+	function mapMove() {
+		document.getElementById("info2").value = "地図が移動しました。";
+	}
+
+	function zoomChange() {
+		document.getElementById("info2").value = "ズームレベルが変更されました。";
+	}
+
+	function objectSelect() {
+		document.getElementById("info2").value = "オブジェクトが選択されました。";
+	}
+
+	function objectUnselect() {
+		document.getElementById("info2").value = "オブジェクトの選択が解除されました。";
+	}
+
+</script>
+</body>
+</html>

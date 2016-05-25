@@ -1,0 +1,40 @@
+<html>
+<head>
+  <title>電子国土Flash版サンプル（オブジェクト編集）</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="Javascript" src="../js/webtis_flash.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+</head>
+<body onload="init()">
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="800" height="600">
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="../WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars"value="locale=ja_JP"/>
+	<embed name="externalMap" src="../WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="800" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	
+	<script>
+	// 電子国土地図の初期化
+	function initMap() {
+		webtis.setMetadata();
+		webtis.loadKML("Layer", "./kml/test6.kml");
+		webtis.loadKML("Layer1", "./kml/test1.kml");
+		webtis.loadKML("Layer2", "./kml/test2.kml");
+		webtis.event("selected", "onSelected");
+	}
+
+	// オブジェクト選択イベント
+	function onSelected() {
+		var json = JSON.parse(webtis.getSelectedObject());
+	}
+  </script>
+</body>
+</html>

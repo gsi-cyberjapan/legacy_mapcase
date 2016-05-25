@@ -1,0 +1,31 @@
+ul{margin:0;padding:0}
+li {list-style:none}
+
+#acc_title {
+	font-size:14px;
+	width:300px;
+	cursor:pointer;
+	background:#DDD;
+	padding: 5px 5px;
+	color:black;
+	border-top:1px solid #000;
+	border-bottom:1px solid #000;
+}
+	
+#acc_title:hover {
+  cursor: pointer;
+  background-color: #FD4;
+  color:black;
+}
+#scrolling{
+	width:300px;
+	height:85%;
+	overflow-y:scroll;
+	overflow-x:hidden;
+}
+.selected {
+    background:#EEA;
+}
+.selected + * {
+    background:#EEA;
+}

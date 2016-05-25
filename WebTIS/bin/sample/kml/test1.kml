@@ -1,0 +1,27 @@
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>NewLayer_1362699198987</name>
+    <Style id="Default_line_style13626992262231362699320089">
+      <LineStyle>
+        <color>ffcd9f3f</color>
+        <colorMode>normal</colorMode>
+        <width>10</width>
+      </LineStyle>
+    </Style>
+    <Folder>
+      <name>aaa</name>
+      <visibility>1</visibility>
+      <open>1</open>
+      <Placemark>
+        <id>instance10016</id>
+        <name>東京・仙台間</name>
+        <styleUrl>#Default_line_style13626992262231362699320089</styleUrl>
+        <description><![CDATA[直線距離で約300km]]></description>
+        <LineString>
+          <coordinates>139.69242058203093,35.689648661719026 140.87070427327328,38.26945414006987</coordinates>
+        </LineString>
+        <ExtendedData/>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

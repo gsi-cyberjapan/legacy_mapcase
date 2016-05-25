@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<os:IconButton xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:os="org.openscales.fx.control.*"
+			   implements="org.openscales.core.control.IControl"
+			   toolTip="{this.tooltip}"
+			   icon="{_btnStyle}"
+			   alpha="{_alpha}"
+			   width="25"
+			   height="25"
+			   click="onClick()"
+			   enabled="{active}"
+			   creationComplete="creationComplete()">
+	<fx:Declarations>
+		<!-- Placer ici les éléments non visuels (services et objets de valeur, par exemple). -->
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import flash.events.MouseEvent;
+			import jp.cyberjapan.webtis.api.ObjectAPI;
+			import jp.cyberjapan.webtis.control.drawing.popup2.EditStylePopup2;
+			import jp.cyberjapan.webtis.control.drawing.SelectMarkerWindow;
+			
+			import mx.controls.Alert;
+			import mx.events.CloseEvent;
+			import mx.events.FlexEvent;
+			import mx.managers.PopUpManager;
+			import org.openscales.core.control.IControl;
+			import org.openscales.core.events.DrawingEvent;
+			import org.openscales.core.events.FeatureEvent;
+			import org.openscales.core.events.I18NEvent;
+			import org.openscales.core.feature.Feature;
+			import org.openscales.core.feature.LabelFeature;
+			import org.openscales.core.feature.PointFeature;
+			import org.openscales.core.handler.feature.draw.AbstractDrawHandler;
+			import org.openscales.core.handler.feature.draw.DrawPointHandler;
+			import jp.cyberjapan.webtis.handler.feature.draw.EditKMLStyleHandler;
+			import org.openscales.core.handler.IHandler;
+			import org.openscales.core.i18n.Catalog;
+			import org.openscales.core.layer.VectorLayer;
+			import org.openscales.core.Map;
+			import org.openscales.core.style.marker.CustomMarker;
+			import org.openscales.core.style.Rule;
+			import org.openscales.core.style.Style;
+			import org.openscales.core.style.symbolizer.PointSymbolizer;
+			import jp.cyberjapan.webtis.control.drawing.popup2.EditStylePopup2;
+			import org.openscales.fx.control.layer.LayerManager;
+			import org.openscales.geometry.basetypes.Location;
+			import org.openscales.geometry.basetypes.Pixel;
+			import org.openscales.geometry.Point;
+			import spark.components.Group;
+			
+			[Bindable]
+			private var _alpha:Number = 0.3;
+			
+			[Bindable]
+			private var tooltip:String = Catalog.getLocalizationForKey('editskin.point');
+			
+			[Bindable]
+			[Embed(source="../../../../../../../assets/images/Icons-22.png")]
+			private var _btnStyle:Class;
+			
+		// hamas : 13.09.13 追加
+			private var _selectedFeature: Feature = null;
+			public function setTarget( feature:Feature ) : void {
+			//	this._popup.targetFeature =  feature;
+				this._selectedFeature = feature;
+				this.target = feature.layer;
+			}
+			
+			private var _active:Boolean = true;
+			private var _isClick:Boolean = false;
+			private var _drawingMode:String;
+			private var _handler:EditKMLStyleHandler = new EditKMLStyleHandler();
+			private var _popup:EditStylePopup2 = new EditStylePopup2();
+			// EX改修箇所
+			private var selectMarkerWindow:SelectMarkerWindow = new SelectMarkerWindow();
+			private var selectedPointFeature:Feature;
+			
+			/**
+			 * The default point style to apply to the features
+			 */
+			private var _defaultPointStyle:Style = Style.getDefaultPointStyle();
+			
+			/**
+			 * The default line style to apply to the features
+			 */
+			private var _defaultLineStyle:Style = Style.getDefaultLineStyle();
+			
+			/**
+			 * The default polygon style to apply to the features
+			 */
+			private var _defaultPolygonStyle:Style = Style.getDefaultPolygonStyle();
+			
+			private function creationComplete():void
+			{
+				_popup.x = this.map.width - 200;
+				_popup.y = 20;
+				
+			// hamas : 13.09.13 追加
+				_popup.map = this.map;
+				selectMarkerWindow.byPop = true;
+				selectMarkerWindow.map = this.map;
+			}
+			
+			// Methods
+			/**
+			 * To activate or disactivate the handler
+			 */
+			public function activate():void
+			{
+				_handler.active = true;
+				_handler.styleSelectionCallback = this.popupCallback;
+				_alpha = 1;
+				_handler.map.doubleclickZoomEnabled = false;
+			}
+			
+			public function disactivate():void
+			{
+				if (_handler && _handler.map)
+				{
+					var evt:DrawingEvent = new DrawingEvent(DrawingEvent.EDIT_HANDLER_DESACTIVATED);
+					_handler.map.dispatchEvent(evt);
+				}
+				
+				this._handler.validateChanges();
+				PopUpManager.removePopUp(_popup);
+				_handler.active = false;
+				_alpha = 0.3;
+			}
+			
+			// Callbacks
+			
+			/**
+			 * ポップアップ表示のコールバック
+			 * @param	feature
+			 */
+			public function popupCallback(feature:Feature):void
+			{				
+				PopUpManager.removePopUp(_popup);
+				// --------------------------------------------------
+				// EX改修箇所 
+				// フィーチャのタイプにより処理を分岐
+				if (feature is PointFeature && !(feature is LabelFeature)) {
+					// 点の場合
+					selectedPointFeature = feature;	// フィーチャを保持しておく
+					selectMarkerWindow.addEventListener(FlexEvent.CREATION_COMPLETE, onPopUpCreationComplete);
+					PopUpManager.addPopUp(selectMarkerWindow, this, true);
+				}
+				else {
+					// それ以外の場合
+					_popup.editStyleHandler = this._handler;
+					_popup.targetFeature = feature;
+					PopUpManager.addPopUp(_popup, this.map);
+				}
+				// --------------------------------------------------
+			}
+			
+			/**
+			 * Update texts on map language changed
+			 */
+			public function onMapLanguageChange(event:I18NEvent):void{
+				
+				this.tooltip = Catalog.getLocalizationForKey('editskin.point');
+			}
+			
+			/**
+			 * On button click, dispatch a DrawingEvent.DRAW_HANDLER_ACTIVATED event
+			 */
+			public function onClick():void{
+				
+				if(!this.target)
+					return;
+				
+				// Disactive this component
+				var evt:DrawingEvent;
+				if(this._handler.active){
+					
+					disactivate();
+					_handler.map.doubleclickZoomEnabled = true;
+					return;
+				}
+				
+				// Disactive others drawing tools components
+				this._isClick = true;
+				evt = new DrawingEvent(DrawingEvent.EDIT_HANDLER_ACTIVATED);
+				evt.activeHandler = this.id;
+				evt.layer = this.target;
+				_handler.map.dispatchEvent(evt);
+				
+				// Disactive mesure tools components
+				evt = new DrawingEvent(DrawingEvent.CHANGE_ACTIVE_HANDLER);
+				evt.activeHandler = null;
+				_handler.map.dispatchEvent(evt);
+				
+				// Active this component
+				activate();
+				
+			// hamas : 13.09.13 追加
+				this.handler.exMouseUp(this._selectedFeature);
+			}
+			
+			/**
+			 * Check the handler when a DrawingEvent.DRAW_HANDLER_ACTIVATED or
+			 * DrawingEvent.EDIT_HANDLER_ACTIVATED or DrawingEvent.MOVE_HANDLER_ACTIVATED
+			 * or DrawingEvent.SELECT_HANDLER_ACTIVATED event occured
+			 */
+			private function onChangeActiveHandler(evt:DrawingEvent):void{
+				
+				if(this._handler.active && !this._isClick)
+					disactivate();
+				else
+					this._isClick = false;
+			}
+			
+			/**
+			 * Update the target on active layer changed
+			 */
+			private function onChangeActiveLayer(evt:DrawingEvent):void{
+				
+				if(this.drawingMode == 'unique')
+				{
+					if(this._handler.active){
+						disactivate();
+						_handler.map.mouseNavigationEnabled = true;
+						_handler.map.panNavigationEnabled = true;
+						_handler.map.zoomNavigationEnabled = true;
+						_handler.map.keyboardNavigationEnabled = true;
+					}
+					this.target = evt.layer;
+					
+					if(!evt.layer || !evt.layer.editable) {
+						this.buttonMode = false;
+						this.useHandCursor = false;
+						this.toolTip = Catalog.getLocalizationForKey('drawing.selectDrawingLayer');
+					} else {
+						this.buttonMode = true;
+						this.useHandCursor = true;
+						this.toolTip = Catalog.getLocalizationForKey('editskin.point');
+					}
+				}
+			}
+			
+			
+			/**
+			 * Update the feature style when mouse goes out the feature
+			 * event occured
+			 */
+			private function onFeatureOut(evt:FeatureEvent):void
+			{
+			/*	if(evt.feature.layer == this.target)
+				{	
+					if(evt.feature.originalStyle != null) {
+						evt.feature.style = evt.feature.originalStyle;
+					} else {
+						if(evt.feature is PointFeature || evt.feature is MultiPointFeature) {
+							evt.feature.style = Style.getDefaultPointStyle();
+						} else if (evt.feature is LineStringFeature || evt.feature is MultiLineStringFeature) {
+							evt.feature.style = Style.getDefaultLineStyle();
+						} else if (evt.feature is LabelFeature) {
+							evt.feature.style = Style.getDefinedLabelStyle(evt.feature.style.textFormat.font,(evt.feature.style.textFormat.size as Number),
+								0x0000FF,evt.feature.style.textFormat.bold,evt.feature.style.textFormat.italic);
+						} else {
+							evt.feature.style = Style.getDefaultPolygonStyle();
+						}
+					}
+					
+					evt.feature.draw();
+				}*/
+			}
+			
+			/**
+			 * Update the feature style when Mouse goes over the feature
+			 * event occured
+			 */
+			private function onFeatureOver(evt:FeatureEvent):void
+			{
+				/*if(evt.feature.layer == this.target)
+				{
+					if (!evt.feature.originalStyle || evt.feature.style == evt.feature.originalStyle)
+					{
+						evt.feature.originalStyle = evt.feature.style;
+						
+						if(evt.feature is PointFeature || evt.feature is MultiPointFeature) {
+							evt.feature.style = Style.getDefaultSelectedPointStyle();
+						} else if (evt.feature is LineStringFeature || evt.feature is MultiLineStringFeature) {
+							evt.feature.style = Style.getDefaultSelectedLineStyle();
+						} else if (evt.feature is LabelFeature) {
+							evt.feature.style = Style.getDefinedLabelStyle(evt.feature.style.textFormat.font,(evt.feature.style.textFormat.size as Number),
+								0x0000FF,evt.feature.style.textFormat.bold,evt.feature.style.textFormat.italic);
+						} else {
+							evt.feature.style = Style.getDefaultSelectedPolygonStyle();
+						}
+						
+						evt.feature.draw();
+					}
+				}*/
+			}
+			
+			// Unused functions
+			public function draw():void{
+				
+				this.invalidateDisplayList();
+			}
+			public function destroy():void{}
+			
+			
+			// Getter Setter
+			/**
+			 * Indicates for Drawing mode
+			 * multiple : tools are in the LayerSwitcher
+			 * unique : tools are in the DrawingToolbar
+			 */
+			[Bindable]
+			public function get drawingMode():String{
+				
+				return _drawingMode;
+			}
+			
+			public function set drawingMode(value:String):void{
+				_drawingMode = value;
+			}
+			
+			/**
+			 * Flag for activating and deactivating the component
+			 * @default true;
+			 */
+			[Bindable]
+			public function get active():Boolean{
+				
+				return _active;
+			}
+			public function set active(value:Boolean):void{
+				
+				_active = value;
+				if(! _active){
+					PopUpManager.removePopUp(_popup);
+				}
+			}
+			/**
+			 * Map controled by this control
+			 */
+			public function get map():Map{
+				
+				return this._handler.map;
+			}
+			public function set map(value:Map):void{
+				
+				//Set the map to the popup
+				_handler.map = value;
+				
+				// is it necessary?
+				_handler.map.addEventListener(DrawingEvent.DRAW_HANDLER_ACTIVATED, onChangeActiveHandler);
+				_handler.map.addEventListener(DrawingEvent.EDIT_HANDLER_ACTIVATED, onChangeActiveHandler);
+				_handler.map.addEventListener(DrawingEvent.MOVE_HANDLER_ACTIVATED, onChangeActiveHandler);
+				_handler.map.addEventListener(DrawingEvent.DELETE_HANDLER_ACTIVATED, onChangeActiveHandler);
+				_handler.map.addEventListener(DrawingEvent.SELECT_HANDLER_ACTIVATED, onChangeActiveHandler);
+				_handler.map.addEventListener(DrawingEvent.CHANGE_ACTIVE_LAYER, onChangeActiveLayer);
+				_handler.map.addEventListener(I18NEvent.LOCALE_CHANGED, onMapLanguageChange);
+				
+			// hamas : 13.09.10 追加
+				_handler.map.addEventListener("POP_CLOSE_EDIT_STYLE", onPopupCloseHandler);
+			}
+			
+			/**
+			 * Position (x,y) of the handler
+			 */
+			public function get position():Pixel{
+				
+				return new Pixel(x,y);
+			}
+			public function set position(value:Pixel):void{
+				
+				if(value){
+					x = value.x;
+					y = value.y;
+				}
+			}
+			
+			/**
+			 * Layer the features will be drawn on
+			 */
+			[Bindable]
+			public function get target():VectorLayer{
+				
+				return _handler.drawLayer;
+			}
+			public function set target(value:VectorLayer):void{
+				this.disactivate();
+				_handler.drawLayer = value;
+			}
+			
+			/**
+			 * The default point style to apply to the features
+			 */
+			public function get defaultPointStyle():Style
+			{
+				return (this._handler as EditKMLStyleHandler).defaultPointStyle;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function set defaultPointStyle(value:Style):void
+			{
+				(this._handler as EditKMLStyleHandler).defaultPointStyle = value;
+			}
+			
+			/**
+			 * The default line style to apply to the features
+			 */
+			public function get defaultLineStyle():Style
+			{
+				return (this._handler as EditKMLStyleHandler).defaultLineStyle;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function set defaultLineStyle(value:Style):void
+			{
+				(this._handler as EditKMLStyleHandler).defaultLineStyle = value;
+			}
+			
+			/**
+			 * The default polygon style to apply to the features
+			 */
+			public function get defaultPolygonStyle():Style
+			{
+				return (this._handler as EditKMLStyleHandler).defaultPolygonStyle;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function set defaultPolygonStyle(value:Style):void
+			{
+				(this._handler as EditKMLStyleHandler).defaultPolygonStyle= value;
+			}
+			
+			/**
+			 * The EditKMLStyleHandler used to handle style edition
+			 */
+			public function get handler():EditKMLStyleHandler
+			{
+				return (this._handler as EditKMLStyleHandler);
+			}
+			
+			/**
+			 * @private
+			 */
+			public function set handler(value:EditKMLStyleHandler):void
+			{
+				this._handler = value;
+			}
+
+			/**
+			 * EX改修箇所
+			 * アイコン選択ダイアログの描画完了時
+			 * @param	e
+			 */
+			private function onPopUpCreationComplete(e:FlexEvent):void 
+			{
+				// ×ボタンで閉じたとき
+				selectMarkerWindow.addEventListener(CloseEvent.CLOSE, onClosePopup);
+			}
+			
+			/**
+			 * EX改修箇所
+			 * アイコン選択ダイアログを×ボタンで閉じたとき
+			 * @param	e
+			 */
+			public function onClosePopup(e:CloseEvent):void 
+			{
+				PopUpManager.removePopUp(selectMarkerWindow);
+				if (selectMarkerWindow.selectedIconUrl)
+				{
+					// アイコンが選択された場合
+					
+					var rule:Rule = new Rule();
+					// 選択したアイコンのURLをセット
+					var graphic:CustomMarker = new CustomMarker(selectMarkerWindow.selectedIconUrl);
+					// リモート接続時のみproxyをセット
+					if (Security.sandboxType == Security.REMOTE) {
+						graphic.proxy = Constant.getFullProxyURL();
+						graphic.loadUrl(graphic.url);
+					}
+					rule.symbolizers.push(new PointSymbolizer(graphic));
+
+					// 既存フィーチャのスタイルにセット
+					selectedPointFeature.style.name = ObjectAPI.getStyleId(ObjectAPI.MARKER_STYLE_ID_BASE);
+					selectedPointFeature.style.rules.pop();
+					selectedPointFeature.style.rules.push(rule);
+					// 再描画
+					selectedPointFeature.draw();
+					
+					selectMarkerWindow.selectedIconUrl = null;
+				}
+				else 
+				{
+					// アイコンが選択されなかった場合
+					// -> NOP
+				}
+				selectedPointFeature = null;
+			}
+			
+		// hamas : 13.09.10 追加
+			private function onPopupCloseHandler( evt:Event ):void {
+				// Disactive this component
+				disactivate();
+				return;
+			}			
+		]]>
+	</fx:Script>			
+</os:IconButton>

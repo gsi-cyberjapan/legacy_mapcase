@@ -1,0 +1,73 @@
+<html>
+<head>
+	<title>objtest</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script language="Javascript" src="js/webtis_flash.js" charset="UTF-8"></script>	
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="800" height="600">
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars" value="locale=ja_JP"/>
+	<embed name="externalMap" src="WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="800" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	
+	<br/>
+	<!-- テスト用 -->
+	<textarea id="info" rows="5" cols="128" ></textarea><br/>
+	<input type="button" value="setObject" onclick="callsetObject()" />
+	<input type="button" value="setObjects" onclick="callsetObjects()" />
+	<input type="button" value="getObjects" onclick="callgetObjects()" />
+	<br/>
+	<input type="text" id="state" />
+	<input type="button" value="ポップアップを表示" onclick="showPopupCalltest()" />
+	<script>
+	/**
+	 * 実行するjavascriptのAPI
+	 */
+	function initMap() {
+		createOverviewMap(true);
+		showCenterMark(true);
+		createDrawingBtn(720,10,10,320);
+		setMetadata();
+		event("selected", "callgetObject");
+	}
+	
+	var state = true;
+	function showPopupCalltest() {
+		state = !state;
+		showPopup(state);
+		document.getElementById("state").value = state;
+	}
+	
+	function getcalltest(value) {
+		document.getElementById("info").value = value;
+	}
+		
+	function callsetObject() {
+		setObject(document.getElementById("info").value);
+	}
+	function callsetObjects() {
+		setObjects(document.getElementById("info").value);
+	}
+
+	function callgetObject() {
+		var objstr = getObject();
+		document.getElementById("info").value = objstr;
+	}
+	function callgetObjects() {
+		var objstr = getObjects();
+		document.getElementById("info").value = objstr;
+	}
+  </script>
+</body>
+</html>

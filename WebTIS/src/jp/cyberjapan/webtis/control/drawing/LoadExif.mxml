@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:openscales="http://openscales.org"
+		 xmlns:os="org.openscales.fx.control.*">
+	
+	<s:states>
+		<s:State name="normal" />
+		<s:State name="popup" />
+	</s:states>
+	
+	<os:IconButton icon="{_btnExif}" toolTip="{this.tooltipExif}" click="{this.loadExif()}"
+				   width="22"
+				   height="22" alpha="{_alpha}" />
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import jp.cyberjapan.webtis.api.LayerAPI;
+			import jp.cyberjapan.webtis.control.exif.ImportExifPopupController;
+			import org.openscales.core.events.I18NEvent;
+			import org.openscales.core.i18n.Catalog;
+			import org.openscales.core.Map;
+			import mx.controls.Alert;
+			
+			[Bindable]
+			private var _alpha:Number = 1;
+			
+			[Bindable]
+			[Embed(source="../../../../../../assets/images/exif.png")]
+			private var _btnExif:Class;
+
+			/**
+			 * Tooltip that appears over Import button
+			 */
+			[Bindable]
+			private var tooltipExif:String = Catalog.getLocalizationForKey('drawing.tooltipexif');
+	
+			private var _map:Map = null;
+			
+			private var _drawingMode:String;
+			
+			private var _exifController:ImportExifPopupController;
+
+			public function loadExif():void
+			{
+				this._exifController = new ImportExifPopupController(this._map);
+				this._exifController.parent = this;
+				this._exifController.readExif();
+			}
+			
+			/**
+			 * Indicates for Drawing mode
+			 * multiple : tools are in the LayerSwitcher
+			 * unique : tools are in the DrawingToolbar
+			 */
+			[Bindable]
+			public function get drawingMode():String{
+				
+				return _drawingMode;
+			}
+			
+			public function set drawingMode(value:String):void{
+				_drawingMode = value;
+			}
+			
+			/**
+			 * Change the text values on Map Language changed
+			 * @param event The I18N event received
+			 */
+			public function onMapLanguageChange(event:I18NEvent):void 
+			{
+				this.tooltipExif = Catalog.getLocalizationForKey('drawing.tooltipexif');
+			}
+			
+			/**
+			 * The layer linked to the import button
+			 */
+			public function get map():Map
+			{
+				return this._map;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function set map(value:Map):void
+			{
+				this._map = value;
+				if(this._map)
+				{
+					this._map.addEventListener(I18NEvent.LOCALE_CHANGED, this.onMapLanguageChange);
+				}
+			}
+		]]>
+</fx:Script>	
+</s:Group>

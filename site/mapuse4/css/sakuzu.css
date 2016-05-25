@@ -1,0 +1,7 @@
+/* テキストエリアのゴースト */
+.ghost_text, #ghost_text {
+	position: absolute;
+	color: #AAAAAA;
+	font-weight: normal;
+	font-style: italic;
+}

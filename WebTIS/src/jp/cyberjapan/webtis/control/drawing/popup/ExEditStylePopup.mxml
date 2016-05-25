@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<popup:EditStylePopup xmlns="org.openscales.fx.control.*"
+		 xmlns:fx="http://ns.adobe.com/mxml/2009"
+		 xmlns:popup="org.openscales.fx.control.drawing.popup.*"
+		 xmlns:openscales="http://openscales.org">
+	
+	<fx:Script>
+		<![CDATA[
+			import org.openscales.core.Map;
+			import org.openscales.core.feature.Feature;
+			import spark.components.Group;
+			import spark.components.Label;
+			import spark.layouts.VerticalLayout;
+			
+			override protected function creationComplete():void
+			{
+				super.creationComplete();
+				
+				for (var i:uint = 0; i < global.numElements; i++)
+				{
+					var featureBlock:Group = global.getElementAt(i) as Group;
+					var applyTo:Group = featureBlock.getElementAt(featureBlock.numElements - 1) as Group;
+					if (applyTo)
+					{
+						// Apply toブロック削除
+						//applyTo.visible = false;
+						featureBlock.removeElement(applyTo);
+					}
+					//if (group.visible)
+					//{
+						//group.removeElementAt(group.numElements - 1);
+					//}
+					
+					if (i == global.numElements - 1)
+					{
+						// Labelだけ
+						var labelStyle:Group = featureBlock.getElementAt(featureBlock.numElements - 1) as Group;
+						for (var j:uint = 0; j < labelStyle.numElements; j++)
+						{
+							var fontStyle:Group = labelStyle.getElementAt(j) as Group;
+							if (fontStyle)
+							{
+								if (fontStyle.getElementAt(0) is Label)
+								{
+									// フォントスタイルのラベル幅を伸ばす
+									fontStyle.getElementAt(0).width = 50;
+								}
+							}
+						}
+					}
+					
+					var vlayout:VerticalLayout = featureBlock.layout as VerticalLayout;
+					if (vlayout)
+					{
+						// パディング調整
+						vlayout.paddingBottom = 10;
+						vlayout.paddingRight = 5;
+					}
+				}
+			}
+		]]>
+	</fx:Script>
+	
+</popup:EditStylePopup>

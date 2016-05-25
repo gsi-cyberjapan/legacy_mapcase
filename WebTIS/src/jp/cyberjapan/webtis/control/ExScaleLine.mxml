@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--- ScaleLine control の拡張クラス -->
+<!--
+// hamas : 13.07.30　ctrl:ScaleLine -> wctrl:ScaleLine2
+	xmlns:ctrl="org.openscales.fx.control.*" -> xmlns:wctrl="jp.cyberjapan.webtis.control.*"
+-->
+<wctrl:ScaleLine2 xmlns="http://openscales.org" 
+		 xmlns:fx="http://ns.adobe.com/mxml/2009"
+		 xmlns:s="library://ns.adobe.com/flex/spark"
+		 xmlns:wctrl="jp.cyberjapan.webtis.control.*"
+		 creationComplete="configure()" >
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.graphics.SolidColor;
+			
+			/**
+			 * Configure the object
+			 */
+			public function configure():void
+			{
+				this.scaleTopWidth.fill = new SolidColor(0xffffff, 0.6);
+				
+				this.scaleTopValue.setStyle("fontSize", 10);
+				this.scaleTopValue.setStyle("color", 0x333333);
+			}
+		]]>
+	</fx:Script>
+
+	<s:Line id="scaleLeftLine" xFrom="0" xTo="0" yFrom="0" yTo="12">     
+		 <s:stroke>
+			  <s:SolidColorStroke color="0x666666" weight="2" caps="square"/>
+		 </s:stroke>
+	</s:Line>
+	<s:Line id="scaleRightLine" xFrom="{this.topScaleWidth}" xTo="{this.topScaleWidth}" yFrom="0" yTo="12">     
+		 <s:stroke>
+			  <s:SolidColorStroke color="0x666666" weight="2" caps="square"/>
+		 </s:stroke>
+	</s:Line>
+	<s:Line id="scaleBottomLine" xFrom="0" xTo="{this.topScaleWidth}" yFrom="12" yTo="12">     
+		 <s:stroke>
+			  <s:SolidColorStroke color="0x666666" weight="2" caps="square"/>
+		 </s:stroke>
+	</s:Line>
+	<s:Rect id="scaleTopWidth" x="0" y="0" height="12" width="{this.topScaleWidth}">     
+		<s:fill>
+			<s:SolidColor color="0xffffff" alpha=".5"/>
+		</s:fill>
+	</s:Rect>
+	<s:Label id="scaleTopValue" x="{scaleTopWidth.x+this.topScaleWidth/2-scaleTopValue.width/2-1}" y="2" text="{this.topScaleValue+' '+this.translateTopUnit}"  />
+	
+</wctrl:ScaleLine2>

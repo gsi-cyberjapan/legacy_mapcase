@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" 
+		 initialize="init(event)"
+		 width="150" height="100">
+	<fx:Declarations>
+		<!-- Placer ici les 辿l辿ments non visuels (services et objets de valeur, par exemple). -->
+	</fx:Declarations>
+	
+	<s:layout>
+		<s:VerticalLayout paddingBottom="10" paddingTop="10" paddingLeft="10" paddingRight="10"/>
+	</s:layout>
+	
+	<s:Label id="formatLabel" text="{this.formatLabelText}" />
+	<s:VGroup id="formatgroup" paddingLeft="10" paddingTop="0" paddingBottom="10">
+		<s:RadioButton groupName="source" 
+					   id="kml"
+					   label="KML" 
+					   width="150" 
+					   click="selectKML(event);" />
+		<!--
+		<s:RadioButton groupName="source" 
+					   id="kmz"
+					   label="KMZ"
+					   width="150" 
+					   click="selectKMZ(event);"
+					   visible="false"
+					   enabled="false" />
+		-->
+	</s:VGroup>
+	
+	<s:Button id="exportButton" label="{this.saveLabelText}" click="{this.validate(event)}" />
+
+	
+	<fx:Script>
+		<![CDATA[
+			import flash.events.Event;
+			import flash.events.IOErrorEvent;
+			import flash.net.FileReference;
+			import jp.cyberjapan.webtis.api.LayerAPI;
+			import jp.cyberjapan.webtis.event.LayerAddEvent;
+			import jp.cyberjapan.webtis.format.ExKMLFormat;
+			import jp.cyberjapan.webtis.util.LoadingPicture;
+			import mx.collections.ArrayCollection;
+			import org.openscales.core.layer.KML;
+			import org.openscales.core.layer.Layer;
+			import org.openscales.core.layer.VectorLayer;
+			
+			import org.openscales.core.events.DrawingEvent;
+			import org.openscales.core.events.I18NEvent;
+			import org.openscales.core.i18n.Catalog;
+			import org.openscales.core.layer.ogc.GML;
+			import org.openscales.core.layer.ogc.GPX;
+			import org.openscales.core.layer.ogc.GeoRss;
+			import org.openscales.core.layer.osm.OSM;
+			import jp.cyberjapan.webtis.layer.ExKML;
+			import mx.controls.Alert;
+			
+			/**
+			 * The label format value
+			 */
+			[Bindable]
+			public var formatLabelText:String = Catalog.getLocalizationForKey('drawing.format');	
+
+			/**
+			 * THe valide import text
+			 */
+			[Bindable]
+			public var saveLabelText:String = Catalog.getLocalizationForKey('drawing.export');
+			
+			/**
+			 * Selected source type
+			 */
+			[Bindable]
+			public var _selectedFormat:int = -1; 
+			
+			/**
+			 * The loader instance linked to the current pop up
+			 */
+			private var _exporter:KMLFileExporter = null;
+
+			private var _layerName:String = null;
+
+			/**
+			 * The file reference
+			 */
+			private var _fileReference:FileReference;
+			private var _alreadyInit:Boolean = false;
+
+			public function init(event:Event):void
+			{
+				if(this._alreadyInit) {
+					return;
+				}
+				
+				// デフォルトKMLが選択状態
+				this.kml.selected = true;
+				this._selectedFormat = 1;
+			}
+			
+			/**
+			 * Change the text values on Map Language changed
+			 * @param event The I18N event received
+			 */
+			public function onMapLanguageChange(event:I18NEvent):void 
+			{
+				this.formatLabelText = Catalog.getLocalizationForKey('drawing.format');
+				this.saveLabelText = Catalog.getLocalizationForKey('drawing.export');
+			}
+			
+			/**
+			 * Called when the user validate the import
+			 * First check that locale file or url is not empty and then create a new Layer with the file data
+			 * 
+			 * @param event The MouseEvent received
+			 */
+			public function validate(event:MouseEvent):void
+			{
+				// get and check empty field
+				var valide:Boolean = true;
+				
+				// get the datas fields :
+				if(this._selectedFormat <= 0)
+				{
+					valide = false;
+				}	
+				
+				if (!valide)
+				{
+					return;
+				}
+
+				if (this._exporter.layerNames is String) {
+					this._exporter.exportLayer(this._exporter.map, this._exporter.layerNames as String);
+				} else if (this._exporter.layerNames is Array) {
+					this._exporter.exportLayers(this._exporter.map, this._exporter.layerNames as Array);
+				}
+				this._exporter.closePopUp();
+			}
+			
+			/**
+			 * Select url procces for import
+			 */
+			public function selectKML(event:MouseEvent):void
+			{
+				this._selectedFormat = 1;
+			}
+			
+			/**
+			 * Select locale process for import
+			 */
+			public function selectKMZ(event:MouseEvent):void
+			{
+				this._selectedFormat = 2;
+			}
+			
+			public function get exporter():KMLFileExporter
+			{
+				return this._exporter;
+			}
+			
+			public function set exporter(exp:KMLFileExporter):void
+			{
+				this._exporter = exp;
+			}
+			
+		]]>
+	</fx:Script>
+	
+</s:Group>

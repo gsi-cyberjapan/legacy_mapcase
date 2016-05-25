@@ -1,0 +1,58 @@
+<html>
+<head>
+  <title>電子国土Web.NEXT+ サンプル（画像の表示）</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="Javascript" src="../js/webtis_flash.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<h1>イメージ画像を表示する</h1>
+	<table><tr valign="top">
+	<td width="500">
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="600" height="600">
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="../WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars"value="locale=ja_JP"/>
+	<embed name="externalMap" src="../WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="500" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	</td>
+	<td>
+		<h2>【解説】</h2>
+		地図上にイメージ画像を配置するには、 <code>webtis.addImageLayer()</code> を用います。
+		<pre class="source"><code>
+webtis.addImageLayer(
+    "image",   // レイヤー名
+	140.083, 36.106, 140.088, 36.109,  // 緯度経度値（西端、南端、東端、北端）
+	"http://portal.cyberjapan.jp/image_0/photo.png",  // 画像のURL
+	true // 「true」固定
+	);
+		</code></pre>
+	</td>
+	</tr></table>	
+
+	<script>
+	// 電子国土地図の初期化
+	function initMap() {
+		webtis.setMetadata();
+		webtis.setZoomLevel(16);
+		webtis.setMapCenter(140.085278, 36.104167);
+		webtis.addImageLayer("image", 140.083, 36.106, 140.088, 36.109, "http://portal.cyberjapan.jp/image_0/photo.png", true);
+	}
+  </script>
+  <style type="text/css">
+  .source {
+	background-color : #CCCCFF;
+	border: 1px solid #000;
+	padding: 10px;
+  }
+  </style>
+</body>
+</html>

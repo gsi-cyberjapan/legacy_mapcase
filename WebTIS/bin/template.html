@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script language="Javascript" src="http://portal.cyberjapan.jp/site/mapusef/js/webtis_flash.js" charset="UTF-8"></script><!-- mapAPI -->
+<script language="Javascript" src="http://portal.cyberjapan.jp/site/mapusef/js/jquery-1.9.1.min.js" charset="UTF-8"></script><!-- JQuery -->
+
+<!-- 国土地理院著作表示のスタイル -->
+<style type="text/css"> 
+div.olControlAttribution {
+	font-size:12px;
+	line-height:12px;
+	bottom:5px;
+}
+</style>
+
+<title></title>
+<script type="text/javascript">
+<!--
+/*グローバル変数定義*/
+//経度の設定【HTML作成時に設定】
+var initCX = %lon%;
+
+//緯度の設定【HTML作成時に設定】
+var initCY = %lat%;
+
+//ズームレベルの設定【HTML作成時に設定】
+var initZoomLv = %zoomLv%;
+
+//背景地図の設定【HTML作成時に設定】
+var dataId = '%did%';
+
+//図形情報(jsonデータ)の設定【HTML作成時に設定】
+var jsondata = '%jsondata%';
+
+/*初期処理*/
+function init(){
+	//レイアウト設定
+	arrange();
+}
+
+/*画面レイアウトの設定*/
+function arrange() {
+	//ウィンドウサイズを取得
+    var obj = window;
+    if( window.opera ) {	//Operaの場合
+        var w = obj.innerWidth;
+        var h = obj.innerHeight;
+    } else if( document.all ){	//IEの場合
+        var w = obj.document.documentElement.clientWidth;
+        var h = obj.document.documentElement.clientHeight;
+    } else if( document.getElementById ){    //IE以外の場合
+        var w = obj.innerWidth;
+        var h = obj.innerHeight;
+    }
+    
+    //ヘッダー・地図表示部・縮小ボタンの初期レイアウト
+    	var header_style = document.getElementById("header").style;
+    	header_style.position = "absolute";
+    	header_style.left = 0 + "px";
+    	header_style.top = 0 + "px";
+    	header_style.width = 600 + "px";
+    	header_style.height = 50 + "px";
+    	header_style.overflow = "hidden";
+    	var map_style = document.getElementById("map").style;
+    	map_style.position = "absolute";
+    	map_style.left = 25 + "px";
+    	map_style.top = 50 + "px";
+    	map_style.width = ( w - 302 ) + "px";
+    	map_style.height = ( h - 62 ) + "px";
+    	map_style.overflow = "hidden";
+    	map_style.border = "solid 1px #000";
+}
+
+// --------------------------------------------------
+// 地図部分の初期化設定
+// ・Flashのイベント登録処理
+// ・各ボタン等の表示設定　など
+// Flash読み込み完了後に呼ばないと正常終了しない点に注意
+// --------------------------------------------------
+function initMap() {
+	//alert("initMap() start");
+	
+	//初期の中心座標を指定
+	setMapCenter(initCX,　initCY/*, initZoomLv*/);
+	setZoomLevel(initZoomLv);
+	
+	// メタデータ設定
+	setMetadata();
+
+	// 作図情報(jsonデータ)の読込み
+	setObjects(jsondata);
+	
+	//alert("initMap() end");
+}
+
+//-->
+
+</script>
+</head>
+<body onload="init()" onresize="arrange()">
+<!-- ヘッダー -->
+<div id="header">
+	<div style="padding-left:50px;padding-top:10px;"><img src="http://portal.cyberjapan.jp/portalsite/common/images/logo.gif" width="143px" height="24px"></div>
+</div>
+<!-- マップ -->
+<!-- // TODO SWFのファイルパスを書き換えること（サーバにアップする必要あり） -->
+<div style="border-style:solid;border-width:1px;border-color:#000;" id="map">
+<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="100%" height="100%" >
+<param name="allowScriptAccess" value="always" />
+<param name="movie" value="http://portal.cyberjapan.jp/site/mapusef/WebTIS.swf"/>
+<param name="quality" value="high" />
+<param name="flashVars" value="locale=ja_JP" />
+<embed name="externalMap" src="http://portal.cyberjapan.jp/site/mapusef/WebTIS.swf" quality="high"
+	pluginspage="http://www.macromedia.com/go/getflashplayer"
+	type="application/x-shockwave-flash"
+	width="100%" height="100%" allowScriptAccess="always" flashVars="locale=ja_JP" />
+</object>
+</div>
+
+<script type="text/javascript">
+<!--
+	arrange();
+//-->
+</script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<html>
+<head>
+  <title>電子国土Web.NEXT+ サンプル（地図表示）</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="Javascript" src="../js/webtis_flash.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+</head>
+<body onload="init()">
+	<h1>地図を表示する</h1>
+	<table><tr valign="top">
+	<td width="500">
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="500" height="600">
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="../WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars"value="locale=ja_JP"/>
+	<embed name="externalMap" src="../WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="500" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	
+	<p>
+	<!-- API呼び出しボタン -->
+	<input id="center" type="checkbox" onclick="centerMark()" />中心位置マーカー表示<br/>
+	<input id="popup" type="checkbox" onclick="popup()" />ポップアップ表示<br/>
+	
+	地図切替：
+	<select id="kind" name="kind" size="1" onchange="selectMap()">
+			<option value="JAIS">標準地図</option>
+			<option value="GREY">モノトーン地図</option>
+			<option value="BLANK">白地図</option>
+			<option value="RELIEF">色別標高図</option>
+			<option value="JAISE">1:5,000,000 Japan Map（English）</option>
+			<option value="DJBMO">2007年～写真</option>
+			<option value="NLII4">1988～90年写真</option>
+			<option value="NLII3">1984～87年写真</option>
+			<option value="NLII2">1979～83年写真</option>
+			<option value="NLII1">1974～78年写真</option>
+		</select>
+	</p>
+	</td>
+	<td>
+		<h2>【解説】</h2>
+		<p>
+		電子国土Web.NEXT+の地図を配置するには、次のコードを埋め込みます。
+		<ol>
+			<li>
+				<code>&lt;object&gt;</code>タグを使ってFlashオブジェクトを埋め込みます。
+				<pre class="source"><code>
+&lt;object id=&quot;externalMap&quot;
+classid=&quot;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&quot;
+codebase=&quot;http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0&quot;
+width=&quot;500&quot; height=&quot;600&quot;&gt;
+&lt;param name=&quot;allowScriptAccess&quot; value=&quot;always&quot; /&gt;
+&lt;param name=&quot;movie&quot; value=&quot;../WebTIS.swf&quot;/&gt;
+&lt;param name=&quot;quality&quot; value=&quot;high&quot; /&gt;
+&lt;param name=&quot;flashVars&quot;value=&quot;locale=ja_JP&quot;/&gt;
+&lt;embed name=&quot;externalMap&quot; src=&quot;../WebTIS.swf&quot; quality=&quot;high&quot; 
+  pluginspage=&quot;http://www.macromedia.com/go/getflashplayer&quot;
+  type=&quot;application/x-shockwave-flash&quot;
+  width=&quot;500&quot; height=&quot;600&quot; allowScriptAccess=&quot;always&quot; flashVars=&quot;locale=ja_JP&quot;/&gt;
+&lt;/object&gt;
+				</code></pre>
+			</li>
+			<li>
+				<code>initMap()</code>を定義し、その中に地図の初期設定を行うコードを記述します。<br/>
+				<code>setMetadata()</code>は、地図を表示するために必要なコードですので、必ず記述します。<br/>
+				その他、必要に応じて、地図の初期表示に関する記述を追加します。
+				<pre class="source"><code>
+function initMap() {
+    setMetadata();
+}
+				</code></pre>
+			</li>
+		</ol>
+		</p>
+		<p>
+			また、中心位置表示の有無、図形情報（オブジェクト）をクリックしたときのポップアップ（吹き出し表示）の有無を設定したり、
+			表示する地図を別のものに変更したりすることができます。
+			<pre class="source"><code>
+// 地図の中心に十字のマーカーを表示します。
+webtis.showCenterMark(true);
+
+// ポップアップ表示を無効にします。
+webtis.showPopup(false);
+
+// 表示地図をモノトーンに変更します。
+webtis.changeMap("GREY");
+			</code></pre>
+		</p>
+	</td>
+	</tr></table>	
+	<style type="text/css">
+	.source {
+		background-color : #CCCCFF;
+		border: 1px solid #000;
+		padding: 10px;
+	}
+	</style>
+	<script>
+	// ページの初期化
+	function init() {
+		// チェック状態の初期化
+		document.getElementById("center").checked = false;
+		document.getElementById("popup").checked = true;
+	}
+
+	// 電子国土地図の初期化
+	function initMap() {
+		webtis.setMetadata();
+		webtis.loadKML("layer1", "./kml/test1.kml");
+		webtis.loadKML("layer2", "./kml/test2.kml");
+
+		centerMark();
+		popup();
+	}
+
+	// 中心位置マーカー表示切替
+	function centerMark() {
+		if (document.getElementById("center").checked) {
+			webtis.showCenterMark(true);
+		} else {
+			webtis.showCenterMark(false);
+		}
+	}
+	
+	// ポップアップ表示
+	function popup() {
+		if (document.getElementById("popup").checked) {
+			webtis.showPopup(true);
+		} else {
+			webtis.showPopup(false);
+		}
+	}
+	
+	// 地図切替
+	function selectMap() {
+		var obj = document.getElementById("kind");
+		var mapId = obj.options[obj.selectedIndex].value;
+		webtis.changeMap(mapId);
+	}
+  </script>
+</body>
+</html>

@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:os="http://openscales.org"
+			   xmlns:webtis="jp.cyberjapan.webtis.components.*"
+			   xmlns:wctrl="jp.cyberjapan.webtis.control.*"
+			   xmlns:wmeasure="jp.cyberjapan.webtis.control.measure.*"
+			   xmlns:wmap="jp.cyberjapan.webtis.control.map.*"
+			   xmlns:wlayer="jp.cyberjapan.webtis.control.layer.*"
+			   xmlns:wdraw="jp.cyberjapan.webtis.control.drawing.*"
+			   preinitialize="initLog()"
+			   creationComplete="initMap();">
+
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+
+	<os:Map id="fxmap"
+			width="100%" height="100%"
+			center="139.7775646249879,38.05782361505916,EPSG:4326"
+			maxExtent="-20037508.342789244,-20037508.342789777,20037508.342789244,20037508.34278977,EPSG:900913"
+			x="0" y="0"
+			projection="EPSG:900913"
+			minResolution="0.5971642833948135,EPSG:900913"
+			maxResolution="39135.7584765625,EPSG:900913"
+	>
+		<os:DragHandler />
+		<os:ClickHandler id="clickhandler" active="true" />
+		<os:WheelHandler />
+		<os:KeyBoardHandler />
+		<wctrl:ExScaleLine id="sLine" x="{fxmap.x+50}" y="{fxmap.height-20}" />
+		<wctrl:ExPanZoom id="panzoom" map="{map}" x="{fxmap.x+10}" y="{fxmap.y+10}" />
+		<!-- 広域地図 -->
+		<wctrl:ExFxOverviewMapRatio id="overview"
+			map="{map}"
+			width="200"
+			height="220"
+			ratio="8"
+			right="2"
+			bottom="32"
+			visible="false"
+			>
+			<webtis:FxTISMap id="overviewMap"/>
+		</wctrl:ExFxOverviewMapRatio>
+		<!-- 中心位置表示 -->
+		<wctrl:CenterMark id="centermark" x="{fxmap.width/2-(centermark.width/2)}" y="{fxmap.height/2-(centermark.height/2)}" visible="false" />
+		<wlayer:ExLayerManager id="dbar" x="{fxmap.x+10}" y="{fxmap.y+330}" visible="false" map="{fxmap.map}" />
+		<!-- <os:DrawingToolbar id="drawBar" x="100" y="20" mode="unique" visible="true" />  -->
+		<wmeasure:ExMeasureToolbar id="mbar" map="{fxmap.map}" />
+		<wdraw:ExDrawingToolbar id="mdraw" fxMap="{fxmap}" map="{fxmap.map}" />
+		<!-- 著作権表示（複数のリンクがあるためTermOfServiceは使わない） -->
+		<mx:Text id="termOfService" right="3" bottom="3" opaqueBackground="0xE6FFFF">
+		</mx:Text>
+		<!-- オブジェクト -->
+		<os:SelectFeaturesHandler	id="selectFeaturesHandler"
+									active="true"
+									enableClickSelection="true"
+									enableOverSelection="false"
+									enableBoxSelection="false"
+									/>
+	</os:Map>
+
+	<!-- 作図ボタン -->
+	<os:IconButton id="drawingBtn" x="{fxmap.width-215}" y="{fxmap.y+10}" width="75" height="35" visible="false"
+			icon="{_drawingBtn}" click="toolAPI.setVisibleDrawingToolbar()" />
+	<!-- 印刷ボタン -->
+	<os:IconButton id="printBtn" x="{fxmap.width-175}" y="{fxmap.y+10}" width="35" height="35" visible="false"
+			icon="{_printBtn}" click="mapAPI.print()" />
+	<!-- 計測ボタン -->
+	<os:IconButton id="measureBtn" x="{fxmap.width-130}" y="{fxmap.y+10}"  width="35" height="35" visible="false"
+			icon="{_measureBtn}" click="toolAPI.setVisibleMeasureToolbar()" />
+	<!-- 地図変更ボタン -->
+	<os:IconButton id="floatBtn" x="{fxmap.width-85}" y="{fxmap.y+10}"  width="75" height="35" visible="false"
+			icon="{_floatBtn}" click="showMapChanger()" mouseOver="showMapChanger()" mouseOut="hideMapChanger()" />
+	<!-- ロゴ表示 -->
+	<os:DataOriginatorsDisplay map="{fxmap.map}" id="originator" height="36" left="5" bottom="5" visible="false"/>
+	<!-- 地図切替ダイアログ -->
+	<wmap:MapChanger id="mapchanger" mapSelectionChanged="changeMap(event)" visible="false" />
+
+	<fx:Script>
+		<![CDATA[
+			import com.adobe.serialization.json.JSON;
+			import flash.events.ContextMenuEvent;
+			import flash.events.Event;
+			import flash.events.IOErrorEvent;
+			import flash.events.MouseEvent;
+			import flash.external.*;
+			import flash.net.FileReference;
+			import flash.net.URLRequest;
+			import flash.net.URLRequestHeader;
+			import flash.system.Security;
+			import flash.text.StyleSheet;
+			import flash.ui.ContextMenu;
+			import flash.ui.ContextMenuItem;
+			import flash.xml.XMLDocument;
+			import jp.cyberjapan.webtis.api.*;
+			import jp.cyberjapan.webtis.api.MapAPI;
+			import jp.cyberjapan.webtis.components.AddressLoader;
+			import jp.cyberjapan.webtis.components.AltitudeLoader;
+			import jp.cyberjapan.webtis.components.TISMap;
+			import jp.cyberjapan.webtis.components.UtmPointLoader;
+			import jp.cyberjapan.webtis.control.ExDataOriginatorsRenderer;
+			import jp.cyberjapan.webtis.control.exif.ExifFeature;
+			import jp.cyberjapan.webtis.control.exif.ExifPopupRenderer;
+			import jp.cyberjapan.webtis.control.map.MapKind;
+			import jp.cyberjapan.webtis.event.AddressLoadEvent;
+			import jp.cyberjapan.webtis.event.AltitudeLoadEvent;
+			import jp.cyberjapan.webtis.event.MapChangeEvent;
+			import jp.cyberjapan.webtis.event.UtmPointLoadEvent;
+			import jp.cyberjapan.webtis.file.KMLFileSaveForm;
+			import jp.cyberjapan.webtis.format.ExKMLFormat;
+			import jp.cyberjapan.webtis.handler.feature.ExSelectFeaturesHandler;
+			import jp.cyberjapan.webtis.layer.ExDrawingsLayer;
+			import jp.cyberjapan.webtis.layer.ExifLayer;
+			import jp.cyberjapan.webtis.layer.ExKML;
+			import jp.cyberjapan.webtis.layer.ExVectorLayer;
+			import jp.cyberjapan.webtis.layer.GeoJSON;
+			import jp.cyberjapan.webtis.popup.renderer.ExFxPopupRenderer;
+			import jp.cyberjapan.webtis.util.PopUpLock;
+			import mx.controls.Alert;
+			import mx.events.FlexEvent;
+			import mx.formatters.NumberFormatter;
+			import mx.logging.ILogger;
+			import mx.logging.Log;
+			import mx.logging.LogEventLevel;
+			import mx.logging.targets.TraceTarget;
+			import mx.managers.PopUpManager;
+			import org.openscales.core.basetypes.Resolution;
+			import org.openscales.core.control.ZoomData;
+			import org.openscales.core.events.DrawingEvent;
+			import org.openscales.core.events.FeatureEvent;
+			import org.openscales.core.events.LayerEvent;
+			import org.openscales.core.events.MapEvent;
+			import org.openscales.core.handler.feature.SelectFeaturesHandler;
+			import org.openscales.core.handler.mouse.ClickHandler;
+			import org.openscales.core.i18n.Catalog;
+			import org.openscales.core.i18n.provider.I18nJSONProvider;
+			import org.openscales.core.layer.DrawingsLayer;
+			import org.openscales.core.layer.Layer;
+			import org.openscales.core.layer.osm.Mapnik;
+			import org.openscales.core.layer.VectorLayer;
+			import org.openscales.core.Map;
+			import org.openscales.fx.control.measure.MeasureBar;
+			import org.openscales.fx.control.Zoom;
+			import org.openscales.fx.popup.FxPopup;
+			import org.openscales.fx.popup.renderer.FxPopupRenderer;
+			import org.openscales.geometry.basetypes.Bounds;
+			import org.openscales.geometry.basetypes.Location;
+			import org.openscales.geometry.basetypes.Pixel;
+			import org.openscales.geometry.basetypes.Unit;
+			import spark.components.TitleWindow;
+
+			[Embed(source="../../../../assets/i18n/JA.json", mimeType="application/octet-stream")]
+			private const JALocale:Class;
+
+			[Bindable]
+			[Embed(source="../../../../assets/images/sakuzu.png")]
+			private var _drawingBtn:Class;
+
+			[Bindable]
+			[Embed(source="../../../../assets/images/printer.png")]
+			private var _printBtn:Class;
+
+			[Bindable]
+			[Embed(source="../../../../assets/images/measure.png")]
+			private var _measureBtn:Class;
+
+			[Bindable]
+			[Embed(source="../../../../assets/images/floatbefore07.png")]
+			private var _floatBtn:Class;
+			
+			[Bindable]
+			private var map:Map = null;
+
+			// ベースマップ
+			private var baseMap:TISMap = new TISMap(MapAPI.BASE_MAP_IDENTIFIER);
+
+			/* API */
+			private var mapAPI : MapAPI = null;
+			private var eventAPI : EventAPI = null;
+			private var layerAPI : LayerAPI = null;
+			private var objAPI : ObjectAPI = null;
+			private var toolAPI: ToolAPI = null;
+
+			// 高度取得
+			private var _altitudeLoader:AltitudeLoader = new AltitudeLoader();
+		// hamas : 13.08.09 住所表示
+			private var _addressLoader:AddressLoader = new AddressLoader();
+		// hamas : 13.08.12 UTMポイント表示
+			private var _utmPointLoader:UtmPointLoader = new UtmPointLoader();
+			
+			//　座標・標高表示用
+			private var mouseLocationField:ContextMenuItem = null;
+			
+		// hamas : 13.08.06 メニュー追加
+			private var addressField:ContextMenuItem = null;
+			private var _graticuleMenuItem_off:ContextMenuItem = null;
+			private var _graticuleMenuItem_1m:ContextMenuItem = null;
+			private var _graticuleMenuItem_30s:ContextMenuItem = null;
+			private var _graticuleMenuItem_15s:ContextMenuItem = null;
+			private var _UTMGridMenuItem_on:ContextMenuItem = null;
+			private var _UTMGridMenuItem_off:ContextMenuItem = null;
+			private var _UTMPointMenuItem_on:ContextMenuItem = null;
+			private var _UTMPointMenuItem_off:ContextMenuItem = null;
+			private var topoMap25000Field:ContextMenuItem = null;
+			private var _mnlineMenuItem_on:ContextMenuItem = null;
+			private var _mnlineMenuItem_off:ContextMenuItem = null;
+			private var otherMapField:ContextMenuItem = null;
+			
+			// 経緯度線表示メニュー
+			private var _graticuleCaption_Off:Array
+				= new Array("経緯度線非表示", "経緯度線表示（1分単位）", "経緯度線表示（30秒単位）", "経緯度線表示（15秒単位）");
+			private var _graticuleCaption_On:Array
+				= new Array("✔ 経緯度線非表示", "✔ 経緯度線表示（1分単位）", "✔ 経緯度線表示（30秒単位）", "✔ 経緯度線表示（15秒単位）");
+
+		// TODO : 要調整！キャプションの切り替えをする場合は文言を考慮したほうがよい
+			// 磁北線表示メニュー
+			private var _mnLineCaption_Off:Array
+				= new Array("磁北線表示", "磁北線非表示");
+			private var _mnLineCaption_On:Array
+				= new Array("✔ 磁北線表示", "✔ 磁北線非表示");
+
+		// hamas : 13.08.01 右クリック制御用
+			private var menu:ContextMenu = null;
+			// クリック座標保持
+			public var lat:Number = 0;
+			public var lon:Number = 0;
+
+			private function initMap():void
+			{
+				//Security.loadPolicyFile("http://cyberjapandata.gsi.go.jp/sqras/crossdomain.xml");
+				Security.loadPolicyFile("http://cyberjapandata.gsi.go.jp/xyz/crossdomain.xml");
+				//Security.loadPolicyFile("http://cyberjapandata.gsi.go.jp.cdngc.net/sqras/crossdomain.xml");
+				this.map = fxmap.map;
+
+				// コンテキストメニューの初期化(initAPIの前に!!)
+				initContextMenu();
+
+				this.initAPI();
+				this.mapAPI.createScaleBar();
+				this.mapAPI.createGraticule();	// hamas : 13.07.25 経緯度線を追加
+				this.mapAPI.openMap();
+				this.map.addEventListener(MapEvent.RESOLUTION_CHANGED, resolutionChanged);
+				
+				this.setZoomLabels();
+				this.mapAPI.setZoomLevel(5);
+				// JS側の初期化
+				if (ExternalInterface.available) {
+					ExternalInterface.call("initMap");
+					
+					[Embed(source="../../../../assets/map/metadata.json", mimeType="application/octet-stream")]
+					var innerMetadata:Class;
+
+					var metadataText2:String = new innerMetadata();
+
+					this.mapAPI.setMetadata(metadataText2);
+
+				} else {
+					// Flashのデバッグなど、スタンドアロンで動かしている場合
+					this.toolAPI.createDrawingBtn(map.width - 100, 10, 50, 10);
+					
+					[Embed(source="../../../../assets/standalone/DefaultMetadata.json", mimeType="application/octet-stream")]
+					var defaultMetadata:Class;
+
+					var metadataText:String = new defaultMetadata();
+					this.mapAPI.setMetadata(metadataText);
+				}
+				this.initMeasureBar();
+				this.mdraw.visible = false;
+				
+				this.originator.itemRenderer = ExDataOriginatorsRenderer;
+				this.originator.originatorsList.height = 36;
+				this.originator.originatorsHorizontalLayout.columnWidth = 36;
+				
+				// 著作権スタイル設定 >> 20130809 modify
+				var style:StyleSheet = new StyleSheet();
+//				var styleObj:Object = new Object();
+//				styleObj.textDecoration = "underline";
+//				style.setStyle("a:hover", styleObj);
+
+				//TODO 20130809 凡例の表示のさせ方が変わるかも？
+				var styleText:String = ".olControlAttribution {color:#000000;font-size:12px;vertical-align:middle;}"
+				+ " .legendattr {color:#3333FF;font-weight:bold;font-size:12px;text-decoration:none;}"
+				+ " a {color:#000000;font-weight:bold;text-decoration:underline;}";
+				style.parseCSS(styleText);
+
+				this.termOfService.styleSheet = style;
+
+				// オブジェクト選択
+				selectFeaturesHandler.handler =  new ExSelectFeaturesHandler(map);
+				//(selectFeaturesHandler.handler as SelectFeaturesHandler).selectedStyle = objAPI.selectedStyle;
+				mapAPI.setObjInfoPopup(true);
+				
+				// 広域地図のトグルボタンの位置調整
+				this.overview.maximize.x = this.overview.width - this.overview.maximize.width;
+				this.overview.minimize.right = 0 - this.overview.width;
+				this.overview.toggleDisplay();
+
+				// clickhandlerのセット（この時点で地図のダブルクリックが有効になる）
+				this.mapAPI.clickHandler = this.clickhandler;
+
+				// 作図用レイヤー追加
+//				var drawLayer:DrawingsLayer = new DrawingsLayer(Constant.DRAWING_LAYER_NAME);
+				var drawLayer:ExDrawingsLayer = new ExDrawingsLayer(Constant.DRAWING_LAYER_NAME);
+				this.map.addLayer(drawLayer);
+				this.mdraw.layer = drawLayer;
+				
+				// 検索結果表示用レイヤー追加
+				var searchLayer:VectorLayer = new VectorLayer("search");
+				this.map.addLayer(searchLayer);
+				
+				// hamas : 13.08.14 磁北線レイヤ追加
+				var mnLineLayer:VectorLayer = new VectorLayer("mnLine");
+				this.map.addLayer(mnLineLayer);			
+
+				// 著作権表示用のリスナー追加
+				this.map.addEventListener(LayerEvent.LAYER_CHANGED, layerVisibleChanged);
+				this.map.addEventListener(LayerEvent.LAYER_REMOVED, layerVisibleChanged);
+				this.map.addEventListener(LayerEvent.LAYER_VISIBLE_CHANGED, layerVisibleChanged);
+
+				// 著作権表示
+				this.mapAPI.updateTermOfService();
+			}
+
+			private function initAPI():void
+			{
+				I18nJSONProvider.addTranslation(JALocale);
+				this.map.locale = "ja";
+				
+				this.mapAPI = new MapAPI(this.map, this.baseMap, this.fxmap, this.menu);
+				this.mapAPI.scaleLine = this.sLine;
+				this.mapAPI.overview = this.overview;
+				this.mapAPI.termOfService = this.termOfService;
+				this.mapAPI.centerMark = this.centermark;
+				this.mapAPI.mapChanger = this.mapchanger;
+				this.eventAPI = new EventAPI(this.map);
+				this.layerAPI = new LayerAPI(this.map, this.baseMap);
+				this.layerAPI.addCallbacks();
+				this.objAPI = new ObjectAPI(this.map);
+				this.toolAPI = new ToolAPI(measureBtn, mbar, drawingBtn, mdraw, printBtn, floatBtn);
+			// hamas : 13.10.28 ロゴ表示切替
+				this.mapAPI.originatorLogo = this.originator;
+			}
+
+			private var logger:ILogger = Log.getLogger("LoggetTest");
+
+			private function initLog() : void {
+				var tt:TraceTarget = new TraceTarget();
+				tt.level = LogEventLevel.ALL;
+				tt.filters = ["*"];
+				tt.includeDate = true;
+				tt.includeTime = true;
+				tt.includeLevel = true;
+				tt.includeCategory = true;
+				Log.addTarget(tt);
+			}		
+
+			/**
+			 * コンテキストメニューの初期化を行います。
+			 */
+			private function initContextMenu():void
+			{
+			// hamas : 13.08.01 右クリック制御用
+				this.menu = new ContextMenu();
+				this.menu.hideBuiltInItems();
+				// 座標表示
+				mouseLocationField = new ContextMenuItem("test", true);
+				this.menu.customItems.push(mouseLocationField);
+				this.menu.addEventListener(ContextMenuEvent.MENU_SELECT, showMouseLocation);
+				mouseLocationField.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, showMouseLocationDialog);
+				// 標高表示
+				var showAltitudeMenu:ContextMenuItem = new ContextMenuItem("標高表示");
+				showAltitudeMenu.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, beginLoadAltitude);
+				this.menu.customItems.push(showAltitudeMenu);
+				
+			// hamas : 13.08.06 メニュー追加
+				// 住所表示
+				addressField = new ContextMenuItem("住所表示", true);
+				addressField.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, beginLoadAddress);
+				// 経緯度線
+				_graticuleMenuItem_1m = new ContextMenuItem(_graticuleCaption_Off[1], true);
+				_graticuleMenuItem_30s = new ContextMenuItem(_graticuleCaption_Off[2]);
+				_graticuleMenuItem_15s = new ContextMenuItem(_graticuleCaption_Off[3]);
+				_graticuleMenuItem_off = new ContextMenuItem(_graticuleCaption_On[0]);
+				_graticuleMenuItem_1m.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, showGraticule_1m);
+				_graticuleMenuItem_30s.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, showGraticule_30s);
+				_graticuleMenuItem_15s.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, showGraticule_15s);
+				_graticuleMenuItem_off.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, showGraticule_off);
+				// UTMグリッド
+				_UTMGridMenuItem_on = new ContextMenuItem("UTMグリッドの表示", true);
+				_UTMGridMenuItem_off = new ContextMenuItem("UTMグリッドの非表示");
+				_UTMGridMenuItem_on.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, showUTMGrid_on);
+				_UTMGridMenuItem_off.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, showUTMGrid_off);				
+				// UTMポイント
+				_UTMPointMenuItem_on = new ContextMenuItem("UTMポイントの表示", true);
+				_UTMPointMenuItem_off = new ContextMenuItem("UTMポイントの非表示");
+				_UTMPointMenuItem_on.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, showUTMPoint_on);
+				_UTMPointMenuItem_off.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, showUTMPoint_off);
+				// 1/25000地形図名
+				topoMap25000Field = new ContextMenuItem("test", true);
+				// 磁北線
+				_mnlineMenuItem_on = new ContextMenuItem(_mnLineCaption_Off[0], true);
+				_mnlineMenuItem_off = new ContextMenuItem(_mnLineCaption_On[1]);
+				_mnlineMenuItem_on.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, showMnline_on);
+				_mnlineMenuItem_off.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, showMnline_off);
+				// 他のWeb地図で見る 
+				otherMapField = new ContextMenuItem("他のWeb地図で見る", true);
+				otherMapField.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, popLinkForm);
+
+				this.menu.addEventListener(ContextMenuEvent.MENU_SELECT, showTopoMap25000);
+				
+				this.menu.customItems.push(addressField);
+				this.menu.customItems.push(_graticuleMenuItem_1m);
+				this.menu.customItems.push(_graticuleMenuItem_30s);
+				this.menu.customItems.push(_graticuleMenuItem_15s);
+				this.menu.customItems.push(_graticuleMenuItem_off);
+				this.menu.customItems.push(_UTMGridMenuItem_on);
+				this.menu.customItems.push(_UTMGridMenuItem_off);
+				this.menu.customItems.push(_UTMPointMenuItem_on);
+				this.menu.customItems.push(_UTMPointMenuItem_off);
+				this.menu.customItems.push(topoMap25000Field);
+				this.menu.customItems.push(_mnlineMenuItem_on);
+				this.menu.customItems.push(_mnlineMenuItem_off);
+				this.menu.customItems.push(otherMapField);
+				
+				// メニュー作成完了
+				this.map.contextMenu = this.menu;
+			}
+			
+			private function resolutionChanged(event:MapEvent):void
+			{
+				this.mapAPI.updateTermOfService();
+				this.changeContextMenuAvailability();
+				if (ExternalInterface.available) {
+					ExternalInterface.call("prncenter");
+				}
+			}
+
+			private function layerVisibleChanged(event:LayerEvent):void
+			{
+				this.mapAPI.updateTermOfService();
+			}
+
+			/**
+			 * ズームレベルによってコンテキストメニューの有効・無効を調整する。
+			 */
+			private function changeContextMenuAvailability():void
+			{
+				var zoomlevel:Number = this.mapAPI.getZoomLevel();
+				// UTMグリッド
+				if (zoomlevel >= 10) {
+					this._UTMGridMenuItem_on.enabled = true;
+				} else {
+					this._UTMGridMenuItem_on.enabled = false;
+				}
+				// 経緯度線(1m)
+				if (zoomlevel >= 13) {
+					this._graticuleMenuItem_1m.enabled = true;
+				} else {
+					this._graticuleMenuItem_1m.enabled = false;
+				}
+				// 経緯度線(15s)
+				if (zoomlevel >= 14) {
+					this._graticuleMenuItem_30s.enabled = true;
+				} else {
+					this._graticuleMenuItem_30s.enabled = false;
+				}
+				// 経緯度線(15s)
+				if (zoomlevel >= 15) {
+					this._graticuleMenuItem_15s.enabled = true;
+				} else {
+					this._graticuleMenuItem_15s.enabled = false;
+				}
+			}
+
+			/**
+			 * ズームスライダーに表示する文字列を設定します。
+			 */
+			private function setZoomLabels():void
+			{
+				// １回のズームでどれだけズームを行うかの設定
+				fxmap.map.defaultZoomInFactor = 0.5;
+				fxmap.map.defaultZoomOutFactor = 2;
+				
+				var zoomDate:Vector.<ZoomData> = new Vector.<ZoomData>(5, true);
+				zoomDate[0] = new ZoomData(Catalog.getLocalizationForKey("zoombar.country"), 0.04096, 0.08191);
+				zoomDate[1] = new ZoomData(Catalog.getLocalizationForKey("zoombar.state"), 0.00256, 0.00511);
+				zoomDate[2] = new ZoomData(Catalog.getLocalizationForKey("zoombar.town"), 0.00032, 0.00063);
+				zoomDate[3] = new ZoomData(Catalog.getLocalizationForKey("zoombar.street"), 0.00004, 0.00007);
+				zoomDate[4] = new ZoomData(Catalog.getLocalizationForKey("zoombar.house"), 0.000005, 0.000009);
+				panzoom.zoomSlider.scalesLabels = zoomDate;
+			}			
+			
+			/**
+			 * 距離計測等を行うツールバーの初期設定
+			 */
+			private function initMeasureBar():void
+			{
+				//measureBtn.visible = false;
+				
+				mbar.hideComponent(MeasureBar.AZIMUTHMEASURE);
+				mbar.visible = false;
+			}
+			
+			private function showMouseLocation(e:ContextMenuEvent):void
+			{
+				var mousepoint:Location = this.map.getLocationFromMapPx(new Pixel(map.mouseX, map.mouseY)).reprojectTo(MapAPI.DISPLAY_PROJECTION);
+				var nf:NumberFormatter = new NumberFormatter();
+				nf.precision = 6;
+				var caption:String = "緯度：" + nf.format(mousepoint.lat) + "　経度：" + nf.format(mousepoint.lon);
+				mouseLocationField.caption = caption;
+				lat = mousepoint.lat;
+				lon = mousepoint.lon;
+			}
+
+			private function showMouseLocationDialog(e:ContextMenuEvent):void
+			{
+//				Alert.show(mouseLocationField.caption);
+				this.mapAPI.showPopupMessage(mouseLocationField.caption, "緯度経度表示");
+			}
+			
+			private function beginLoadAltitude(event:ContextMenuEvent):void
+			{
+//				var mousepoint:Location = this.map.getLocationFromMapPx(new Pixel(map.mouseX, map.mouseY)).reprojectTo(MapAPI.DISPLAY_PROJECTION);
+				var mousepoint:Location = new Location(lon, lat, MapAPI.DISPLAY_PROJECTION);
+				this._altitudeLoader.addEventListener(AltitudeLoadEvent.ALTITUDE_LOADED, altitudeLoaded);
+				this._altitudeLoader.beginLoadAltitude(mousepoint.lat, mousepoint.lon);
+			}
+
+			private function altitudeLoaded(event:jp.cyberjapan.webtis.event.AltitudeLoadEvent):void
+			{
+				this._altitudeLoader.removeEventListener(AltitudeLoadEvent.ALTITUDE_LOADED, altitudeLoaded);
+				var text:String = "<p>標高：" + event.altitude + "</p><p><font color=\"#FF0000\"><u><a href=\"http://portal.cyberjapan.jp/help/howtouse.html#h2-3\" target=\"_blank\">※注意　右クリックで得られる値等について</a></u></font></p>";
+				this.mapAPI.showPopupMessage(text, "標高表示");
+			}
+			
+		// hamas : 13.08.09 住所表示
+			private function beginLoadAddress(event:ContextMenuEvent):void
+			{
+//				var mousepoint:Location = this.map.getLocationFromMapPx(new Pixel(map.mouseX, map.mouseY)).reprojectTo(MapAPI.DISPLAY_PROJECTION);
+				var mousepoint:Location = new Location(lon, lat, MapAPI.DISPLAY_PROJECTION);
+				this._addressLoader.addEventListener(AddressLoadEvent.ADDRESS_LOADED, addressLoaded);
+				this._addressLoader.beginLoadAddress(mousepoint.lat, mousepoint.lon);
+			}
+
+			private function addressLoaded(event:jp.cyberjapan.webtis.event.AddressLoadEvent):void
+			{
+				this._addressLoader.removeEventListener(AddressLoadEvent.ADDRESS_LOADED, addressLoaded);
+				var text:String = "<p>住所：" + event.address + "</p><p><font color=\"#FF0000\"><u><a href=\"http://portal.cyberjapan.jp/help/howtouse.html#h2-3\" target=\"_blank\">※注意　右クリックで得られる値等について</a></u></font></p>";
+				this.mapAPI.showPopupMessage(text, "住所表示");
+			}
+			
+			/**
+			 * 地図の切替
+			 * @param	event
+			 */
+			private function changeMap(event:MapChangeEvent):void
+			{
+				this.mapAPI.changeMap(event.dataId);
+			}
+			
+			private function showMapChanger():void
+			{
+				this.mapchanger.x= this.map.width - this.mapchanger.width;
+				this.mapchanger.y = 44;
+				this.mapchanger.visible = !this.mapchanger.visible;
+			}
+			private function hideMapChanger():void
+			{
+				if (mouseX < this.mapchanger.x || mouseY < this.mapchanger.y  || mouseY > this.mapchanger.y + this.mapchanger.height){
+					this.mapchanger.visible = false;
+				}
+			}			
+		// hamas : 13.08.01 経緯度線表示
+			private function showGraticule_1m(e:ContextMenuEvent):void
+			{
+				_graticuleMenuItem_1m.caption = _graticuleCaption_On[1];
+				_graticuleMenuItem_30s.caption = _graticuleCaption_Off[2];
+				_graticuleMenuItem_15s.caption = _graticuleCaption_Off[3];
+				_graticuleMenuItem_off.caption = _graticuleCaption_Off[0];
+				this.mapAPI.setGraticuleInterval(1/60, 13);
+			}
+			private function showGraticule_30s(e:ContextMenuEvent):void
+			{
+				_graticuleMenuItem_1m.caption = _graticuleCaption_Off[1];
+				_graticuleMenuItem_30s.caption = _graticuleCaption_On[2];
+				_graticuleMenuItem_15s.caption = _graticuleCaption_Off[3];
+				_graticuleMenuItem_off.caption =_graticuleCaption_Off[0];
+				this.mapAPI.setGraticuleInterval(1/120, 14);
+			}
+			private function showGraticule_15s(e:ContextMenuEvent):void
+			{
+				_graticuleMenuItem_1m.caption = _graticuleCaption_Off[1];
+				_graticuleMenuItem_30s.caption = _graticuleCaption_Off[2];
+				_graticuleMenuItem_15s.caption = _graticuleCaption_On[3];
+				_graticuleMenuItem_off.caption =_graticuleCaption_Off[0];
+				this.mapAPI.setGraticuleInterval(1/240, 15);
+			}
+			private function showGraticule_off(e:ContextMenuEvent):void
+			{
+				_graticuleMenuItem_1m.caption = _graticuleCaption_Off[1];
+				_graticuleMenuItem_30s.caption = _graticuleCaption_Off[2];
+				_graticuleMenuItem_15s.caption = _graticuleCaption_Off[3];
+				_graticuleMenuItem_off.caption =_graticuleCaption_On[0];
+				this.mapAPI.setGraticuleInterval(-1, 0);
+			}
+			
+		// hamas : 13.08.23 UTMグリッド表示
+			private function showUTMGrid_on(e:ContextMenuEvent):void {
+				this.layerAPI.showUtmGrid(true, this.mapAPI.getZoomLevel(), this.mapAPI.getRect());
+			}
+		// hamas : 13.08.23 UTMグリッド表示OFF
+			private function showUTMGrid_off(e:ContextMenuEvent):void{
+				this.layerAPI.showUtmGrid(false);
+			}
+			
+		// hamas : 13.08.12 UTMポイント表示
+			private function showUTMPoint_on(e:ContextMenuEvent):void{
+//				var mousepoint:Location = this.map.getLocationFromMapPx(new Pixel(map.mouseX, map.mouseY)).reprojectTo(MapAPI.DISPLAY_PROJECTION);
+				var mousepoint:Location = new Location(lon, lat, MapAPI.DISPLAY_PROJECTION);
+				this._utmPointLoader.addEventListener(UtmPointLoadEvent.UTMPOINT_LOADED, utmPointLoaded);
+				this._utmPointLoader.beginLoadUtmPoint(mousepoint.lat, mousepoint.lon);
+			}
+			private function utmPointLoaded(event:jp.cyberjapan.webtis.event.UtmPointLoadEvent):void
+			{
+				this.layerAPI.addUtmPoint(event.lon, event.lat, event.name);
+			}
+			
+		// hamas : 13.08.12 UTMポイント表示OFF
+			private function showUTMPoint_off(e:ContextMenuEvent):void{
+				this.layerAPI.clearUtmPoint();
+				this._utmPointLoader.removeEventListener(UtmPointLoadEvent.UTMPOINT_LOADED, utmPointLoaded);
+			}
+			
+		// hamas : 13.08.14 磁北線表示
+			private function showMnline_on(e:ContextMenuEvent):void{
+				_mnlineMenuItem_on.caption = _mnLineCaption_On[0];
+				_mnlineMenuItem_off.caption = _mnLineCaption_Off[1];
+				
+//				var mousepoint:Location = this.map.getLocationFromMapPx(new Pixel(map.mouseX, map.mouseY)).reprojectTo(MapAPI.DISPLAY_PROJECTION);
+				var mousepoint:Location = new Location(lon, lat, MapAPI.DISPLAY_PROJECTION);
+				this.layerAPI.mnLineDraw(mousepoint.lon, mousepoint.lat);
+			}
+		// hamas : 13.08.14 磁北線表示OFF）
+			private function showMnline_off(e:ContextMenuEvent):void{
+				_mnlineMenuItem_on.caption = _mnLineCaption_Off[0];
+				_mnlineMenuItem_off.caption = _mnLineCaption_On[1];
+
+				this.layerAPI.clearMnLine();
+			}
+			
+		// hamas : 13.08.08 1/25000地形図名表示
+			private function showTopoMap25000(e:ContextMenuEvent):void
+			{
+//				var mousepoint:Location = this.map.getLocationFromMapPx(new Pixel(map.mouseX, map.mouseY)).reprojectTo(MapAPI.DISPLAY_PROJECTION);
+				var mousepoint:Location = new Location(lon, lat, MapAPI.DISPLAY_PROJECTION);
+				var caption:String = "";
+				if (ExternalInterface.available) {
+					var zumeiArray:Array = 
+						ExternalInterface.call("check_zuyou_list", mousepoint.lon, mousepoint.lat);
+					for each(var zumei:Array in zumeiArray){
+						if( caption.length > 0 ){
+							caption += ", ";
+						}
+						caption += zumei[0];
+					}
+				}
+				topoMap25000Field.caption = "2万5千分1地形図名: " + caption;
+			}
+			
+		// hamas : 13.09.12 他のWeb地図で見る
+			private var _window:TitleWindow = null;
+			private var _form:SelectLinkForm = null;
+			private function onPopUpCreationComplete(e:Event):void
+			{
+				this._form.lat.text = lat.toString();
+				this._form.lon.text = lon.toString();
+				this._window.closeButton.addEventListener(MouseEvent.CLICK, this.closePopUp);
+			}
+			public function closePopUp(event:MouseEvent = null):void
+			{
+				PopUpManager.removePopUp(this._window);
+				PopUpLock.unlock();
+				this._window = null;
+			}
+
+			private function popLinkForm(e:ContextMenuEvent):void
+			{
+				// ダイアログを作成
+				this._window = new TitleWindow();
+				this._window.title = "他のWeb地図で見る";
+				this._window.addEventListener(FlexEvent.CREATION_COMPLETE, this.onPopUpCreationComplete);
+				
+				this._form = new SelectLinkForm();
+				this._window.addElement(this._form); 
+				
+				// place at the center
+				this._window.x = (this.map.width / 2) - (this._form.width / 2);
+				this._window.y = (this.map.height / 2) - (this._form.height / 2);
+					
+				// Use the PopUpManager to display the TitleWindow container.
+				PopUpLock.lock();
+				PopUpManager.addPopUp(this._window, this.map, true);
+			}
+		]]>
+	</fx:Script>
+
+</s:Application>

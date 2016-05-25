@@ -1,0 +1,96 @@
+<html>
+<head>
+  <title>電子国土Web.NEXT+ サンプル（位置情報取得）</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="Javascript" src="../js/webtis_flash.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<!--<body onLoad="addEventTest()">-->
+	<h1>位置情報を取得する</h1>
+	<table><tr valign="top">
+	<td width="500">
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="500" height="600">
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="../WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars"value="locale=ja_JP"/>
+	<embed name="externalMap" src="../WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="500" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	
+	<p>
+	<!-- API呼び出しボタン -->
+	下のボタンをクリックすると、それぞれの値が表示されます。<br/>
+	<input type="button" value="中心座標" onclick="showInfo('中心座標は (' + webtis.getCenter()[0] + ',' + webtis.getCenter()[1] + ') です。')" />
+	<input type="button" value="中心経度" onclick="showInfo('中心経度は ' + webtis.getCx() + ' です。')" />
+	<input type="button" value="中心緯度" onclick="showInfo('中心緯度は ' + webtis.getCy() + ' です。')" />
+	<input type="button" value="表示範囲" onclick="showInfo('表示範囲は (' + webtis.getRect()[0] + ',' + webtis.getRect()[1] + ') - (' + webtis.getRect()[2] + ',' + webtis.getRect()[3] + ') です。')" />
+	<input type="button" value="表示西端" onclick="showInfo('表示範囲の西端経度は ' + webtis.getLeft() + ' です。')" />
+	<input type="button" value="表示東端" onclick="showInfo('表示範囲の東端経度は ' + webtis.getRight() + ' です。')" />
+	<input type="button" value="表示南端" onclick="showInfo('表示範囲の南端緯度は ' + webtis.getBottom() + ' です。')" />
+	<input type="button" value="表示北端" onclick="showInfo('表示範囲の北端経度は ' + webtis.getTop() + ' です。')" />
+	<input type="button" value="ズームレベル" onclick="showInfo('現在のズームレベルは ' + webtis.getZoomLevel() + ' です。')" />
+	<br/>
+	<!-- 結果表示エリア -->
+	<textarea id="info" rows="1" cols="64" ></textarea>
+	</p>
+	</td>
+	<td>
+		<h2>【解説】</h2>
+		地図の表示位置やズームレベルを取得することができます。
+		<pre class="source"><code>
+// 地図の中心座標（経度、緯度）を取得します。
+// 結果は[経度, 緯度]の配列で返されます。
+center = webtis.getCenter();
+
+// 地図の中心経度を取得します。
+x = webtis.getCx();
+
+// 地図の中心緯度を取得します。
+y = webtis.getCy();
+
+// 地図の表示範囲を取得します。
+// 結果は[西端経度, 南端緯度, 東端経度, 北端緯度]の配列で返されます。
+rect = webtis.getRect();
+
+// 地図の表示範囲の西端経度を取得します。
+left = webtis.getLeft();
+
+// 地図の表示範囲の東端経度を取得します。
+right = webtis.getRight();
+
+// 地図の表示範囲の北端緯度を取得します。
+top = webtis.getTop();
+
+// 地図の表示範囲を南端緯度を取得します。
+bottom = webtis.getBottom();
+		</code></pre>
+	</td>
+	</tr></table>	
+	<style type="text/css">
+	.source {
+		background-color : #CCCCFF;
+		border: 1px solid #000;
+		padding: 10px;
+	}
+	</style>
+	<script>
+	// 電子国土地図の初期化
+	function initMap() {
+		webtis.setMetadata();
+	}
+
+	// テキストボックスに文字を表示
+	function showInfo(value) {
+		document.getElementById("info").value = value;
+	}
+  </script>
+</body>
+</html>

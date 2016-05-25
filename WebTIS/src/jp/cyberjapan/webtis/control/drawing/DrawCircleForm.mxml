@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" 
+		 initialize="init(event)"
+		 width="250" height="160">
+	<fx:Declarations>
+		<!-- Placer ici les éléments non visuels (services et objets de valeur, par exemple). -->
+	</fx:Declarations>
+	
+	<s:layout>
+		<s:VerticalLayout paddingBottom="10" paddingTop="10" paddingLeft="10" paddingRight="10"/>
+	</s:layout>
+		
+	<s:VGroup paddingLeft="10" paddingTop="10">
+		<s:RadioButton groupName="drawPattern" 
+					   id="drag"
+					   label="{this.dragLabelText}" 
+					   width="150" 
+					   click="selectDrag(event);" selected="true" />
+		<s:RadioButton groupName="drawPattern" 
+					   id="inputRadius"
+					   label="{this.inputRadiusLabelText}" 
+					   width="150" 
+					   click="selectInputRadius(event);"/>
+	
+	</s:VGroup>
+	<s:Group id="radiusInputGroup">	
+		<s:layout>
+			<s:HorizontalLayout paddingLeft="10" />
+		</s:layout>
+		
+		<s:TextInput id="radiusInput" width="30%" enabled="false" />
+		<s:DropDownList id="listUnit" enabled="false"
+						change="{this.unitChange(event)}"
+						dataProvider="{this.unitProvider}"
+						selectedIndex="{this.selectedUnit}" />
+	</s:Group>
+	
+	<s:VGroup paddingLeft="10" verticalAlign="bottom" gap="15">
+	<s:Label visible="false" id="radiusError" text="{this.radiusLabelError}" width="{this.width*0.9}" />
+		<s:Button id="validateDrawButton" label="{this.submitLabel}" horizontalCenter="0"
+				click="{this.validateDrawCircle(event)}" />
+	</s:VGroup>
+	
+	<fx:Script>
+		<![CDATA[
+			import jp.cyberjapan.webtis.control.drawing.DrawCircle;
+			import flash.events.Event;
+			import flash.events.IOErrorEvent;
+			import flash.events.MouseEvent;
+			import mx.collections.ArrayCollection;
+			import org.openscales.core.events.DrawingEvent;
+			import org.openscales.core.events.I18NEvent;
+			import org.openscales.core.i18n.Catalog;
+			import spark.components.DropDownList;
+			
+			private const UNIT_PROVIDER_CHANGED:String = "unitProviderChanged";
+			private const UNIT_KILOMETER_INDEX:Number = 0;
+			private const UNIT_METER_INDEX:Number = 1;
+			private const DRAW_DRAG_INDEX:Number = 1;
+			private const DRAW_INPUT_RADIUS_INDEX:Number = 2;
+			
+			/**
+			 * The button submit text
+			 */
+			[Bindable]
+			public var submitLabel:String = Catalog.getLocalizationForKey('drawing.submit');
+
+			/**
+			 * Selected drawPattern type
+			 */
+			[Bindable]
+			public var selectedDrawPattern:Number = DRAW_DRAG_INDEX; 
+			
+			/**
+			 * The label drag value
+			 */
+			[Bindable]
+			public var dragLabelText:String = Catalog.getLocalizationForKey('drawing.drag');
+			
+			/**
+			 * The label inputRadius file value
+			 */
+			[Bindable]
+			public var inputRadiusLabelText:String = Catalog.getLocalizationForKey('drawing.inputRadius');
+			
+			/**
+			 * Translation for label Name error
+			 */
+			[Bindable]
+			public var unitLabelText:String = Catalog.getLocalizationForKey('drawing.unit');
+			
+			/**
+			 * Datas in the unit dropdownlist
+			 */
+			private var _unitProvider:ArrayCollection = new ArrayCollection();
+			
+			/**
+			 * Translation for source (url or locale) error (empty)
+			 */
+			[Bindable]
+			//public var radiusLabelError:String = Catalog.getLocalizationForKey('drawing.radiuserror');
+			public var radiusLabelError:String = null;
+			
+			/**
+			 * The current selected format
+			 * @default the first one : 0
+			 */
+			[Bindable]
+			public var selectedUnit:Number = 0;
+			
+			/**
+			 * Contains all the format supported
+			 */
+			[Bindable]
+			public var supportedUnit:Array = null;
+			
+			/**
+			 * The DrawCircle linked to the current pop up
+			 */
+			private var _drawCircle:DrawCircle = null;
+
+			private var _alreadyInit:Boolean = false;
+
+			public function init(event:Event):void
+			{
+				if(this._alreadyInit)
+					return;
+				
+				if(!this.supportedUnit)
+				{
+					// 半径の単位選択リスト
+					this.supportedUnit = new Array();
+					this.supportedUnit[0] = Catalog.getLocalizationForKey("drawing.kilometers");
+					this.supportedUnit[1] = Catalog.getLocalizationForKey("drawing.meters");
+				}
+				
+				// ドロップダウンリストに追加
+				for each(var unit:String in supportedUnit)
+				{
+					this.unitProvider.addItem(unit);
+				}
+				
+				this._alreadyInit = true;
+			}
+			
+			/**
+			 * 単位を変更したとき
+			 */
+			public function unitChange(event:Event):void
+			{
+				if(event)
+				{
+					var list:DropDownList = event.currentTarget as DropDownList;
+					this.selectedUnit = list.selectedIndex;
+				}
+			}
+			
+			/**
+			 * Change the text values on Map Language changed
+			 * @param event The I18N event received
+			 */
+			public function onMapLanguageChange(event:I18NEvent):void 
+			{
+				this.submitLabel = Catalog.getLocalizationForKey('drawing.submit');
+				this.dragLabelText = Catalog.getLocalizationForKey('drawing.drag');
+				this.inputRadiusLabelText = Catalog.getLocalizationForKey('drawing.inputRadius');
+			}
+			
+			/**
+			 * 決定ボタンを押すと呼び出される
+			 * First check that locale file or url is not empty and then create a new Layer with the file data
+			 * 
+			 * @param event The MouseEvent received
+			 */
+			public function validateDrawCircle(event:MouseEvent):void
+			{				
+				// ドラッグで描画
+				if (selectedDrawPattern == DRAW_DRAG_INDEX)
+				{
+					this.drawCircle.drawCircle();
+				}
+				// 半径指定
+				else if (selectedDrawPattern == DRAW_INPUT_RADIUS_INDEX
+						&& validateRadius(this.radiusInput.text))
+				{
+					// 単位
+					//var unit:String = this.unitProvider.getItemAt(this.selectedUnit) as String;
+					var radius:Number = new Number(this.radiusInput.text);
+					// キロ指定はメートル変換
+					if (this.selectedUnit == UNIT_KILOMETER_INDEX)
+					{
+						radius = radius * 1000;
+					}
+					// 大きさ固定の円を描く
+					this.drawCircle.drawFixedCircle(radius);
+				}
+				else
+				{
+					radiusError.visible = true;
+					return;
+				}
+				
+				radiusError.visible = false;
+				
+				this.drawCircle.closePopUp();
+			}
+			
+			/**
+			 * 半径の値チェック
+			 * @private
+			 */
+			private function validateRadius(value:String):Boolean
+			{
+				var valide:Boolean = true;
+				var radius:Number = new Number(value);
+				if (value == "" || isNaN(radius))
+				{
+					this.radiusLabelError = Catalog.getLocalizationForKey('drawing.radiusvalideerror');
+					valide = false;
+				}
+				else if (radius <= 0)
+				{
+					this.radiusLabelError = Catalog.getLocalizationForKey('drawing.radiusvalueerror');
+					valide = false;
+				}
+				return valide;
+			}
+			
+			/**
+			 * ドラッグを選択
+			 */
+			public function selectDrag(event:MouseEvent):void
+			{
+				selectedDrawPattern = DRAW_DRAG_INDEX;
+				radiusInput.enabled = false;
+				listUnit.enabled = false;
+			}
+			
+			/**
+			 * 半径指定を選択
+			 */
+			public function selectInputRadius(event:MouseEvent):void
+			{
+				selectedDrawPattern = DRAW_INPUT_RADIUS_INDEX;
+				radiusInput.enabled = true;
+				listUnit.enabled = true;
+			}
+			
+			/**
+			 * Return the drawCircle linked to theb current form
+			 */
+			public function get drawCircle():DrawCircle
+			{
+				return _drawCircle;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function set drawCircle(value:DrawCircle):void
+			{
+				_drawCircle = value;
+				if(_drawCircle.map)
+				{
+					this._drawCircle.map.addEventListener(I18NEvent.LOCALE_CHANGED, this.onMapLanguageChange);
+				}
+			}
+
+			/**
+			 * The different unit available in the dropdownlist
+			 */
+			[Bindable(event=UNIT_PROVIDER_CHANGED)]
+			public function get unitProvider():ArrayCollection
+			{
+				return this._unitProvider;
+			}
+			
+			public function set unitProvider(value:ArrayCollection):void
+			{
+				if(value)
+				{
+					this._unitProvider = value;
+					dispatchEvent(new Event(UNIT_PROVIDER_CHANGED));	
+				}
+			}			
+		]]>
+	</fx:Script>
+	
+</s:Group>

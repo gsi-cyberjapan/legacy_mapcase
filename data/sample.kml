@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0">
+  <Document>
+    <Style id="SYMBOL2.symbolStyle">
+      <IconStyle>
+        <scale>1</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href>http://cyberjapan.jp/symbols/055.png</href>
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="SYMBOL3.symbolStyle">
+      <IconStyle>
+        <scale>1</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href>http://cyberjapan.jp/symbols/055.png</href>
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="SYMBOL4.symbolStyle">
+      <IconStyle>
+        <scale>1</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href>http://cyberjapan.jp/symbols/055.png</href>
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="SYMBOL5.symbolStyle">
+      <IconStyle>
+        <scale>1</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href>http://cyberjapan.jp/symbols/055.png</href>
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="SYMBOL6.symbolStyle">
+      <IconStyle>
+        <scale>1</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href>http://cyberjapan.jp/symbols/055.png</href>
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="SYMBOL7.symbolStyle">
+      <IconStyle>
+        <scale>1</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href>http://cyberjapan.jp/symbols/055.png</href>
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="SYMBOL8.symbolStyle">
+      <IconStyle>
+        <scale>1</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href>http://cyberjapan.jp/symbols/055.png</href>
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="SYMBOL9.symbolStyle">
+      <IconStyle>
+        <scale>1</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href>http://cyberjapan.jp/symbols/055.png</href>
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="SYMBOL10.symbolStyle">
+      <IconStyle>
+        <scale>1</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href>http://cyberjapan.jp/symbols/055.png</href>
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="SYMBOL11.symbolStyle">
+      <IconStyle>
+        <scale>1</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href>http://cyberjapan.jp/symbols/055.png</href>
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Folder id="SYMBOL2.symbolStyle">
+      <name>SYMBOL2</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>指定避難所</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;" nowrap>施設名</td><td>A小学校</td></tr></table>]]></description>
+        <styleUrl>#SYMBOL2.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>140.080505,36.110847</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL3.symbolStyle">
+      <name>SYMBOL3</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>指定避難所</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;" nowrap>施設名</td><td>B小学校</td></table>]]></description>
+        <styleUrl>#SYMBOL3.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>140.05835,36.111549</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL4.symbolStyle">
+      <name>SYMBOL4</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>予備避難所</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;" nowrap>施設名</td><td>C体育館</td></tr></table>]]></description>
+        <styleUrl>#SYMBOL4.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>140.065384,36.090099</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL5.symbolStyle">
+      <name>SYMBOL5</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>予備避難所</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;" nowrap>施設名</td><td>Dセンター</td></tr></table>]]></description>
+        <styleUrl>#SYMBOL5.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>140.099457,36.089146</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL6.symbolStyle">
+      <name>SYMBOL6</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>指定避難所</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;" nowrap>施設名</td><td>E中学校</td></tr></table>]]></description>
+        <styleUrl>#SYMBOL6.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>140.108261,36.09306</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL7.symbolStyle">
+      <name>SYMBOL7</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>指定避難所</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;" nowrap>施設名</td><td>F小学校</td></tr></table>]]></description>
+        <styleUrl>#SYMBOL7.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>140.109558,36.083988</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL8.symbolStyle">
+      <name>SYMBOL8</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>予備避難所</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;" nowrap>施設名</td><td>G児童館</td></tr></table>]]></description>
+        <styleUrl>#SYMBOL8.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>140.108459,36.084915</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL9.symbolStyle">
+      <name>SYMBOL9</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>指定避難所</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;" nowrap>施設名</td><td>H小学校</td></tr></table>]]></description>
+        <styleUrl>#SYMBOL9.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>140.095978,36.07888</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL10.symbolStyle">
+      <name>SYMBOL10</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>予備避難所</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;" nowrap>施設名</td><td>I幼稚園</td></tr></table>]]></description>
+        <styleUrl>#SYMBOL10.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>140.11528,36.084927</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL11.symbolStyle">
+      <name>SYMBOL11</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>予備避難所</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;" nowrap>施設名</td><td>J児童館</td></tr></table>]]></description>
+        <styleUrl>#SYMBOL11.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>140.117737,36.086998</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- カスタム計測ツールバー -->
+<c:Control xmlns="http://openscales.org"
+		 xmlns:fx="http://ns.adobe.com/mxml/2009"
+		 xmlns:s="library://ns.adobe.com/flex/spark"
+		 xmlns:c="org.openscales.fx.control.*"
+		 width="180" xmlns:measure="org.openscales.fx.control.measure.*"
+		 xmlns:exmeasure="jp.cyberjapan.webtis.control.measure.*"
+		 creationComplete="configure()" >
+	
+	<fx:Script>
+		<![CDATA[
+			import flash.events.Event;
+			import flash.events.MouseEvent;
+			import jp.cyberjapan.webtis.api.MapAPI;
+			import org.openscales.core.events.DrawingEvent;
+			import org.openscales.core.events.I18NEvent;
+			import org.openscales.core.events.MeasureEvent;
+			import org.openscales.core.feature.LineStringFeature;
+			import org.openscales.core.i18n.Catalog;
+			import org.openscales.core.Map;
+			import org.openscales.core.measure.Distance;
+			import org.openscales.core.measure.IMeasure;
+			import org.openscales.fx.control.measure.MeasureBar;
+			import org.openscales.fx.control.measure.MeasurePath;
+			import org.openscales.geometry.basetypes.Location;
+			import org.openscales.geometry.basetypes.Pixel;
+			import org.openscales.geometry.basetypes.Unit;
+			import org.openscales.geometry.Geometry;
+			import org.openscales.geometry.LinearRing;
+			import org.openscales.geometry.Point;
+			
+			private var _isMeasuring : Boolean = false;
+
+			[Bindable]
+			private var _availableTool : IMeasure = null;
+			
+			[Bindable]
+			public var _result:String = "";
+			
+			/**
+			 * Configure the object
+			 */
+			public function configure():void
+			{
+				//pathMeasure.displaySystem = Unit.KILOMETER;
+			}
+
+			public function exitMeasureMode():void {
+				if(this.map) {
+				// hamas : 13.09.12 修正
+				//	var evt:DrawingEvent = new DrawingEvent(DrawingEvent.CHANGE_ACTIVE_HANDLER);
+				//	var evt:DrawingEvent = new DrawingEvent(DrawingEvent.DRAW_HANDLER_DESACTIVATED);
+				//	evt.activeHandler = null;
+					this.map.dispatchEvent(new DrawingEvent(DrawingEvent.CHANGE_ACTIVE_HANDLER));
+					this.map.dispatchEvent(new DrawingEvent(DrawingEvent.DRAW_HANDLER_DESACTIVATED));
+				}
+			}
+			
+			override public function activate():void 
+			{
+				super.activate();
+				if(this._map)
+				{
+					this.map.addEventListener(MeasureEvent.MEASURE_AVAILABLE,onMeasure);
+					this.map.addEventListener(MeasureEvent.MEASURE_UNAVAILABLE,onMeasure);
+					this.map.addEventListener(MouseEvent.MOUSE_MOVE,onMoveMeasure);
+					this.map.addEventListener(DrawingEvent.MOVE_HANDLER_ACTIVATED, onChangeActiveHandler);
+					this.map.addEventListener(DrawingEvent.CHANGE_ACTIVE_HANDLER, onChangeActiveHandler);					
+				}
+			}
+			
+			override public function desactivate():void 
+			{	
+				super.desactivate();
+				if(this._map)
+				{
+					this.map.removeEventListener(MeasureEvent.MEASURE_AVAILABLE,onMeasure);
+					this.map.removeEventListener(MeasureEvent.MEASURE_UNAVAILABLE,onMeasure);
+					this.map.removeEventListener(MouseEvent.MOUSE_MOVE,onMoveMeasure);
+					this.map.removeEventListener(DrawingEvent.MOVE_HANDLER_ACTIVATED, onChangeActiveHandler);
+					this.map.removeEventListener(DrawingEvent.CHANGE_ACTIVE_HANDLER, onChangeActiveHandler);
+				}
+			}
+			
+			/**
+			 * 計測イベント（クリック時、ダブルクリック時）
+			 * @param	event
+			 */
+			private function onMeasure(event:MeasureEvent):void{
+				if (event.type == MeasureEvent.MEASURE_AVAILABLE)	// 計算可能な場合
+				{
+					this._availableTool = event.tool;
+					this._isMeasuring = true;
+
+					if(event.tool.getUnits()){
+						this._result = event.tool.getMeasure()+" "+event.tool.getUnits();
+					}else
+					{
+						this._result = event.tool.getMeasure();
+					}
+				}
+				else if(event.type == MeasureEvent.MEASURE_UNAVAILABLE) {	// 計算不可能な場合
+					this._result = "";
+					this._isMeasuring = false;
+				}
+			}
+			
+			/**
+			 * マウス移動イベント
+			 * @param	event
+			 */
+			private function onMoveMeasure(event:MouseEvent):void {
+				if (this._isMeasuring/* && event.type == MouseEvent.MOUSE_MOVE*/) {
+					var mousepoint:Location;
+					var tmpPoint:org.openscales.geometry.Point;
+					
+					if (pathMeasure._handler.active && !(pathMeasure._handler.newFeature)) {
+						// 線の場合
+						
+						// マウスポインタ位置を座標値に変換
+						mousepoint = getMousePointCoordinates();
+						
+						// マウスポインタの座標を追加
+						pathMeasure._handler.currentLineStringFeature.lineString.addPoint(mousepoint.lon, mousepoint.lat);
+						// Distanceのresultに値が入っていると再計算されないため一時的にクリア
+						var orgResult:String = pathMeasure._handler._result;
+						pathMeasure._handler._result = "";
+						// 再計算
+						if (pathMeasure._handler.getUnits()) {
+							this._result = pathMeasure._handler.getMeasure() + " " + pathMeasure._handler.getUnits();
+						}
+						else {
+							this._result = pathMeasure._handler.getMeasure();
+						}
+						
+						// 追加した座標を削除
+						tmpPoint = new org.openscales.geometry.Point(mousepoint.lon, mousepoint.lat);
+						pathMeasure._handler.currentLineStringFeature.lineString.removePoint(tmpPoint);
+						// resultを元に戻す
+						pathMeasure._handler._result = orgResult;
+					}
+					else if (surfaceMeasure._handler.active && !(surfaceMeasure._handler.newFeature)) {
+						// 面の場合
+						
+						// マウスポインタ位置を座標値に変換
+						mousepoint = getMousePointCoordinates();
+						
+						// マウスポインタの座標を追加
+						var geo:Geometry = surfaceMeasure._handler._polygonFeature.polygon.componentByIndex(0);	// 実際はLinerRing
+						(geo as LinearRing).addPoint(mousepoint.lon, mousepoint.lat);
+						// ※Surfaceの場合はresultに値が入っていても再計算されるためクリアする必要なし
+						// 再計算
+						if (surfaceMeasure._handler.getUnits()) {
+							this._result = surfaceMeasure._handler.getMeasure() + " " + surfaceMeasure._handler.getUnits();
+						}
+						else {
+							this._result = surfaceMeasure._handler.getMeasure();
+						}
+						
+						// 追加した座標を削除
+						tmpPoint = new org.openscales.geometry.Point(mousepoint.lon, mousepoint.lat);
+						(geo as LinearRing).removePoint(tmpPoint);
+					}
+				}
+			}
+			
+			/**
+			 * マウスポインタ位置を座標値に変換
+			 * @return
+			 */
+			private function getMousePointCoordinates():Location
+			{
+				var mousepoint:Location = this.map.getLocationFromMapPx(new Pixel(this.map.mouseX, this.map.mouseY));
+				//var mousepoint:Location = this.map.getLocationFromMapPx(new Pixel(map.mouseX, map.mouseY)).reprojectTo(MapAPI.DISPLAY_PROJECTION);
+				//trace(mousepoint.lon + ", " + mousepoint.lat);
+				
+				return mousepoint;
+			}
+			
+			private function onChangeActiveHandler(event:DrawingEvent):void {
+				this._result = "";
+			}
+			
+			override public function onMapLanguageChange(event:I18NEvent):void{
+				pathMeasure.toolTitle = Catalog.getLocalizationForKey('MeasureBar.distancetooltip');
+				azimuthMeasure.toolTitle = Catalog.getLocalizationForKey('MeasureBar.azimuthtooltip');
+				surfaceMeasure.toolTitle = Catalog.getLocalizationForKey('MeasureBar.surfacetooltip');
+				//exitButton.toolTip = _exitToolTip = Catalog.getLocalizationForKey('MeasureBar.exittooltip');
+			}
+			
+			public function hideComponent(component:String):void{
+				
+				if(component==MeasureBar.DISTANCEMEASURE){
+					if(this.measurebar.contains(this.pathMeasure)){
+						if(this.pathMeasure.active){
+							this.pathMeasure.onClick();
+						}
+						this.measurebar.removeElement(this.pathMeasure);
+					}
+				}
+				if(component==MeasureBar.AZIMUTHMEASURE){
+					if(this.measurebar.contains(this.azimuthMeasure)){
+						if(this.azimuthMeasure.active){
+							this.azimuthMeasure.onClick();
+						}
+						this.measurebar.removeElement(this.azimuthMeasure);
+					}
+				}
+				if(component==MeasureBar.SURFACEMEASURE){
+					if(this.measurebar.contains(this.surfaceMeasure)){
+						if(this.surfaceMeasure.active){
+							this.surfaceMeasure.onClick();
+						}
+						this.measurebar.removeElement(this.surfaceMeasure);
+					}
+				}
+			}
+			
+			/**
+			 * This function display a component of the measure bar if it was hidden. Otherwise, it has no action
+			 * 
+			 * @param component Component to show (constants available in the MeasureBar class)
+			 */
+			public function showComponent(component:String):void{
+				
+				if(component==MeasureBar.DISTANCEMEASURE){
+					if(!this.measurebar.contains(this.pathMeasure)){
+						this.measurebar.addElementAt(this.pathMeasure,0);
+					}
+				}
+				if(component==MeasureBar.AZIMUTHMEASURE){
+					if(!this.measurebar.contains(this.azimuthMeasure)){
+						this.measurebar.addElementAt(this.azimuthMeasure,0);
+					}
+				}
+				if(component==MeasureBar.SURFACEMEASURE){
+					if(!this.measurebar.contains(this.surfaceMeasure)){
+						this.measurebar.addElementAt(this.surfaceMeasure,0);
+					}
+				}
+			}
+			
+			override public function set map(value:Map):void{
+				super.map = value;
+				if (this.pathMeasure)
+					this.pathMeasure.map = this.map;
+				if (this.azimuthMeasure)
+					this.azimuthMeasure.map = this.map;
+				if (this.surfaceMeasure)
+					this.surfaceMeasure.map = this.map;
+			}
+		]]>
+	</fx:Script>	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<s:Group id="measurebar">
+		<s:layout>
+			<s:HorizontalLayout id="measureHorizontalLayout" paddingTop="10" paddingRight="10" paddingBottom="10" paddingLeft="10"
+								horizontalAlign="center" verticalAlign="middle" gap="5" />
+		</s:layout>
+		
+		<exmeasure:ExMeasurePath id="pathMeasure" />
+		<measure:MeasureAzimuth id="azimuthMeasure" />
+		<exmeasure:ExMeasureSurface id="surfaceMeasure" />
+		<!--<IconButton icon="{_btnPath}" id="exitButton" click="exitMeasureMode()" width="25" height="25" toolTip="{_exitToolTip}"/>-->
+		
+		<s:Label id="lblResult" text="{this._result}" />
+	</s:Group>
+	
+</c:Control>

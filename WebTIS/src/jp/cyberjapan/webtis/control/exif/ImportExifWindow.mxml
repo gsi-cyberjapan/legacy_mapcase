@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   initialize="init(event)"
+			   width="300"
+			   height="350">
+	<fx:Declarations>
+		<!-- Placer ici les éléments non visuels (services et objets de valeur, par exemple). -->
+	</fx:Declarations>
+
+	<s:layout>
+		<s:VerticalLayout paddingBottom="10"
+						  paddingTop="10"
+						  paddingLeft="10"
+						  paddingRight="10" />
+	</s:layout>
+
+	<mx:VBox>
+		<s:Label id="layerName"
+				 text="{this.nameLabel}"
+				 width="40%" />
+		<s:TextInput id="inputName"
+					 width="60%" />
+
+		<s:VGroup paddingLeft="10"
+				  paddingTop="10">
+			<s:RadioButton groupName="source"
+						   id="url"
+						   label="{this.urlLabelText}"
+						   width="150"
+						   click="selectUrl(event);" />
+			<s:RadioButton groupName="source"
+						   id="locale"
+						   label="{this.localeLabelText}"
+						   width="150"
+						   click="selectLocale(event);" />
+		</s:VGroup>
+
+		<s:TextInput id="urlInput"
+					 visible="false" />
+		<s:Button id="localeButton"
+				  visible="false"
+				  label="{this.browseLabel}"
+				  click="{this.browseFiles()}" />
+
+		<s:Label id="selectedLocaleFile"
+				 visible="false"
+				 width="250" />
+
+		<s:Label visible="false"
+				 id="nameError"
+				 text="{this.nameLabelError}"
+				 width="{this.width*0.7}"
+				 bottom="0" />
+		<s:Label visible="false"
+				 id="sourceError"
+				 text="{this.sourceLabelError}"
+				 width="{this.width*0.7}"
+				 bottom="0" />
+
+
+		<s:Button id="validateImportButton"
+				  label="{this.importLabel}"
+				  click="{this.validateImportFeature(event)}" />
+	</mx:VBox>
+
+	<fx:Script>
+		<![CDATA[
+			import flash.events.IOErrorEvent;
+			import flash.net.FileReference;
+			import flash.net.URLLoader;
+			import flash.net.URLRequest;
+			import flash.utils.ByteArray;
+			import jp.shichiseki.exif.ExifInfo;
+			import jp.shichiseki.exif.ExifLoader;
+			import mx.collections.ArrayCollection;
+			import org.openscales.core.Map;
+			import mx.controls.Alert;
+			
+			import org.openscales.core.events.DrawingEvent;
+			import org.openscales.core.events.I18NEvent;
+			import org.openscales.core.i18n.Catalog;
+			import flash.events.Event;
+			
+			/**
+			 * Translation for label Name
+			 */
+			[Bindable]
+			public var nameLabel:String = Catalog.getLocalizationForKey('drawing.name');
+			
+			/**
+			 * THe valide import text
+			 */
+			[Bindable]
+			public var importLabel:String = Catalog.getLocalizationForKey('drawing.loadexif');
+			
+			/**
+			 * The label url value
+			 */
+			[Bindable]
+			public var urlLabelText:String = Catalog.getLocalizationForKey('drawing.url');
+			
+			/**
+			 * The label locale file value
+			 */
+			[Bindable]
+			public var localeLabelText:String = Catalog.getLocalizationForKey('drawing.locale');
+			
+			/**
+			 * Translation for label Name error
+			 */
+			[Bindable]
+			public var nameLabelError:String = Catalog.getLocalizationForKey('drawing.nameerror');
+			
+			/**
+			 * Translation for source (url or locale) error (empty)
+			 */
+			[Bindable]
+			public var sourceLabelError:String = Catalog.getLocalizationForKey('drawing.sourceerror');
+			
+			/**
+			 * Browse files
+			 */
+			[Bindable]
+			public var browseLabel:String = Catalog.getLocalizationForKey('drawing.browse');
+			
+			/**
+			 * @private
+			 * Datas contains in the locale file selected
+			 * @default null
+			 */
+			private var _datasFile:ByteArray = null;
+			
+			/**
+			 * Map
+			 */
+			private var _map:Map = null;
+			
+			private var _controller:ImportExifPopupController = null;
+
+			/**
+			 * Selected source type
+			 */
+			[Bindable]
+			public var selectedSource:int = -1;
+			
+			/**
+			 * The file reference
+			 */
+			private var fileReference:FileReference;
+			private var _alreadyInit:Boolean = false;
+			
+			public function init(event:Event):void
+			{
+				if (this._alreadyInit)
+					return;
+				
+				this.title = Catalog.getLocalizationForKey('drawing.titleloadexif');
+				this._alreadyInit = true;
+			}
+			
+			/**
+			 * Change the text values on Map Language changed
+			 * @param event The I18N event received
+			 */
+			public function onMapLanguageChange(event:I18NEvent):void
+			{
+				this.importLabel = Catalog.getLocalizationForKey('drawing.loadexif');
+				this.urlLabelText = Catalog.getLocalizationForKey('drawing.url');
+				this.localeLabelText = Catalog.getLocalizationForKey('drawing.locale');
+			}
+			
+			/**
+			 * Called when the user validate the import
+			 * First check that locale file or url is not empty and then create a new Layer with the file data
+			 *
+			 * @param event The MouseEvent received
+			 */
+			public function validateImportFeature(event:MouseEvent):void
+			{
+				// get and check empty field
+				var valide:Boolean = true;
+				
+				// get the datas fields :
+				var name:String = String(this.inputName.text).replace(/\s/g, "");
+				var url:String = (this.urlInput.text).replace(/\s/g, "");
+				
+				if (!name || name == "" || !this.validateName(name))
+				{
+					nameError.visible = true;
+					valide = false;
+				}
+				
+				if (selectedSource == 0)
+				{
+					sourceError.visible = true;
+					valide = false;
+				}
+				
+				if (selectedSource == 1 && (!url || url == ""))
+				{
+					sourceError.visible = true;
+					valide = false;
+				}
+				
+				if (selectedSource == 2 && !_datasFile)
+				{
+					sourceError.visible = true;
+					valide = false;
+				}
+				
+				if (!valide)
+					return;
+				
+				nameError.visible = false;
+				sourceError.visible = false;
+				
+				if (valide)
+				{
+					if (selectedSource == 1)	// URL
+					{
+						var loader:ExifURLLoader = new ExifURLLoader();
+						loader.plotter = new ExifDataPlotter(this._map);
+						loader.name = this.inputName.text;
+						if (Security.sandboxType == Security.REMOTE && "file" != url.substring(0, 4)) {
+							loader.proxy = Constant.getFullProxyURL();
+						}
+						loader.load(url);
+					}
+					else // locale file
+					{
+						var exif:ExifInfo = new ExifInfo(this._datasFile);
+						this._controller.plotter.plot(this.inputName.text, this._datasFile, exif);
+					}
+					this._controller.closePopup();
+				}
+			}
+			
+			/**
+			 * @private
+			 */
+			private function validateName(value:String):Boolean
+			{
+				if (this.map)
+				{
+					if (this.map.getLayerByIdentifier(value) == null)
+						return true;
+				}
+				return false;
+			}
+			
+			/**
+			 * Select url procces for import
+			 */
+			public function selectUrl(event:MouseEvent):void
+			{
+				selectedSource = 1;
+				urlInput.visible = true;
+				localeButton.visible = false;
+				selectedLocaleFile.visible = true;
+			}
+			
+			/**
+			 * Select locale process for import
+			 */
+			public function selectLocale(event:MouseEvent):void
+			{
+				selectedSource = 2;
+				urlInput.visible = false;
+				selectedLocaleFile.visible = true;
+				localeButton.visible = true;
+			}
+			
+			/**
+			 * Browse FileSystem to select the locale file to import
+			 */
+			public function browseFiles():void
+			{
+				//create the FileReference instance
+				fileReference = new FileReference();
+				
+				//listen for when they select a file
+				fileReference.addEventListener(Event.SELECT, onFileSelect);
+				
+				//listen for when then cancel out of the browse dialog
+				fileReference.addEventListener(Event.CANCEL, onCancel);
+				
+				//open a native browse dialog that filters for text files
+				fileReference.browse();
+			}
+			
+			/**
+			 * Called when a file is selected on
+			 */
+			public function onFileSelect(e:Event):void
+			{
+				//listen for when the file has loaded
+				fileReference.addEventListener(Event.COMPLETE, onFileLoadComplete);
+				
+				//listen for any errors reading the file
+				fileReference.addEventListener(IOErrorEvent.IO_ERROR, onLoadError);
+				
+				//load the content of the file
+				fileReference.load();
+			}
+			
+			/**
+			 * Called when the user cancel the browse process
+			 */
+			public function onCancel(e:Event):void
+			{
+				fileReference = null;
+			}
+			
+			/**
+			 * getter of map
+			 */
+			public function get map():Map
+			{
+				return this._map;
+			}
+			
+			/**
+			 * setter of map
+			 */
+			public function set map(map:Map):void
+			{
+				this._map = map;
+			}
+			
+			public function set controller(cont:ImportExifPopupController):void
+			{
+				this._controller = cont;
+			}
+
+
+			/**
+			 * private
+			 * called when the file has completed loading
+			 */
+			private function onFileLoadComplete(e:Event):void
+			{
+				//get the data from the file as a ByteArray
+				_datasFile = fileReference.data;
+				
+				selectedLocaleFile.text = fileReference.name;
+				
+				//clean up the FileReference instance
+				fileReference = null;
+			}
+			
+			//called if an error occurs while loading the file contents
+			private function onLoadError(e:IOErrorEvent):void
+			{
+				trace("Error loading file : " + e.text);
+			}
+			
+		]]>
+	</fx:Script>
+
+</s:TitleWindow>

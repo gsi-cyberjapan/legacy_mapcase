@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns="org.openscales.fx.control.layer.*"
+		 xmlns:os="org.openscales.fx.control.*">
+	
+	
+	<os:IconButton id="saveUrlBtn" icon="{_btnSaveUrl}" toolTip="{this.tooltipExport}" click="{this.saveAsURL()}"
+				   width="22"
+				   height="22" alpha="{_alpha}" />
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import flash.events.Event;
+			import flash.events.IOErrorEvent;
+			import flash.events.MouseEvent;
+			import flash.net.FileReference;
+			import jp.cyberjapan.webtis.api.LayerAPI;
+			import jp.cyberjapan.webtis.api.MapAPI;
+			import jp.cyberjapan.webtis.api.ObjectAPI;
+			import jp.cyberjapan.webtis.components.SaveHTML;
+			import jp.cyberjapan.webtis.components.TISMap;
+			import org.openscales.core.events.DrawingEvent;
+			import org.openscales.core.events.I18NEvent;
+			import org.openscales.core.i18n.Catalog;
+			import org.openscales.core.layer.KML;
+			import org.openscales.core.layer.Layer;
+			import org.openscales.core.layer.VectorLayer;
+			import org.openscales.core.Map;
+			import mx.controls.Alert;
+			import org.openscales.geometry.basetypes.Location;
+			import flash.external.ExternalInterface;
+			
+			private var _mode:String;
+			private var fileReference:FileReference;
+			
+			[Bindable]
+			private var _alpha:Number = 1;
+			
+			[Bindable]
+			[Embed(source="../../../../../../assets/images/saveurl.png")]
+			private var _btnSaveUrl:Class;
+
+			[Bindable]
+			private var tooltipExport:String = Catalog.getLocalizationForKey('drawing.tooltipurl');
+
+			///**
+			 //* The VectorLayer linked to this export button
+			 //*/
+			//private var _layer:VectorLayer = null;
+			
+			private var _objAPI:ObjectAPI = null;
+			
+			[Bindable]
+			private var _map:Map = null;
+			
+			public function saveAsURL():void
+			{
+				if (this._map == null) {
+					Alert.show("saveAsURL() : mapが初期化されていません");
+					return;
+				}
+				
+				var baseMap:Layer = this._map.getLayerByIdentifier(MapAPI.BASE_MAP_IDENTIFIER);
+				if (baseMap == null) {
+					Alert("ベースマップがないため保存できません。");
+					return;
+				}
+				// 中心経緯度・ズームレベル取得
+				var center:Location = this._map.center.reprojectTo(MapAPI.DISPLAY_PROJECTION);
+				var lat:Number = center.lat;
+				var lon:Number = center.lon;
+				var zoomLevel:Number = (baseMap as TISMap).getZoomForResolution(this._map.resolution.value);
+				
+				// 背景地図データ名を取得
+				var metaData:Object = (baseMap as TISMap).getCurrentMetadata(zoomLevel);
+				var did:String = "JAIS";
+				if (metaData != null) {
+					did = metaData.dataId;
+				}
+				// オブジェクトデータを取得
+				var objAPI:ObjectAPI = new ObjectAPI(_map);
+				var json:String = objAPI.getObjectsForServer();
+				//alert(json);
+				
+				// 作図情報ファイル名を作成（8文字）
+				var filename:String = this.createFileName();
+				
+				// URLを作成
+				// 注意：fidはここでは連結しない
+				var url:String = Constant.getSaveURL() + "?lat=" + lat + "&lon=" + lon + "&z=" + zoomLevel + "&did=" + did/* + "&fid=" + filename*/;
+				//trace(url);
+				
+				// 「作図情報ファイルを作成(サーバにて実行)」を行なうため、JSの関数を呼ぶ
+				var dataArray:Array = new Array();
+				dataArray.push(json);
+				dataArray.push(filename);
+				dataArray.push(url);
+				if (ExternalInterface.available) {
+					try {
+						ExternalInterface.call("saveSakuzuURL", dataArray);
+					}
+					catch (err:Error) {
+						Alert.show("err : " + err.message);
+					}
+				}
+			}
+			
+			/**
+			 * 作図情報ファイル名を作成する
+			 * @return
+			 */
+			private function createFileName():String
+			{
+				var filename:String = "";
+				// 作図情報ファイル名を作成
+				//if(!kmlid){
+					// ランダムなファイル名を作成
+					var n:int = 62;
+					var RandomString:String = '';
+					var BaseString:String ='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+					//文字列生成
+					for(var i:int=0; i<8; i++) {
+						RandomString += BaseString.charAt( Math.floor( Math.random() * n));
+					}
+					filename = "drawfile_" + RandomString;
+				//} else {
+					//filename = kmlid;
+				//}
+				
+				return filename;
+			}
+			
+			/**
+			 * Change the text values on Map Language changed
+			 * @param event The I18N event received
+			 */
+			public function onMapLanguageChange(event:I18NEvent):void 
+			{
+				this.tooltipExport = Catalog.getLocalizationForKey('drawing.tooltipurl');
+			}
+			
+			public function get map():Map{
+				return this._map;
+			}
+			public function set map(value:Map):void{
+				this._map = value;
+				this._map.addEventListener(I18NEvent.LOCALE_CHANGED, this.onMapLanguageChange);
+				
+				// 
+				_objAPI = new ObjectAPI(this._map);
+			}
+		]]>
+</fx:Script>	
+			  
+</s:Group>

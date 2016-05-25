@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Control xmlns="http://openscales.org"
+         xmlns:fx="http://ns.adobe.com/mxml/2009" 
+         xmlns:s="library://ns.adobe.com/flex/spark" 
+         xmlns:mx="library://ns.adobe.com/flex/halo"
+		 xmlns:drawing="org.openscales.fx.control.drawing.*"
+		 xmlns:exdrawing="jp.cyberjapan.webtis.control.drawing.*">
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<s:SkinnableContainer width="100%" id="drawingTools" visible="true" includeInLayout="true" >
+		
+		<s:layout>
+			<s:VerticalLayout paddingLeft="5" paddingRight="5" paddingTop="5" paddingBottom="5" />
+		</s:layout>
+		
+		<s:SkinnableContainer  width="100%" visible="true" includeInLayout="true">
+			<s:layout>
+				<s:HorizontalLayout gap="0"/>
+			</s:layout>
+			<!--<drawing:DrawLabel id="drawLabel" map="{map}"  target="{this._layer as VectorLayer}"  />-->
+			<exdrawing:DrawMarker id="drawPoint" map="{map}" style="{this._pointStyle}" target="{this._layer as VectorLayer}"  />
+			<exdrawing:DrawPath id="drawPath" map="{map}" style="{this._pathStyle}" target="{this._layer as VectorLayer}"  />
+			<exdrawing:DrawPolygon id="drawPolygon" map="{map}" style="{this._polygonStyle}" target="{this._layer as VectorLayer}"  />
+			<drawing:DrawShape id="drawShape" map="{map}" style="{this._shapeStyle}" target="{this._layer as VectorLayer}"  />
+			<exdrawing:DrawCircle id="drawCircle" map="{map}" style="{this._polygonStyle}" target="{this._layer as VectorLayer}"  />
+		</s:SkinnableContainer>
+		
+		<s:SkinnableContainer  width="100%" visible="true" includeInLayout="true">
+			
+			<s:layout>
+				<s:HorizontalLayout gap="0"/>
+			</s:layout>
+			<exdrawing:ExSelectFeatures id="exSelectFeatures" fxMap="{fxMap}" map="{map}" target="{this._layer as VectorLayer}"/>
+			<drawing:DeleteFeatures id="deleteFeatures" map="{map}" target="{this._layer as VectorLayer}" />
+			<exdrawing:ExEditFeatures id="exEditFeatures" map="{map}" target="{this._layer as VectorLayer}"  />
+			<exdrawing:ExMoveFeatures id="moveFeatures" map="{map}" target="{this._layer as VectorLayer}"  />
+			<!--<drawing:ManageAttributes id="manageAttributes" map="{map}" target="{this._layer as VectorLayer}"  />-->
+			<exdrawing:ExEditStyle id="exEditStyle" map="{map}" target="{this._layer as VectorLayer}" />
+			<!-- <exdrawing:ExExportFeature id="exExportFeature" map="{map}" layer="{this._layer as VectorLayer}" mode="only" /> -->
+			
+		</s:SkinnableContainer>
+		
+		<s:SkinnableContainer  width="100%" visible="true" includeInLayout="true">
+			<s:layout>
+				<s:HorizontalLayout gap="0"/>
+			</s:layout>
+			<!-- <exdrawing:SaveAsURL id="saveUrlBtn" map="{map}" /> -->
+			<exdrawing:DispInformation id="dispInformation" map="{map}" target="{this._layer as VectorLayer}" />
+		</s:SkinnableContainer>
+	</s:SkinnableContainer>
+
+	<fx:Script>
+		<![CDATA[
+		
+			import flash.events.Event;
+			import org.openscales.core.events.DrawingEvent;
+			import org.openscales.core.i18n.Catalog;
+			import org.openscales.core.events.I18NEvent;
+			import org.openscales.core.layer.Layer;
+			import org.openscales.core.Map;
+			import org.openscales.core.style.Style;
+			import org.openscales.fx.FxMap;
+			
+			public static var DRAWLABEL:String="label";
+			public static var DRAWPOINT:String="point";
+			public static var DRAWSHAPE:String="shape";
+			public static var DRAWPATH:String="path";
+			public static var DRAWPOLYGON:String="polygon";
+			public static var DRAWSELECT:String="select";
+			public static var DRAWDELETE:String="delete";
+			public static var DRAWEDIT:String="edit";
+			public static var DRAWMOVE:String="move";
+			public static var DRAWMANAGE:String="manage";
+			public static var DRAWADD:String="add";
+			public static var DRAWIMPORT:String="import";
+			public static var DRAWEXPORT:String="export";
+			public static var EDITSTYLE:String="style";
+			public static var DISPINFO:String="info";
+
+			[Bindable]
+			private var _labelStyle:Style = Style.getDefinedLabelStyle("Arial",12,0,false,false);
+			[Bindable]
+			private var _pointStyle:Style = Style.getDefaultPointStyle();
+			[Bindable]
+			private var _pathStyle:Style = Style.getDefaultLineStyle();
+			[Bindable]
+			private var _shapeStyle:Style = Style.getDefaultLineStyle();
+			[Bindable]
+			private var _polygonStyle:Style = Style.getDefaultPolygonStyle();
+
+			[Bindable]
+			protected var _layer:Layer;
+			
+			/**
+			 * The Layer rendered by this itemrenderer
+			 */
+			public function get layer():Layer{
+				
+				return _layer;
+			}
+			
+			public function set layer(value:Layer):void{
+				
+				_layer = value;
+			}
+
+			override public function setVisible(value:Boolean, noEvent:Boolean = false):void 
+			{
+				super.setVisible(value, noEvent);
+				if (value)
+				{
+					if(this._layer && this.map)
+					{
+						this.map.addEventListener(I18NEvent.LOCALE_CHANGED, onMapLanguageChange);
+					}
+				}
+				else
+				{
+					if(this._layer && this.map)
+					{
+						this.map.removeEventListener(I18NEvent.LOCALE_CHANGED,onMapLanguageChange);
+					}
+				}
+			}
+			
+			public function hideComponent(component:String):void {
+				// mtools.hideComponent(component);
+			}
+			
+			public function showComponent(component:String):void {
+				// mtools.showComponent(component);
+			}
+		]]>
+	</fx:Script>
+</Control>

@@ -1,0 +1,116 @@
+<html>
+<head>
+  <title>電子国土Web.NEXT+ サンプル（位置情報設定）</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="Javascript" src="../js/webtis_flash.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<!--<body onLoad="addEventTest()">-->
+	<h1>位置情報を設定する</h1>
+	<table><tr valign="top">
+	<td width="500">
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="500" height="600">
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="../WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars"value="locale=ja_JP"/>
+	<embed name="externalMap" src="../WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="500" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	
+	<p>
+	<!-- API呼び出しボタン -->
+	<br/>
+	<table>
+		<tr valign="top">
+			<td>中心座標設定　　</td>
+			<td>経度：<input type="text" id="centerlon"/><br/>緯度：<input type="text" id="centerlat"/></td>
+			<td><input type="button" value="変更" onclick="changeCenter()"/></td>
+		</tr>
+		<tr valign="top">
+			<td>ズームレベル設定　　</td>
+			<td>
+				<select id="zlevel" size="1" onchange="changeZoomLevel()">
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5" selected="selected">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
+					<option value="14">14</option>
+					<option value="15">15</option>
+					<option value="16">16</option>
+					<option value="17">17</option>
+					<option value="18">18</option>
+				</select>※選択すると変更されます。
+			</td>
+		</tr>
+		<tr valign="top">
+			<td>表示範囲設定　　</td>
+			<td>左下経度：<input type="text" id="left"/><br/>左下緯度：<input type="text" id="bottom"/><br/>右上経度：<input type="text" id="right"/><br/>右上緯度：<input type="text" id="top"/></td>
+			<td><input type="button" value="変更" onclick="changeRange()"/></td>
+		</tr>
+	</table>
+	<br/>
+	</p>
+	</td>
+	<td>
+		<h2>【解説】</h2>
+		地図の表示位置やズームレベルを取得することができます。
+		<pre class="source"><code>
+// 地図の中心座標（経度、緯度）を変更します。
+center = webtis.setMapCenter(139, 39);
+
+// 地図の表示範囲を設定します。
+rect = webtis.setMapRect(139, 39, 140, 40);
+
+// 地図のズームレベルを設定します。
+left = webtis.setZoomLevel(6);
+		</code></pre>
+	</td>
+	</tr></table>	
+	<style type="text/css">
+	.source {
+		background-color : #CCCCFF;
+		border: 1px solid #000;
+		padding: 10px;
+	}
+	</style>
+	<script>
+	// 電子国土地図の初期化
+	function initMap() {
+		webtis.setMetadata();
+	}
+
+	// 中心位置変更
+	function changeCenter() {
+		webtis.setMapCenter(document.getElementById("centerlon").value, document.getElementById("centerlat").value);
+	}
+
+	// ズームレベル変更
+	function changeZoomLevel() {
+		webtis.setZoomLevel(document.getElementById("zlevel").value);
+	}
+
+	// 表示範囲変更
+	function changeRange() {
+		webtis.setMapRect(document.getElementById("left").value, document.getElementById("bottom").value, document.getElementById("right").value, document.getElementById("top").value);
+	}
+  </script>
+</body>
+</html>

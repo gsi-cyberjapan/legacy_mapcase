@@ -1,0 +1,91 @@
+<html>
+<head>
+	<title>layertest</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script language="Javascript" src="js/webtis_flash.js" charset="UTF-8"></script>	
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="800" height="600">
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars" value="locale=ja_JP"/>
+	<embed name="externalMap" src="WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="800" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	
+	<br/>
+	<!-- テスト用 -->
+	<input type="text" length="14" id="layername" />
+	<input type="text" length="1" id="onoff" />
+	<input type="button" value="clearMap" onclick="layerTest(1)" />
+	<input type="button" value="focusLayer" onclick="layerTest(2)" />
+	<input type="button" value="displayLayer" onclick="layerTest(3)" />
+	<input type="button" value="clearLayer" onclick="layerTest(4)" />
+	<input type="button" value="ベースマップ追加" onclick="addMapLayer('base2', 'GREY');" />
+	<br/>
+	<input type="button" value="作図ツールバー" onclick="createBtnOfDrawingToolbar(520,10,10,320)" />
+	<input type="button" value="計測ツールバー" onclick="createBtnOfMeasureToolbar(669,10,500,400)" />
+	
+	<script>
+	/**
+	 * 実行するjavascriptのAPI
+	 */	
+	function initMap() {
+		setMetadata();
+	}
+	function layerTest(num) {
+		switch(num) {
+		case 1:
+			clearMap();
+			break;
+		case 2:
+			focusLayer(document.getElementById("layername").value);
+			break;
+		case 3:
+			var onoff = document.getElementById("onoff").value;
+			if(onoff == "") {
+				document.getElementById("onoff").value = displayLayer(document.getElementById("layername").value);
+			}
+			else {
+				document.getElementById("onoff").value = displayLayer(document.getElementById("layername").value, Number(onoff));
+			}
+			break;
+		case 4:
+			clearLayer(document.getElementById("layername").value);
+			break;
+		default:
+			alert("error");
+		}
+	}
+	function initMap() {
+		showCenterMark(true);
+		setMetadata();
+		showPopup(true);
+		var width = getFxmapWidth();
+		createDrawingBtn(width-80, 10, 60, 10);
+//		addWMSLayer("WMS1.3", "1.3.0", "http://openscales.org/geoserver/wms", "topp:states", "", "image/jpeg", "EPSG:900913");
+//		addWMSLayer("kiban", "1.1.1", "http://www.finds.jp/ws/kiban25000wms.cgi?", "AdmArea", "", "image/jpeg", "EPSG:900913");
+		loadKML("kenchou1", "http://portal.cyberjapan.jp/site/mapuse4/kml/kenchou.kml", false);
+		loadKML("kenchou2", "file:///c:/work/kenchou4.kml", false);
+//		loadKML("kenchou3", "file:///c:/work/kenchou4.kml", false);
+//		loadKML("kenchou4", "file:///c:/work/kenchou4.kml", false);
+//		loadKML("kenchou5", "file:///c:/work/kenchou4.kml", false);
+//		loadKML("kenchou6", "file:///c:/work/kenchou4.kml", false);
+//		loadKML("kenchou7", "file:///c:/work/kenchou4.kml", false);
+//		loadKML("kenchou8", "file:///c:/work/kenchou4.kml", false);
+//		loadKML("kenchou9", "file:///c:/work/kenchou4.kml", false);
+//		loadExif("file:///c:/work/sample1.jpg", "exif1", true);
+//		loadExif("file:///c:/work/sample2.jpg", "exif2", true);
+		//addMapLayer("base2", "GREY");
+	}
+  </script>
+</body>
+</html>

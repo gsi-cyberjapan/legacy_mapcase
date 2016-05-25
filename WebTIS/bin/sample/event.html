@@ -1,0 +1,104 @@
+<html>
+<head>
+  <title>電子国土Web.NEXT+ サンプル（イベント処理）</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="Javascript" src="../js/webtis_flash.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<h1>地図上のイベントを捕捉する</h1>
+	<table><tr valign="top">
+	<td width="500">
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="500" height="600">
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="../WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars"value="locale=ja_JP"/>
+	<embed name="externalMap" src="../WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="500" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	
+	<p>
+	<!-- 結果表示エリア -->
+	発生したイベント：<br/>
+	<textarea id="info" rows="1" cols="64" ></textarea>
+	</p>
+	</td>
+	<td>
+		<h2>【解説】</h2>
+		<code>webtis.event()</code>を使うことで、地図上で発生したイベントを拾うことができます。
+		<pre class="source"><code>
+// 地図上でのマウス左ボタンが押し下げられるのを捕捉します。
+// 捕捉されると、onMouseDown関数が呼び出されます。
+webtis.event("leftdown", "onMouseDown");
+
+// 地図上でのマウス左ボタンが上がるのを捕捉します。
+// 捕捉されると、onMouseUp関数が呼び出されます。
+webtis.event("leftup", "onMouseUp");
+
+// 地図の移動を捕捉します。
+// 捕捉されると、onMapMove関数が呼び出されます。
+webtis.event("mapmove", "onMapMove");
+
+// 地図のズームレベル変更を捕捉します。
+// 捕捉されると、onZoomChange関数が呼び出されます。
+webtis.event("zoomchange", "onZoomChange");
+
+// 地図上でのマウスのダブルクリックを捕捉します。
+// 捕捉されると、onDblClick関数が呼び出されます。
+webtis.event("dblclick", "onDblClick");
+		</code></pre>
+	</td>
+	</tr></table>	
+	<style type="text/css">
+	.source {
+		background-color : #CCCCFF;
+		border: 1px solid #000;
+		padding: 10px;
+	}
+	</style>
+	<script>
+	// 電子国土地図の初期化
+	function initMap() {
+		webtis.setMetadata();
+		webtis.event("leftdown", "onMouseDown");
+		webtis.event("leftup", "onMouseUp");
+		webtis.event("mapmove", "onMapMove");
+		webtis.event("zoomchange", "onZoomChange");
+		webtis.event("dblclick", "onDblClick");
+	}
+
+	// マウスダウンイベント
+	function onMouseDown() {
+		showInfo("マウスボタンが下がりました。");
+	}
+	
+	function onMouseUp() {
+		showInfo("マウスボタンが上がりました。");
+	}
+	
+	function onZoomChange() {
+		showInfo("ズームレベルが変わりました。");
+	}
+	
+	function onMapMove() {
+		showInfo("地図が移動しました。");
+	}
+	
+	function onDblClick() {
+		showInfo("ダブルクリックされました。");
+	}
+	
+	// テキストボックスに文字を表示
+	function showInfo(value) {
+		document.getElementById("info").value = value;
+	}
+  </script>
+</body>
+</html>

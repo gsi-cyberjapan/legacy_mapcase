@@ -1,0 +1,84 @@
+<!--- Icon button skin, with capabilities to display default, hover and down icon -->
+<s:SparkSkin
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx"
+	minWidth="18" minHeight="18" alpha.disabled="0.5">
+	
+	<fx:Metadata>
+		[HostComponent("spark.components.Button")]
+	</fx:Metadata>
+	
+	<fx:Script>
+		<![CDATA[
+			[Embed(source = "../../../../../../assets/images/north-mini.png")]
+			[Bindable]
+			private var PAN_NORTH_ICON:Class;
+
+			[Embed(source = "../../../../../../assets/images/south-mini.png")]
+			[Bindable]
+			private var PAN_SOUTH_ICON:Class;
+
+			[Embed(source = "../../../../../../assets/images/east-mini.png")]
+			[Bindable]
+			private var PAN_EAST_ICON:Class;
+
+			[Embed(source = "../../../../../../assets/images/west-mini.png")]
+			[Bindable]
+			private var PAN_WEST_ICON:Class;
+
+			override protected function updateDisplayList(unscaledWidth:Number,
+														  unscaledHeight:Number):void {
+				switch(hostComponent.name)
+				{
+					case "north":
+						icon.source = PAN_NORTH_ICON;
+						break;
+					case "south":
+						icon.source = PAN_SOUTH_ICON;
+						break;
+					case "east":
+						icon.source = PAN_EAST_ICON;
+						break;
+					case "west":
+						icon.source = PAN_WEST_ICON;
+						break;
+					default:
+						icon.source = PAN_NORTH_ICON;
+						break;
+				}
+
+				super.updateDisplayList(unscaledWidth, unscaledHeight);
+			}
+		]]>
+	</fx:Script>
+	
+	<s:states>
+		<s:State name="up"/>
+		<s:State name="over"/>
+		<s:State name="down"/>
+		<s:State name="disabled"/>
+	</s:states> 
+	
+	<s:layout>
+		<s:BasicLayout/>
+	</s:layout>
+	
+	<mx:Image
+		id="icon"
+		width="{this.width}"
+		height="{this.height}"
+		source="@Embed('../../../../../../assets/images/north-mini.png')"
+		verticalCenter="0"
+		includeIn="up,over,down"
+		/>
+	<s:Label id="labelDisplay"
+			 textAlign="center"
+			 verticalAlign="middle"
+			 maxDisplayedLines="1"
+			 horizontalCenter="0" verticalCenter="-10"
+			 left="0" right="0" top="0" bottom="0"
+			 visible="{hostComponent.getStyle('labelVisible')}">
+	</s:Label>
+	
+</s:SparkSkin>

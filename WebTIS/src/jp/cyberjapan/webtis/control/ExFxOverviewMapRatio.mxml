@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Control xmlns="http://openscales.org" 
+		 xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 creationComplete="onCreationComplete(event)" >
+
+	<fx:Script>
+		<![CDATA[
+			import mx.core.IVisualElement;
+			import mx.events.FlexEvent;
+			import mx.events.PropertyChangeEvent;
+			
+			import org.openscales.core.Map;
+			import org.openscales.core.basetypes.Resolution;
+			import org.openscales.core.control.OverviewMapRatio;
+			import org.openscales.core.events.MapEvent;
+			import org.openscales.core.layer.Layer;
+			import org.openscales.fx.layer.FxLayer;
+			import org.openscales.geometry.basetypes.Size;
+			import org.openscales.proj4as.ProjProjection;
+			
+			import spark.components.BorderContainer;
+			import spark.components.Button;
+			import spark.components.Group;
+			import spark.components.VGroup;
+			import spark.core.SpriteVisualElement;
+			
+			
+			
+			
+			/**
+			 * @private
+			 * ActionScript object of the overviewMapRatio
+			 */
+			protected var _overviewmap:ExOverviewMapRatio = new ExOverviewMapRatio();
+			
+			public var reduced_group:Group = new Group();
+			public var normal_group:VGroup = new VGroup();
+			public var normal_group1:Group = new Group();
+			public var normal_group2:BorderContainer = new BorderContainer();
+
+			public var minimize:Button = new Button();
+			public var maximize:Button = new Button();
+			
+			private var _minimizable:Boolean = true;
+			
+			override protected function onCreationComplete(event:Event):void{
+				super.onCreationComplete(event);
+				
+				var i:uint;
+				var element:IVisualElement;
+				for(i=0; i<this.numElements; i++) {
+					element = this.getElementAt(i);
+					if (element is FxLayer) {
+						this.addFxLayer(element as FxLayer);
+					}
+				}
+				_overviewmap.size = new Size(super.width-2, super.height-22);
+				
+				reduced_group.id = "reduced_group";
+				normal_group.id = "normal_group";
+				
+				if(_minimizable){
+					this.addToggleButton();
+					this.addEventListener(PropertyChangeEvent.PROPERTY_CHANGE, onPropertyChanged);
+				}else{
+					this.addElement(normal_group);// Just adding the group which will contain the minimap
+				}
+			}
+			
+			private function onPropertyChanged(event:PropertyChangeEvent):void
+			{
+				if(event.property == "isReduced")
+				{
+					reduced_group.visible = this.isReduced;
+					normal_group.visible = !this.isReduced;
+				}
+			}
+			
+			private function addToggleButton():void
+			{
+				maximize.id = "maximize_button";
+				maximize.width = 30;
+				maximize.label = "+";
+				maximize.addEventListener(MouseEvent.CLICK, this.toggleDisplay);
+				reduced_group.addElement(maximize);
+				
+				reduced_group.visible = this.isReduced;
+				
+				minimize.id = "minimize_button";
+				minimize.width = 30;
+				minimize.label = "-";
+				minimize.right = 0;
+				minimize.addEventListener(MouseEvent.CLICK, this.toggleDisplay);
+				normal_group2.width = 202;
+				normal_group2.height = 202;
+				normal_group2.setStyle("borderColor", 0x0000CC);
+				normal_group2.setStyle("borderStyle", "solid");
+				normal_group2.setStyle("borderWeight", 2);
+				
+				normal_group1.height = 18;
+				normal_group1.addElement(minimize);
+				normal_group.addElement(normal_group1);
+				normal_group.addElement(normal_group2);
+				normal_group.visible = !this.isReduced;
+				
+				this.addElement(reduced_group);
+				this.addElement(normal_group);
+			}
+			
+			override public function draw():void
+			{
+				super.draw();
+				
+				var mapContainer:SpriteVisualElement = new SpriteVisualElement();
+				normal_group2.addElementAt(mapContainer, 0);
+				mapContainer.addChild(this._overviewmap);
+				if(this.width && this.height)
+					this._overviewmap.size = new Size(this.width-2,this.height-22);
+			}
+			
+			/**
+			 * @inherit
+			 */
+			override public function toggleDisplay(event:Event=null):void{
+				
+				super.toggleDisplay();
+				var newEvent:MapEvent = new MapEvent(MapEvent.COMPONENT_CHANGED, this._map);
+				newEvent.componentName = "OverviewMap";
+				newEvent.componentIconified = this._isReduced;
+				this._map.dispatchEvent(newEvent);
+			}
+			
+			/**
+			 * @private
+			 * Icon that will be displayed at the center of the overview map
+			 * to show the location
+			 */
+			public function get centerIcon():Class
+			{
+				return _overviewmap.centerIcon;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function set centerIcon(value:Class):void
+			{
+				_overviewmap.centerIcon = value;
+			}
+			
+			/**
+			 * Ratio between the overview resolution and the map resolution
+			 * The ratio is MapResolution/OverviewMapResolution
+			 * While setting a new ratio the oveview zoom level will be recomputed
+			 * 
+			 * @param ratio The curent ratio between the overview map and the map
+			 */
+			public function set ratio(value:Number):void
+			{
+				_overviewmap.ratio = value;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function get ratio():Number
+			{
+				return _overviewmap.ratio;
+			}
+			
+			/**
+			 * Layer displayed on the overview map
+			 */		
+			public function set layer(value:Layer):void{
+				this._overviewmap.width = this.width;
+				this._overviewmap.height = this.height;
+				this._overviewmap.layer = value;	
+			}
+			
+			/**
+			 * @private
+			 */
+			public function get layer():Layer{
+				
+				return this._overviewmap.layer;
+			}
+			
+			/**
+			 * The width of the overview map
+			 */
+			override public function set width(value:Number):void{
+				super.width = value;
+				_overviewmap.width = value;
+			}
+			
+			/**
+			 * The height of the overview map
+			 */
+			override public function set height(value:Number):void{
+				super.height = value;
+				_overviewmap.height = value;
+			}
+			
+			
+			/**
+			 * Add a layer to the overviewMap
+			 * Currently you can only set one layer in the overviewMap
+			 * 
+			 * @param fxLayer The flex layer to add to the overviewMap
+			 */
+			public function addFxLayer(fxLayer:FxLayer):void {
+				_overviewmap.layer = fxLayer.nativeLayer;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function get overviewMapRatio():org.openscales.core.control.OverviewMapRatio {
+				return this._overviewmap;
+			}
+			
+			/**
+			 * The map used to compute the ratio
+			 * It may be the main map of the application
+			 * 
+			 * @param value The map linked with the overviewMap
+			 */
+			override public function set map(value:Map):void {
+				super.map = value;
+				
+				this._overviewmap.map = value;
+				this.draw();
+			}
+			
+			/**
+			 * @private
+			 * 
+			 */
+			override public function get map():Map {
+				return _overviewmap.map;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function set projection(value:*):void
+			{
+				this._overviewmap.projection = value;
+			}
+			
+			/**
+			 * The actual projection of the map, the default vaglue is EPSG:4326
+			 */
+			public function get projection():ProjProjection
+			{
+				return this._overviewmap.projection;
+			}
+			
+			/**
+			 * The actual maxResolution of the map
+			 */
+			public function set maxResolution(value:Resolution):void
+			{
+				this._overviewmap.maxResolution = value;
+			}
+			
+			/**
+			 * @public
+			 */
+			public function get maxResolution():Resolution
+			{
+				return this._overviewmap.maxResolution;
+			}
+			
+			/**
+			 * The actual minResolution of the map
+			 */
+			public function set minResolution(value:Resolution):void
+			{
+				this._overviewmap.minResolution = value;
+			}
+			
+			/**
+			 * @public
+			 */
+			public function get minResolution():Resolution
+			{
+				return this._overviewmap.minResolution;
+			}
+
+			/**
+			 * Boolean that define wheter the box should be minimizable or not. Default is true.
+			 * <p>This attribute is read only after the component is created</p>
+			 */ 
+			public function get minimizable():Boolean
+			{
+				return _minimizable;
+			}
+
+			/**
+			 * @private
+			 */ 
+			public function set minimizable(value:Boolean):void
+			{
+				_minimizable = value;
+			}
+
+			
+		]]>
+	</fx:Script>
+	
+	
+</Control>

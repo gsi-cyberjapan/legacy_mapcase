@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+openscales / openscales-fx / src / main / flex / org / openscales / fx / control / ScaleLine.mxml 
+rev @ 2012-09-03
+-->
+<Control xmlns="http://openscales.org" 
+		 xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" >
+	
+	<fx:Script>
+		<![CDATA[
+			import org.openscales.core.Map;
+			import org.openscales.core.basetypes.Resolution;
+			import org.openscales.core.events.I18NEvent;
+			import org.openscales.core.events.MapEvent;
+			import org.openscales.core.i18n.Catalog;
+			import org.openscales.geometry.basetypes.Location;
+			import org.openscales.geometry.basetypes.Unit;
+			import org.openscales.proj4as.ProjProjection;
+			
+			/**
+			 * @private
+			 * Maximum width of the scale line in pixels.  
+			 * @default 100.
+			 */
+			private var _scaleMaxWidth:Number = 100;
+			
+			/**
+			 * @private
+			 * Scale value corresponding to the current rectangle size for top Unit
+			 * @default 0
+			 */
+			[Bindable]
+			private var _topScaleValue:Number = 0;
+			
+			/**
+			 * @private
+			 * The current unit for the top scale value
+			 * @default null
+			 */
+			private var _topCurrentUnit:String = null;
+			
+			/**
+			 * @private
+			 * Units for zoomed out on top bar.
+			 * @default km.
+			 */
+			private var _topOutUnits:String = "km";
+			
+			/**
+			 * @private
+			 * Units for zoomed in on top bar.  
+			 * @default m.
+			 */
+			private var _topInUnits:String = "m";
+			
+			/**
+			 * @private
+			 * Scale value corresponding to the current rectangle size for bottom Unit
+			 * @default 0
+			 */
+			[Bindable]
+			private var _bottomScaleValue:Number = 0;
+			
+			/**
+			 * @private
+			 * The current unit for the bottom scale value
+			 * @default null
+			 */
+			private var _bottomCurrentUnit:String = null;
+			
+			/**
+			 * @private
+			 * Units for zoomed out on bottom bar.
+			 * @default mi.
+			 */
+			private var _bottomOutUnits:String = "mi";
+			
+			/**
+			 * @private
+			 * Units for zoomed in on bottom bar.
+			 * @default ft
+			 */
+			private var _bottomInUnits:String = "ft";
+			
+			
+			/**
+			 * Top scale width
+			 * @default 0
+			 */
+			[Bindable]
+			public var topScaleWidth:Number = 0;
+			
+			/**
+			 * Bottom scale width
+			 * @default 0
+			 */
+			[Bindable]
+			public var bottomScaleWidth:Number = 0;
+			
+			/**
+			 * @private
+			 * Scale text to display on Top
+			 */
+			[Bindable]
+			public var translateTopUnit:String = "";
+			
+			/**
+			 * @private
+			 * Scale text to display on Bottom
+			 */
+			[Bindable]
+			public var translateBottomUnit:String = "";
+			
+			/**
+			 * Get the existing map and add event listener on event Zoom end and map projection change.
+			 *
+			 * @param value The new map to set
+			 */
+			override public function set map(value:Map):void 
+			{
+				super.map = value;
+				
+				if(this._map)
+					this.updateScale();
+			}
+			
+			/**
+			 * @inherit
+			 */
+			override public function onMapLanguageChange(event:I18NEvent):void
+			{
+				this.updateScale();
+			}
+			
+			/**
+			 * @inherit
+			 */
+			override public function activate():void 
+			{
+				super.activate();
+				
+				// add listener to the map
+				if(this._map)
+				{
+					this._map.addEventListener(MapEvent.CENTER_CHANGED,updateScaleLine);
+					this._map.addEventListener(MapEvent.RESOLUTION_CHANGED,updateScaleLine);
+					this._map.addEventListener(MapEvent.PROJECTION_CHANGED,updateScaleLine);
+				}
+			}
+			
+			/**
+			 * @inherit
+			 */
+			override public function desactivate():void 
+			{
+				super.desactivate();
+				
+				// remove listener to the map
+				if(this._map)
+				{
+					this._map.removeEventListener(MapEvent.CENTER_CHANGED,updateScaleLine);
+					this._map.removeEventListener(MapEvent.RESOLUTION_CHANGED,updateScaleLine);
+					this._map.removeEventListener(MapEvent.PROJECTION_CHANGED,updateScaleLine);
+				}
+			}
+			
+			/**
+			 * Redraw the scaleline with new map parameters.
+			 * Called when the map center, resolution or projection is changed
+			 * 
+			 * @param event the event can be a MapEvent
+			 */
+			public function updateScaleLine(e:MapEvent):void {
+				this.updateScale();
+			}
+			
+			
+			/**
+			 * Given a number, round it down to the nearest 1,2,5 times a power of 10.
+			 * That seems a fairly useful set of number groups to use.
+			 *
+			 * @param maxLen the number we're rounding down from
+			 *
+			 * @return the rounded number (less than or equal to maxLen)
+			 */
+			private function getBarLen(maxLen:Number):Number 
+			{
+				// nearest power of 10 lower than maxLen
+				var digits:Number = int(Math.log(maxLen) / Math.log(10));
+				var pow10:Number = Math.pow(10, digits);
+				
+				// ok, find first character
+				var firstChar:Number = int(maxLen / pow10);
+				
+				// right, put it into the correct bracket
+				var barLen:Number;
+				if(firstChar > 5) {
+					barLen = 5;
+				} else if(firstChar > 2) {
+					barLen = 2;
+				} else {
+					barLen = 1;
+				}
+				
+				// scale it up the correct power of 10
+				return barLen * pow10;
+			}
+			
+			/**
+			 * Update the size of the bars, and the labels which contains.
+			 */
+			private function updateScale():void
+			{
+				// to keep current key for bottom/top unit
+				var topUnitKey:String = "";     
+				var bottomUnitKey:String = "";                  
+				
+				// Get the resolution of the map
+				var mapResolution:Number = this.map.resolution.value;
+				
+				// Map has no resolution, return.
+				if (!mapResolution) {return;}
+				
+				// get the current units of the map
+				var currentMapUnits:String = ProjProjection.getProjProjection(this.map.projection).projParams.units;
+				var projection:ProjProjection = ProjProjection.getProjProjection(this._map.projection);
+				
+				var projectionChanged:Boolean = false;
+				var center:Location;
+				var res:Resolution;
+				if (projection.projName != "longlat")
+				{
+					res = this._map.resolution.reprojectTo(ProjProjection.getProjProjection("EPSG:4326"));
+					center = this._map.center.reprojectTo(ProjProjection.getProjProjection("EPSG:4326"));
+					projectionChanged = true;
+				}
+				else
+				{
+					res = this._map.resolution;
+					center = this._map.center;
+				}
+				
+				var centerResolution:Number = Unit.getResolutionOnCenter(res.value, center, res.projection);
+				
+				if(projection.projName  == "longlat")
+					currentMapUnits = Unit.METER;
+				
+				// convert the scaleMaxWidth to map units
+				// The result is the max distance IN MAP UNIT, represent in the scaleline
+				var maxSizeData:Number = this._scaleMaxWidth * centerResolution * Unit.getInchesPerUnit(currentMapUnits);
+	
+				// decide whether to use large or small scale units. it's independent of the map unit    
+				if(maxSizeData > 100000) {
+					this.topCurrentUnit = this._topOutUnits;
+					topUnitKey = "scaleline.km"
+					this.bottomCurrentUnit = this._bottomOutUnits;
+					bottomUnitKey = "scaleline.mi"
+				} else {
+					this.topCurrentUnit = this._topInUnits;
+					topUnitKey = "scaleline.m"
+					this.bottomCurrentUnit =  this._bottomInUnits;
+					bottomUnitKey = "scaleline.ft"
+				}
+				
+				// and to map units units
+				var topMax:Number = maxSizeData / Unit.getInchesPerUnit(this._topCurrentUnit);
+				var bottomMax:Number = maxSizeData / Unit.getInchesPerUnit(this._bottomCurrentUnit);
+				
+				// now trim this down to useful block length
+				this.topScaleValue = this.getBarLen(topMax);
+				this.bottomScaleValue = this.getBarLen(bottomMax);
+				
+				// and back to display units
+				topMax = this._topScaleValue / Unit.getInchesPerUnit(currentMapUnits) * Unit.getInchesPerUnit(this._topCurrentUnit);
+				bottomMax = this._bottomScaleValue / Unit.getInchesPerUnit(currentMapUnits) * Unit.getInchesPerUnit(this._bottomCurrentUnit);
+				
+				// and to pixel units
+				var topPx:Number = topMax / centerResolution;
+				var bottomPx:Number = bottomMax / centerResolution;
+				
+				// update the top rect width
+				this.topScaleWidth = Math.round(topPx);
+				this.bottomScaleWidth = Math.round(bottomPx);
+				
+				this.translateTopUnit = Catalog.getLocalizationForKey(topUnitKey);
+				this.translateBottomUnit = Catalog.getLocalizationForKey(bottomUnitKey);
+				
+			}	
+			
+			// GETTERS AND SETTERS
+			
+			/**
+			 * Maximum width of the scale line in pixels. 
+			 */
+			[Bindable]
+			public function get scaleMaxWidth():Number {
+				return this._scaleMaxWidth;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function set scaleMaxWidth(value:Number):void {
+				this._scaleMaxWidth = value;
+			}
+			
+			/**
+			 * Scale value corresponding to the current rectangle size for top Unit
+			 */
+			[Bindable]
+			public function get topScaleValue():Number
+			{
+				return this._topScaleValue;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function set topScaleValue(value:Number):void
+			{
+				this._topScaleValue=value;
+			}
+			
+			/**
+			 * Scale value corresponding to the current rectangle size for top Unit
+			 */
+			[Bindable]
+			public function get topCurrentUnit():String
+			{
+				return this._topCurrentUnit;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function set topCurrentUnit(value:String):void
+			{
+				this._topCurrentUnit=value;
+			}
+			
+			/**
+			 * Units for zoomed out on top bar.
+			 */
+			public function get topOutUnits():String {
+				return this._topOutUnits;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function set topOutUnits(value:String):void {
+				this._topOutUnits = value;
+			}
+			
+			/**
+			 * Units for zoomed in on top bar. 
+			 */
+			public function get topInUnits():String {
+				return this._topInUnits;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function set topInUnits(value:String):void {
+				this._topInUnits = value;
+			}
+			
+			/**
+			 * Scale value corresponding to the current rectangle size for bottom Unit
+			 */
+			[Bindable]
+			public function get bottomScaleValue():Number
+			{
+				return this._bottomScaleValue;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function set bottomScaleValue(value:Number):void
+			{
+				this._bottomScaleValue=value;
+			}
+			
+			/**
+			 * Scale value corresponding to the current rectangle size for bottom Unit
+			 */
+			[Bindable]
+			public function get bottomCurrentUnit():String
+			{
+				return this._bottomCurrentUnit;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function set bottomCurrentUnit(value:String):void
+			{
+				this._bottomCurrentUnit=value;
+			}
+			
+			/**
+			 * Units for zoomed out on bottom bar.
+			 */
+			[Bindable]
+			public function get bottomOutUnits():String {
+				return this._bottomOutUnits;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function set bottomOutUnits(value:String):void {
+				this._bottomOutUnits = value;
+			}
+			
+			/**
+			 * Units for zoomed in on bottom bar.
+			 */
+			public function get bottomInUnits():String {
+				return this._bottomInUnits;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function set bottomInUnits(value:String):void {
+				this._bottomInUnits = value;
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<s:Label id="scaleTopValue" x="13" y="0" text="{this.topScaleValue+' '+this.translateTopUnit}" />
+	<s:Rect id="scaleTopWidth" x="13" y="12" height="8" width="{this.topScaleWidth}">     
+		<s:fill>
+			<s:SolidColor color="0x666666" alpha=".5"/>
+		</s:fill>
+	</s:Rect>
+	
+	<s:Label id="scaleBottomValue" x="13" y="33" text="{this.bottomScaleValue+' '+this.translateBottomUnit}" />
+	<s:Rect id="scaleBottomWidth" x="13" y="23" height="8" width="{this.bottomScaleWidth}">
+		<s:fill>
+			<s:SolidColor color="0x666666" alpha=".5"/>
+		</s:fill>
+	</s:Rect>
+	
+</Control>
+

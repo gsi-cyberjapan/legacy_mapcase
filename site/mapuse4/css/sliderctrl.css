@@ -1,0 +1,258 @@
+.js-slider{
+  position:relative;
+  width:160px;
+  height:10px;
+  align:left;
+}
+.js-slider div{
+  background:#ddd;
+  height:3px;
+  border:1px inset #aaa;
+  position:relative;
+  top:12px;
+  font-size:0px;
+}
+.js-slider input{
+  position:absolute;
+  width:15px;
+  height:20px;
+  display:block;
+}
+
+#opa-value {
+    border: 0;
+    background-color: transparent;
+    margin: 2px;
+}
+#opa-slider {
+    margin: 1px 12px;
+    width: 110px;
+    align: left;
+    background:#ddd;
+    height:11px;
+    border:1px inset #111;
+}
+#opa-slider .ui-slider-handle {
+    border: 1px outset #555;
+    background: #EEE;
+    height: 20px;
+}
+
+#sz-slider-value {
+    border: 0;
+    background-color: transparent;
+    margin: 2px;
+}
+#sz-slider {
+    margin: 1px 12px;
+    width: 110px;
+    align: left;
+    background:#ddd;
+    height:11px;
+    border:1px inset #111;
+}
+#sz-slider .ui-slider-handle {
+    border: 1px outset #555;
+    background: #EEE;
+    height: 20px;
+}
+
+#plugin-opa-value {
+    border: 0;
+    background-color: transparent;
+    margin: 2px;
+}
+#plugin-opa-slider {
+    margin: 1px 12px;
+    width: 110px;
+    align: left;
+    background:#ddd;
+    height:11px;
+    border:1px inset #111;
+}
+#plugin-opa-slider .ui-slider-handle {
+    border: 1px outset #555;
+    background: #EEE;
+    height: 20px;
+}
+
+#plugin-opa-value0 {
+    border: 0;
+    background-color: transparent;
+    margin: 2px;
+}
+#plugin-opa-slider0 {
+    margin: 1px 12px;
+    width: 110px;
+    align: left;
+    background:#ddd;
+    height:11px;
+    border:1px inset #111;
+}
+#plugin-opa-slider0 .ui-slider-handle {
+    border: 1px outset #555;
+    background: #EEE;
+    height: 20px;
+}
+#plugin-opa-value1 {
+    border: 0;
+    background-color: transparent;
+    margin: 2px;
+}
+#plugin-opa-slider1 {
+    margin: 1px 12px;
+    width: 110px;
+    align: left;
+    background:#ddd;
+    height:11px;
+    border:1px inset #111;
+}
+#plugin-opa-slider1 .ui-slider-handle {
+    border: 1px outset #555;
+    background: #EEE;
+    height: 20px;
+}
+#plugin-opa-value2 {
+    border: 0;
+    background-color: transparent;
+    margin: 2px;
+}
+#plugin-opa-slider2 {
+    margin: 1px 12px;
+    width: 110px;
+    align: left;
+    background:#ddd;
+    height:11px;
+    border:1px inset #111;
+}
+#plugin-opa-slider2 .ui-slider-handle {
+    border: 1px outset #555;
+    background: #EEE;
+    height: 20px;
+}
+#plugin-opa-value3 {
+    border: 0;
+    background-color: transparent;
+    margin: 2px;
+}
+#plugin-opa-slider3 {
+    margin: 1px 12px;
+    width: 110px;
+    align: left;
+    background:#ddd;
+    height:11px;
+    border:1px inset #111;
+}
+#plugin-opa-slider3 .ui-slider-handle {
+    border: 1px outset #555;
+    background: #EEE;
+    height: 20px;
+}
+#plugin-opa-value4 {
+    border: 0;
+    background-color: transparent;
+    margin: 2px;
+}
+#plugin-opa-slider4 {
+    margin: 1px 12px;
+    width: 110px;
+    align: left;
+    background:#ddd;
+    height:11px;
+    border:1px inset #111;
+}
+#plugin-opa-slider4 .ui-slider-handle {
+    border: 1px outset #555;
+    background: #EEE;
+    height: 20px;
+}
+#plugin-opa-value5 {
+    border: 0;
+    background-color: transparent;
+    margin: 2px;
+}
+#plugin-opa-slider5 {
+    margin: 1px 12px;
+    width: 110px;
+    align: left;
+    background:#ddd;
+    height:11px;
+    border:1px inset #111;
+}
+#plugin-opa-slider5 .ui-slider-handle {
+    border: 1px outset #555;
+    background: #EEE;
+    height: 20px;
+}
+#plugin-opa-value6 {
+    border: 0;
+    background-color: transparent;
+    margin: 2px;
+}
+#plugin-opa-slider6 {
+    margin: 1px 12px;
+    width: 110px;
+    align: left;
+    background:#ddd;
+    height:11px;
+    border:1px inset #111;
+}
+#plugin-opa-slider6 .ui-slider-handle {
+    border: 1px outset #555;
+    background: #EEE;
+    height: 20px;
+}
+#plugin-opa-value7 {
+    border: 0;
+    background-color: transparent;
+    margin: 2px;
+}
+#plugin-opa-slider7 {
+    margin: 1px 12px;
+    width: 110px;
+    align: left;
+    background:#ddd;
+    height:11px;
+    border:1px inset #111;
+}
+#plugin-opa-slider7 .ui-slider-handle {
+    border: 1px outset #555;
+    background: #EEE;
+    height: 20px;
+}
+#plugin-opa-value8 {
+    border: 0;
+    background-color: transparent;
+    margin: 2px;
+}
+#plugin-opa-slider8 {
+    margin: 1px 12px;
+    width: 110px;
+    align: left;
+    background:#ddd;
+    height:11px;
+    border:1px inset #111;
+}
+#plugin-opa-slider8 .ui-slider-handle {
+    border: 1px outset #555;
+    background: #EEE;
+    height: 20px;
+}
+#plugin-opa-value9 {
+    border: 0;
+    background-color: transparent;
+    margin: 2px;
+}
+#plugin-opa-slider9 {
+    margin: 1px 12px;
+    width: 110px;
+    align: left;
+    background:#ddd;
+    height:11px;
+    border:1px inset #111;
+}
+#plugin-opa-slider9 .ui-slider-handle {
+    border: 1px outset #555;
+    background: #EEE;
+    height: 20px;
+}

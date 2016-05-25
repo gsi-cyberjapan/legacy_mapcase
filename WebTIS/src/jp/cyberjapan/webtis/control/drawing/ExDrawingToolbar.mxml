@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:d="jp.cyberjapan.webtis.control.drawing.*"
+               xmlns:mx="library://ns.adobe.com/flex/halo"
+			   title="{_panelTitle}"
+			   isPopUp="true"
+			   creationComplete="onCreationComplete()" close="hide()" >
+	<fx:Script>
+		<![CDATA[
+		
+			import flash.events.Event;
+			import org.openscales.core.events.DrawingEvent;
+			import org.openscales.core.i18n.Catalog;
+			import org.openscales.core.events.I18NEvent;
+			import org.openscales.core.layer.Layer;
+			import org.openscales.core.Map;
+			import org.openscales.fx.FxMap;
+			
+			[Bindable]
+			private var _panelTitle:String = Catalog.getLocalizationForKey('drawing.toolbar');
+			
+			[Bindable]
+			private var _exitToolTip:String = Catalog.getLocalizationForKey('MeasureBar.exittooltip');
+			
+			private var _map:Map = null;
+			private var _fxmap:FxMap = null;
+			private var _layer:Layer = null;
+			
+			[Bindable]
+			public function get map():Map
+			{
+				return _map;
+			}
+
+			public function set map(value:Map):void
+			{
+				_map = value;
+			}
+
+			[Bindable]
+			public function get fxMap():FxMap
+			{
+				return _fxmap;
+			}
+
+			public function set fxMap(value:FxMap):void
+			{
+				_fxmap = value;
+			}
+
+			[Bindable]
+			public function get layer():Layer
+			{
+				return _layer;
+			}
+			
+			public function set layer(value:Layer):void
+			{
+				_layer = value;
+			}
+
+			public function onCreationComplete():void
+			{
+					if(this._map)
+					{
+						this._map.addEventListener(I18NEvent.LOCALE_CHANGED,onMapLanguageChange);
+					}
+			}
+			
+			override public function setVisible(value:Boolean, noEvent:Boolean = false):void 
+			{
+				super.setVisible(value, noEvent);
+				if (value)
+				{
+					if(this.dtools.map)
+					{
+						this.dtools.map.addEventListener(I18NEvent.LOCALE_CHANGED,onMapLanguageChange);
+					}
+					dtools.activate();
+				}
+				else
+				{
+					if(this.dtools.map)
+					{
+						this.dtools.map.removeEventListener(I18NEvent.LOCALE_CHANGED,onMapLanguageChange);
+					}
+					dtools.desactivate();
+				}
+			}
+			
+			public function hide():void
+			{
+				this.visible = false;
+
+				// 表示から非表示にするときは、ダミーのイベントを投げて描画モードを終了する。
+			// hamas : 13.09.12 修正
+				this._map.dispatchEvent(new DrawingEvent(DrawingEvent.DRAW_HANDLER_ACTIVATED));
+				this._map.dispatchEvent(new DrawingEvent(DrawingEvent.DRAW_HANDLER_DESACTIVATED));
+			}
+			
+			public function onMapLanguageChange(event:I18NEvent):void{
+				_panelTitle = Catalog.getLocalizationForKey('drawing.toolbar');
+			}
+			
+			public function hideComponent(component:String):void {
+				dtools.hideComponent(component);
+			}
+			
+			public function showComponent(component:String):void {
+				dtools.showComponent(component);
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<d:ExDrawingTools id="dtools" map="{map}" fxMap="{fxMap}" layer="{layer}" />
+</s:TitleWindow>

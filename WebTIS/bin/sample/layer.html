@@ -1,0 +1,166 @@
+<html>
+<head>
+  <title>電子国土Web.NEXT+ サンプル（レイヤー操作）</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="Javascript" src="../js/webtis_flash.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+</head>
+<body onload="init()">
+	<h1>レイヤーを操作する</h1>
+	<table><tr valign="top">
+	<td width="500">
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="500" height="600">
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="../WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars"value="locale=ja_JP"/>
+	<embed name="externalMap" src="../WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="500" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	
+	<p>
+	<!-- API呼び出しボタン -->
+	個別のレイヤー操作　　※左側のチェックボックスで表示・非表示を切り替えます。右側のボタンでレイヤー操作を行います。
+	<table>
+		<tr>
+			<td><input id="showLayer1" type="checkbox" onclick="onChangeDisplay('Layer1')" /> 1つめのレイヤー（青）：</td>
+			<td><input id="focusLayer1" type="button" value="最前面表示" onclick="onChangeFocus('Layer1')" /></td>
+			<td><input id="clearLayer1" type="button" value="レイヤー削除" onclick="onDelete('Layer1')" /></td>
+			<td><input id="getTransparencyLayer1" type="button" value="透過度取得" onclick="onGetTransparency('Layer1')" /></td>
+		</tr>
+		<tr>
+			<td><input id="showLayer2" type="checkbox" onclick="onChangeDisplay('Layer2')" /> 2つめのレイヤー（赤）：</td>
+			<td><input id="focusLayer2" type="button" value="最前面表示" onclick="onChangeFocus('Layer2')" /></td>
+			<td><input id="clearLayer2" type="button" value="レイヤー削除" onclick="onDelete('Layer2')" /></td>
+			<td><input id="getTransparencyLayer2" type="button" value="透過度取得" onclick="onGetTransparency('Layer2')" /></td>
+		</tr>
+		<tr>
+			<td><input id="showLayer3" type="checkbox" onclick="onChangeDisplay('Layer3')" /> 3つめのレイヤー（緑）：</td>
+			<td><input id="focusLayer3" type="button" value="最前面表示" onclick="onChangeFocus('Layer3')" /></td>
+			<td><input id="clearLayer3" type="button" value="レイヤー削除" onclick="onDelete('Layer3')" /></td>
+			<td><input id="getTransparencyLayer3" type="button" value="透過度取得" onclick="onGetTransparency('Layer3')" /></td>
+		</tr>
+	</table>
+	</p>
+	<p>
+	全レイヤー操作： <input id="clear" type="button" value="全レイヤー削除" onclick="onClear()" />
+	</p>
+	</td>
+	<td>
+		<h2>【解説】</h2>
+		レイヤーの表示・非表示や透過度、表示順を制御することができます。
+		<pre class="source"><code>
+// レイヤーを表示状態にします。
+webtis.displayLayer("Layer1", 1);
+
+// レイヤーを非表示状態にします。
+webtis.displayLayer("Layer1", 0);
+
+// レイヤーの不透過度を取得します。
+opacity = webtis.getLayerOpacity("Layer1");
+
+// レイヤーの不透過度を70%に設定します。
+webtis.setLayerOpacity("Layer1", 0.7);
+
+// レイヤーを前面表示します。
+webtis.focusLayer("Layer1");
+
+// 地図からレイヤーを削除します。
+webtis.clearLayer(name);
+		</code></pre>
+	</td>
+	</tr></table>	
+	<style type="text/css">
+	.source {
+		background-color : #CCCCFF;
+		border: 1px solid #000;
+		padding: 10px;
+	}
+	</style>
+	<script>
+	// サイトの初期化
+	function init() {
+		document.getElementById("showLayer1").disabled = false;
+		document.getElementById("showLayer1").checked = true;
+		document.getElementById("focusLayer1").disabled = false;
+		document.getElementById("clearLayer1").disabled = false;
+		document.getElementById("getTransparencyLayer1").disabled = false;
+		document.getElementById("showLayer2").disabled = false;
+		document.getElementById("showLayer2").checked = true;
+		document.getElementById("focusLayer2").disabled = false;
+		document.getElementById("clearLayer2").disabled = false;
+		document.getElementById("getTransparencyLayer2").disabled = false;
+		document.getElementById("showLayer3").disabled = false;
+		document.getElementById("showLayer3").checked = true;
+		document.getElementById("focusLayer3").disabled = false;
+		document.getElementById("clearLayer3").disabled = false;
+		document.getElementById("getTransparencyLayer3").disabled = false;
+	}
+	
+	// 電子国土地図の初期化
+	function initMap() {
+		webtis.setMetadata();
+		webtis.setZoomLevel(7);
+		webtis.setMapCenter(140.085278, 36.104167);
+		webtis.loadKML("Layer1", "./kml/test3.kml");
+		webtis.loadKML("Layer2", "./kml/test4.kml");
+		webtis.loadKML("Layer3", "./kml/test5.kml");
+		webtis.setLayerOpacity("Layer2", 0.7);
+		webtis.setLayerOpacity("Layer3", 0.3);
+	}
+
+	// 表示・非表示切替
+	function onChangeDisplay(name) {
+		if (document.getElementById("show" + name).checked) {
+			webtis.displayLayer(name, 1);
+		} else {
+			webtis.displayLayer(name, 0);
+		}
+	}
+	
+	// 全面表示
+	function onChangeFocus(name) {
+		webtis.focusLayer(name);
+	}
+	
+	// レイヤー削除
+	function onDelete(name) {
+		webtis.clearLayer(name);
+		document.getElementById("show" + name).disabled = true;
+		document.getElementById("focus" + name).disabled = true;
+		document.getElementById("clear" + name).disabled = true;
+		document.getElementById("getTransparency" + name).disabled = true;
+	}
+	
+	// 全レイヤー削除
+	function onClear() {
+		webtis.clearMap();
+		document.getElementById("showLayer1").disabled = true;
+		document.getElementById("focusLayer1").disabled = true;
+		document.getElementById("clearLayer1").disabled = true;
+		document.getElementById("getTransparencyLayer1").disabled = true;
+		document.getElementById("showLayer2").disabled = true;
+		document.getElementById("focusLayer2").disabled = true;
+		document.getElementById("clearLayer2").disabled = true;
+		document.getElementById("getTransparencyLayer2").disabled = true;
+		document.getElementById("showLayer3").disabled = true;
+		document.getElementById("focusLayer3").disabled = true;
+		document.getElementById("clearLayer3").disabled = true;
+		document.getElementById("getTransparencyLayer3").disabled = true;
+	}
+
+	// 透過度取得
+	function onGetTransparency(name) {
+		var value = webtis.getLayerOpacity(name);
+		alert('このレイヤーの透過度は ' + Math.round(value * 100.0) / 100.0 + ' です。');
+	}
+
+  </script>
+</body>
+</html>

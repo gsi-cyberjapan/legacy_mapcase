@@ -1,0 +1,43 @@
+<html>
+<head>
+  <title>電子国土Flash版サンプル（EXIF読込）</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="Javascript" src="../js/webtis_flash.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="800" height="600">
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="../WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars"value="locale=ja_JP"/>
+	<embed name="externalMap" src="../WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="800" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	
+	<p>
+	<!-- API呼び出しボタン -->
+　　  テキストボックスにURLを入力し、「読込」ボタンを押してください。<br/>
+	<input id="url" type="text" size="100" />
+	<input id="exif" type="button" value="読込" onclick="onLoadExif()" />
+	</p>
+	<script>
+	// 電子国土地図の初期化
+	function initMap() {
+		webtis.setMetadata();
+	}
+
+	// EXIF読込
+	function onLoadExif(name) {
+		var url = document.getElementById("url").value;
+		webtis.loadExif("EXIFサンプル", url, true);
+	}
+  </script>
+</body>
+</html>

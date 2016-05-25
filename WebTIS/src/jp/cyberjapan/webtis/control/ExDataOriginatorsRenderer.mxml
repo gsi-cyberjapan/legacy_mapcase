@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Custum display for the list of logos -->
+<s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:mx="library://ns.adobe.com/flex/mx" 
+				xmlns:s="library://ns.adobe.com/flex/spark" 
+				autoDrawBackground="false">
+	
+	<mx:Image source="{_pictureUrl}"
+			  id = "theOrigImage"
+			  name="{_name}"
+			  width="32" 
+			  height="32" 
+			  useHandCursor="true"
+			  buttonMode="true" 
+			  click="onClick(event)"/>
+	
+		
+		<fx:Script>
+			<![CDATA[
+
+				[Bindable]
+				private var _pictureUrl:String="";
+				
+				[Bindable]
+				private var _name:String="";
+				
+				
+				override public function set data(value:Object):void{
+					
+					if (!value)
+						return;
+					
+					if (data && value.pictureUrl == this.data.pictureUrl)
+						return;
+					
+					super.data = value;
+					
+					
+					var loaderContext:LoaderContext = new LoaderContext(); 
+					loaderContext.checkPolicyFile = true; 
+					theOrigImage.loaderContext = loaderContext; 
+					theOrigImage.load(data.pictureUrl); 
+					
+					//this._pictureUrl = data.pictureUrl;
+					this._name = data.name;
+				}
+				
+				public function onClick(event:Event):void
+				{
+					// open a new page with the originator url
+					var targetURL:URLRequest = new URLRequest(this.data.url);
+					navigateToURL(targetURL);
+				}
+
+			]]>
+		</fx:Script>
+		
+		
+		
+	
+	
+</s:ItemRenderer>

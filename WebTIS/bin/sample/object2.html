@@ -1,0 +1,90 @@
+<html>
+<head>
+  <title>電子国土Web.NEXT+ サンプル（オブジェクト選択）</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="Javascript" src="../js/webtis_flash.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<!--<body onLoad="addEventTest()">-->
+	<h1>指定範囲のオブジェクト情報を取得する</h1>
+	<table><tr valign="top">
+	<td width="500">
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="500" height="600">
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="../WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars"value="locale=ja_JP"/>
+	<embed name="externalMap" src="../WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="500" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	
+	<p>
+	<table>
+		<tr valign="top">
+			<td>範囲指定　　</td>
+			<td>左下経度：<input type="text" id="left"/><br/>左下緯度：<input type="text" id="bottom"/><br/>右上経度：<input type="text" id="right"/><br/>右上緯度：<input type="text" id="top"/></td>
+			<td><input type="button" value="取得" onclick="rect()"/></td>
+		</tr>
+	</table>
+	<!-- 結果表示エリア -->
+	指定範囲内のオブジェクト：<br/>
+	<textarea id="info" rows="10" cols="70" ></textarea>
+	</p>
+	</td>
+	<td>
+		<h2>【解説】</h2>
+		<code>webtis.getObjectsInRect()</code>を使って、指定の範囲にある図形情報（オブジェクト）の情報を取得します。<br/>
+		オブジェクトの情報は、JSON形式のテキストで格納されます。<br/>
+		JavaScriptでJSONデータを扱うときは、<code>JSON.parse()</code>を使って、
+		テキストをJSONオブジェクトに変換します。
+		<pre class="source"><code>
+// 選択中のオブジェクトの情報をJSON形式のテキストで取得します。
+var jsontext = webtis.getObjectsInRect(139, 39, 140, 40);
+
+// 取得したテキストをJSONオブジェクトに変換します。
+var json = JSON.parse(jsontext);
+		</code></pre>
+	</td>
+	</tr></table>	
+	<style type="text/css">
+	.source {
+		background-color : #CCCCFF;
+		border: 1px solid #000;
+		padding: 10px;
+	}
+	</style>
+
+	<script>
+	// 電子国土地図の初期化
+	function initMap() {
+		webtis.setMetadata();
+		webtis.loadKML("Layer", "./kml/test6.kml");
+	}
+
+	function rect() {
+		var left = document.getElementById("left").value;
+		var bottom = document.getElementById("bottom").value;
+		var right = document.getElementById("right").value;
+		var top = document.getElementById("top").value;
+		var json = JSON.parse(webtis.getObjectsInRect(left, bottom, right, top));
+		showInfo(json);
+	}
+
+	// テキストボックスに文字を表示
+	function showInfo(value) {
+		var text = "";
+		for (var i = 0; i < value.length; i++) {
+			text = text + value[i].attributes.name + "（" + value[i].attributes.description + "）\n";
+		}
+		document.getElementById("info").value = text;
+	}
+  </script>
+</body>
+</html>

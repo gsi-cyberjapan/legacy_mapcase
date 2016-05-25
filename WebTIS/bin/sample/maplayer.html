@@ -1,0 +1,99 @@
+<html>
+<head>
+  <title>電子国土Web.NEXT+ サンプル（タイルマップレイヤーの表示）</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="Javascript" src="../js/webtis_flash.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<h1>タイル画像マップレイヤーを表示する</h1>
+	<table><tr valign="top">
+	<td width="500">
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="600" height="600">
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="../WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars"value="locale=ja_JP"/>
+	<embed name="externalMap" src="../WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="500" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	</td>
+	<td>
+		<h2>【解説】</h2>
+		タイルマップレイヤーを追加するには、<code>webtis.addMapLayer()</code> を用います。
+		<pre class="source"><code>
+var dataset = {
+    0: { "dataId" : "GLMD" },
+    1: { "dataId" : "GLMD" },
+    2: { "dataId" : "GLMD" },
+    3: { "dataId" : "GLMD" },
+    4: { "dataId" : "GLMD" },
+    5: { "dataId" : "RELIEF" },
+    6: { "dataId" : "RELIEF" },
+    7: { "dataId" : "RELIEF" },
+    8: { "dataId" : "RELIEF" },
+    9: { "dataId" : "RELIEF" },
+    10: { "dataId" : "RELIEF" },
+    11: { "dataId" : "RELIEF" },
+    12: { "dataId" : "RELIEF" },
+    13: { "dataId" : "RELIEF" },
+    14: { "dataId" : "RELIEF" },
+    15: { "dataId" : "RELIEF" },
+    16: { "dataId" : "RELIEF" },
+    17: { "dataId" : "RELIEF" },
+    18: { "dataId" : "RELIEF" }
+};
+webtis.addMapLayer(
+    "maplayer",   // レイヤー名
+	dataset,  // データセット
+	100  // 表示順（数値が大きいほど上位のレイヤーになります）
+);
+		</code></pre>
+	</td>
+	</tr></table>	
+
+	<script>
+	// 電子国土地図の初期化
+	function initMap() {
+		webtis.setMetadata();
+		webtis.setZoomLevel(8);
+		webtis.setMapCenter(140.085278, 36.104167);
+		var dataset = {
+			0: { "dataId" : "GLMD" },
+			1: { "dataId" : "GLMD" },
+			2: { "dataId" : "GLMD" },
+			3: { "dataId" : "GLMD" },
+			4: { "dataId" : "GLMD" },
+			5: { "dataId" : "RELIEF" },
+			6: { "dataId" : "RELIEF" },
+			7: { "dataId" : "RELIEF" },
+			8: { "dataId" : "RELIEF" },
+			9: { "dataId" : "RELIEF" },
+			10: { "dataId" : "RELIEF" },
+			11: { "dataId" : "RELIEF" },
+			12: { "dataId" : "RELIEF" },
+			13: { "dataId" : "RELIEF" },
+			14: { "dataId" : "RELIEF" },
+			15: { "dataId" : "RELIEF" },
+			16: { "dataId" : "RELIEF" },
+			17: { "dataId" : "RELIEF" },
+			18: { "dataId" : "RELIEF" }
+		};
+		webtis.addMapLayer("tilemap", dataset, 400);
+	}
+  </script>
+  <style type="text/css">
+  .source {
+	background-color : #CCCCFF;
+	border: 1px solid #000;
+	padding: 10px;
+  }
+  </style>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--- Skin for the button to pan the map North -->
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx"
+	xmlns:os="http://openscales.org"
+	width="18" minHeight="21" alpha.disabled="0.5">
+    
+    <!-- host component -->
+    <fx:Metadata>
+        [HostComponent("spark.components.VSlider")]
+    </fx:Metadata>
+	
+	<s:states>
+		<s:State name="normal" />
+		<s:State name="dataTip" />
+		<s:State name="thumb" />
+		<s:State name="track" />
+		<s:State name="disabled" />
+	</s:states>
+
+	<os:IconButton id="track" icon="@Embed('../../../../../../assets/images/zoombar-2.png')" x="1" y="0" width="18" height="187" />
+	<os:IconButton id="thumb" icon="@Embed('../../../../../../assets/images/slider.png')" x="0" y="0" width="20" height="11" />
+</s:SparkSkin>

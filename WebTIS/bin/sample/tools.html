@@ -1,0 +1,92 @@
+<html>
+<head>
+  <title>電子国土Web.NEXT+ サンプル（ツール配置）</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="Javascript" src="../js/webtis_flash.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<!--<body onLoad="addEventTest()">-->
+	<h1>各種ツールバーを設置する</h1>
+	<table><tr valign="top">
+	<td width="600">
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="600" height="600">
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="../WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars"value="locale=ja_JP"/>
+	<embed name="externalMap" src="../WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="600" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	
+	<p>
+	<!-- API呼び出しボタン -->
+	各座標を設定した上で、いずれかのボタンをクリックすると、地図上にボタンが配置されます。
+	<table>
+		<tr><td>ボタンのX座標：</td><td><input type="text" id="buttonx"/></td></tr>
+		<tr><td>ボタンのY座標：</td><td><input type="text" id="buttony"/></td></tr>
+		<tr><td>ツールバーのX座標：</td><td><input type="text" id="toolx"/></td></tr>
+		<tr><td>ツールバーのY座標：</td><td><input type="text" id="tooly"/></td></tr>
+	</table>
+	<input type="button" value="作図ボタン設置" onclick="drawingBtn()"/>
+	<input type="button" value="計測ボタン設置" onclick="measureBtn()"/>
+	<input type="button" value="地図ボタン設置" onclick="changeMapBtn()"/>
+	</p>
+	</td>
+	<td>
+		<h2>【解説】</h2>
+		作図・計測・地図切り替えツールを起動するためのボタンを地図上に配置します。
+		<pre class="source"><code>
+// 作図ボタンを配置します.
+// 地図上の左から400ピクセル、上から10ピクセルの位置にボタンを配置し、
+// ボタンをクリックすると、地図上の左から100ピクセル、上から50ピクセルの位置に
+// 作図ツールバーが表示されます。
+webtis.createDrawingBtn(400, 10, 100, 50);
+
+// 計測ボタンを配置します。
+// 地図上の左から400ピクセル、上から10ピクセルの位置にボタンを配置し、
+// ボタンをクリックすると、地図上の左から100ピクセル、上から50ピクセルの位置に
+// 計測ツールバーが表示されます。
+webtis.createMeasureBtn(400, 10, 100, 50);
+
+// 地図切り替えボタンを配置します。
+// 地図上の左から450ピクセル、上から10ピクセルの位置にボタンを配置します。
+webtis.createMapChangerBtn(450, 10);
+		</code></pre>
+	</td>
+	</tr></table>	
+	<style type="text/css">
+	.source {
+		background-color : #CCCCFF;
+		border: 1px solid #000;
+		padding: 10px;
+	}
+	</style>
+	<script>
+	// 電子国土地図の初期化
+	function initMap() {
+		webtis.setMetadata();
+	}
+
+	// 作図ボタン設置
+	function drawingBtn() {
+		webtis.createDrawingBtn(document.getElementById("buttonx").value, document.getElementById("buttony").value, document.getElementById("toolx").value, document.getElementById("tooly").value);
+	}
+	// 計測ボタン設置
+	function measureBtn() {
+		webtis.createMeasureBtn(document.getElementById("buttonx").value, document.getElementById("buttony").value, document.getElementById("toolx").value, document.getElementById("tooly").value);
+	}
+	// 地図切替ボタン設置
+	function changeMapBtn() {
+		webtis.createMapChangerBtn(document.getElementById("buttonx").value, document.getElementById("buttony").value, document.getElementById("toolx").value, document.getElementById("tooly").value);
+	}
+	
+  </script>
+</body>
+</html>

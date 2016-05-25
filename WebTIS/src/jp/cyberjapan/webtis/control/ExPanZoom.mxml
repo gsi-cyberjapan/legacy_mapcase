@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--- PanZoom control の拡張クラス -->
+<ctrl:PanZoom xmlns="http://openscales.org" 
+		 xmlns:mx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:ctrl="org.openscales.fx.control.*"
+		 width="200" height="300" creationComplete="configure()"
+		 >
+	<mx:Script>
+		<![CDATA[
+			import jp.cyberjapan.webtis.control.skin.ExPanSkin;
+			import jp.cyberjapan.webtis.control.skin.ZoomButtonSkin;
+			import jp.cyberjapan.webtis.control.skin.ZoomSliderSkin;
+			
+			private const ICON_WIDTH:uint = 18;
+
+			/**
+			 * Configure the object
+			 */
+			public function configure():void
+			{
+				panSkin.height = ICON_WIDTH * 3;
+				panSkin.panNorth.x = 9;
+				panSkin.panNorth.y = 0;
+				panSkin.panSouth.x = 9;
+				panSkin.panSouth.y = ICON_WIDTH* 2 ;
+				panSkin.panWest.x = 0;
+				panSkin.panWest.y = ICON_WIDTH;
+				panSkin.panEast.x = ICON_WIDTH;
+				panSkin.panEast.y = ICON_WIDTH;
+				
+				zoomSlider.defaultMarginLeft = 0;
+				zoomSlider.x = 8;
+				zoomSlider.y = panSkin.height + 23;
+				zoomSlider.zoomIn.x = 1;
+				zoomSlider.zoomIn.y = -ICON_WIDTH;
+				zoomSlider.zoomIn.height = ICON_WIDTH;
+				zoomSlider.zoomSlider.x = 0;
+				zoomSlider.zoomSlider.y = zoomSlider.zoomIn.y + zoomSlider.zoomIn.height;
+				zoomSlider.zoomSlider.height = 187;
+				zoomSlider.minSlider = 0;
+				zoomSlider.maxSlider = (zoomSlider.zoomSlider.height / zoomSlider.zoomSlider.thumb.height) - 1;
+				zoomSlider.zoomOut.x = 1;
+				zoomSlider.zoomOut.y = zoomSlider.zoomSlider.y + zoomSlider.zoomSlider.height;
+				zoomSlider.scalesNameLabel.x = 21;
+				
+				panSkin.panNorth.setStyle("skinClass", ExPanSkin);
+				panSkin.panSouth.setStyle("skinClass", ExPanSkin);
+				panSkin.panWest.setStyle("skinClass", ExPanSkin);
+				panSkin.panEast.setStyle("skinClass", ExPanSkin);
+				
+				zoomSlider.zoomIn.setStyle("skinClass", ZoomButtonSkin);
+				zoomSlider.zoomOut.setStyle("skinClass", ZoomButtonSkin);
+				zoomSlider.zoomSlider.setStyle("skinClass", ZoomSliderSkin);
+			}
+		]]>
+	</mx:Script>
+</ctrl:PanZoom>

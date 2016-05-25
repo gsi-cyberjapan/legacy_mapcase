@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>地理院地図（フラッシュ版）</title>
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<script type="text/javascript" src="http://portal.cyberjapan.jp/sys/v4/jquery/jquery-1.6.2.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://portal.cyberjapan.jp/sys/v4/jquery/jquery-ui-1.8.16.custom.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://portal.cyberjapan.jp/GsiJsLibrary/hokkaido.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://portal.cyberjapan.jp/GsiJsLibrary/muni.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://portal.cyberjapan.jp/GsiJsLibrary/GsiJsLibrary.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./js/cs.js" charset="UTF-8"></script><!--検索パネル-->
+<script type="text/javascript" src="./js/changelayer.js" charset="UTF-8"></script><!--レイヤ切り替え表示-->
+<script type="text/javascript" src="./js/sakuzuslider.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./js/sliderctrl.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./js/jquery.dynatree.min.js"></script>
+<script type="text/javascript" src="./js/jquery.cookie.js"></script>
+<script type="text/javascript" src="./js/treelegend.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./js/treectrl.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./js/dataset.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./js/librarytreedata.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./js/maphandler_openscales.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./js/webtis_flash.js" charset="UTF-8"></script><!-- Flash API -->
+<script type="text/javascript" src="./js/configmenu.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./js/maplink.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./js/zuyou.js" charset="UTF-8"></script><!-- // hamas : 13.08.08 1/25000地形図名表示 -->
+<script type="text/javascript" src="./js/proj4js-combined.js" charset="UTF-8"></script><!-- // hamas : 13.08.12 UTMポイント表示 -->
+<script type="text/javascript" src="./js/sharemap.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./js/receivejson.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./js/jquery.ba-postmessage.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./js/centerlatlon.js" charset="UTF-8"></script>
+
+<link rel="stylesheet" href="http://portal.cyberjapan.jp/shared/palette/css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="http://portal.cyberjapan.jp/shared/palette/css/ui-lightness/jquery-ui-1.8.16.custom.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="./css/cs.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="./css/TabbedPanels.css" type="text/css" />
+<link rel="stylesheet" href="./css/skin/ui.dynatree.css" type="text/css" />
+<link rel="stylesheet" href="./css/accordion.css" type="text/css" />
+<link rel="stylesheet" href="./css/ui-tab.css" type="text/css" />
+<link rel="stylesheet" href="./css/sliderctrl.css" type="text/css" />
+<link rel="stylesheet" href="./css/webtis.css" type="text/css" />
+
+<style type="text/css"> 
+#Left{
+	border-right:1px solid #000;
+}
+#header{
+	border-bottom:1px solid #000;
+}
+#tabPanel1{
+	width:300px;
+	overflow-y:scroll;
+	overflow-x:hidden;
+}
+td{
+	font-size:9pt;
+}
+
+body { overflow: hidden; }
+ 
+<!--写真系タイルの版権表示を白色にする-->
+/*a.white{color:#ffffff;text-decoration:none;}*/
+a.white:hover{color:#0000ff;text-decoration:underline;}
+/*a.white:visited{color:#ffffff;text-decoration:none;}*/
+<!--地図系タイルの版権表示を黒色にする-->
+/*a.black{color:#000000;text-decoration:none;}*/
+a.black:hover{color:#0000ff;text-decoration:underline;}
+/*a.black:visited{color:#000000;text-decoration:none;}*/
+<!--地図拡大表示ボタンにマウスオーバーしてもデフォルトのまま-->
+/*a.fullscreen{cursor:default;}*/
+a.fullscreen:hover{cursor:default;}
+ 
+#pointerlink:hover{cursor:pointer;}
+ 
+a:hover.sel {
+	text-decoration:none;
+	color:#000000;
+}
+
+.default_text{
+	color:#cccccc;
+}
+
+@media print{
+/*
+	.insatu{display:none;}
+*/
+}
+
+#cancel_fullscreen {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 20px;
+	height: 20px;
+}
+
+// タブのスタイルシートここから
+.js-tabs ul.tab_menu{
+  list-style-type:none;
+  margin:0px;
+  padding:0px;
+}
+.js-tabs ul.tab_menu li{
+  display:inline;
+  background:#666;
+  margin:0px;
+  padding:0px;
+}
+.js-tabs .tab_menu li a{
+  padding:3px;
+  font-size:12px;
+  text-decoration:none;
+}
+.js-tabs .tab_menu li a:link,
+.js-tabs .tab_menu li a:visited{
+  background-color:#333;
+  color:#fff;
+}
+.js-tabs .tab_menu li a.active:link,
+.js-tabs .tab_menu li a.active:visited{
+  background-color:#EEE;
+  color:#000;
+}
+.js-tabs .tab_menu li a:hover{
+  background-color:#666;
+  color:#fff;
+}
+.tab_content{
+  position:relative;
+  height:200px;
+}
+.tab_content div.page{
+  width:450px;
+  height:200px;
+  position:absolute;
+  color:#222;
+}
+#page1-1{
+  background-color:#ffa;
+}
+#page1-2{
+  background-color:#faf;
+}
+#page1-3{
+  background-color:#aff;
+}
+
+// タブのスタイルシートここまで
+
+</style>
+<script tyep="text/javascript"> 
+<!--
+
+/*グローバル変数定義*/
+// 「地理院マップケース」の場合には値をtrueにセットする。
+var isMapCase = false;
+
+//URLで指定されたファイル名を取得
+var htmlName = document.location.href;
+ 
+//URLを「?」で分割、URL発行に使用する
+var hikisu_all = htmlName.split("?");
+ 
+//さらに上を「/」で分割、印刷用のURL発行にしよう
+var hikisu_separate = hikisu_all[0].split("/");
+ 
+//地図インスタンス
+var map = null;
+ 
+//初期の経度
+//var initCX = 140.0852778;
+var initCX = 0;
+ 
+//初期の緯度
+//var initCY = 36.10416667;
+var initCY = 0;
+ 
+//フルスクリーンカウンター(リサイズ時の挙動を地図拡大表示時に変更するため)
+var counter = 0;
+ 
+//地図の種類(URL用)
+var dataId = null;
+
+//検索文字列(URL用)
+var keyword = "";
+
+//検索実行要否(URL用)
+// 値: 空 or 1
+var execsearch = "";
+
+//マーカー表示要否(URL用)
+// 値: 空 or 1
+var setmarker = "";
+
+//KMLファイル名(URL用)
+var kmlid = "";
+
+// geojsonを受け取るか（HTML保存時＝true）
+var isReceiveGeoJson = false;
+
+// HTML保存からセットされたJSONデータ
+var jsondata = "";
+
+// フルスクリーン
+var isFullscreen = false;
+
+// "ライブラリー"ツリーの初期表示設定
+var initialLibLayers = [];
+
+// 作図URL保存
+var READURL = "http://gp.cyberjapan.jp/cjp4/service/gsi_convert_to_json";
+var SAVEURL = "http://gp.cyberjapan.jp/cjp4/service/gsi_convert_from_json";
+
+// true:表示 false:非表示
+var centerMarkFlag = false;	// 中心位置表示
+var popupFlag = true;	// ポップアップ表示
+var iconLabelFlag = false;
+
+/*グローバル変数定義ここまで*/
+
+//初期のズームレベル
+//※ここで設定するズームレベルはデータセットの最小ズームレベルが0になる
+//※デフォルトデータセットでは「ズームレベル0」が0になる
+//var initZoomLv = 5;
+var initZoomLv = 100;
+ 
+//検索パネルインスタンス
+var csModule = null;
+
+//レイヤ表示パネルインスタンス
+var layerModule = null;
+ 
+var kml1,kml2,select,popup;	//グローバルオブジェクトして定義
+
+var dmsflag = 0;
+
+/*地図の初期表示設定（javascript側） */
+function init(){
+
+	//中心位置表示をチェックしたままリロードした場合、チェックをはずす
+	if(document.getElementById('centercross')){
+    	document.getElementById('centercross').checked = false;
+    }
+	if(document.getElementById('showpopup')){
+    	document.getElementById('showpopup').checked = true;
+    }
+    
+    //httpリンク
+    var url=location.search.substring(1);		//urlの?以下を取得
+	if (!url){
+		// アドレスバーのコピーでも表示されるように、#以降を引数にセットする。
+		url=location.hash.substring(1);
+		hikisu_all[1]=url;
+	}
+	if(url)	{									//?以下が取得できた時の処理
+		hikisu = hikisu_all[1].split("&");	//さらに「&」で分割
+		initZoomLv = 15;	//うぉっちず対策のために初期ズームレベルを設定
+		for (i in hikisu)	{
+			hikisu_value = hikisu[i].split("=");
+			if (hikisu_value[0] == "meshcode") {	//引数が「meshcode=」の場合
+				var meshCodeThis = hikisu_value[1];	//「meshcode=」の引数を取得。通常は8桁の数字
+				initCX = meshCodeThis.slice(2,4)-0+100+meshCodeThis.slice(5,6)/60*7.5+meshCodeThis.slice(7,8)/5/60*7.5/2+7.5/4/60;	//メッシュコードから中心座標を取得
+				initCY = meshCodeThis.slice(0,2)/1.5+meshCodeThis.slice(4,5)/60*5+meshCodeThis.slice(6,7)/5/60*5/2+5/4/60;
+			}else if(hikisu_value[0] == "b")	{		//引数がBLの「b=」の場合
+				var coord_b = hikisu_value[1];		//「b=」の引数を取得。
+				initCY = coord_b.slice(0,2) - 0 + coord_b.slice(2,4)/60 + coord_b.slice(4,10)/3600;		//60進法経緯度値を10進度に変更
+			}else if(hikisu_value[0] == "l")	{		//引数がBLの「l=」の場合
+				var coord_l = hikisu_value[1];		//「l=」の引数を取得。
+				initCX = coord_l.slice(0,3) - 0 + coord_l.slice(3,5)/60 + coord_l.slice(5,10)/3600;		
+			}else if(hikisu_value[0] == "latitude")	{		//引数が経緯度の「latitude=」の場合
+				initCY = hikisu_value[1];		//「latitude=」の引数を取得。
+			}else if(hikisu_value[0] == "longitude")	{		//引数が経緯度の「longitude=」の場合
+				initCX = hikisu_value[1];		//「longitude=」の引数を取得。
+			}else if(hikisu_value[0] == "lat")	{		//引数が経緯度の「lat=」の場合
+				initCY = hikisu_value[1];		//「lat=」の引数を取得。
+			}else if(hikisu_value[0] == "lon")	{		//引数が経緯度の「lon=」の場合
+				initCX = hikisu_value[1];		//「lon=」の引数を取得。
+			}else if(hikisu_value[0] == "z")	{		//引数が経緯度の「z=」の場合
+				initZoomLv = hikisu_value[1];			//「z=」の引数を取得。
+			}else if(hikisu_value[0] == "zoom")	{		//引数が経緯度の「zoom=」の場合
+				initZoomLv = hikisu_value[1];			//「zoom=」の引数を取得。
+			}else if(hikisu_value[0] == "did")	{		//引数が経緯度の「did=」の場合
+				dataId = hikisu_value[1];		//「did=」の引数を取得。
+			}else if(hikisu_value[0] == "key")	{		//引数が経緯度の「key=」の場合
+				keyword = hikisu_value[1];		//「key=」の引数を取得。
+			}else if(hikisu_value[0] == "es")	{		//引数が経緯度の「es=」の場合
+				execsearch = hikisu_value[1];		//「es=」の引数を取得。
+				initZoomLv = 0;
+			}else if(hikisu_value[0] == "ma")	{		//引数が経緯度の「ma=」の場合
+				setmarker = hikisu_value[1];		//「ma=」の引数を取得。
+			}else if(hikisu_value[0] == "fid")	{		//引数が経緯度の「fid=」の場合
+				kmlid = hikisu_value[1];		//「fid=」の引数を取得。
+			}else if(hikisu_value[0].substring(0,4) == "lkey") {	//引数がライブラリーの「lkey○=」の場合
+				initialLibLayers[parseInt(hikisu_value[0].substring(4))] = { 'key': hikisu_value[1] };
+			}else if(hikisu_value[0].substring(0,4) == "lopa") {	//引数がライブラリーの「lopa○=」の場合
+				initialLibLayers[parseInt(hikisu_value[0].substring(4))]['opacity'] = parseFloat(hikisu_value[1]);
+			}else if(hikisu_value[0] == "rvg") {		//引数が「rvg=」の場合（receivegeojson）
+				isReceiveGeoJson = (hikisu_value[1] != "0");
+			}else if(hikisu_value[0] == "fsc")	{		//引数が「fsc=」の場合（full screen）
+				isFullscreen = (hikisu_value[1] != "0");
+			}
+		}
+	}
+	
+	// トップページから検索されていた場合
+	if (keyword != ""){
+		// 検索窓にキーワードを設定する
+		document.getElementById("cs_chimei_text").value=decodeURIComponent(keyword);
+		document.getElementById("cs_chimei_text").className="";
+
+		//都道府県からの検索の場合
+		if (execsearch == ""){
+			var histURL = "http://portal.cyberjapan.jp/testd/site/mapuse/index.html?lon=" + initCX + "&lat=" + initCY;
+			document.cookie = "hist=" + keyword + "; expires=Tue, 1-Jan-2030 00:00:00 GMT; path=/";
+			document.cookie = "histURL=" + histURL + "; expires=Tue, 1-Jan-2030 00:00:00 GMT; path=/;";
+		}
+	}
+}
+
+/*地図表示領域の画面の大きさに合わせて変更する*/
+function arrange() {
+	
+	//ウィンドウサイズを取得
+    var obj = window;
+    if( window.opera ) {	//Operaの場合
+        var w = obj.innerWidth;
+        var h = obj.innerHeight;
+    } else if( document.all ){	//IEの場合
+        var w = obj.document.documentElement.clientWidth;
+        var h = obj.document.documentElement.clientHeight;
+    } else if( document.getElementById ){    //IE以外の場合
+        var w = obj.innerWidth;
+        var h = obj.innerHeight;
+    }
+    //カウンターが偶数なら初期レイアウト、奇数ならfullscreenレイアウト    
+    var mod = counter % 2;
+    if ( mod == 0 ){
+    	//ヘッダー・左ペイン・地図表示部・縮小ボタンの初期レイアウト
+    	var header_style = document.getElementById("header").style;
+    	header_style.position = "absolute";
+    	header_style.left = 0 + "px";
+    	header_style.top = 0 + "px";
+    	header_style.width = w + "px";
+    	header_style.height = 60 + "px";
+    	header_style.overflow = "hidden";
+    	var left_style = document.getElementById("Left").style;
+    	left_style.position = "absolute";
+    	left_style.left = 0 + "px";
+    	left_style.top = 62 + "px";
+    	left_style.width = 300 + "px";
+    	left_style.height = (h - 62) + "px";
+    	left_style.overflow = "hidden";
+    	var map_style = document.getElementById("map").style;
+    	map_style.position = "absolute";
+    	map_style.left = 302 + "px";
+    	map_style.top = 62 + "px";
+    	map_style.width = ( w - 302 ) + "px";
+    	map_style.height = ( h - 62 ) + "px";
+    	map_style.overflow = "hidden";
+    	map_style.border = "none";	//地図の枠線(印刷プレビュー用)を非表示
+
+		// 画像（アイコン）を非表示に変更
+		document.getElementById("img_cancel_fullscreen").style.display = "none";	// 非表示
+	}
+    else{
+		// 地図の上にあるボタン分を高さを差し引く
+		h -= 20;
+		
+    	//ヘッダー・左ペイン・地図部・縮小ボタン部のfullscreenレイアウト
+    	header_style = document.getElementById("header").style;
+    	header_style.position = "absolute";
+    	header_style.left = 0 + "px";
+    	header_style.top = 0 + "px";
+    	header_style.width = 0 + "px";
+    	header_style.height = 0 + "px";
+    	header_style.overflow = "hidden";
+    	left_style = document.getElementById("Left").style;
+    	left_style.position = "absolute";
+    	left_style.left = 0 + "px";
+    	left_style.top = 0 + "px";
+    	left_style.width = 0 + "px";
+    	left_style.height = 0 + "px";
+    	left_style.overflow = "hidden";
+    	map_style = document.getElementById("map").style;
+    	map_style.position = "absolute";
+    	map_style.left = 0 + "px";
+    	map_style.top = 0 + "px";
+    	map_style.width = w + "px";
+    	map_style.height = h + "px";
+    	map_style.overflow = "visible";
+    	map_style.border = "none";	//地図の枠線(印刷プレビュー用)を非表示
+    }
+}
+ 
+/*fullscreen後に元のレイアウトに戻す関数(カウンター付き) */
+function arrange2() {
+
+	//ウィンドウサイズを取得
+    var obj = window;
+    if( window.opera ) {	//Operaの場合
+        var w = obj.innerWidth;
+        var h = obj.innerHeight;
+    } else if( document.all ){	//IEの場合
+        var w = obj.document.documentElement.clientWidth;
+        var h = obj.document.documentElement.clientHeight;
+    } else if( document.getElementById ){    //IE以外の場合
+        var w = obj.innerWidth;
+        var h = obj.innerHeight;
+    }
+    
+    //ヘッダー・左ペイン・地図表示部・縮小ボタン部のスタイル
+    var header_style = document.getElementById("header").style;
+    header_style.position = "absolute";
+    header_style.left = 0 + "px";
+    header_style.top = 0 + "px";
+    header_style.width = w + "px";
+    header_style.height = 60 + "px";
+    header_style.overflow = "hidden";
+    var left_style = document.getElementById("Left").style;
+    left_style.position = "absolute";
+    left_style.left = 0 + "px";
+    left_style.top = 62 + "px";
+    left_style.width = 300 + "px";
+    left_style.height = (h - 62) + "px";
+    left_style.overflow = "hidden";
+    var map_style = document.getElementById("map").style;
+    map_style.position = "absolute";
+    map_style.left = 302 + "px";
+    map_style.top = 62 + "px";
+    map_style.width = ( w - 302 ) + "px";
+    map_style.height = ( h - 62 ) + "px";
+    map_style.overflow = "hidden";
+
+    counter = counter + 1;	//元のレイアウトに戻ったことを記録(リサイズレイアウトを返るため)
+
+	// 画像（アイコン）を非表示に変更
+	document.getElementById("img_cancel_fullscreen").style.display = "none";	// 非表示
+}
+ 
+/*マップのスタイル設定*/
+function styleSetting() {
+	arrange();
+}
+
+/*地図の全画面表示*/
+function fullscreen(){
+
+	//ウィンドウサイズを取得
+	var obj = window;
+	var w;
+	var h;
+    if( window.opera ) {
+        w = obj.innerWidth;
+        h = obj.innerHeight;
+    } else if( document.all ){                //ie4-
+        w = obj.document.documentElement.clientWidth;
+        h = obj.document.documentElement.clientHeight;
+    } else if( document.getElementById ){    //n6-7, m1, s1
+        w = obj.innerWidth;
+        h = obj.innerHeight;
+    }
+	// 地図の上にあるボタン分を高さを差し引く
+	h -= 20;
+    
+    //ヘッダー・左ペイン・地図部・縮小ボタン部のfullscreen表示
+    header_style = document.getElementById("header").style;
+    header_style.position = "absolute";
+    header_style.left = 0 + "px";
+    header_style.top = 0 + "px";
+    header_style.width = 0 + "px";
+    header_style.height = 0 + "px";
+    header_style.overflow = "hidden";
+    left_style = document.getElementById("Left").style;
+    left_style.position = "absolute";
+    left_style.left = 0 + "px";
+    left_style.top = 0 + "px";
+    left_style.width = 0 + "px";
+    left_style.height = 0 + "px";
+    left_style.overflow = "hidden";	
+    map_style = document.getElementById("map").style;
+    map_style.position = "absolute";
+    map_style.left = 0 + "px";
+    map_style.top = 0 + "px";
+    map_style.width = w + "px";
+    map_style.height = h + "px";
+    map_style.overflow = "visible";
+
+    //地図全画面表示になったことを記録(リサイズの挙動を変えるため)
+    counter = counter + 1;
+
+	// 画像（アイコン）を表示に変更
+	document.getElementById("img_cancel_fullscreen").style.display = "block";	// 表示
+}
+
+/* 検索ボタンでテキストワード地図検索【Ver4.0】 */
+function mapsearch() {
+	// 検索したうえで、検索結果の先頭項目に移動
+	csModule.executeSearch("autoMove");
+}
+ 
+/*中央の十字の表示・非表示を切り替える関数(チェックボックスで呼び出し)*/
+function funcCrosshairs() {
+	centerMarkFlag = (centerMarkFlag) ? false : true;
+	webtis.showCenterMark(centerMarkFlag);
+}
+
+function funcPopup() {
+	popupFlag = (popupFlag) ? false : true;
+	webtis.showPopup(popupFlag);
+}
+ 
+/*phpが読み込まれてからsakuzu.jsの読み込むをするため、sakuzu.jsの読み込みを遅延させるための関数(これがないと、作図が阻害されてIEでエラーが出る？？)*/
+function sleep(time){
+	var d1 = new Date().getTime();
+	var d2 = new Date().getTime();
+	while(d2 < d1 + time){
+		d2 = new Date().getTime();
+	}
+	return;
+}
+ 
+// 【メモ】 試験運用中のサイト(http://portal.cyberjapan.jp/site/mapuse/index.html)から移植
+/*表示地図を再現するためのURL発行*/
+function httplink(){
+	//中心経緯度・ズームレベル取得
+	var center = webtis.getCenter();
+    var lat = center[1];
+    var lon = center[0];
+    var zoom = webtis.getZoomLevel();	// ズームレベル
+	
+    //経緯度は小数点以下6桁に丸める
+    lat = lat * 1000000;
+    lat = Math.round(lat) / 1000000;
+    lon = lon * 1000000;
+    lon = Math.round(lon) / 1000000;
+
+	// 背景地図データ名を取得
+    var str = getBaseMapDataId();
+
+    //現在表示地図のhttp表示
+    var http = hikisu_all[0] + "?lat=" + lat + "&lon=" + lon + "&z=" + zoom + "&did=" + str;
+
+	window.sendArgument = http;
+    window.open("httplink.html","httplink","width=400,height=300,menubar=no,toolbar=no,scrollbar=no");
+}
+
+// Flashのズームレベル変更を取得時
+function changeZoomLevelByJS() {
+	// パンくずリスト更新
+	prncenter();
+//	csModule.prncenter();	
+}
+
+// --------------------------------------------------
+// 地図部分の初期化設定
+// ・Flashのイベント登録処理
+// ・各ボタン等の表示設定　など
+// Flash読み込み完了後に呼ばないと正常終了しない点に注意
+// --------------------------------------------------
+function initMap() {
+	webtis.init();
+	ddd();	// 緯度経度の十進表示
+	
+	// Flashコンテンツのwmodeをtransparentにするとマウスホイールが効かなくなるため、強制的に
+	webtis.forceEnableMouseWheel();
+
+	// 中心位置表示は非表示
+	webtis.showCenterMark(centerMarkFlag);
+
+	// ポップアップ表示
+	webtis.showPopup(popupFlag);
+
+	// イベント登録
+	// 【地図の表示位置あるいは縮尺が変わった】
+	webtis.event("mapmove", "changeZoomLevelByJS");	// パン＆ズーム時
+	
+	// Flash内のボタン表示制御
+	var width = webtis.getFxmapWidth();
+	// 作図ボタンを描画する
+	webtis.createDrawingBtn(width-215, 10, 60, 100);
+	// 計測ボタンを描画する
+	webtis.createMeasureBtn(width-130, 10, 60, 10);
+	// 地図変更ボタンを描画する
+	webtis.createMapChangerBtn(width-85, 10, 0, 0);
+
+	// 広域表示ボタンを描画する
+	webtis.createOverviewMap(true);
+	
+	// 初期の中心座標を指定
+	webtis.setMapRect(122.5, 20.0, 157.5, 49.0);
+	if(initCX != 0 && initCY != 0 && initZoomLv != 100)
+	{
+		webtis.setMapCenter(initCX,　initCY/*, initZoomLv*/);
+		//var defaultZoomLevel = (initZoomLv != 5) ? initZoomLv : 10;
+		var defaultZoomLevel = (initZoomLv === 'undefined') ? 5 : initZoomLv;
+		webtis.setZoomLevel(/*initZoomLv*/defaultZoomLevel);
+		//URLに表示する情報を再セット
+		location.hash="#zoom="+initZoomLv+"&lat="+initCY+"&lon="+initCX;
+	}
+	
+	if (dataId != null) {
+		webtis.changeMap(dataId);
+	}
+
+	// 初期表示
+	// TODO: この部分の調整
+	/*
+	if (execsearch!= ""){
+		csModule.executeSearch("autoMove");
+	}else{
+		csModule.prncenter();
+	}
+	*/
+	
+	// メタデータ設定
+	webtis.setMetadata("metadataInitialized");
+
+	//URLで指定されているサーバに保存されたKMLファイルを読み込む
+	var json;
+	if (kmlid != ''){
+		var parameter = {
+			mode : 'url',
+			fname : kmlid
+		};
+		$.ajax({
+			type: "POST",
+			async: false,
+			url: READURL,
+			data: parameter,
+			dataType: "jsonp",
+			success : function(data, status) {
+				if(data != null){
+					try {
+						json = JSON.stringify(data);
+						json = "\[" + json + "\]";
+						webtis.setObjectsForServer(json);
+					}
+					catch (e) {
+						alert("ファイル読み込み中に例外が発生しました。");
+					}
+				}
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown){
+				alert("作図情報を読込めませんでした。 " + textStatus + ", " + errorThrown);
+			}
+		});
+	}
+
+	webtis.event("layeradded", "layerAdded");
+	webtis.showEditIconsInPopup(true);
+
+	if (isReceiveGeoJson) {
+		webtis.setObjects(jsondata);
+	}
+}
+
+function metadataInitialized() {
+	// ライブラリーのレイヤー初期表示（メタデータをセットし終わってからでないとタイルマップを読めない）
+	treeModule.initShowLayers(initialLibLayers);
+}
+
+// 背景地図データ名を返す
+function getBaseMapDataId() {
+	return webtis.getMapID();
+}
+
+function layerAdded(layername) {
+	layerModule.addNode({
+		"name": layername
+	});
+}
+
+//-->
+</script>  
+</head>
+
+<body onresize="styleSetting();"><!-- スタイル設定を変更 -->
+
+<!-- ヘッダ部（検索窓など）　-->
+<div id="header">
+	<div style="padding-left:0px;padding-top:10px;">
+		<!--<a href="http://portal.cyberjapan.jp/">--><img src="./image/title05+.png" width="238px" height="40px"><!--</a>-->
+	</div>
+	<div style="position:absolute;top:30px;left:255px;" id="centerform">
+	</div><!--
+	<div style="position:absolute;top:0px;left:255px;width:450px;">
+		<font style="font-size:10px; color:red; font-weight:bold;">平成25年10月30日「電子国土Web.NEXT+」は「地理院地図（フラッシュ版）」として正式公開されました。</font>
+	</div>-->
+	<div style="position:absolute;top:5px;right:10px;">
+		<font size="2"><a href="http://portal.cyberjapan.jp/help/termsofuse.html" target="_blank">利用規約</a>｜<a href="http://portal.cyberjapan.jp/help/faq.html" target="_blank">ヘルプ</a>｜<a href="https://twitter.com/gsi_cyberjapan" target="_blank">お知らせ</a>｜<a href="https://geoinfo2.gsi.go.jp/contact/Inquiry2.aspx?pcode=1005&bcode=100503&mcode=10050302" target="_blank">お問い合わせ</a></font>
+	</div>
+	<!--
+	<div style="position:absolute;top:25px;right:10px;">
+		<font size="3"><a id="pointerlink" onclick="httplink();" style="text-decoration:none;color:#000;border-style:solid;border-width:1px;border-color:#000;" title="URL" href="javascript:void(0)">URL</a></font>
+		<input type="button" value="ご意見はこちら" onClick="top.location.href='../../portalsite/mailform/form4.html';" style="font-size:11px; background-color: pink; border-color: black; border-width: 1px;">
+		<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://bit.ly/MhK95Y" data-text="電子国土Web.Next" data-lang="ja" data-count="none" data-hashtags="cyberjapan_next">Tweet</a>
+	</div>
+	-->
+	<div style="position:absolute;top:32px;right:10px;">
+		<span id="configButton"></span>
+	</div>
+</div>
+
+<!-- 左ペイン　-->
+<div id="Left">
+	<div style="text-align:right;">
+		<!--
+		<font size="2">ポップアップ表示</font><input id="showpopup" type="checkbox" onclick="funcPopup();" checked="true"></input>&nbsp;&nbsp;
+		<font size="2">中心位置表示</font><input id="centercross" type="checkbox" onclick="funcCrosshairs();"></input>
+		-->
+		<a href="javascript:void(0);" class="fullscreen" onclick="fullscreen(); return false;"><img src="./image/nw2.gif" width="20" height="20" alt="地図を全画面表示" title="地図を全画面表示"></a>
+	</div>
+	<div class="cs_breadcrumbs" height="20px">
+		<span id="jus">
+			<span id="cs_level0"><font size=2>全国</font></span>
+		</span>
+	</div>
+
+	<div id="scrolling">
+		<!-- 新タブ -->
+		<div id="infoTabs" style="border-width:0px; padding:0px;">
+			<ul>
+				<li><a href="#fragment-1"><span>ライブラリー</span></a></li>
+				<li><a href="#fragment-2"><span>ファイル操作</span></a></li>
+				<li><a href="#fragment-3"><span>地名等検索</span></a></li>
+			</ul>
+			
+			<div id="fragment-1">
+				<div id="treeTab"></div>
+			</div>
+
+			<div id="fragment-2">
+				<div id="showlayerTab"></div>
+			</div>
+			
+			<div id="fragment-3">
+				<div id="searchTab" name="cs_search"></div>
+			</div>
+		</div>
+
+		<!--アクセスカウンタ-->
+		<div id="accesscounter" clear="both">
+			<iframe src="http://portal.cyberjapan.jp/count/count.php?id=013" height="50" width="180" frameborder="0" scrolling="no" align="left"></iframe><br>
+			<font size="2" color="#555555">since 2013.10.30</font> <!-- merge1227 -->
+		</div>
+	</div>
+</div>
+
+<!-- 検索詳細設定パネル表示↓-->
+<div id="config_cs" name="config_cs" style="position:absolute; width:330px; left:340px; top:33px; background-color:white; display:none;"></div>
+<!-- 検索詳細設定パネル表示↑-->
+
+<!-- 右ペイン（地図部分）　-->
+<div id="map" name="map">
+<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=11,2,0,0"
+	width="100%" height="100%" >
+<param name="allowScriptAccess" value="always" />
+<param name="movie" value="WebTIS.swf"/>
+<param name="quality" value="high" />
+<param name="flashVars" value="locale=ja_JP" />
+<param name="wmode" value="opaque" />
+<!--<param name="wmode" value="opaque" />--> <!-- wmodeを設定するとFirefoxでマウスのホイールが効かない -->
+<embed name="externalMap" src="WebTIS.swf" quality="high"
+	pluginspage="http://www.macromedia.com/go/getflashplayer"
+	type="application/x-shockwave-flash"
+	width="100%" height="100%" allowScriptAccess="always" flashVars="locale=ja_JP" wmode="opaque" />
+</object>
+</div>
+
+<!-- フルスクリーンから戻す -->
+<div id="cancel_fullscreen">
+	<a href="javascript:void(0);" id="link_cancel_fullscreen" class="cancel_fullscreen" onclick="arrange2()"><img id="img_cancel_fullscreen" src="./image/se2.gif" width="20" height="20" alt="元に戻す" title="元に戻す" /></a>
+</div>
+
+<!-- URL発行に使用するForm -->
+<form method="post" id="sz_url_form" target="sz_url_save_frame">
+	<input type="hidden" name="content" value="" id="sz_url_content">
+	<input type="hidden" name="fname" value="" id="sz_url_savefile">
+	<input type="hidden" name="mode" value="" id="sz_url_mode">
+</form>
+<iframe id="sz_url_save_frame" name="sz_url_save_frame" style="display:none;height:1px;" src="about:blank"></iframe>
+
+<!-- 設定サブメニュー -->
+<div id="configPanel" style="visibility:hidden"></div>
+
+<script type="text/javascript">
+<!--
+	//sleep(500);
+-->
+</script>
+<script type="text/javascript">
+<!--
+
+$(function() {
+	$('#infoTabs').tabs();
+});
+
+/*作図パネル・地名検索パネル表示*/
+$(document).ready(function(){
+	//地図の初期化
+	init();	// 初期化
+	
+	//レイヤ表示
+	layerModule = $("#showlayerTab");
+	layerModule.ShowLayer({
+		mapEventHandler : new ShowLayer.OpenLayersDefaultHandler({
+			mapObj : map
+		})
+	});
+	layerModule.init_ctrl();
+
+	//検索の詳細設定パネル
+	csModule = $("#searchTab");
+	csModule.ChimeiSearch({
+		mapEventHandler : new ChimeiSearch.OpenLayersDefaultHandler({
+			mapObj : map
+		}),
+	});
+
+	if (execsearch!= ""){
+		csModule.executeSearch("autoMove");
+	}else{
+//		csModule.prncenter();
+	}
+
+	// ツリーのセット
+	treeModule = $("#treeTab");
+	treeModule.ShowLibrary(libraryTreeData, mapHandler);
+	treeModule.init_ctrl();
+	
+	treeModule.initTree();
+
+	sakuzuSlider = new SakuzuSlider();
+	sliderModule = new opaSlider();
+	
+	// 設定メニュー
+	configMenu = $("#configButton");
+	configMenu.ConfigMenu({
+		panel: $("#configPanel")
+	});
+
+	// フルスクリーン表示
+	if (isFullscreen) fullscreen();
+
+	// GeoJson表示	
+	if (isReceiveGeoJson){
+		$.receiveMessage(jsonReceiver);
+//		window.addEventListener('message', jsonReceiver, false);
+	}
+});
+
+$(function() {
+	// 検索結果表示欄の検索結果クリックアクション
+	$("#cs_result").click(function() {
+		// パンくずリストを更新
+		csModule.prncenter();
+	});
+});
+
+arrange();
+
+-->
+</script>
+
+</body>
+
+</html>

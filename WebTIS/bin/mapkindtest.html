@@ -1,0 +1,327 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="Javascript" src="js/webtis_flash.js" charset="UTF-8"></script>	
+</head>
+<body>
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="800" height="600" >
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars"value="locale=ja_JP"/>
+	<embed name="externalMap" src="WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="800" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	<p>
+		<select id="kind" name="kind" size="5" onchange="changeMapKind()">
+			<option value="250002">彩色地図</option>
+			<option value="5000k">モノトーン地図</option>
+			<option value="blank">白地図</option>
+			<option value="25000">標準地図</option>
+			<option value="relief">色別標高図</option>
+			<option value="jaise">1:5,000,000 Japan Map（English）</option>
+			<option value="toho2">東日本大震災被災後写真</option>
+			<option value="djbmo">2007年～写真</option>
+			<option value="nlii4">1988～90年写真</option>
+			<option value="nlii3">1984～87年写真</option>
+			<option value="nlii2">1979～83年写真</option>
+			<option value="nlii1">1974～78年写真</option>
+		</select>
+	</p>
+	<script>
+	function changeMapKind() {
+		var obj = document.getElementById("kind");
+		var dataId = obj.options[obj.selectedIndex].value;
+		if (dataId == '250002') {
+			var mapKind = {
+				0: "GLMD",
+				1: "GLMD",
+				2: "GLMD",
+				3: "GLMD",
+				4: "GLMD",
+				5: "JAIS2",
+				6: "JAIS2",
+				7: "JAIS2",
+				8: "JAIS2",
+				9: "BAFD1000K2",
+				10: "BAFD1000K2",
+				11: "BAFD1000K2",
+				12: "BAFD200K2",
+				13: "BAFD200K2",
+				14: "BAFD200K2",
+				15: "D25K2",
+				16: "D25K2",
+				17: "D25K2",
+				18: "FGD"
+			};
+			setMapKind(JSON.stringify(mapKind));
+		} else if (dataId == '5000k') {
+			var mapKind = {
+				0: "GLMD",
+				1: "GLMD",
+				2: "GLMD",
+				3: "GLMD",
+				4: "GLMD",
+				5: "JAISG",
+				6: "JAISG",
+				7: "JAISG",
+				8: "JAISG",
+				9: "BAFD1000KG",
+				10: "BAFD1000KG",
+				11: "BAFD1000KG",
+				12: "BAFD200KG",
+				13: "BAFD200KG",
+				14: "BAFD200KG",
+				15: "D25KG",
+				16: "D25KG",
+				17: "D25KG",
+				18: "FGD"
+			};
+			setMapKind(JSON.stringify(mapKind));
+		} else if (dataId == 'blank') {
+			var mapKind = {
+				0: "GLMD",
+				1: "GLMD",
+				2: "GLMD",
+				3: "GLMD",
+				4: "GLMD",
+				5: "BLANK",
+				6: "BLANK",
+				7: "BLANK",
+				8: "BLANK",
+				9: "BLANK",
+				10: "BLANK",
+				11: "BLANK",
+				12: "BAFD200KG",
+				13: "BAFD200KG",
+				14: "BAFD200KG",
+				15: "D25KG",
+				16: "D25KG",
+				17: "D25KG",
+				18: "FGD"
+			};
+			setMapKind(JSON.stringify(mapKind));
+		} else if (dataId == '25000') {
+			var mapKind = {
+				0: "GLMD",
+				1: "GLMD",
+				2: "GLMD",
+				3: "GLMD",
+				4: "GLMD",
+				5: "JAIS",
+				6: "JAIS",
+				7: "JAIS",
+				8: "JAIS",
+				9: "BAFD1000K",
+				10: "BAFD1000K",
+				11: "BAFD1000K",
+				12: "BAFD200K",
+				13: "BAFD200K",
+				14: "BAFD200K",
+				15: "DJBMM",
+				16: "DJBMM",
+				17: "DJBMM",
+				18: "FGD"
+			};
+			setMapKind(JSON.stringify(mapKind));
+		} else if (dataId == 'relief') {
+			var mapKind = {
+				0: "GLMD",
+				1: "GLMD",
+				2: "GLMD",
+				3: "GLMD",
+				4: "GLMD",
+				5: "BLANK",
+				6: "BLANK",
+				7: "BLANK",
+				8: "BLANK",
+				9: "BLANK",
+				10: "BLANK",
+				11: "BLANK",
+				12: "BAFD200KG",
+				13: "BAFD200KG",
+				14: "BAFD200KG",
+				15: "D25KG",
+				16: "D25KG",
+				17: "D25KG",
+				18: "FGD"
+			};
+			setMapKind(JSON.stringify(mapKind));
+		} else if (dataId == 'jaise') {
+			var mapKind = {
+				0: "GLMD",
+				1: "GLMD",
+				2: "GLMD",
+				3: "GLMD",
+				4: "GLMD",
+				5: "BLANK",
+				6: "BLANK",
+				7: "BLANK",
+				8: "BLANK",
+				9: "BLANK",
+				10: "BLANK",
+				11: "BLANK",
+				12: "BAFD200KG",
+				13: "BAFD200KG",
+				14: "BAFD200KG",
+				15: "D25KG",
+				16: "D25KG",
+				17: "D25KG",
+				18: "FGD"
+			};
+			setMapKind(JSON.stringify(mapKind));
+		} else if (dataId == 'toho2') {
+			var mapKind = {
+				0: "GLMD",
+				1: "GLMD",
+				2: "GLMD",
+				3: "GLMD",
+				4: "GLMD",
+				5: "JAIS",
+				6: "JAIS",
+				7: "JAIS",
+				8: "JAIS",
+				9: "BAFD1000K",
+				10: "BAFD1000K",
+				11: "BAFD1000K",
+				12: "BAFD200K",
+				13: "BAFD200K",
+				14: "BAFD200K",
+				15: "TOHO2",
+				16: "TOHO2",
+				17: "TOHO2",
+				18: "FGD"
+			};
+			setMapKind(JSON.stringify(mapKind));
+		} else if (dataId == 'djbmo') {
+			var mapKind = {
+				0: "GLMD",
+				1: "GLMD",
+				2: "GLMD",
+				3: "GLMD",
+				4: "GLMD",
+				5: "JAIS",
+				6: "JAIS",
+				7: "JAIS",
+				8: "JAIS",
+				9: "BAFD1000K",
+				10: "BAFD1000K",
+				11: "BAFD1000K",
+				12: "BAFD200K",
+				13: "BAFD200K",
+				14: "BAFD200K",
+				15: "DJBMO",
+				16: "DJBMO",
+				17: "DJBMO",
+				18: "FGD"
+			};
+			setMapKind(JSON.stringify(mapKind));
+		} else if (dataId == 'nlii4') {
+			var mapKind = {
+				0: "GLMD",
+				1: "GLMD",
+				2: "GLMD",
+				3: "GLMD",
+				4: "GLMD",
+				5: "JAIS",
+				6: "JAIS",
+				7: "JAIS",
+				8: "JAIS",
+				9: "BAFD1000K",
+				10: "BAFD1000K",
+				11: "BAFD1000K",
+				12: "BAFD200K",
+				13: "BAFD200K",
+				14: "BAFD200K",
+				15: "NLII4",
+				16: "NLII4",
+				17: "NLII4",
+				18: "FGD"
+			};
+			setMapKind(JSON.stringify(mapKind));
+		} else if (dataId == 'nlii3') {
+			var mapKind = {
+				0: "GLMD",
+				1: "GLMD",
+				2: "GLMD",
+				3: "GLMD",
+				4: "GLMD",
+				5: "JAIS",
+				6: "JAIS",
+				7: "JAIS",
+				8: "JAIS",
+				9: "BAFD1000K",
+				10: "BAFD1000K",
+				11: "BAFD1000K",
+				12: "BAFD200K",
+				13: "BAFD200K",
+				14: "BAFD200K",
+				15: "NLII3",
+				16: "NLII3",
+				17: "NLII3",
+				18: "FGD"
+			};
+			setMapKind(JSON.stringify(mapKind));
+		} else if (dataId == 'nlii2') {
+			var mapKind = {
+				0: "GLMD",
+				1: "GLMD",
+				2: "GLMD",
+				3: "GLMD",
+				4: "GLMD",
+				5: "JAIS",
+				6: "JAIS",
+				7: "JAIS",
+				8: "JAIS",
+				9: "BAFD1000K",
+				10: "BAFD1000K",
+				11: "BAFD1000K",
+				12: "BAFD200K",
+				13: "BAFD200K",
+				14: "BAFD200K",
+				15: "NLII2",
+				16: "NLII2",
+				17: "NLII2",
+				18: "FGD"
+			};
+			setMapKind(JSON.stringify(mapKind));
+		} else if (dataId == 'nlii1') {
+			var mapKind = {
+				0: "GLMD",
+				1: "GLMD",
+				2: "GLMD",
+				3: "GLMD",
+				4: "GLMD",
+				5: "JAIS",
+				6: "JAIS",
+				7: "JAIS",
+				8: "JAIS",
+				9: "BAFD1000K",
+				10: "BAFD1000K",
+				11: "BAFD1000K",
+				12: "BAFD200K",
+				13: "BAFD200K",
+				14: "BAFD200K",
+				15: "NLII1",
+				16: "NLII1",
+				17: "NLII1",
+				18: "FGD"
+			};
+			setMapKind(JSON.stringify(mapKind));
+		}
+	}
+
+	function initMap() {
+		setMetadata();
+		createOverviewMap(true);
+	}
+
+</script>
+</body>
+</html>

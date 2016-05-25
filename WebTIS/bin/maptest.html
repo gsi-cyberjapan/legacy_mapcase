@@ -1,0 +1,101 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="Javascript" src="js/webtis_flash.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<!--<body onLoad="addEventTest()">-->
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="800" height="600">
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars"value="locale=ja_JP"/>
+	<embed name="externalMap" src="WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="800" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	
+	<br/>
+	<!-- テスト用 -->
+	<input type="button" value="getCenter" onclick="getcalltest(getCenter())" />
+	<input type="button" value="getCx" onclick="getcalltest(getCx())" />
+	<input type="button" value="getCy" onclick="getcalltest(getCy())" />
+	<input type="button" value="getRect" onclick="getcalltest(getRect())" />
+	<input type="button" value="getLeft" onclick="getcalltest(getLeft())" />
+	<input type="button" value="getBottom" onclick="getcalltest(getBottom())" />
+	<input type="button" value="getRight" onclick="getcalltest(getRight())" />
+	<input type="button" value="getTop" onclick="getcalltest(getTop())" />
+	<input type="button" value="getZoomLevel" onclick="getcalltest(getZoomLevel())" />
+	<input type="button" value="getMapScale" onclick="getcalltest(getMapScale())" />
+	<input type="button" value="getResolution" onclick="getcalltest(getResolution())" />
+	<br/>
+	<textarea id="info" rows="1" cols="64" ></textarea>
+	<br/>
+	<input type="text" length="10" id="mapscale" />
+	<input type="button" value="setMapScale" onclick="callSetMapScale()" />
+	<input type="button" value="setMapCenter" onclick="callSetMapCenter()" />
+	<input type="button" value="setMapRect" onclick="callSetMapRect()" />
+	<script>
+	/**
+	 * 実行するjavascriptのAPI
+	 */
+	function initMap() {
+		createOverviewMap(true);
+		showCenterMark(true);
+		event("leftdown", "jstest");
+		//event("rightup", "jstest");
+		setMetadata();
+	}
+
+	function getcalltest(value) {
+		document.getElementById("info").value = value;
+	}
+	function callSetMapScale() {
+		//alert(scale);
+		setMapScale(document.getElementById("mapscale").value);
+		//addEventTest();
+	}
+	function callSetMapCenter() {
+		var scale = document.getElementById("mapscale").value;
+		var latlngstr = document.getElementById("info").value;
+		var latlng = latlngstr.split(",");
+		//var lon = document.getElementById("lon").value;
+		//var lat = document.getElementById("lat").value;
+		//alert(scale);
+		if(scale == "") {
+			setMapCenter(latlng[0], latlng[1]);
+			//setMapCenter(lon, lat);
+		}
+		else {
+			setMapCenter(latlng[0], latlng[1], scale);
+			//setMapCenter(lon, lat, scale);
+		}
+	}
+	function callSetMapRect() {
+		var rectstr = document.getElementById("info").value;
+		var rects = rectstr.split(",");
+		//alert(rects[0] + " " + rects[1] + " " + rects[2] + " " + rects[3]);
+		setMapRect(Number(rects[0]), Number(rects[1]), Number(rects[2]), Number(rects[3]));
+	}
+
+	function initMap() {
+		setMetadata();
+		createOverviewMap(true);
+		showCenterMark(true);
+		event("leftdown", "jstest");
+		var initCX = 140.0852778;
+		var initCY = 36.10416667;
+		setMapCenter(initCX, initCY);
+	}
+	function jstest() {
+		getcalltest(getCenter());
+	}
+  </script>
+</body>
+</html>

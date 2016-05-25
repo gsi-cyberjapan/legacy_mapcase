@@ -1,0 +1,958 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" 
+		 initialize="init(event)"
+		 width="300" height="400">
+	<fx:Declarations>
+		<!-- Placer ici les 辿l辿ments non visuels (services et objets de valeur, par exemple). -->
+	</fx:Declarations>
+	
+	<s:layout>
+		<s:VerticalLayout paddingBottom="10" paddingTop="10" paddingLeft="10" paddingRight="10"/>
+	</s:layout>
+	
+	<!--
+	<s:Label id="layerName" text="{this.nameLabel}" width="40%" />
+	<s:TextInput id="inputName"  width="60%" />
+	-->
+	
+	<s:Group id="formatversionGroup">
+		
+		<s:layout>
+			<s:HorizontalLayout />
+		</s:layout>
+		
+		<s:Group id="formatGroup" >
+			
+			<s:layout>
+				<s:VerticalLayout />
+			</s:layout>
+			
+			<s:Label id="formatLabel" text="{this.formatLabelText}" />
+			
+			<s:DropDownList id="listFormat"
+							change="{this.formatChange(event)}"
+							dataProvider="{this.formatProvider}"
+							selectedIndex="{this.selectedFormat}" />
+		</s:Group>
+		
+		<s:Group id="versionGroup" visible="false" >
+			
+			<s:layout>
+				<s:VerticalLayout />
+			</s:layout>
+			
+			<s:Label id="version" text="{this.versionLabel}" width="60%" />
+			<s:DropDownList id="listVersion"
+							change="{this.versionChange(event)}"
+							dataProvider="{this.versionProvider}"
+							selectedIndex="{this.selectedVersion}" 
+							width="60%"/>
+		</s:Group>
+	</s:Group>
+
+	<s:VGroup paddingLeft="10" paddingTop="10">
+		<s:RadioButton groupName="source" 
+					   id="url"
+					   label="{this.urlLabelText}" 
+					   width="150"					   
+					   click="selectUrl(event);"/>
+		<s:RadioButton groupName="source" 
+					   id="locale"
+					   label="{this.localeLabelText}" 
+					   width="150" 
+					   click="selectLocale(event);"/>
+	</s:VGroup>
+
+	<s:TextInput id="urlInput" visible="false" />
+	<s:Button id="localeButton" visible="false" label="{this.browseLabel}" click="{this.browseFiles()}"/>
+	
+<!--	<s:Label id="selectedLocaleFile" visible="false" width="250" /> -->
+	<s:TextArea id="selectedLocaleFile" visible="false" width="250" heightInLines="2" editable="false"
+	borderVisible="false" />
+	<s:CheckBox id="zoomToBBox" visible="true" label="{this.zoomToBBoxLabel}" />
+	
+<!-- hamas : 13.10.11 自動再描画 -->
+
+    <mx:VBox paddingTop="10" paddingBottom="10" visible="true">
+		<s:CheckBox id="checkReloadSpan" visible="false" label="{this.reloadLabel}" change="checkReload(event)" />
+		<s:HGroup id="refreshDelayGroup" paddingLeft="20" verticalAlign="middle" visible="false" enabled="false">
+			<s:Label id="refreshDelayValueLabel" text="{this.reloadValueLabel}"/>
+			<mx:NumericStepper focusColor="{this.formFocusColor}"
+				id="refreshDelay" value="@{this._refreshDelay}" minimum="0" maximum="10" stepSize="1"/>
+			<s:Label id="refreshDelayUnitLabel" text="{this.reloadUnitLabel}"/>
+		</s:HGroup>
+	</mx:VBox>
+	
+	<s:Label visible="false" id="nameError" 
+			 text="{this.nameLabelError}" width="{this.width*0.7}" bottom="0" />
+	<s:Label visible="false" id="sourceError" 
+			 text="{this.sourceLabelError}" width="{this.width*0.7}" bottom="0" />
+	<s:Button id="validateImportButton" label="{this.importLabel}" click="{this.validateImportFeature(event)}" />
+	
+	<fx:Script>
+		<![CDATA[
+			import flash.display.BitmapData;
+			import flash.events.Event;
+			import flash.events.MouseEvent;
+			import flash.net.drm.DRMURLDownloadContext;
+			import flash.net.FileFilter;
+			import flash.net.FileReference;
+			import flash.net.FileReferenceList;
+			import flash.net.URLRequest;
+			import jp.cyberjapan.webtis.api.LayerAPI;
+			import jp.cyberjapan.webtis.event.LayerAddEvent;
+			import jp.cyberjapan.webtis.format.ExKMLFormat;
+			import jp.cyberjapan.webtis.layer.ExKML;
+			import jp.cyberjapan.webtis.util.ProgressBarDisplay;
+			import jp.cyberjapan.webtis.util.StringUtil;
+			import mx.collections.ArrayCollection;
+			import mx.controls.Alert;
+			import org.openscales.core.events.DrawingEvent;
+			import org.openscales.core.events.I18NEvent;
+			import org.openscales.core.events.LayerEvent;
+			import org.openscales.core.i18n.Catalog;
+			import org.openscales.core.layer.KML;
+			import org.openscales.core.layer.Layer;
+			import org.openscales.core.layer.ogc.GeoRss;
+			import org.openscales.core.layer.ogc.GML;
+			import org.openscales.core.layer.ogc.GPX;
+			import org.openscales.core.layer.osm.OSM;
+			import org.openscales.core.layer.VectorLayer;
+			import org.openscales.geometry.basetypes.Bounds;
+			import org.openscales.proj4as.ProjProjection;
+		// hamas : 13.09.27 KMZ読込
+			import flash.utils.ByteArray;
+			import flash.display.Bitmap;
+			import deng.fzip.FZip;
+			import deng.fzip.FZipFile;
+			import org.openscales.core.feature.Feature;
+			import org.openscales.core.feature.PointFeature;
+			import org.openscales.core.style.marker.Marker;
+			import org.openscales.core.style.marker.CustomMarker;
+			import org.openscales.core.style.Style;
+			import org.openscales.core.style.Rule;
+			import org.openscales.core.style.symbolizer.PointSymbolizer;
+			import jp.cyberjapan.webtis.event.ProgressDisplayEvent;
+
+			private const FORMAT_PROVIDER_CHANGED:String = "formatProviderChanged";
+			private const VERSION_PROVIDER_CHANGED:String = "versionProviderChanged";
+			
+			/**
+			 * Translation for label Name
+			 */
+			[Bindable]
+			public var nameLabel:String = Catalog.getLocalizationForKey('drawing.name');
+			
+			
+			/**
+			 * THe valide import text
+			 */
+			[Bindable]
+			public var importLabel:String = Catalog.getLocalizationForKey('drawing.import');
+			
+			/**
+			 * The label url value
+			 */
+			[Bindable]
+			public var urlLabelText:String = Catalog.getLocalizationForKey('drawing.url');
+			
+			/**
+			 * The label locale file value
+			 */
+			[Bindable]
+			public var localeLabelText:String = Catalog.getLocalizationForKey('drawing.locale');
+			
+			/**
+			 * The label format value
+			 */
+			[Bindable]
+			public var formatLabelText:String = Catalog.getLocalizationForKey('drawing.format');	
+			
+			/**
+			 * Translation for label Version
+			 */
+			[Bindable]
+			public var versionLabel:String = Catalog.getLocalizationForKey('drawing.version');
+			
+			/**
+			 * Translation for label Name error
+			 */
+			[Bindable]
+			public var nameLabelError:String = Catalog.getLocalizationForKey('drawing.nameerror');
+			
+			/**
+			 * Translation for source (url or locale) error (empty)
+			 */
+			[Bindable]
+			public var sourceLabelError:String = Catalog.getLocalizationForKey('drawing.sourceerror');
+			
+			/**
+			 * Browse files
+			 */
+			[Bindable]
+			public var browseLabel:String = Catalog.getLocalizationForKey('drawing.browse');
+
+			[Bindable]
+			public var zoomToBBoxLabel:String = Catalog.getLocalizationForKey('drawing.zoomtobbox');
+
+		// hamas : 13.10.11 自動再描画
+			[Bindable]
+			public var reloadLabel:String = Catalog.getLocalizationForKey('drawing.refreshDelay');
+			[Bindable]
+			public var reloadValueLabel:String = Catalog.getLocalizationForKey('drawing.refreshDelayValue');
+			[Bindable]
+			public var reloadUnitLabel:String = Catalog.getLocalizationForKey('drawing.refreshDelayUnit');
+			[Bindable]
+			public var formFocusColor:uint = 0x6699FF;
+			[Bindable]
+			public var _refreshDelay:int = -1;
+
+			/**
+			 * Datas in the format dropdownlist
+			 */
+			private var _formatProvider:ArrayCollection = new ArrayCollection();
+			
+			/**
+			 * The current selected format
+			 * @default the first one : 0
+			 */
+			[Bindable]
+			public var selectedFormat:Number = 0;
+			
+			/**
+			 * Contains all the format supported
+			 */
+			[Bindable]
+			public var supportedFormat:Array = null;
+			
+			/**
+			 * Contains all the version supported
+			 */
+			[Bindable]
+			public var supportedVersion:Array = null;
+			
+			/**
+			 * Datas for the version dropdownList
+			 */
+			[Bindable]
+			private var _versionProvider:ArrayCollection = new ArrayCollection();
+			
+			/**
+			 * The current selected version
+			 * @default the first one : 0
+			 */
+			[Bindable]
+			public var selectedVersion:Number = 0;
+			
+			/**
+			 * @private
+			 * Datas contains in the locale file selected
+			 * @default null
+			 */
+			private var _datasFile:ByteArray = null;
+			
+			/**
+			 * The loader instance linked to the current pop up
+			 */
+			private var _loader:FileLoader = null;
+
+			/**
+			 * Selected source type
+			 */
+			[Bindable]
+			public var selectedSource:int = -1; 
+			
+			/**
+			 * The file reference
+			 */
+			private var fileReference:FileReference;
+			private var fileReferenceList:FileReferenceList;
+			private var _alreadyInit:Boolean = false;
+
+			//private var _loading:LoadingPicture = null;
+			private var _progress:ProgressBarDisplay = null;
+			private var current_cnt:int = 0;
+			private var total_cnt:int;
+			private var viewName:String;
+			
+		// hamas : 13.09.27 KMZ読込
+			private var _kmlObj:Vector.<Feature>;
+			private var _zip:FZip = null;
+			
+			public function init(event:Event):void
+			{
+				if(this._alreadyInit)
+					return;
+				
+				if(!this.supportedFormat)
+				{
+					// init all available formats
+					this.supportedFormat = new Array();
+					this.supportedFormat[0] = "KML";
+					this.supportedFormat[1] = "KMZ";
+					 //this.supportedFormat[2] = "GPX";
+					 //this.supportedFormat[3] = "GeoRSS";
+					 //this.supportedFormat[4] = "GML";
+				}
+				
+				if(!this.supportedVersion)
+				{
+					this.supportedVersion = new Array();
+					this.supportedVersion[0] = [""]; 
+					this.supportedVersion[1] = [""]; 
+					 //this.supportedVersion[2] = ["1.0.0","1.1.0"]; // GPX
+					 //this.supportedVersion[3] = [""]; 
+					 //this.supportedVersion[4] = ["2.0.0", "2.1.0" , "3.2.1"]; // GML
+				}
+				
+				// init formats :
+				for each(var format:String in supportedFormat)
+				{
+					this.formatProvider.addItem(format);
+				}
+				
+				// init versions :
+				for each(var version:String in supportedVersion[this.selectedFormat])
+				{
+					this.versionProvider.addItem(version);
+				}
+				
+				this._alreadyInit = true;
+			}
+			
+			/**
+			 * Call when a change event if dispatch by the dropdownlist linked to formats
+			 * Update the current format value according to the new selection
+			 * And then refresh the version list
+			 */
+			public function formatChange(event:Event):void
+			{
+				if(event)
+				{
+					var list:DropDownList = event.currentTarget as DropDownList
+					this.selectedFormat = list.selectedIndex;
+					
+					this.updateVersion();
+				}
+			}
+			
+			/**
+			 * Call when a change event if dispatch by the dropdownlist linked to versions
+			 * Update the current version value according to the new selection
+			 */
+			public function versionChange(event:Event):void
+			{
+				if(event)
+				{
+					var list:DropDownList = event.currentTarget as DropDownList
+					this.selectedVersion = list.selectedIndex;
+				}	
+			}
+			
+			/**
+			 * Change versions value according to current format selection
+			 */
+			public function updateVersion():void
+			{
+				this.versionProvider.removeAll();
+				this.selectedVersion = -1;
+				for each(var version:String in supportedVersion[this.selectedFormat])
+				{
+					this.versionProvider.addItem(version);
+				}
+				this.selectedVersion = 0;
+				
+				if(this.versionProvider.length > 1)
+					versionGroup.visible = true;
+				else
+					versionGroup.visible = false;
+			}
+			
+			/**
+			 * Change the text values on Map Language changed
+			 * @param event The I18N event received
+			 */
+			public function onMapLanguageChange(event:I18NEvent):void 
+			{
+				this.importLabel = Catalog.getLocalizationForKey('drawing.import');
+				this.urlLabelText = Catalog.getLocalizationForKey('drawing.url');
+				this.localeLabelText = Catalog.getLocalizationForKey('drawing.locale');
+			}
+			
+			/**
+			 * Called when the user validate the import
+			 * First check that locale file or url is not empty and then create a new Layer with the file data
+			 * 
+			 * @param event The MouseEvent received
+			 */
+			public function validateImportFeature(event:MouseEvent):void
+			{
+				// get and check empty field
+				var valide:Boolean = true;
+
+				// get the datas fields :
+				// var name:String = String(this.inputName.text).replace(/\s/g,"");
+				var format:String = this.formatProvider.getItemAt(this.selectedFormat) as String;
+				var version:String = this.versionProvider.getItemAt(this.selectedVersion) as String;
+				var url:String = (this.urlInput.text).replace(/\s/g,"");
+				var source:String = (this.urlInput.text).replace(/\s/g,"");
+
+				if(selectedSource <= 0)
+				{
+					sourceError.visible = true;
+					valide = false;
+				}	
+			
+				if(selectedSource == 1 && (!url || url=="") )
+				{
+					sourceError.visible = true;
+					valide = false;
+				} else if (selectedSource == 2 && !fileReferenceList) {
+					sourceError.visible = true;
+					valide = false;
+				}
+				
+				var name:String = null;
+				if (selectedSource == 1) {
+					name = StringUtil.getFileNameFromURL(url);
+				} else if (selectedSource == 2) {
+					name = String(selectedLocaleFile.text).replace(/\s/g,"");
+				}
+
+				if(!name || name=="" || !this.validateName(name))
+				{
+					nameError.visible = true;
+					valide = false;
+				}
+				
+				if(!valide)
+					return;
+				
+				nameError.visible = false;
+				sourceError.visible = false;
+				
+				var xml:XML = null;
+				var evt:DrawingEvent;
+				
+				if(valide)
+				{
+					this._loader.closePopUp();
+
+					current_cnt = 0;
+					if (selectedSource == 1)
+					{
+						if (format == "KMZ") {
+							this._zip = new FZip();
+							this._zip.addEventListener(Event.COMPLETE, onKMZLoadComplete);
+							this._zip.addEventListener(IOErrorEvent.IO_ERROR, onLoadError);
+							this._zip.load(new URLRequest(url));
+						} else {
+							// URL
+							doImport();
+						}
+					} else {
+						// >>>
+						// 読み込みファイルの件数取得
+						total_cnt = fileReferenceList.fileList.length;
+						// プログレスバーの生成
+						_progress = new ProgressBarDisplay(total_cnt);
+						_progress.addEventListener(ProgressDisplayEvent.PROGRESS_CANCELLED, progressCancelled);
+						// プログレスバーの表示
+						_progress.show(this._loader.map);
+
+						// file
+						loadFile();
+					}
+				}
+			}
+
+			/**
+			 * プログラスバーで中止ボタンが押された時の動作
+			 * @param	e
+			 */
+			private function progressCancelled(e:ProgressDisplayEvent):void
+			{
+				if (fileReference) {
+					fileReference.cancel();
+				}
+			}
+			/**
+			 * ファイルロード処理
+			 */
+			private function loadFile():void
+			{
+				fileReference = fileReferenceList.fileList[0];
+				//listen for when the file has loaded
+				fileReference.addEventListener(Event.COMPLETE, onLoadComplete);
+		
+				//listen for any errors reading the file
+				fileReference.addEventListener(IOErrorEvent.IO_ERROR, onLoadError);
+				viewName = String(fileReference.name).replace(/\s/g,"");
+
+				fileReference.load();
+				
+			}
+
+			private function doImport():void
+			{
+				// get the datas fields :
+//				var name:String = String(this.inputName.text).replace(/\s/g,"");
+				var name:String = null;
+				var format:String = this.formatProvider.getItemAt(this.selectedFormat) as String;
+				var version:String = this.versionProvider.getItemAt(this.selectedVersion) as String;
+				var url:String = (this.urlInput.text).replace(/\s/g,"");
+				var source:String = (this.urlInput.text).replace(/\s/g,"");
+
+				var xml:XML = null;
+				var evt:DrawingEvent;
+
+				switch(format)
+				{
+					case "KML":
+					
+						var kml:ExKML = null;
+					
+						if(selectedSource == 1)
+						{
+							name = StringUtil.getFileNameFromURL(url);
+							kml = new ExKML(name, true, url);
+							kml.addEventListener(LayerEvent.LAYER_LOAD_END, layerLoaded);
+							// kml.url = url;
+							kml.displayedName = name;
+							kml.identifier = name;
+							kml.selected = true;
+							kml.editable = false;
+						// hamas : 13.10.11 自動再描画
+							if ( this.checkReloadSpan.selected ) {
+								kml.setTimer(this._refreshDelay);
+							}
+							this._loader.map.addLayer(kml);
+						}
+						
+						else // locale file
+						{
+							name = viewName;
+							xml = new XML(_datasFile.readUTFBytes(_datasFile.bytesAvailable));
+							kml = new ExKML(name, true, null, xml);
+							kml.displayedName = name;
+							kml.identifier = name;
+							kml.selected = true;
+							kml.editable = false;
+							this._loader.map.addLayer(kml);
+							kml.redraw(true);
+							zoomToFeatureBBox(kml);
+						}
+						evt = new DrawingEvent(DrawingEvent.CHANGE_ACTIVE_LAYER);
+						//evt.layer = this._importFeature.map.layers[this._importFeature.map.layers.length - 1] as VectorLayer;
+						evt.layer = kml;
+						this._loader.map.dispatchEvent(evt);
+						this._loader.map.dispatchEvent(new LayerAddEvent(LayerAddEvent.FILE_LAYER_ADDED, name));
+						
+						break;
+						
+				// hamas : 13.09.27 KMZ読込
+					case "KMZ":
+						if (selectedSource == 1) {
+							name = StringUtil.getFileNameFromURL(url);
+//							zip.load(new URLRequest(url));
+						} else {
+							this._zip = new FZip();
+							// locale file
+							name = viewName;
+							this._zip.loadBytes(_datasFile);
+						}
+						
+						var cnt:int = 0;
+						var file_name:String = "";
+						var file_ext:String = "";
+
+						for (cnt = 0; cnt < this._zip.getFileCount(); cnt++) {
+							file_name = this._zip.getFileAt(cnt).filename;
+							file_ext = file_name.substring(file_name.length - 3).toLowerCase();
+							if ( file_ext == "kml"){
+								var byte:ByteArray = this._zip.getFileAt(cnt).content;
+								
+								xml = new XML(byte);
+								kml = new ExKML(name, true, null, xml);
+								
+								var kmlData:ExKMLFormat = new ExKMLFormat();
+								_kmlObj = kmlData.read(xml) as Vector.<Feature>;
+								break;
+							}
+						}
+						
+						for (cnt = 0; cnt < this._zip.getFileCount(); cnt++) {
+							file_name = this._zip.getFileAt(cnt).filename;
+							file_ext = file_name.substring(file_name.length - 3).toLowerCase();
+							if ( file_ext == "png"
+								|| file_ext == "jpeg"　|| file_ext == "jpg"
+								|| file_ext == "gif" )
+							{
+								var loader:Loader = new Loader();
+								loader.loadBytes(this._zip.getFileAt(cnt).content);
+								loader.contentLoaderInfo.addEventListener( Event.COMPLETE,
+									function():void {
+										var bd:BitmapData = new BitmapData(loader.width, loader.height);
+										bd.draw(loader);
+										var bm:Bitmap = new Bitmap(bd);
+										// 画像情報をレイヤに追加
+										addKmzMarker(kml as VectorLayer, file_name, bm);										
+									}
+								);
+							}
+						}
+						// 再描画
+						this._loader.map.addLayer(kml);						
+						kml.redraw(true);
+						zoomToFeatureBBox(kml);
+						
+						evt = new DrawingEvent(DrawingEvent.CHANGE_ACTIVE_LAYER);
+						evt.layer = kml;
+						this._loader.map.dispatchEvent(evt);
+						this._loader.map.dispatchEvent(new LayerAddEvent(LayerAddEvent.FILE_LAYER_ADDED, name));
+						break;
+						
+					case "GPX":
+						
+						var gpx:GPX = null;
+							
+						if(selectedSource == 1)
+						{
+							gpx = new GPX(name, version, url);
+							gpx.selected = true;
+							gpx.editable = true;
+							this._loader.map.addLayer(gpx);
+						}
+						else // locale file
+						{
+							xml = new XML(_datasFile.readUTFBytes(_datasFile.bytesAvailable));
+							gpx = new GPX(name, version, null, xml);
+							gpx.selected = true;
+							gpx.editable = true;
+							this._loader.map.addLayer(gpx);
+						}
+						evt = new DrawingEvent(DrawingEvent.CHANGE_ACTIVE_LAYER);
+						evt.layer = gpx;
+						this._loader.map.dispatchEvent(evt);
+							
+						break;
+						
+					case "GeoRSS":
+							
+						if(selectedSource == 1)
+						{
+							var geoRss:GeoRss = new GeoRss(name, url);
+							geoRss.selected = true;
+							geoRss.editable = true;
+							this._loader.map.addLayer(geoRss);
+						}
+						else // locale file
+						{
+								
+						}
+						evt = new DrawingEvent(DrawingEvent.CHANGE_ACTIVE_LAYER);
+						evt.layer = geoRss;
+						this._loader.map.dispatchEvent(evt);
+							
+						break;
+						
+					case "OSM":
+						
+						if(selectedSource == 1)
+						{
+							var osm:OSM = new OSM(name, url);
+							osm.selected = true;
+							this._loader.map.addLayer(osm);
+						}
+						else // locale file
+						{
+								
+						}
+							
+						break;
+						
+					case "GML":
+						
+						var gml:GML = null;
+							
+						if(selectedSource == 1)
+						{
+							gml = new GML(name, version, this._loader.map.projection, url);
+							gml.displayedName = name;
+							gml.selected = true;
+							gml.editable = true;
+							this._loader.map.addLayer(gml);
+						}
+						else // locale file
+						{
+							xml = new XML(_datasFile.readUTFBytes(_datasFile.bytesAvailable));
+							gml = new GML(name, version, this._loader.map.projection, null, xml);
+							gml.displayedName = name;
+							gml.selected = true;
+							gml.editable = true;
+							this._loader.map.addLayer(gml);
+						}
+						evt = new DrawingEvent(DrawingEvent.CHANGE_ACTIVE_LAYER);
+						evt.layer = gml;
+						this._loader.map.dispatchEvent(evt);
+							
+						break;
+				}
+				//if (_loading != null) {
+					//_loading.stop();
+					//_loading.remove();
+					//_loading = null;
+				//}
+
+				if (_progress != null) {
+					current_cnt++;
+					if (total_cnt == current_cnt) {
+						_progress.completeHandler();
+					}else {
+						_progress.onProgress(current_cnt);
+					}
+				}
+			}
+			
+			/**
+			 * @private
+			 */
+			private function validateName(value:String):Boolean
+			{
+				if(this._loader.map)
+				{
+					if(this._loader.map.getLayerByIdentifier(value)==null)
+						return true;
+				}
+				return false;
+			}
+			
+			/**
+			 * Select url procces for import
+			 */
+			public function selectUrl(event:MouseEvent):void
+			{
+				selectedSource = 1;
+				urlInput.visible = true;
+				localeButton.visible = false;
+				selectedLocaleFile.visible = false;
+			// hamas : 13.10.11 自動再描画
+				//refreshDelay.visible = true;
+				checkReloadSpan.visible = true;
+				refreshDelayGroup.visible = true;
+			}
+			
+			/**
+			 * Select locale process for import
+			 */
+			public function selectLocale(event:MouseEvent):void
+			{
+				selectedSource = 2;
+				urlInput.visible = false;
+				selectedLocaleFile.visible = true;
+				localeButton.visible = true;
+			// hamas : 13.10.11 自動再描画
+				// refreshDelay.visible = false;
+				checkReloadSpan.visible = false;
+				refreshDelayGroup.visible = false;
+			}
+			
+			public function checkReload(event:Event):void
+			{
+				if (this.checkReloadSpan.selected) {
+					this.refreshDelayGroup.enabled = true;
+//					this.refreshDelay.enabled = true;
+				} else {
+					this.refreshDelayGroup.enabled = false;
+//					this.refreshDelay.enabled = false;
+				}
+			}
+
+			/**
+			 * Browse FileSystem to select the locale file to import
+			 */
+			public function browseFiles():void
+			{
+				//create the FileReference instance
+				fileReferenceList = new FileReferenceList();
+				
+				//listen for when they select a file
+				fileReferenceList.addEventListener(Event.SELECT, onFileSelect);
+				
+				//listen for when then cancel out of the browse dialog
+				fileReferenceList.addEventListener(Event.CANCEL,onCancel);
+				
+				//open a native browse dialog that filters for text files
+				fileReferenceList.browse();
+			}
+			
+			/**
+			 * Called when a file is selected on 
+			 */
+			public function onFileSelect(e:Event):void
+			{
+				for ( var i:int = 0; i < fileReferenceList.fileList.length; i++) {
+					fileReference = fileReferenceList.fileList[i];
+					selectedLocaleFile.text += fileReference.name +",";
+				}
+				selectedLocaleFile.text = selectedLocaleFile.text.substring(0, selectedLocaleFile.text.length - 1);
+				//load the content of the file
+//				fileReference.load();
+			}
+			
+			/**
+			 * Called when the user cancel the browse process
+			 */
+			public function onCancel(e:Event):void				
+			{
+				fileReferenceList = null;
+				fileReference = null;
+			}
+			
+			/**
+			 * private
+			 * called when the file has completed loading
+			 */
+			private function onLoadComplete(e:Event):void
+			{
+				//get the data from the file as a ByteArray
+				_datasFile = fileReference.data;
+				
+//				selectedLocaleFile.text = fileReference.name;
+				
+				//clean up the FileReference instance
+				fileReference = null;
+				
+				doImport();
+				
+				//要素の削除
+				fileReferenceList.fileList.splice(0, 1);
+				// キャンセルボタン押下時、処理を中断、対象ファイルが存在する場合はロード処理続行
+				if (!_progress.isStat() || _progress == null) {
+					onCancel(e);
+					_progress = null;
+				}else if (fileReferenceList.fileList.length > 0) {
+					loadFile();
+				}else {
+					fileReferenceList = null;					
+				}
+
+			}
+			
+			//called if an error occurs while loading the file contents
+			private function onLoadError(e:IOErrorEvent):void
+			{
+				trace("Error loading file : " + e.text);
+				Alert.show("ファイルを開けませんでした : " + e.text);
+				//if (_loading != null) {
+					//_loading.stop();
+					//_loading.remove();
+					//_loading = null;
+				//}
+				if (_progress != null){
+					_progress.onErrorHandler();
+				}				
+			}
+			
+			private function onKMZLoadComplete(e:Event):void
+			{
+				doImport();
+			}
+
+			/**
+			 * The different formats available in the dropdownlist
+			 */
+			[Bindable(event=FORMAT_PROVIDER_CHANGED)]
+			public function get formatProvider():ArrayCollection
+			{
+				return this._formatProvider;
+			}
+			
+			public function set formatProvider(value:ArrayCollection):void
+			{
+				if(value)
+				{
+					this._formatProvider = value;
+					dispatchEvent(new Event(FORMAT_PROVIDER_CHANGED));	
+				}
+			}
+			
+			/**
+			 * The different versions available in the dropdownlist
+			 */
+			[Bindable(event=VERSION_PROVIDER_CHANGED)]
+			public function get versionProvider():ArrayCollection
+			{
+				return this._versionProvider;
+			}
+			
+			public function set versionProvider(value:ArrayCollection):void
+			{
+				if(value)
+				{
+					this._versionProvider = value;
+					dispatchEvent(new Event(VERSION_PROVIDER_CHANGED));	
+				}
+			}
+			
+			private function layerLoaded(e:LayerEvent):void
+			{
+				if (e.layer is ExKML) {
+					zoomToFeatureBBox(e.layer as ExKML);
+				}
+			}
+			
+			private function zoomToFeatureBBox(layer:ExKML):void
+			{
+				if (this.zoomToBBox.selected && layer.featuresBbox != null) {
+					var bbox:Bounds = layer.featuresBbox;
+					this._loader.map.center = bbox.center;
+					this._loader.map.zoomToExtent(bbox);
+					// もっとも近いresolutionに補正
+					this._loader.map.resolution = this._loader.baseMap.getSupportedResolution(this._loader.map.resolution);
+				}
+			}
+			
+			public function get loader():FileLoader
+			{
+				return this._loader;
+			}
+			
+			public function set loader(loader:FileLoader):void
+			{
+				this._loader = loader;
+			}
+
+		// hamas : 13.09.27 KMZ読込
+			/**
+			 * 指定したレイヤーが存在するかどうかを返す
+			 * @param	layername レイヤー名
+			 * @return  そのレイヤーが存在すればtrue、存在しなければfalse
+			 */
+			private function addKmzMarker( layer:Layer, fileName:String, bm:Bitmap ):void
+			{
+				for(var cnt_obj:uint = 0; cnt_obj < _kmlObj.length; cnt_obj++){
+					if ( _kmlObj[cnt_obj] is PointFeature ) {						
+						var feat:PointFeature = _kmlObj[cnt_obj] as PointFeature;
+						for each( var rule:Rule in feat.style.rules ){
+							for(var cnt_sym:uint = 0; cnt_sym < rule.symbolizers.length; cnt_sym++)
+							{
+								if ( rule.symbolizers[cnt_sym] is PointSymbolizer ) {
+									var pointSym:PointSymbolizer = rule.symbolizers[cnt_sym] as PointSymbolizer;
+									var graphic:Marker = pointSym.graphic;
+									if ( graphic is CustomMarker ) {
+										(graphic as CustomMarker).clip = bm;
+										feat.mouseEnabled = false;
+										(layer as VectorLayer).addFeature(feat);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		]]>
+	</fx:Script>	
+</s:Group>

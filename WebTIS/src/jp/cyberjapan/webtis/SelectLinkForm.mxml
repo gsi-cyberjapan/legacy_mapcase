@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Control xmlns="http://openscales.org"
+		 xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" 
+		 >
+    <mx:VBox>
+		<mx:Spacer height="100%" />
+        <mx:LinkButton
+			label="マピオン"
+			textDecoration="underline"
+			click="popLink_Mapion()"/>
+        <mx:LinkButton label="いつもNavi"
+			textDecoration="underline"
+			click="popLink_ItsumoNavi()"/>
+		<mx:Spacer height="100%" />
+		<mx:TextInput id="lat" visible="false" includeInLayout="false" />
+		<mx:TextInput id="lon" visible="false" includeInLayout="false" />
+    </mx:VBox>
+	
+	<fx:Script>
+		<![CDATA[
+
+		// hamas : 13.08.30 他のWeb地図で見る(マピオン)
+			private function popLink_Mapion(/*e:ContextMenuEvent*/):void
+			{
+				if (ExternalInterface.available) {
+					ExternalInterface.call("openMapLinkCenter", 1 /*LinkKey.Mapion*/,lon.text,lat.text);
+				}
+			}
+			
+		// hamas : 13.08.30 他のWeb地図で見る(いつもNavi)
+			private function popLink_ItsumoNavi(/*e:ContextMenuEvent*/):void
+			{
+				if (ExternalInterface.available) {
+					ExternalInterface.call("openMapLinkCenter", 2 /*LinkKey.ItsumoNavi*/,lon.text,lat.text);
+				}
+			}
+			
+		]]>
+	</fx:Script>	
+</Control>

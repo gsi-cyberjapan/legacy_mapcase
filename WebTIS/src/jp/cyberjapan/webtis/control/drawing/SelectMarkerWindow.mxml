@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark" 
+               xmlns:mx="library://ns.adobe.com/flex/mx"
+			   title="{_title}" creationComplete="onCreationComplete()" resize="onResize()">
+	
+	<mx:Grid id="grid" top="1" right="1" bottom="1" left="1" styleName="grid">
+	</mx:Grid>
+	<fx:Style>
+		@namespace s "library://ns.adobe.com/flex/spark";
+		@namespace mx "library://ns.adobe.com/flex/mx";
+		.grid {
+			horizontalGap: 1;
+			verticalGap: 1;
+		}
+	</fx:Style>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import flash.events.MouseEvent;
+			import mx.containers.Grid;
+			import mx.containers.GridItem;
+			import mx.containers.GridRow;
+			import mx.controls.Alert;
+			import mx.controls.Image;
+			import mx.events.CloseEvent;
+			
+			import org.openscales.core.Map;
+			import org.openscales.core.events.I18NEvent;
+			import org.openscales.core.i18n.Catalog;
+			
+		// hamas : 13.09.10 追加
+			private var _byPop:Boolean = false;
+			public function set byPop( value:Boolean ) : void {
+				this._byPop =  value;
+			}
+			private var _map:Map = null;
+			public function set map( value:Map ) : void {
+				this._map = value;
+			}
+
+			[Bindable]
+			private var _title:String = Catalog.getLocalizationForKey("selectMarker.selectMarker");
+			
+			private static const ColLength:uint = 10;
+			private static const ITEM_SIZE:Number = 21;
+			
+			private var _selectedIconUrl:String;
+			//private var _selectedIcon:Image;
+			
+			public function onCreationComplete():void
+			{
+				// アイコンリストの作成
+				var iconArray:Array = [
+					"sys/v4/symbols/172.GIF",
+					"sys/v4/symbols/173.GIF",
+					"sys/v4/symbols/173.GIF",
+					"sys/v4/symbols/174.GIF",
+					"sys/v4/symbols/175.GIF",
+					"sys/v4/symbols/176.GIF",
+					"sys/v4/symbols/177.GIF",
+					"sys/v4/symbols/178.GIF",
+					"sys/v4/symbols/179.GIF",
+					"site/mapusef/icons/001.png",
+					"site/mapusef/icons/002.png",
+					"site/mapusef/icons/003.png",
+					"site/mapusef/icons/004.png",
+					"site/mapusef/icons/005.png",
+					"site/mapusef/icons/006.png",
+					"site/mapusef/icons/007.png",
+					"site/mapusef/icons/008.png",
+					"site/mapusef/icons/009.png",
+					"site/mapusef/icons/010.png",
+					"site/mapusef/icons/011.png",
+					"site/mapusef/icons/012.png",
+					"site/mapusef/icons/013.png",
+					"site/mapusef/icons/014.png",
+					"site/mapusef/icons/015.png",
+					"site/mapusef/icons/016.png",
+					"site/mapusef/icons/017.png",
+					"site/mapusef/icons/018.png",
+					"site/mapusef/icons/019.png",
+					"site/mapusef/icons/020.png",
+					"site/mapusef/icons/021.png",
+					"site/mapusef/icons/022.png",
+					"site/mapusef/icons/023.png",
+					"site/mapusef/icons/024.png",
+					"site/mapusef/icons/025.png",
+					"site/mapusef/icons/026.png",
+					"site/mapusef/icons/027.png",
+					"site/mapusef/icons/028.png",
+					"site/mapusef/icons/029.png",
+					"site/mapusef/icons/030.png",
+					"site/mapusef/icons/031.png",
+					"site/mapusef/icons/032.png",
+					"site/mapusef/icons/033.png",
+					"site/mapusef/icons/034.png",
+					"site/mapusef/icons/035.png",
+					"site/mapusef/icons/036.png",
+					"site/mapusef/icons/037.png",
+					"site/mapusef/icons/038.png",
+					"site/mapusef/icons/039.png",
+					"site/mapusef/icons/040.png",
+					"site/mapusef/icons/041.png",
+					"site/mapusef/icons/042.png",
+					"site/mapusef/icons/043.png",
+					"site/mapusef/icons/044.png",
+					"site/mapusef/icons/045.png",
+					"site/mapusef/icons/046.png",
+					"site/mapusef/icons/047.png",
+					"site/mapusef/icons/048.png",
+					"site/mapusef/icons/049.png",
+					"site/mapusef/icons/050.png",
+					"site/mapusef/icons/051.png",
+					"site/mapusef/icons/052.png",
+					"site/mapusef/icons/053.png",
+					"site/mapusef/icons/054.png",
+					"site/mapusef/icons/055.png",
+					"site/mapusef/icons/056.png",
+					"site/mapusef/icons/057.png",
+					"site/mapusef/icons/058.png",
+					"site/mapusef/icons/059.png",
+					"site/mapusef/icons/060.png",
+					"site/mapusef/icons/061.png",
+					"site/mapusef/icons/062.png",
+					"site/mapusef/icons/063.png",
+					"site/mapusef/icons/064.png",
+					"site/mapusef/icons/065.png",
+					"site/mapusef/icons/066.png",
+					"site/mapusef/icons/067.png",
+					"site/mapusef/icons/068.png",
+					"site/mapusef/icons/069.png",
+					"site/mapusef/icons/070.png",
+					"site/mapusef/icons/071.png",
+					"site/mapusef/icons/072.png",
+					"site/mapusef/icons/073.png",
+					"site/mapusef/icons/074.png",
+					"site/mapusef/icons/075.png",
+					"site/mapusef/icons/076.png",
+					"site/mapusef/icons/077.png",
+					"site/mapusef/icons/078.png",
+					"site/mapusef/icons/079.png",
+					"site/mapusef/icons/080.png",
+					"site/mapusef/icons/081.png",
+					"site/mapusef/icons/082.png",
+					"site/mapusef/icons/083.png",
+					"site/mapusef/icons/084.png",
+					"site/mapusef/icons/085.png",
+					"site/mapusef/icons/086.png",
+					"site/mapusef/icons/087.png",
+					"site/mapusef/icons/088.png",
+					"site/mapusef/icons/089.png",
+					"site/mapusef/icons/090.png",
+					"site/mapusef/icons/091.png",
+					"site/mapusef/icons/092.png",
+					"site/mapusef/icons/093.png",
+					"site/mapusef/icons/094.png",
+					"site/mapusef/icons/095.png",
+					"site/mapusef/icons/096.png",
+					"site/mapusef/icons/097.png",
+					"site/mapusef/icons/098.png",
+					"site/mapusef/icons/099.png",
+					"site/mapusef/icons/100.png",
+					"site/mapusef/icons/101.png",
+					"site/mapusef/icons/102.png",
+					"site/mapusef/icons/103.png",
+					"site/mapusef/icons/104.png",
+					"site/mapusef/icons/105.png",
+					"site/mapusef/icons/106.png",
+					"site/mapusef/icons/107.png",
+					"site/mapusef/icons/108.png",
+					"site/mapusef/icons/109.png",
+					"site/mapusef/icons/110.png",
+					"site/mapusef/icons/111.png",
+					"site/mapusef/icons/112.png",
+					"site/mapusef/icons/113.png",
+					"site/mapusef/icons/114.png",
+					"site/mapusef/icons/115.png",
+					"site/mapusef/icons/116.png",
+					"site/mapusef/icons/117.png",
+					"site/mapusef/icons/118.png",
+					"site/mapusef/icons/119.png",
+					"site/mapusef/icons/120.png",
+					"site/mapusef/icons/121.png",
+					"site/mapusef/icons/122.png",
+					"site/mapusef/icons/123.png",
+					"site/mapusef/icons/124.png",
+					"site/mapusef/icons/125.png",
+					"site/mapusef/icons/126.png",
+					"site/mapusef/icons/127.png",
+					"site/mapusef/icons/128.png",
+					"site/mapusef/icons/129.png",
+					"site/mapusef/icons/130.png",
+					"site/mapusef/icons/131.png",
+					"site/mapusef/icons/132.png",
+					"site/mapusef/icons/133.png",
+					"site/mapusef/icons/134.png",
+					"site/mapusef/icons/135.png",
+					"site/mapusef/icons/136.png",
+					"site/mapusef/icons/137.png",
+					"site/mapusef/icons/138.png",
+					"site/mapusef/icons/139.png",
+					"site/mapusef/icons/140.png",
+					"site/mapusef/icons/141.png",
+					"site/mapusef/icons/142.png",
+					"site/mapusef/icons/143.png",
+					"site/mapusef/icons/144.png",
+					"site/mapusef/icons/145.png",
+					"site/mapusef/icons/146.png",
+					"site/mapusef/icons/147.png",
+					"site/mapusef/icons/148.png",
+					"site/mapusef/icons/149.png",
+					"site/mapusef/icons/150.png",
+					"site/mapusef/icons/151.png",
+					"site/mapusef/icons/152.png",
+					"site/mapusef/icons/153.png",
+					"site/mapusef/icons/154.png",
+					"site/mapusef/icons/155.png",
+					"site/mapusef/icons/156.png",
+					"site/mapusef/icons/157.png",
+					"site/mapusef/icons/158.png",
+					"site/mapusef/icons/159.png",
+					"site/mapusef/icons/160.png",
+					"site/mapusef/icons/161.png",
+					"site/mapusef/icons/162.png",
+					"site/mapusef/icons/163.png",
+					"site/mapusef/icons/164.png",
+					"site/mapusef/icons/165.png",
+					"site/mapusef/icons/166.png",
+					"site/mapusef/icons/167.png",
+					"site/mapusef/icons/168.png",
+					"site/mapusef/icons/169.png",
+					"site/mapusef/icons/170.png",
+					"site/mapusef/icons/171.png",
+					"site/mapusef/icons/180.png",
+					"site/mapusef/icons/181.png",
+					"site/mapusef/icons/182.png",
+					"site/mapusef/icons/183.png",
+					"site/mapusef/icons/184.png",
+					"site/mapusef/icons/185.png",
+					"site/mapusef/icons/186.png",
+					"site/mapusef/icons/187.png",
+					"site/mapusef/icons/188.png"
+				];
+				var rowLength:uint = iconArray.length / 10 + 1;
+				for (var i:uint = 0; i < rowLength; i++)
+				{
+					var gridRow:GridRow = new GridRow();
+					grid.addElement(gridRow);
+					
+					for (var j:uint = 0; j < ColLength; j++)
+					{
+						var index:uint = i * ColLength + j;
+						if (index == iconArray.length) break;
+							
+						// アイコン画像ロード
+						var iconImage:Image = new Image();
+						iconImage.source = iconArray[index];
+						//iconImage.load(iconArray[index]);
+						
+						var item:GridItem = new GridItem();
+						item.width = ITEM_SIZE;
+						item.height = ITEM_SIZE;
+						iconImage.addEventListener(MouseEvent.CLICK, onMarkerClick);
+						item.addElement(iconImage);
+						gridRow.addElement(item);
+					}
+				}
+				this.addElement(grid);
+			}
+			
+			private function onMarkerClick(e:MouseEvent):void 
+			{
+				var selectedIcon:Image = e.currentTarget as Image;
+				if (selectedIcon)
+				{
+					// 選択したアイコンのURLをセット
+					_selectedIconUrl = selectedIcon.source as String;
+				}
+				// 選択画面を閉じて、クリック待機
+				this.dispatchEvent(new CloseEvent(CloseEvent.CLOSE));
+
+			// hamas : 13.09.13 追加
+				if( _byPop ){
+					this._map.dispatchEvent(new Event("POP_CLOSE_EDIT_STYLE"));
+				}
+			}
+			
+			public function onResize():void
+			{
+				// 表示位置調整
+				this.x = parent.width / 2 - this.width / 2;
+				this.y = parent.height / 2 - this.height / 2;
+			}
+			
+			/**
+			 * Change the text values on Map Language changed
+			 * @param event The I18N event received
+			 */
+			public function onMapLanguageChange(event:I18NEvent):void 
+			{
+				_title = Catalog.getLocalizationForKey("selectMarker.selectMarker");
+			}
+			
+			public function get selectedIconUrl():String 
+			{
+				return _selectedIconUrl;
+			}
+			
+			public function set selectedIconUrl(value:String):void 
+			{
+				_selectedIconUrl = value;
+			}
+		]]>
+	</fx:Script>
+	
+	
+</s:TitleWindow>

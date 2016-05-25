@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:openscales="http://openscales.org"
+		 xmlns:os="org.openscales.fx.control.*">
+	
+	<s:states>
+		<s:State name="normal" />
+		<s:State name="popup" />
+	</s:states>
+	
+	<os:IconButton icon="{_btnImport}" toolTip="{this.tooltipImport}" click="{this.importFeature(event)}"
+				   width="22"
+				   height="22" alpha="{_alpha}" />
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			import mx.managers.PopUpManager;
+			
+			import org.openscales.core.Map;
+			import org.openscales.core.events.I18NEvent;
+			import org.openscales.core.i18n.Catalog;
+			import org.openscales.core.layer.VectorLayer;
+			import org.openscales.core.layer.ogc.GML;
+			import org.openscales.core.layer.osm.OSM;
+			import mx.controls.Alert;
+			
+			import spark.components.TitleWindow;
+			
+			[Bindable]
+			private var _alpha:Number = 1;
+			
+			[Bindable]
+			[Embed(source="../../../../../../assets/images/Icons-19.png")]
+			private var _btnImport:Class;
+			
+			private var form:ExImportFeatureForm;
+			/**
+			 * Tooltip that appears over Import button
+			 */
+			[Bindable]
+			private var tooltipImport:String = Catalog.getLocalizationForKey('drawing.import');
+	
+			private var _map:Map = null;
+
+			/**
+			 * The title window (that display the form)
+			 */
+			public var myTitleWindow:TitleWindow = new TitleWindow();
+			
+			private var _drawingMode:String;
+			
+			/**
+			 * Indicates for Drawing mode
+			 * multiple : tools are in the LayerSwitcher
+			 * unique : tools are in the DrawingToolbar
+			 */
+			[Bindable]
+			public function get drawingMode():String{
+				
+				return _drawingMode;
+			}
+			
+			public function set drawingMode(value:String):void{
+				_drawingMode = value;
+			}
+			
+			/**
+			 * Change the text values on Map Language changed
+			 * @param event The I18N event received
+			 */
+			public function onMapLanguageChange(event:I18NEvent):void 
+			{
+				this.tooltipImport = Catalog.getLocalizationForKey('drawing.import');
+			}
+	
+			/**
+			 * Close the PopUp window
+			 */
+			public function closePopUp(event:MouseEvent = null):void
+			{
+				// close the pop up file
+				PopUpManager.removePopUp(myTitleWindow);
+			}
+
+			/**
+			 * Called when the user click on the import button
+			 * Make the pop up visible
+			 * 
+			 * @param event The MouseEvent received
+			 */
+			public function importFeature(event:MouseEvent):void {
+				// Set the TitleWindow container properties.
+				myTitleWindow = new TitleWindow();
+				myTitleWindow.title = Catalog.getLocalizationForKey('drawing.import');
+				myTitleWindow.addEventListener(FlexEvent.CREATION_COMPLETE, this.onPopUpCreationComplete);
+				
+				// Call the method to add the Button control to the 
+				// TitleWindow container.
+				populateWindow();
+				
+				// place at the center
+				myTitleWindow.x = (this.map.width / 2) - (this.form.width / 2);
+				myTitleWindow.y = (this.map.height / 2) - (this.form.height / 2);
+				
+				// Use the PopUpManager to display the TitleWindow container.
+				PopUpManager.addPopUp(myTitleWindow, this, true);
+			}
+			
+			private function onPopUpCreationComplete(e:Event):void
+			{
+				myTitleWindow.closeButton.addEventListener(MouseEvent.CLICK, this.closePopUp);
+				form.inputName.setFocus();
+			}
+			
+			/**
+			 * Function that fill the popUp
+			 */
+			private function populateWindow():void 
+			{	
+				form = new ExImportFeatureForm();
+				form.importFeature = this;
+				myTitleWindow.addElement(form); 
+			}
+			
+			/**
+			 * The layer linked to the import button
+			 */
+			public function get map():Map
+			{
+				return this._map;
+			}
+			
+			/**
+			 * @private
+			 */
+			public function set map(value:Map):void
+			{
+				this._map = value;
+				if(this._map)
+				{
+					this._map.addEventListener(I18NEvent.LOCALE_CHANGED, this.onMapLanguageChange);
+				}
+			}
+
+
+		]]>
+	</fx:Script>
+	
+</s:Group>

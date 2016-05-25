@@ -1,0 +1,67 @@
+<html>
+<head>
+  <title>電子国土Web.NEXT+ サンプル（オブジェクト編集アイコン表示）</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="Javascript" src="../js/webtis_flash.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+</head>
+<body onload="init()">
+	<h1>ポップアップの中にオブジェクト編集アイコンを設置する</h1>
+	<table><tr valign="top">
+	<td width="500">
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="500" height="600">
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="../WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars"value="locale=ja_JP"/>
+	<embed name="externalMap" src="../WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="500" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	
+	<!-- API呼び出しボタン -->
+	<p>
+	<input id="editicon" type="checkbox" onclick="showEditIcon()" />ポップアップ内に編集アイコン表示<br/>
+	</p>
+
+	</td>
+	<td>
+		<h2>【解説】</h2>
+		<code>webtis.showEditIconsInPopup()</code>を呼び出すと、
+		図形情報（オブジェクト）をクリックしたときに表示されるポップアップの中に、
+		そのオブジェクトの属性などを編集するためのアイコンが表示されます。
+		<pre class="source"><code>
+webtis.showEditIconsInPopup(true);
+		</code></pre>
+	</td>
+	</tr></table>	
+	<style type="text/css">
+	.source {
+		background-color : #CCCCFF;
+		border: 1px solid #000;
+		padding: 10px;
+	}
+	</style>
+	<script>
+	// 電子国土地図の初期化
+	function initMap() {
+		webtis.setMetadata();
+		webtis.loadKML("Layer", "./kml/test6.kml");
+	}
+
+	// 表示
+	function showEditIcon() {
+		if (document.getElementById("editicon").checked) {
+			webtis.showEditIconsInPopup(true);
+		} else {
+			webtis.showEditIconsInPopup(false);
+		}
+	}
+  </script>
+</body>
+</html>

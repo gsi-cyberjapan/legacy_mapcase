@@ -1,0 +1,77 @@
+
+.ui-tabs  {
+	padding:0px;
+}
+
+.ui-tabs .ui-tabs-panel {
+	padding:5px;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+	padding-top:4px;
+	padding-bottom:4px;
+	padding-left:3px;
+	padding-right:5px;
+	font-family: sans-serif;
+	font-size:10px;
+}
+
+.ui-tabs .ui-tabs-panel {
+    padding:0px;
+}
+
+.uiTabPanel {
+	border: 0px solid transparent;
+}
+
+#infoTabs .ui-tabs-panel {
+	padding: 0px;
+}
+
+#infoTabs .ui-tabs-nav {
+	padding: 0px;
+}
+
+#infoTabs .ui-widget-header {
+	background-image: none;
+	background-color: #FFFFFF;
+	border: transparent;
+}
+
+#infoTabs .ui-tabs-nav a {
+	font-weight: normal;
+	font-size: 12px;
+	color: #443333;
+	background-color: rgb(225, 225, 225);
+}
+
+#infoTabs .ui-tabs-selected a {
+	font-weight: normal;
+	font-size: 12px;
+	color: #000000;
+	background-color: rgb(248, 248, 248);
+}
+
+#infoTabs .ui-tabs-nav li {
+	border: 1px solid #CCCCCC;
+	margin: 0px;
+	background-color: #EFEFEF;
+}
+
+#infoTabs .ui-tabs-selected.ui-state-active {
+	border-top: 1px solid #C9C9C9;
+	border-left: 1px solid #D9D9D9;
+	border-right: 1px solid #C9C9C9;
+	border-bottom: 0px solid #D9D9D9;
+	padding-bottom: 0px;
+}
+#infoTabs .ui-helper-reset {
+	line-height: 1.2;
+}
+
+#infoTabs .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+    border-top-right-radius: 5px;
+}
+#infoTabs .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+    border-top-left-radius: 5px;
+}

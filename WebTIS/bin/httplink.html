@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>地理院地図</title>
+<script src="http://platform.twitter.com/widgets.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="http://portal.cyberjapan.jp/sys/v4/jquery/jquery-1.6.2.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://portal.cyberjapan.jp/site/mapuse4/js/ZeroClipboard.js"></script>
+<script type="text/javascript" src="http://portal.cyberjapan.jp/site/mapuse4/js/jquery.zclip.min.js"></script>
+<style type="text/css">
+.copybutton {
+	margin-left: 23px;
+	font-size: 14px;
+	padding: 2px 20px 2px 20px;
+	spacing: 2px;
+	width: 150px;
+}
+
+.nonpushed {
+	background-color: #DDDDDD;
+	border-top: 1px solid #E0E0E0;
+	border-left: 1px solid #E0E0E0;
+	border-right: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+}
+
+.pushed {
+	background-color: #888888;
+	border-top: 1px solid #000000;
+	border-left: 1px solid #000000;
+	border-right: 1px solid #888888;
+	border-bottom: 1px solid #888888;
+}
+</style>
+<script type="text/javascript">
+
+var delimiter = "|";
+
+var href = location.href;
+var param = href.split("httplinkparam=")[1];
+var paramList = param.split(delimiter);
+var getArgument = paramList[0];
+var hideURL = false;
+if (paramList[1] == "true") {
+	hideURL = true;
+}
+var hideIFRAME = false;
+if (paramList[2] == "true") {
+	hideIFRAME = true;
+}
+argList = getArgument.split("?");
+getURL = argList[1];
+
+document.open();
+
+////// URL
+if (!hideURL) {
+	document.write('<table><tr><td valign=top>');
+	document.write('<img src="http://portal.cyberjapan.jp/sys/v4/symbols/082.png">');
+	document.write('</td><td>');
+	document.write('次のURLをメール等で送付することで、現在表示されている<br>');
+	document.write('地図を共有することができます。');
+	document.write('<div style="height:2px;"></div>');
+	document.write('<textarea rows="4" id="httplink" cols="50" style="padding-left:5px;font-size:12px;border:2px #6495ED solid;" onclick="this.focus();this.select()"></textarea>');
+	document.getElementById('httplink').value = getArgument;
+	document.write('</td></tr></table>');
+	document.write('<span id="urlCopy" class="copybutton nonpushed">クリップボードにコピー</span> ');
+
+	document.write('<span><a href="https://twitter.com/share" id="twitter" class="twitter-share-button" data-url=' + 'http://portal.cyberjapan.jp/site/mapuse4/index.html?' + getURL + ' data-text="電子国土Web.Next" data-lang="ja" data-count="none" data-hashtags="cyberjapan_next">Tweet</a></span>');
+	document.write('<div style="clear:both; height:12px;"></div>');
+	
+	var urlCopy = $("#urlCopy");
+
+	urlCopy.zclip({
+	    path: "http://portal.cyberjapan.jp/site/mapuse4/js/ZeroClipboard.swf",
+	    setHandCursor: true,
+	    copy: function(){
+	    	return $("#httplink").val();
+	    },
+	    beforeCopy:function(){
+	    	urlCopy.removeClass('nonpushed');
+	    	urlCopy.addClass('pushed');
+	    },
+	    afterCopy:function(){
+	    	urlCopy.removeClass('pushed');
+	    	urlCopy.addClass('nonpushed');
+	    }
+	});
+}
+
+////// IFRAME
+if (!hideIFRAME) {
+	document.write('<table><tr><td valign=top>');
+	document.write('<img src="http://portal.cyberjapan.jp/sys/v4/symbols/082.png">');
+	document.write('</td><td>');
+	document.write('次のタグをHTMLファイルに加えることで、地理院地図を<br>');
+	document.write('ウェブサイトに埋め込むことができます。');
+	document.write('<div style="height:2px;"></div>');
+	document.write('<textarea rows="4" id="iframecode" cols="50" style="padding-left:5px;font-size:12px;border:2px #6495ED solid;" onclick="this.focus();this.select()"></textarea>');
+	document.getElementById('iframecode').value = '<iframe width=500 height=400 frameborder=0 scrolling="no" marginheight=0 marginwidth=0 src="' + getArgument + '&ifr=1&fsc=1&sca=0&zmc=0"></iframe>';
+
+	document.write('</td></tr></table>');
+	document.write('<span id="iframeCopy" class="copybutton nonpushed">クリップボードにコピー</span> ');
+
+	document.write('<div style="height:5px;"></div>');
+	document.write('<hr>');
+
+	var iframeCopy = $("#iframeCopy");
+
+	iframeCopy.zclip({
+	    path: "http://portal.cyberjapan.jp/site/mapuse4/js/ZeroClipboard.swf",
+	    setHandCursor: true,
+	    copy: function(){
+	    	return $("#iframecode").val();
+	    },
+	    beforeCopy:function(){
+	    	iframeCopy.removeClass('nonpushed');
+	    	iframeCopy.addClass('pushed');
+	    },
+	    afterCopy:function(){
+	    	iframeCopy.removeClass('pushed');
+	    	iframeCopy.addClass('nonpushed');
+	    }
+	});
+}
+
+// 閉じる
+document.write('<div style="position:absolute;left:170px;"><input type="button" onclick="window.close();" value="閉じる"></div>');
+
+document.close();
+
+</script>
+</head>
+<body >
+</body>
+</html>

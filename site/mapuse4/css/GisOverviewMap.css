@@ -1,0 +1,78 @@
+.webtisControlGisOverviewMapContainer {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.webtisControlGisOverviewMapExtentRectangle {
+    overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    background-image: url("image/blank.gif");
+    cursor: move;
+    border: 2px dotted red;
+        border-top-width: 2px;
+        border-right-width-value: 2px;
+        border-right-width-ltr-source: physical;
+        border-right-width-rtl-source: physical;
+        border-bottom-width: 2px;
+        border-left-width-value: 2px;
+        border-left-width-ltr-source: physical;
+        border-left-width-rtl-source: physical;
+        border-top-style: dotted;
+        border-right-style-value: dotted;
+        border-right-style-ltr-source: physical;
+        border-right-style-rtl-source: physical;
+        border-bottom-style: dotted;
+        border-left-style-value: dotted;
+        border-left-style-ltr-source: physical;
+        border-left-style-rtl-source: physical;
+        border-top-color: red;
+        border-right-color-value: red;
+        border-right-color-ltr-source: physical;
+        border-right-color-rtl-source: physical;
+        border-bottom-color: red;
+        border-left-color-value: red;
+        border-left-color-ltr-source: physical;
+        border-left-color-rtl-source: physical;
+        -moz-border-top-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        border-image-source: none;
+        border-image-slice: 100% 100% 100% 100%;
+        border-image-width: 1 1 1 1;
+        border-image-outset: 0 0 0 0;
+        border-image-repeat: stretch stretch;
+}
+
+.webtisControlGisOverviewMapElement {
+    padding: 10px 18px 10px 10px;
+        padding-top: 10px;
+        padding-right-value: 18px;
+        padding-bottom: 10px;
+        padding-left-value: 10px;
+        padding-left-ltr-source: physical;
+        padding-left-rtl-source: physical;
+        padding-right-ltr-source: physical;
+        padding-right-rtl-source: physical;
+    background-color: rgb(0, 0, 139);
+}
+
+.webtisControlGisOverviewMapMinimizeButton {
+	bottom: 80px;
+	right: 0px;
+	cursor: pointer;
+}
+
+.webtisControlGisOverviewMapMaximizeButton {
+	bottom: 80px;
+	right: 0px;
+	cursor: pointer;
+}
+
+.webtisControlGisOverviewMapResizeButton {
+	bottom: 60px;
+	right: 0px;
+	cursor: pointer;
+}

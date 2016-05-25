@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<os:DrawPoint xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns="org.openscales.fx.control.layer.*"
+		 xmlns:os="org.openscales.fx.control.drawing.*">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import flash.system.Security;
+			import jp.cyberjapan.webtis.api.ObjectAPI;
+			import mx.controls.Alert;
+			import mx.events.CloseEvent;
+			import mx.events.FlexEvent;
+			import mx.managers.PopUpManager;
+			import org.openscales.core.events.I18NEvent;
+			import org.openscales.core.i18n.Catalog;
+			import org.openscales.core.style.marker.CustomMarker;
+			import org.openscales.core.style.Rule;
+			import org.openscales.core.style.Style;
+			import org.openscales.core.style.symbolizer.PointSymbolizer;
+			import jp.cyberjapan.webtis.style.symbolizer.ExTextSymbolizer;
+			import org.openscales.core.style.font.Font;
+			
+			/**
+			 * アイコン選択ダイアログ
+			 */
+			private var selectMarkerWindow:SelectMarkerWindow = new SelectMarkerWindow();
+			
+			/**
+			 * ボタン押下時
+			 */
+			override public function onClick():void
+			{
+				super.onClick();
+				
+				// handlerがいない -> 親はDrawPointではない？
+				if (this.alpha != 1) {
+					// 作成コマンド終了時
+					this.map.doubleclickZoomEnabled = true;
+					return;
+				}
+				//else {
+					// 作成コマンド開始時
+					this.map.doubleclickZoomEnabled = false;
+				//}
+				
+				selectMarkerWindow.addEventListener(FlexEvent.CREATION_COMPLETE, onPopUpCreationComplete);
+				PopUpManager.addPopUp(selectMarkerWindow, this, true);
+			}
+			
+			/**
+			 * アイコン選択ダイアログの描画完了時
+			 * @param	e
+			 */
+			private function onPopUpCreationComplete(e:FlexEvent):void 
+			{
+
+				// ×ボタンで閉じたとき
+				selectMarkerWindow.addEventListener(CloseEvent.CLOSE, onClosePopup);
+			}
+			
+			/**
+			 * Update texts on map language changed
+			 */
+			override public function onMapLanguageChange(event:I18NEvent):void
+			{
+				super.onMapLanguageChange(event);
+				this.selectMarkerWindow.onMapLanguageChange(event);
+			}
+
+			/**
+			 * アイコン選択ダイアログを×ボタンで閉じたとき
+			 * @param	e
+			 */
+			public function onClosePopup(e:CloseEvent):void 
+			{
+				PopUpManager.removePopUp(selectMarkerWindow);
+				
+				if (selectMarkerWindow.selectedIconUrl)
+				{
+					this.style = new Style();
+					this.style.name = ObjectAPI.getStyleId(ObjectAPI.MARKER_STYLE_ID_BASE);
+					var rule:Rule = new Rule();
+					// 選択したアイコンのURLをセット
+					var graphic:CustomMarker = new CustomMarker(selectMarkerWindow.selectedIconUrl);
+					// リモート接続時のみproxyをセット
+					if (Security.sandboxType == Security.REMOTE) {
+						graphic.proxy = Constant.getFullProxyURL();
+						graphic.loadUrl(graphic.url);
+					}
+					rule.symbolizers.push(new PointSymbolizer(graphic));
+					
+					// アイコンの横に表示するラベル
+					var font:org.openscales.core.style.font.Font = new org.openscales.core.style.font.Font();
+					font.size = 20;
+					font.color = 0x000000;
+					font.opacity = 1.0;
+					var textSymbolizer:ExTextSymbolizer = new ExTextSymbolizer(null, font);
+					textSymbolizer.propertyName = "name";
+					textSymbolizer.offsetX = 10;
+					rule.symbolizers.push(textSymbolizer);
+
+					this.style.rules.push(rule);
+					
+					selectMarkerWindow.selectedIconUrl = null;
+				}
+				else 
+				{
+					// 終了処理
+					disactivate();
+				}
+			}
+		]]>
+</fx:Script>	
+			  
+</os:DrawPoint>

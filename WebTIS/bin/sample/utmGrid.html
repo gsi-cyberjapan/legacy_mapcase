@@ -1,0 +1,78 @@
+<html>
+<head>
+  <title>電子国土Web.NEXT+ サンプル（UTMグリッドの表示）</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="Javascript" src="../js/webtis_flash.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+</head>
+<body onload="init()">
+	<h1>UTMグリッドを表示する</h1>
+	<table><tr valign="top">
+	<td width="500">
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="600" height="600">
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="../WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars"value="locale=ja_JP"/>
+	<embed name="externalMap" src="../WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="600" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	
+	<!-- API呼び出しボタン -->
+	<p>
+	<input id="utmGrid" type="checkbox" onclick="showUtmGrid()" />UTMグリッド表示<br/>
+	</p>
+	
+	</td>
+	<td>
+		<h2>【解説】</h2>
+		<code>webtis.showUTMGrid()</code>を使って、地図上にUTMグリッド線を表示することができます。
+		<pre class="source"><code>
+// UTMグリッドを表示します。
+// UTMグリッドの表示範囲を、現在表示中の範囲に設定し、
+// 現在のズームレベルで表示するように間隔が調整されます。
+webtis.showUtmGrid(true, webtis.getZoomLevel(), webtis.getRect());
+
+// UTMグリッドを非表示にします。
+webtis.showUtmGrid(false);
+		</code></pre>
+	</td>
+	</tr></table>	
+	<style type="text/css">
+	.source {
+		background-color : #CCCCFF;
+		border: 1px solid #000;
+		padding: 10px;
+	}
+	</style>
+	<script>
+	// ページの初期化
+	function init() {
+		// チェック状態の初期化
+		document.getElementById("utmGrid").checked = false;
+	}
+
+	// 電子国土地図の初期化
+	function initMap() {
+		webtis.setMetadata();
+		webtis.setZoomLevel(12);
+		webtis.setMapCenter(140.085278, 36.104167);
+	}
+	
+	// 表示
+	function showUtmGrid() {
+		if (document.getElementById("utmGrid").checked) {
+			webtis.showUtmGrid(true, webtis.getZoomLevel(), webtis.getRect());
+		} else {
+			webtis.showUtmGrid(false);
+		}
+	}
+  </script>
+</body>
+</html>

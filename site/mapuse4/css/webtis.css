@@ -1,0 +1,90 @@
+
+/* 縮尺バー用 */
+div.olControlScaleLine {
+	background-color:#ffffff;
+	/* for IE */
+	filter:alpha(opacity=60);
+	/* CSS3 standard */
+	opacity:0.6;
+}
+
+/* 著作表示用 */
+div.olControlAttribution {
+    padding: 1px;
+	color:#000000;
+    background-color:#ffffff;
+    background-color:rgba(230,255,255,0.7);
+	font-size:12px;
+	line-height:14px;
+	bottom:5px;
+	height:18px;
+	vertical-align: middle;
+}
+
+/* 著作表示リンク部分 */
+div.olControlAttribution a {
+	color:#000000;
+	font-weight:bold;
+	text-decoration:underline;
+}
+
+div.legendattr {
+	border: 2px solid rgb(51,51,255);
+    background-color:rgb(255,255,204);
+	display: inline-block;
+	_display: inline;
+	margin-left: 3px;
+	margin-right: 2px;
+}
+
+div.legendattr a {
+	color:rgb(51,51,255);
+	font-weight:bold;
+	font-size:11px;
+	text-decoration:none;
+	margin-left: 6px;
+	margin-right: 6px;
+}
+
+div.legendattr:hover {
+	background-color:rgb(247,243,115);
+}
+
+/* 右上のボタン */
+div.panelbutton a {
+	font-size:14px;
+	font-weight:normal;
+}
+
+/* オブジェクトのポップアップ */
+td.frameCloudTitle {
+	font-size:16px;
+}
+
+td.frameCloudDescription {
+	font-size:16px;
+}
+
+td.frameCloudDescription td{
+	font-size:16px;
+}
+
+.olLayerGrid .olImageLoadError {
+    background-color: transparent !important;
+}
+
+/*
+.olImageLoadError {
+//    background-image: url('http://cyberjapandata.gsi.go.jp/sqras/transparent.png');
+    background-image: url('../index.png');
+//    background-repeat: no-repeat;
+}
+*/
+/*
+.olLayerGrid .olTileImage {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: all 0 none;
+    transition: none;
+}
+*/

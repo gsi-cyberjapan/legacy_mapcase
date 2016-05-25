@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   close="hide()"
+			   rollOut="hide()"
+			   isPopUp="true"
+			   title="地図・写真の種類"
+			   height="300"
+			   width="450">
+
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+		<mx:RadioButtonGroup id="mapKindGroup" />
+	</fx:Declarations>
+	<fx:Style>
+		@namespace s "library://ns.adobe.com/flex/spark";
+		@namespace mx "library://ns.adobe.com/flex/mx";
+		.mapTypeText {
+			paddingLeft: 10px;
+		}
+		.mapList {
+			paddingLeft: 25px;
+		}
+	</fx:Style>
+
+	<mx:VBox width="430" x="10" y="10">
+
+		<!-- 地図表示用ラベル -->
+		<mx:Text styleName="mapTypeText">
+			<mx:htmlText>
+				<![CDATA[<b>地図</b> ]]>
+			</mx:htmlText>
+		</mx:Text>
+		
+		<!-- 地図 -->
+		<mx:Grid styleName="mapList" width="100%">
+			<mx:GridRow width="100%">
+				<mx:GridItem width="25%">
+					<mx:VBox width="100%">
+						<mx:Image source="@Embed('../../../../../../assets/images/tmb_bas_n.png')"
+								  height="{IMAGE_HEIGHT}"
+								  width="{IMAGE_WIDTH}" />
+						<mx:RadioButton id="std"
+										value="std"
+										label="標準地図"
+										groupName="mapKindGroup"
+										click="onClick(event)"
+										selected="true" />
+					</mx:VBox>
+				</mx:GridItem>
+				<mx:GridItem width="25%">
+					<mx:VBox width="100%">
+						<mx:Image source="@Embed('../../../../../../assets/images/tmb_pal_n.png')"
+								  height="{IMAGE_HEIGHT}"
+								  width="{IMAGE_WIDTH}" />
+						<mx:RadioButton id="PALE"
+										value="PALE"
+										label="淡色地図"
+										groupName="mapKindGroup"
+										click="onClick(event)" />
+					</mx:VBox>
+				</mx:GridItem>
+				<mx:GridItem width="25%">
+					<mx:VBox width="100%">
+						<mx:Image source="@Embed('../../../../../../assets/images/icon_white.png')"
+								  height="{IMAGE_HEIGHT}"
+								  width="{IMAGE_WIDTH}" />
+						<mx:RadioButton id="blank"
+										value="blank"
+										label="白地図"
+										groupName="mapKindGroup"
+										click="onClick(event)" />
+					</mx:VBox>
+				</mx:GridItem>
+				<mx:GridItem width="25%">
+					<mx:VBox width="100%">
+						<mx:Image source="@Embed('../../../../../../assets/images/jaise.jpg')"
+								  height="{IMAGE_HEIGHT}"
+								  width="{IMAGE_WIDTH}" />
+						<mx:RadioButton id="english"
+										value="english"
+										label="Romanized"
+										groupName="mapKindGroup"
+										click="onClick(event)" />
+					</mx:VBox>
+				</mx:GridItem>
+			</mx:GridRow>
+		</mx:Grid>
+
+		<!-- 写真表示用ラベル -->
+		<mx:Text styleName="mapTypeText">
+			<!--
+			<mx:htmlText>
+				<![CDATA[写真　(※日本全域をカバーしていない場合があります。)<br></br>　　　閲覧可能な縮尺の詳細は<a href="http://portal.cyberjapan.jp/site/mapuse4/attension2.html" target="_blank">こちら</a>]]>
+			</mx:htmlText>
+			-->
+			<mx:htmlText>
+				<![CDATA[<b>写真</b>]]>
+			</mx:htmlText>
+		</mx:Text>
+
+		<!-- 写真 -->
+		<mx:Grid styleName="mapList" width="100%">
+			<mx:GridRow width="100%">
+				<mx:GridItem width="25%">
+					<mx:VBox width="100%">
+						<mx:Image source="@Embed('../../../../../../assets/images/djbmo.jpg')"
+								  height="{IMAGE_HEIGHT}"
+								  width="{IMAGE_WIDTH}" />
+						<mx:RadioButton id="ort"
+										value="ort"
+										label="最新（2007年～）"
+										groupName="mapKindGroup"
+										click="onClick(event)" />
+					</mx:VBox>
+				</mx:GridItem>
+				<mx:GridItem width="25%">
+					<mx:VBox width="100%">
+						<!-- 空欄 -->
+					</mx:VBox>
+				</mx:GridItem>
+				<mx:GridItem width="25%">
+					<mx:VBox width="100%">
+						<!-- 空欄 -->
+					</mx:VBox>
+				</mx:GridItem>
+				<mx:GridItem width="25%">
+					<mx:VBox width="100%">
+						<!-- 空欄 -->
+					</mx:VBox>
+				</mx:GridItem>
+			</mx:GridRow>
+		</mx:Grid>
+	</mx:VBox>
+	<fx:Script>
+		<![CDATA[
+			import flash.events.Event;
+			import jp.cyberjapan.webtis.event.MapChangeEvent;
+
+			private static const IMAGE_WIDTH:int = 50;
+			private static const IMAGE_HEIGHT:int = 50;
+
+			public function changeSelection(mapID:String):void
+			{
+				this.mapKindGroup.selectedValue = mapID;
+			}
+
+			private function onClick(event:Event):void
+			{
+				dispatchEvent(new MapChangeEvent("mapSelectionChanged", mapKindGroup.selectedValue as String));
+			}
+			
+			private function hide():void
+			{
+				this.visible = false;
+			}
+		]]>
+	</fx:Script>
+	<fx:Metadata>
+		[Event(name="mapSelectionChanged", type="jp.cyberjapan.webtis.event.MapChangeEvent")]
+	</fx:Metadata>
+</s:TitleWindow>

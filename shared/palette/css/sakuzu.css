@@ -1,0 +1,285 @@
+#sz_main {
+	position: relative;
+	overflow-x:hidden;
+}
+
+#sz_main_title {
+	font-size:14px;
+	font-weight:600;
+	padding-top:2px;
+	padding-bottom:2px;
+	padding-left:5px;
+	padding-right:5px;
+	font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+	line-height:28px;	
+}
+
+#sz_up_button {
+	background-image: url("./image/nn_off.png");
+	width:28px;
+	height:28px;
+	vertical-align:middle;
+}
+
+#sz_up_button:hover {
+	background-image: url("./image/nn_up.png");	
+}
+
+#sz_down_button {
+	background-image: url("./image/ss_off.png");
+	width:28px;
+	height:28px;		
+	vertical-align:middle;		
+}
+#sz_down_button:hover {
+	background-image: url("./image/ss_up.png");	
+}
+
+#sz_left_button {
+	background-image: url("./image/ww_off.png");
+	width:28px;
+	height:28px;		
+	vertical-align:middle;		
+}
+#sz_left_button:hover {
+	background-image: url("./image/ww_up.png");	
+}
+
+#sz_right_button {
+	background-image: url("./image/ee_off.png");
+	width:28px;
+	height:28px;		
+	vertical-align:middle;
+}
+#sz_right_button:hover {
+	background-image: url("./image/ee_up.png");	
+}
+
+
+div.sz_tab {
+	min-height:350px;
+	background-color:red;
+}
+
+.sz_tab h2 {
+	font-size:14px;	
+}
+
+.sz_tab_block {
+	padding:10px;
+}
+
+.sz_tab_block button {
+	font-size:14px;
+}
+
+.sz_tab_block select {
+	font-size:14px;
+}
+
+tr.sz_title {
+	margin-bottom:5px;
+	width:100%;
+	font-size:14px;
+	font-weight:600;
+}
+
+tr.sz_title td {
+	font-size:14px;
+	padding-left:5px;
+	padding-rightt:5px;
+	padding-top:2px;
+	padding-bottom:2px;
+}
+
+tr.sz_title td:first-child {
+	text-align:right;
+	width:85px;
+}
+
+tr.sz_title td:last-child {
+	text-align:left;
+}
+
+div.sz_title_alt {
+	font-size:14px;	
+	padding-left:5px;
+	padding-rightt:5px;
+}
+
+div.sz_title_alt div:first-child {
+	padding-top:2px;
+	padding-bottom:2px;
+	text-align:left;	
+	font-weight:600;
+}
+
+div.sz_title_alt div:last-child {
+	padding-top:2px;
+	padding-bottom:2px;
+	text-align:right;
+}
+
+#sz_icon_tables {
+	background-color:white;
+	position: relative;
+	width: 228px;
+	height: 105px;
+	margin: 0px;
+	padding: 0px;
+	background-color: #9CC;
+	overflow: auto;
+	border: solid 1px black;
+}
+.sz_icon {
+	position: relative;
+	width: 20px;
+	height: 20px;
+	margin-left: 1px;
+	margin-top: 1px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding: 0px;
+	font-size: 0px;
+	line-height: 0px;
+	text-align: center;
+	vertical-align: middle;
+	float: left;
+	cursor: pointer;	
+}
+
+#sz_popup_attr {
+	margin-top:20px;
+	border:1px solid gray;
+	padding-bottom:10px;
+	padding-top:0px;
+	padding-left: 2px;
+	padding-right: 2px;
+	font-size:14px;
+	font-weight:600;
+}
+
+.sz_color_palette {
+	vertical-align:middle;
+	display:inline-block;
+	width: 24px;
+	height: 16px;
+	cursor: pointer; 
+	border: 1px solid black;	
+}
+
+
+.sz_color_palette_dialog .ui-dialog-title {
+	font-size:12px;
+	
+}
+
+.sz_color_palette_dialog .ui-dialog-content {
+	padding:0px;
+}
+
+.sz_color {
+	padding:0px;
+	margin:0px;
+	cursor:pointer;
+	width:14px;
+	height:14px;
+}
+
+.sz_xml_block {
+	padding-top:5px;
+	padding-bottom:5px;	
+}
+.sz_xml_block label {
+	font-size:14px;
+}
+
+.sz_xml_files {
+	font-size:12px;
+	margin-top:5px;
+	margin-bottom:5px;	
+}
+
+.sz_xml_controls {
+	text-align:center;
+	margin-top:5px;	
+}
+
+#sz_attribute_table {
+	width:98%;
+	margin-left:3px;
+}
+#sz_attribute_table td,th {
+	font-size:14px;
+	padding:2px;
+	text-align:left;
+}
+
+#sz_attribute_table input[type=text] {
+	width: 90px;
+}
+
+#sz_edit_title {
+	color:white;
+	background-color:#F7B64A;
+	font-size:14px;
+	font-weight:600;
+	padding-top:2px;
+	padding-bottom:2px;
+	margin-bottom:10px;
+	padding-left:5px;
+	padding-right:5px;
+	font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+	line-height:28px;	
+}
+
+.sz_stylebox {
+	padding:2px;
+	margin-bottom:5px;
+	border:1px solid gray;
+}
+
+#sz_attr_col_key {
+	border-style:solid;
+	border-width:1px;
+	border-color:gray;
+	width:94px;
+	height:22px;
+	padding:0px;
+	margin:0px;
+	font-size:11px;
+	font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+}
+
+#sz_attr_col_value {
+	border-style:solid;
+	border-width:1px;
+	border-color:gray;
+	width:94px;
+	height:22px;
+	padding:0px;
+	margin:0px;	
+	font-size:11px;
+	font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+}
+
+.ui-tabs  {
+	padding:2px;	
+}
+.ui-tabs .ui-tabs-panel {
+	padding:5px;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+	padding-top:4px;
+	padding-bottom:4px;
+	padding-left:3px;
+	padding-right:5px;
+	font-family: sans-serif;
+	font-size:10px;
+}
+
+.ui-tabs .ui-tabs-panel {
+    padding:2px;
+}
+

@@ -1,0 +1,82 @@
+<html>
+<head>
+  <title>電子国土Web.NEXT+ サンプル（オブジェクト選択）</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="Javascript" src="../js/webtis_flash.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<!--<body onLoad="addEventTest()">-->
+	<h1>選択したオブジェクトの情報を取得する</h1>
+	<table><tr valign="top">
+	<td width="500">
+	<!-- swf -->
+	<object id="externalMap"
+	classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+	width="500" height="600">
+	<param name="allowScriptAccess" value="always" />
+	<param name="movie" value="../WebTIS.swf"/>
+	<param name="quality" value="high" />
+	<param name="flashVars"value="locale=ja_JP"/>
+	<embed name="externalMap" src="../WebTIS.swf" quality="high" 
+		pluginspage="http://www.macromedia.com/go/getflashplayer"
+		type="application/x-shockwave-flash"
+		width="500" height="600" allowScriptAccess="always" flashVars="locale=ja_JP"/>
+	</object>
+	
+	<p>
+	<!-- 結果表示エリア -->
+	選択されたオブジェクト<br/>
+	<table>
+		<tr><td>name：</td><td><input type="text" id="infoname" size="70"/></td></tr>
+		<tr><td>description：</td><td><input type="text" id="infodesc" size="70"/></td></tr>
+	</table>
+	</p>
+	</td>
+	<td>
+		<h2>【解説】</h2>
+		<code>webtis.getSelectedObject()</code>を使って、地図上で選択した図形情報（オブジェクト）の情報を取得します。<br/>
+		オブジェクトの情報は、JSON形式のテキストで格納されます。<br/>
+		JavaScriptでJSONデータを扱うときは、<code>JSON.parse()</code>を使って、
+		テキストをJSONオブジェクトに変換します。
+		<pre class="source"><code>
+// 選択中のオブジェクトの情報をJSON形式のテキストで取得します。
+var jsontext = webtis.getSelectedObject();
+
+// 取得したテキストをJSONオブジェクトに変換します。
+var json = JSON.parse(jsontext);
+		</code></pre>
+	</td>
+	</tr></table>	
+	<style type="text/css">
+	.source {
+		background-color : #CCCCFF;
+		border: 1px solid #000;
+		padding: 10px;
+	}
+	</style>
+
+	<script>
+	// 電子国土地図の初期化
+	function initMap() {
+		webtis.setMetadata();
+		webtis.loadKML("Layer1", "./kml/test1.kml");
+		webtis.loadKML("Layer2", "./kml/test2.kml");
+		webtis.event("selected", "onSelected");
+	}
+
+	// オブジェクト選択イベント
+	function onSelected() {
+		var json = JSON.parse(webtis.getSelectedObject());
+		showInfo(json);
+	}
+
+	// テキストボックスに文字を表示
+	function showInfo(value) {
+		document.getElementById("infoname").value = value.attributes.name;
+		document.getElementById("infodesc").value = value.attributes.description;
+	}
+  </script>
+</body>
+</html>

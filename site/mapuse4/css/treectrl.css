@@ -1,0 +1,12 @@
+span.Saigai a
+{
+	color: #FF0000;
+	font-weight: bold;
+}
+
+span.Saigai a selected
+{
+	color: #FFFFFF;
+	font-weight: bold;
+}
+

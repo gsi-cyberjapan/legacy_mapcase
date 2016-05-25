@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:m="jp.cyberjapan.webtis.control.measure.*"
+               xmlns:mx="library://ns.adobe.com/flex/halo"
+			   title="{_panelTitle}"
+			   isPopUp="true"
+			   creationComplete="onCreationComplete()" close="hide()" >
+	<fx:Script>
+		<![CDATA[
+		
+			import flash.events.Event;
+			import org.openscales.core.i18n.Catalog;
+			import org.openscales.core.events.I18NEvent;
+			import org.openscales.core.Map;
+			
+			[Bindable]
+			private var _panelTitle:String = Catalog.getLocalizationForKey('MeasureBar.title');
+			
+			[Bindable]
+			private var _exitToolTip:String = Catalog.getLocalizationForKey('MeasureBar.exittooltip');
+			
+			private var _map:Map = null;
+			
+			public function set map(value:Map):void
+			{
+				_map = value;
+			}
+
+			public function onCreationComplete():void
+			{
+					if(this._map)
+					{
+						this._map.addEventListener(I18NEvent.LOCALE_CHANGED,onMapLanguageChange);
+					}
+			}
+			
+			override public function setVisible(value:Boolean, noEvent:Boolean = false):void 
+			{
+				super.setVisible(value, noEvent);
+				if (value)
+				{
+					if(this.mtools.map)
+					{
+						this.mtools.map.addEventListener(I18NEvent.LOCALE_CHANGED,onMapLanguageChange);
+					}
+					mtools.activate();
+				}
+				else
+				{
+					if(this.mtools.map)
+					{
+						this.mtools.map.removeEventListener(I18NEvent.LOCALE_CHANGED,onMapLanguageChange);
+					}
+					mtools.exitMeasureMode();
+					mtools.desactivate();
+				}
+			}
+			
+			public function hide():void
+			{
+				this.visible = false;
+			}
+			
+			public function onMapLanguageChange(event:I18NEvent):void{
+				_panelTitle = Catalog.getLocalizationForKey('MeasureBar.title');
+			}
+			
+			public function hideComponent(component:String):void {
+				mtools.hideComponent(component);
+			}
+			
+			public function showComponent(component:String):void {
+				mtools.showComponent(component);
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<m:ExMeasureTools id="mtools" />
+</s:TitleWindow>

@@ -1,0 +1,70 @@
+div.legendattr {
+	border: 2px solid rgb(51,51,255);
+    background-color:rgb(255,255,204);
+	display: inline-block;
+	_display: inline;
+	margin-left: 3px;
+	margin-right: 2px;
+}
+
+div.legendattr a {
+	color:rgb(51,51,255);
+	font-weight:bold;
+	font-size:11px;
+	text-decoration:none;
+	margin-left: 6px;
+	margin-right: 6px;
+}
+
+div.legendattr:hover {
+	background-color:rgb(247,243,115);
+}
+
+/* 右上のボタン */
+div.panelbutton a {
+	font-size:14px;
+	font-weight:normal;
+}
+
+/* プルダウンメニュー */
+.configMenu {
+	font-size: 14px;
+	top: 50px;
+}
+
+.configMenuItem {
+	padding:3px 0px 2px 5px;
+	background-color:#FFFFFF;
+	border-top:1px solid rgb(51,51,255);
+	border-right:1px solid rgb(51,51,255);
+	border-bottom:1px solid rgb(51,51,255);
+	border-left:1px solid rgb(51,51,255);
+	font-size:14px;
+	color: rgb(51,51,255);
+	cursor: pointer;
+}
+
+.configMenuItem:hover {
+	background-color:#FFFFC2;
+}
+
+.configMenuTitle {
+	padding:3px 0px 2px 5px;
+	background-color:rgb(51,51,255);
+	border-top:1px solid rgb(51,51,255);
+	border-right:1px solid rgb(51,51,255);
+	border-bottom:1px solid rgb(51,51,255);
+	border-left:1px solid rgb(51,51,255);
+	font-size:12px;
+	color:#ffffff;
+}
+
+.configMenuMarker{
+	position:absolute;
+	right:6px;
+	background-color:transparent;
+	font-size:12px;
+	font-weight:bold;
+	margin-top:2px;
+	color:#22AAAA;
+}

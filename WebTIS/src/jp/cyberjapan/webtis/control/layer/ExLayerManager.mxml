@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer:LayerManager xmlns="org.openscales.fx.control.*"
+		 xmlns:fx="http://ns.adobe.com/mxml/2009"
+		 xmlns:s="library://ns.adobe.com/flex/spark"
+		 xmlns:layer="org.openscales.fx.control.layer.*"
+		 width="250" height="250"      
+		 xmlns:drawing="org.openscales.fx.control.drawing.*" xmlns:openscales="http://openscales.org">
+	
+	<fx:Script>
+		<![CDATA[
+			import jp.cyberjapan.webtis.control.layer.itemrenderer.ExDefaultLayerManagerItemRenderer;
+			import mx.core.ClassFactory;
+			import mx.graphics.SolidColorStroke;
+			import org.openscales.fx.control.layer.itemrenderer.DefaultLayerManagerItemRenderer;
+			import spark.components.Group;
+			import spark.primitives.Line;
+			
+			/**
+			 * Configure the object
+			 */
+			override public function configure():void
+			{
+				if (layerPanel.getElementAt(0) is Group)
+				{
+					var group:Group = layerPanel.getElementAt(0) as Group;
+					
+					// デフォルトのAddLayerとImportボタンを削除
+					group.removeElementAt(0);
+					var layerManageGroup:LayerManageGroup = new LayerManageGroup();
+					layerManageGroup.map = this.map;
+					group.addElementAt(layerManageGroup, 0);
+					
+					// 区切り線
+					var line:Line = new Line();
+					line.x = 5;
+					line.xTo = 245;
+					var stroke:SolidColorStroke = new SolidColorStroke();
+					stroke.weight=0.1;
+					stroke.scaleMode="none";
+					stroke.caps="none";
+					stroke.pixelHinting=true;
+					stroke.color=0x959595;
+					line.stroke = stroke;
+					group.addElementAt(line, 1);
+				}
+				
+				var factory:ClassFactory = new ClassFactory(ExDefaultLayerManagerItemRenderer) 
+				
+				// only define params for itemRenderer taht are or inherit from ExDefaultLayerManagerItemRenderer
+				var instance:Object = new ExDefaultLayerManagerItemRenderer();
+					
+				if(instance is ExDefaultLayerManagerItemRenderer)
+				{
+					factory.properties = {
+						rendererOptions: this.rendererOptions,
+							layerManager: this
+					}
+						
+					if(this.rendererOptions && this.rendererOptions['displayDrawing'])
+						this._displayDrawing = true;
+					else
+						this._displayDrawing = false;
+				}
+		
+				layerList.itemRenderer = factory;
+			}
+						
+		]]>
+	</fx:Script>
+		
+</layer:LayerManager>
