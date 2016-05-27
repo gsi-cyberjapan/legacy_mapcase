@@ -1,5 +1,5 @@
 # legacy_mapcase
-（レガシー）マップケース
+（レガシー）平成27年1月以前のマップケースのソース
 
 表示用URL: http://gsi-cyberjapan.github.io/legacy_mapcase/
 
