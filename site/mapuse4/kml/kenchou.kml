@@ -1,0 +1,1965 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+  <Document>
+    <Style id="PointID-1">
+      <IconStyle id="">
+        <scale>0.9</scale>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+        </Icon>
+        <hotSpot x="0.5" y="0.5" xunits="fraction" yunits="fraction" />
+      </IconStyle>
+    </Style>
+    <Style id="PointID-2">
+      <IconStyle id="">
+        <scale>0.9</scale>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+        </Icon>
+        <hotSpot x="0.5" y="0.5" xunits="fraction" yunits="fraction" />
+      </IconStyle>
+    </Style>
+    <Style id="PointID-3">
+      <IconStyle id="">
+        <scale>0.9</scale>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+        </Icon>
+        <hotSpot x="0.5" y="0.5" xunits="fraction" yunits="fraction" />
+      </IconStyle>
+    </Style>
+    <Style id="PointID-4">
+      <IconStyle id="">
+        <scale>0.9</scale>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+        </Icon>
+        <hotSpot x="0.5" y="0.5" xunits="fraction" yunits="fraction" />
+      </IconStyle>
+    </Style>
+    <Folder>
+      <name>tiri.style</name>
+      <Placemark>
+        <name>忍路</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1701：忍路</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道小樽市忍路町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/osyoro/osyoro.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=4" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>140.858333333333,43.2094444444445</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>浅虫</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1605：浅虫</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>青森県青森市浅虫</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/asamusi/asamusi.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=6" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>140.859166666667,40.8975</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>男鹿</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1607：男鹿</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>秋田県男鹿市戸賀塩浜</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/oga/oga.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=14" target="_blank">潮位情報提供ページ</a></td></tr>
+          </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>139.703333333333,39.9422222222222</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>鼠ヶ関</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1604：鼠ヶ関</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>山形県西田川郡温海町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/nezugaseki/nezugaseki.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=7" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>139.546111111111,38.5633333333333</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>相馬</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1201：相馬</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>福島県相馬市原釜</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/souma/souma.html" target="_blank">験潮場のページ</a></td><tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=18" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>140.9625,37.8308333333333</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>小木</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1609：小木</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>新潟県佐渡郡小木町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/ogi/ogi.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=20" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>138.281111111111,37.8147222222222</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>柏崎</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1603：柏崎</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>新潟県柏崎市鯨波</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kasiwazaki/kasiwazaki.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=8" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>138.508611111111,37.3566666666667</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>輪島</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1602：輪島</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>石川県輪島市輪島崎町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/wajima/wajima.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=3" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>136.900555555556,37.4058333333333</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>勝浦</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1303：勝浦</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>千葉県勝浦市興津</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/katuura/katuura.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=11" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>140.249444444444,35.1294444444444</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>油壺</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1301：油壺</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>神奈川県三浦市三崎町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/aburatubo/aburatubo.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=1" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>139.615555555556,35.16</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>伊東</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1304：伊東</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>静岡県伊東市富戸</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/itou/itou.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=19" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>139.133055555556,34.8955555555556</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>三国</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1606：三国</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>福井県坂井郡三国町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/mikuni/mikuni.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=12" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>136.148888888889,36.2544444444444</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>鬼崎</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1302：鬼崎</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>愛知県常滑市港町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/onisaki/onisaki.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=9" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>136.823888888889,34.9036111111111</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>田後</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1601：田後</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>鳥取県岩美郡岩美町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/tajiri/tajiri.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=22" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>134.316111111111,35.5936111111111</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>海南</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1401：海南</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>和歌山県海南市冷水</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kainan/kainan.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=5" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>135.191388888889,34.1441666666667</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>須佐</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1610：須佐</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>山口県阿武郡須佐町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/susa/susa.html" target="_blank">験潮場のページ</a></td>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=16" target="_blank">潮位情報提供ページ</a></td></tr>
+        </tr></table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>131.604722222222,34.6275</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>久礼</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1404：久礼</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>高知県高岡郡中土佐町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kurei/kurei.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=13" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>133.243611111111,33.3336111111111</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>仮屋</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1502：仮屋</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>佐賀県東松浦郡玄海町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kariya/kariya.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=17" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>129.849166666667,33.4730555555556</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>阿久根</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1501：阿久根</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>鹿児島県阿久根市波留</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/akune/akune.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=15" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>130.191111111111,32.0175</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>沖縄</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1503：沖縄</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>沖縄県島尻郡知念村</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/okinawa/okinawa.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=21" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>127.824722222222,26.1794444444444</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>田子</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1305：田子</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>静岡県加茂郡西伊豆町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/tago/tago.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=10" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>138.763888888889,34.8072222222222</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>焼津</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1306：焼津</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>静岡県焼津市中港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/yaizu/yaizu.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=23" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>138.3275,34.8705555555556</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>奥尻</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1702：奥尻</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道奥尻郡奥尻町字松江</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/okushiri/okushiri.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=24" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>139.489444444444,42.0786111111111</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>細島</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1403：細島</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>宮崎県日向市細島町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/hosojima/hosojima.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=2" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>131.669444444444,32.4286111111111</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>飛島</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>1611：飛島</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>国土地理院</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>山形県酒田市飛島字勝浦地先</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/tobisima/tobisima.html" target="_blank">験潮場のページ</a></td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">潮位情報</td><td><a href="http://tide.gsi.go.jp/main.php?number=25" target="_blank">潮位情報提供ページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-1</styleUrl>
+        <Point>
+          <coordinates>139.547777777778,39.1855555555556</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>kisyou.style</name>
+      <Placemark>
+        <name>稚内</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2701：稚内</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道稚内市新港町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/wakkanai/wakkanai.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>141.685277777778,45.4077777777778</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>網走</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2702：網走</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道網走市港町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/abasiri/abasiri.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>144.285833333333,44.0194444444444</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>花咲</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2101：花咲</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道根室市花咲</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/hanasaki/hanasaki.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>145.567777777778,43.2780555555556</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>釧路</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2102：釧路</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道釧路市港町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kusiro/kusiro.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>144.371388888889,42.9755555555556</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>函館</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2103：函館</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道函館市海岸町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/hakodate/hakodate.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>140.724722222222,41.7816666666667</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>八戸</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2201：八戸</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>青森県八戸市新湊</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/hatinohe/hatinohe.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>141.527777777778,40.5316666666667</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>深浦</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2605：深浦</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>青森県西津軽郡深浦町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/hukaura/hukaura.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>139.926388888889,40.6472222222222</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>宮古</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2202：宮古</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>岩手県宮古市日立浜町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/miyako/miyako.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>141.975277777778,39.6430555555556</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>大船渡</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2203：大船渡</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>岩手県大船渡市赤崎町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/oohunato/oohunato.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>141.753333333333,39.0197222222222</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>鮎川</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2205：鮎川</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>宮城県牡鹿郡牡鹿町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/ayukawa/ayukawa.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>141.505277777778,38.2966666666667</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>小名浜</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2204：小名浜</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>福島県いわき市小名浜</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/onahama/onahama.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>140.891944444444,36.9375</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>銚子漁港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2301：銚子漁港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>千葉県銚子市川口町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/tyousi/tyousi.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>140.858333333333,35.7444444444444</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>富山</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2606：富山</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>富山県富山市草島</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/toyama/toyama.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>137.224722222222,36.7622222222222</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>布良</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2302：布良</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>千葉県館山市布良</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/mera/mera.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>139.825,34.9188888888889</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>岡田</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2304：岡田</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>東京都大島町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/okada/okada.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>139.391388888889,34.7894444444444</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>内浦</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2308：内浦</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>静岡県沼津市内浦長浜</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/utiura/utiura.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>138.890277777778,35.0169444444444</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>清水港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2309：清水港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>静岡市清水三保</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/simizu/simizu.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>138.5175,35.0116666666667</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>舞阪</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2310：舞阪</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>静岡県浜名郡舞阪町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/maisaka/maisaka.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>137.608888888889,34.6819444444444</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>御前崎</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2305：御前崎</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>静岡県榛原郡御前崎町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/omaezaki/omaezaki.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>138.222222222222,34.6083333333333</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>鳥羽</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2306：鳥羽</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>三重県鳥羽市堅神町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/toba/toba.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>136.824722222222,34.4852777777778</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>尾鷲</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2307：尾鷲</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>三重県尾鷲市大字天満浦</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/owase/owase.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>136.207222222222,34.0763888888889</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>浦神</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2411：浦神</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>和歌山県東牟婁郡那智勝浦町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/katuura/katuura.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>135.896388888889,33.5583333333333</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>串本</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2401：串本</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>和歌山県西牟婁郡串本町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kusimoto/kusimoto.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>135.773333333333,33.4758333333333</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>洲本</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2405：洲本</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>兵庫県洲本市海岸通り</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/sumoto/sumoto.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>134.906944444444,34.3405555555556</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>白浜</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2401：白浜</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>和歌山県西牟婁郡白浜町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/sirahama/sirahama.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>135.375277777778,33.6836111111111</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>西郷</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2603：西郷</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>島根県隠岐郡西郷町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/saigou/saigou.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>133.331111111111,36.2013888888889</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>境</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2602：境</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>鳥取県境港市岬町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/sakai/sakai.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>133.243055555556,35.5477777777778</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>宇野</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2407：宇野</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>岡山県玉野市宇野</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/uno/uno.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>133.949444444444,34.4886111111111</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>浜田</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2601：浜田</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>島根県浜田市大辻町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/hamada/hamada.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>132.066111111111,34.8972222222222</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>小松島</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2412：小松島</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>徳島県小松島市外開地先</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/komatusima/komatusima.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>134.587777777778,34.0091666666667</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>高松</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2406：高松</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>香川県高松市北浜町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/takamatu/takamatu.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>134.056944444444,34.3513888888889</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>室戸岬</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2402：室戸岬</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>高知県室戸市室戸岬町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/muroto/muroto.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>134.164444444444,33.2663888888889</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>松山</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2408：松山</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>愛媛県松山市海岸通り</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/matuyama/matuyama.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>132.712222222222,33.8588888888889</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>宇和島</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2404：宇和島</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>愛媛県宇和島市大浦</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/uwajima/uwajima.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>132.551111111111,33.2272222222222</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>土佐清水</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2403：土佐清水</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>高知県土佐清水市旭町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/tosasimizu/tosasimizu.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>132.958888888889,32.7791666666667</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>油津</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2409：油津</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>宮崎県日南市字大節</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/aburatu/aburatu.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>131.409444444444,31.5769444444444</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>鹿児島</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2501：鹿児島</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>鹿児島県鹿児島市城南町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kagosima/kagosima.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>130.570555555556,31.5811111111111</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>枕崎</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2502：枕崎</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>鹿児島県枕崎市松之尾町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/makurazaki/makurazaki.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>130.293055555556,31.2677777777778</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>東京</name>
+        <description><![CDATA[ <table>
+        　　<tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2313：東京</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>東京都中央区晴海</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/tokyo/tokyo.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>139.77,35.6486111111111</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>名古屋</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2311：名古屋</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>愛知県名古屋市港区港町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/nagoya/nagoya.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>136.880833333333,35.0913888888889</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>和歌山</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2413：和歌山</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>和歌山県和歌山市湊青岸</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/wakayama/wakayama.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>135.145555555556,34.2216666666667</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>淡輪</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2414：淡輪</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>大阪府泉南郡岬町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/tannowa/tannowa.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>135.178055555556,34.3388888888889</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>大阪</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2415：大阪</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>大阪府大阪市港区築港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/oosaka/oosaka.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>135.432777777778,34.6580555555556</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>神戸</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2416：神戸</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>兵庫県神戸市中央区波止場町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/koube/koube.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>135.190277777778,34.6822222222222</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>高知</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2417：高知</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>高知県高知市浦戸桂浜</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kouti/kouti.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>133.569166666667,33.4991666666667</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>那覇</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2504：那覇</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>沖縄県那覇市西</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/naha/naha.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>127.665277777778,26.2133333333333</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>石垣</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2505：石垣</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>沖縄県石垣市美崎町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/isigaki/isigaki.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>124.163611111111,24.3322222222222</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>大浦</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2506：大浦</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>佐賀県藤津郡太良町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/ooura/ooura.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>130.220555555556,32.9766666666667</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>口之津</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2507：口之津</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>長崎県南高来郡口之津町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kutinotu/kutinotu.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>130.195277777778,32.6052777777778</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>長崎</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2508：長崎</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>長崎県長崎市松ヶ枝町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/nagasaki/nagasaki.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>129.866111111111,32.735</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>福江</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2509：福江</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>長崎県福江市福江町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/hukue/hukue.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>128.849444444444,32.6961111111111</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>舞鶴</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2607：舞鶴</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>京都府舞鶴市大字浜</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/maizurue/maizurue.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>135.386944444444,35.4766666666667</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>父島</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>2314：父島</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>気象庁</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>東京都小笠原村父島東町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/titijima/titijima.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-2</styleUrl>
+        <Point>
+          <coordinates>142.194722222222,27.0938888888889</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>kaiho.style</name>
+      <Placemark>
+        <name>釜石</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3201：釜石</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>岩手県釜石市魚河岸町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kamaisi/kamaisi.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>141.889166666667,39.2733333333333</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>粟島</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3602：粟島</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>新潟県岩船郡粟島浦村</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/awasima/awasima.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>139.255,38.4677777777778</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>横須賀</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3301：横須賀</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>神奈川県横須賀市西逸見町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/yokosuka/yokosuka.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>139.651388888889,35.2880555555556</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>横浜新港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3308：横浜新港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>神奈川県横浜市中区新港町１丁目</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/yokohama/yokohama.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>139.644166666667,35.4541666666667</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>神津島</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3303：神津島</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>東京都神津島村</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kouzu/kouzu.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>139.131666666667,34.2091666666667</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>三宅島</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3304：三宅島</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>東京都三宅村阿古</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/miyake/miyake.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>139.480833333333,34.0672222222222</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>千葉</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3305：千葉</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>千葉県市原市五井町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/tiba/tiba.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>140.045555555556,35.5680555555556</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>八丈島</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3307：八丈島</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>東京都八丈町三根</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/hatijou/hatijou.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>139.804722222222,33.1302777777778</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>広島</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3407：広島</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>広島県広島市南区宇品海岸</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/hirosima/hirosima.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>132.464722222222,34.3530555555556</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>呉</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3401：呉</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>広島県呉市宝町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kure/kure.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>132.550277777778,34.2405555555556</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>徳山</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3402：徳山</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>山口県徳山市那智町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/tokuyama/tokuyama.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>131.802777777778,34.0408333333333</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>博多</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3504：博多</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>福岡県福岡市東区東浜</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/hakata/hakata.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>130.407777777778,33.6188888888889</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>大分</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3406：大分</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>大分県大分市鶴崎三佐</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/ooita/ooita.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>131.686666666667,33.2661111111111</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>厳原</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3503：厳原</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>長崎県下県郡厳原町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/izuhara/izuhara.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>129.291666666667,34.1977777777778</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>佐世保</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3502：佐世保</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>長崎県佐世保市干尽町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/sasebo/sasebo.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>129.723888888889,33.1580555555556</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>大泊</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3404：大泊</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>鹿児島県肝属郡佐多町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/oodomari/oodomari.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>130.689166666667,31.0236111111111</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>西之表</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3405：西之表</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>鹿児島県西之表市西之表</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/nisinoomote/nisinoomote.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>130.992222222222,30.735</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>名瀬</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3501：名瀬</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>鹿児島県名瀬市</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/naze/naze.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>129.495277777778,28.3911111111111</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>竜飛</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3603：竜飛</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>青森県東津軽郡三厩村</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/tappi/tappi.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>140.381388888889,41.2425</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>中之島</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>3505：中之島</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>海洋情報部</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>鹿児島県鹿児島郡十島村中之島</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/nakanosima/nakanosima.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-3</styleUrl>
+        <Point>
+          <coordinates>129.847777777778,29.8419444444444</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>other.style</name>
+      <Placemark>
+        <name>鋸山</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4301：鋸山</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>東京大学地震研究所</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>千葉県富津市金谷</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/nokogiri/nokogiri.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>139.818055555556,35.1694444444444</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>江ノ島</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4202：江ノ島</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>東京大学地震研究所</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>宮城県牡鹿郡女川町江島</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/enosima/enosima.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>141.596666666667,38.4</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>久里浜</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4302：久里浜</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>港湾空港技術研究所</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>神奈川県横須賀市長瀬</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kurihama/kurihama.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>139.721111111111,35.2275</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>松前港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4701：松前港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>北海道開発局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道松前郡松前町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/matumae/matumae.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>140.091388888889,41.4219444444444</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>留萌港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4702：留萌港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>北海道開発局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道留萌市大町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/rumoi/rumoi.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>141.635,43.9505555555556</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>江差港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4703：江差港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>北海道開発局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道檜山郡江差町字中歌町地先</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/esasi/esasi.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>140.125277777778,41.8705555555556</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>岩内港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4704：岩内港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>北海道開発局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道岩内郡岩内町大和</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/iwanai/iwanai.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>140.510277777778,42.9872222222222</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>沓形港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4705：沓形港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>北海道開発局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道利尻郡利尻町沓形</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kutugata/kutugata.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>141.137777777778,45.1894444444444</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>小樽港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4706：小樽港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>北海道開発局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道小樽市築港２－２</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/otaru/otaru.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>141.033611111111,43.1833333333333</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>十勝港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4101：十勝港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>北海道開発局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道広尾郡広尾町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/tokati/tokati.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>143.322222222222,42.2972222222222</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>羅臼漁港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4102：羅臼漁港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>北海道開発局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道目梨郡羅臼町羅臼漁港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/rausu/rausu.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>145.201944444444,44.0238888888889</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>厚岸漁港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4103：厚岸漁港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>北海道開発局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道厚岸郡厚岸町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/akkesi/akkesi.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>144.849166666667,43.0502777777778</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>苫小牧東港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4104：苫小牧東港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>北海道開発局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道勇払郡厚真町字浜厚真</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/tomakomoie/tomakomaie.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>141.817222222222,42.6058333333333</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>苫小牧西港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4105：苫小牧西港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>北海道開発局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道苫小牧市汐見町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/tomakomaiw/tomakomaiw.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>141.621111111111,42.63</coordinates>
+        </Point>
+      </Placemark>
+ 
+      <Placemark>
+        <name>浦河港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4106：浦河港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>北海道開発局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道浦河郡浦河町大通</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/urakawako/urakawako.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>142.770833,42.164167</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>室蘭港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4107：室蘭港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>北海道開発局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道室蘭市祝津町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/muroranko/muroranko.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>140.953333,42.344444</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>枝幸港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4108：枝幸港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>北海道開発局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道枝幸郡枝幸町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/esasiko/esasiko.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>142.589167,44.938611</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>紋別港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4109：紋別港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>北海道開発局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>北海道紋別市弁天町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/monbetuko/monbetuko.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>143.361944,44.355</coordinates>
+        </Point>
+      </Placemark>
+
+      <Placemark>
+        <name>鹿島港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4201：鹿島港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>地方整備局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>茨城県鹿島郡神栖町居切浜海岸地先</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kasima/kasima.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>140.693888888889,35.9294444444444</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>酒田港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4602：酒田港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>地方整備局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>山形県酒田市宮野浦</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/sakata/sakata.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>139.823611111111,38.9175</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>新潟港西港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4603：新潟西港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>地方整備局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>新潟県新潟市入船町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/niigata/niigata.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>139.061111111111,37.9405555555556</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>青森港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4604：青森港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>地方整備局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>青森県青森市港町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/aomori/aomori.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>140.763888888889,40.8352777777778</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>金沢港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4605：金沢港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>地方整備局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>石川県金沢市大野町4丁目地先</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kanazawa/kanazawa.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>136.602777777778,36.6177777777778</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>七尾港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4606：七尾港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>地方整備局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>石川県七尾市府中町員外</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/nanao/nanao.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>136.968333333333,37.0494444444444</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>伏木富山港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4607：伏木富山港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>地方整備局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>富山県射水市堀岡新明神</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/husiki/husiki.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>137.118055555556,36.7752777777778</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>むつ小川原港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4610：むつ小川原港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>地方整備局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>青森県上北郡六ヶ所村大字鷹架字道の下</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/mutu/mutu.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>141.388055555556,40.9263888888889</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>久慈港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4611：久慈港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>地方整備局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>岩手県久慈市長内町第42地割</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kuji/kuji.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>141.796666666667,40.1922222222222</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>仙台港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4612：仙台港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>地方整備局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>仙台市宮城野区港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/sendai/sendai.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>141.021666666667,38.2713888888889</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>弟子待</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4415：弟子待</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>地方整備局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>山口県下関市彦島弟子待</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/desimatu/desimatu.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>130.927777777778,33.925</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>宮崎港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4413：宮崎港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>地方整備局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>宮崎県宮崎市港１－１８</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/miyazaki/miyazaki.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>131.456388888889,31.9027777777778</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>志布志港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4414：志布志港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>地方整備局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>鹿児島県曽於郡志布志町帖</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/sibusi/sibusi.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>131.108888888889,31.475</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>平良港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4502：平良港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>沖縄総合事務局</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>沖縄県平良市西里</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/hirara/hirara.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>125.278333333333,24.8133333333333</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>直江津港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4601：直江津港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>その他</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>新潟県上越市港町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/naoetu/naoetu.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>138.253333333333,37.185</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>能代港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4608：能代港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>秋田県</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>秋田県能代市能代町能代港内</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/nosiro/nosiro.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>140.003611111111,40.2138888888889</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>三崎港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4401：三崎港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>愛媛県</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>愛媛県西宇和郡三崎町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/misaki/misaki.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>132.120277777778,33.3880555555556</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>福山港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4402：福山港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>広島県</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>広島県福山市引野町沖浦</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/hukuyama/hukuyama.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>133.412777777778,34.4788888888889</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>津居山港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4609：津居山港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>兵庫県</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>兵庫県豊岡市小島字作り４－１地先</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/tuiyama/tuiyama.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>134.828611111111,35.6469444444444</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>明石港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4403：明石港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>兵庫県</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>兵庫県明石市港町２－６地先</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/akasi/akasi.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>134.99,34.6419444444444</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>東播磨港東二見</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4404：東播磨港東二見</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>兵庫県</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>兵庫県明石市二見町東二見</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/higasihutami/higasihutami.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>134.887222222222,34.6933333333333</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>姫路港飾磨</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4405：姫路港飾磨</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>兵庫県</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>兵庫県姫路市飾磨区須加２９４</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/himeji/himeji.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>134.6625,34.7852777777778</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>水島</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4406：水島</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>岡山県</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>岡山県倉敷市水島福崎町１－１２地先</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/mizusima/mizusima.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>133.739444444444,34.5252777777778</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>甲浦</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4407：甲浦</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>高知県</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>高知県安芸郡東洋町甲浦</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kannoura/kannoura.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>134.300277777778,33.5475</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>佐賀港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4408：佐賀港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>高知県</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>高知県幡多郡佐賀町明神</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/saga/saga.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>133.110555555556,33.0769444444445</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>御荘港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4409：御荘港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>愛媛県</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>愛媛県南宇和郡御荘町平城</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/misyou/misyou.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>132.545833333333,32.9652777777778</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>今治港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4411：今治港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>愛媛県</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>愛媛県今治市片原町２番地先</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/imabari/imabari.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>133.006944444444,34.0683333333333</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>観音寺港</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4412：観音寺港</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>香川県</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>香川県観音寺市観音町</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/kannnji/kanonji.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>133.635277777778,34.1247222222222</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>大熊</name>
+        <description><![CDATA[ <table>
+          <tr><td style="color:#0000FF;padding-right:1em;">登録番号：験潮場名</td><td>4801：大熊</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所属</td><td>東京電力</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">所在地</td><td>福島県双葉郡大熊町大字夫沢字北原22番地</td></tr>
+          <tr><td style="color:#0000FF;padding-right:1em;">験潮場情報</td><td><a href="http://cais.gsi.go.jp/cmdc/center/kentyoujo/ookuma/ookuma.html" target="_blank">験潮場のページ</a></td></tr>
+        </table> ]]></description>
+        <styleUrl>#PointID-4</styleUrl>
+        <Point>
+          <coordinates>141.035277777778,37.4241666666667</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

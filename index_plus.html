@@ -215,8 +215,8 @@ var isFullscreen = false;
 var initialLibLayers = [];
 
 // 作図URL保存
-var READURL = "http://gp.cyberjapan.jp/cjp4/service/gsi_convert_to_json";
-var SAVEURL = "http://gp.cyberjapan.jp/cjp4/service/gsi_convert_from_json";
+var READURL = ""; // deleted the old domain.
+var SAVEURL = ""; // deleted the old domain.
 
 // true:表示 false:非表示
 var centerMarkFlag = false;	// 中心位置表示
@@ -328,7 +328,7 @@ function init(){
 
 		//都道府県からの検索の場合
 		if (execsearch == ""){
-			var histURL = "http://portal.cyberjapan.jp/testd/site/mapuse/index.html?lon=" + initCX + "&lat=" + initCY;
+			var histURL = "" + initCX + "&lat=" + initCY; // deleted the old domain.
 			document.cookie = "hist=" + keyword + "; expires=Tue, 1-Jan-2030 00:00:00 GMT; path=/";
 			document.cookie = "histURL=" + histURL + "; expires=Tue, 1-Jan-2030 00:00:00 GMT; path=/;";
 		}
@@ -537,7 +537,7 @@ function sleep(time){
 	return;
 }
  
-// 【メモ】 試験運用中のサイト(http://portal.cyberjapan.jp/site/mapuse/index.html)から移植
+// 【メモ】 試験運用中のサイトから移植 deleted the old domain.
 /*表示地図を再現するためのURL発行*/
 function httplink(){
 	//中心経緯度・ズームレベル取得
@@ -697,7 +697,7 @@ function layerAdded(layername) {
 <!-- ヘッダ部（検索窓など）　-->
 <div id="header">
 	<div style="padding-left:10px;padding-top:5px;">
-		<!--<a href="http://portal.cyberjapan.jp/">--><img src="./logo.png" width="240px" height="40px"><!--</a>-->
+		<a href="http://maps.gsi.go.jp/"><!--logo image  --></a><!-- deleted the old domain. -->
 	</div>
 	<div style="position:absolute;top:30px;left:250px;" id="centerform">
 	</div>
@@ -761,11 +761,11 @@ function layerAdded(layername) {
 			</div>
 		</div>
 
-		<!--アクセスカウンタ--><!--
+		<!--アクセスカウンタ-->
 		<div id="accesscounter" clear="both">
-			<iframe src="http://portal.cyberjapan.jp/count/count.php?id=011" height="50" width="180" frameborder="0" scrolling="no" align="left"></iframe><br>
-			<font size="2" color="#555555">since 2013.4.22</font>--> <!-- merge1227 --><!--
-		</div>-->
+			<!-- deleted the old domain. -->
+			<font size="2" color="#555555">since 2013.4.22</font> <!-- merge1227 -->
+		</div>
 	</div>
 </div>
 

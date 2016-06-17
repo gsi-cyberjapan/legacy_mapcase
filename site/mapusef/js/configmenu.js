@@ -24,11 +24,11 @@ jQuery.fn.ConfigMenu = function(config) {
 						<td id='item_mapion' class='configMenuItem'><img src='http://www.mapion.co.jp/img/logo/L120_40.gif'></td>\
 					</tr>\
 					<tr>\
-						<td id='item_itsumonavi' class='configMenuItem'><img src='http://portal.cyberjapan.jp/site/mapuse4/map_link/banner/itsumo_navi.gif'></td>\
+						<td id='item_itsumonavi' class='configMenuItem'><img src='./site/mapuse4/map_link/banner/itsumo_navi.gif'></td>\
 					</tr>\
 				</table>\
 			</div>\
-		</div>";
+		</div>"; // deleted the old domain.
 
 	var shareMenuDiv = 
 		"<div class='configMenu' style='position:absolute; right:66px; top:50px;'>\
@@ -173,7 +173,7 @@ jQuery.fn.ConfigMenu = function(config) {
 		var lat = String(Math.floor(webtis.getCy() * 1000000) / 1000000);
 		var lon = String(Math.floor(webtis.getCx() * 1000000) / 1000000);
 		var zoomlevel = webtis.getZoomLevel();
-		var url = "http://portal.cyberjapan.jp/site/mapuse4/?lat=" + lat + "&lon=" + lon + "&z=" + zoomlevel;
+		var url = "./site/mapuse4/?lat=" + lat + "&lon=" + lon + "&z=" + zoomlevel; // deleted the old domain.
 		window.open(url, "_blank");
 		ConfigMenu.close();
 	}, this);

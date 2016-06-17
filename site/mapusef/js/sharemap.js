@@ -66,7 +66,7 @@ function saveSakuzuURL(isURL) {
 	window.hideIFRAME = isURL;
 	var windowParam = url + delimiter + hideURL + delimiter + hideIFRAME;
 	if (isMapCase) {
-		window.open("http://portal.cyberjapan.jp/site/mapusef/httplink.html?httplinkparam=" + windowParam,"httplink","width=480,height=200,menubar=no,toolbar=no,scrollbar=no");
+		window.open("./site/mapusef/httplink.html?httplinkparam=" + windowParam,"httplink","width=480,height=200,menubar=no,toolbar=no,scrollbar=no"); // deleted the old domain.
 	} else {
 		window.open("httplink.html?httplinkparam=" + windowParam,"httplink","width=480,height=200,menubar=no,toolbar=no,scrollbar=no");
 	}
@@ -92,7 +92,7 @@ function createURL(filename)
 //	if (metadata != null) {
 //		did = metadata["dataId"];
 //	}
-//	var url = "http://portal.cyberjapan.jp/site/mapuse4/index.html?lat=" + lat + "&lon=" + lon + "&z=" + zoomlevel + "&did=" + did;
+//	var url = "./site/mapuse4/index.html?lat=" + lat + "&lon=" + lon + "&z=" + zoomlevel + "&did=" + did; // deleted the old domain.
 	var url = location.href;
 	if (url.indexOf("?") >= 0) {
 		url = url.substring(0, url.indexOf("?"));

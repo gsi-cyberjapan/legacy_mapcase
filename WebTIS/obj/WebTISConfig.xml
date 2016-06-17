@@ -16,7 +16,7 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'2016/02/09'</value>
+      <value>'2016/06/17'</value>
     </define>
     <define append="true">
       <name>CONFIG::air</name>
@@ -37,20 +37,20 @@
     <omit-trace-statements>true</omit-trace-statements>
     <verbose-stacktraces>false</verbose-stacktraces>
     <source-path append="true">
-      <path-element>D:\git_work\legacy_mapcase\WebTIS\src</path-element>
+      <path-element>D:\seWeb\html\legacy_mapcase_480\WebTIS\src</path-element>
       <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
     <library-path append="true">
-      <path-element>D:\git_work\legacy_mapcase\WebTIS\lib\fzip.swc</path-element>
-      <path-element>D:\git_work\legacy_mapcase\WebTIS\lib\openscales-core-2.2.swc</path-element>
-      <path-element>D:\git_work\legacy_mapcase\WebTIS\lib\openscales-core-flash-10.1-2.2.swc</path-element>
-      <path-element>D:\git_work\legacy_mapcase\WebTIS\lib\openscales-geometry-2.2.swc</path-element>
-      <path-element>D:\git_work\legacy_mapcase\WebTIS\lib\openscales-proj4as-2.2.swc</path-element>
-      <path-element>D:\git_work\legacy_mapcase\WebTIS\lib\openscales-fx-2.2.swc</path-element>
+      <path-element>D:\seWeb\html\legacy_mapcase_480\WebTIS\lib\fzip.swc</path-element>
+      <path-element>D:\seWeb\html\legacy_mapcase_480\WebTIS\lib\openscales-core-2.2.swc</path-element>
+      <path-element>D:\seWeb\html\legacy_mapcase_480\WebTIS\lib\openscales-core-flash-10.1-2.2.swc</path-element>
+      <path-element>D:\seWeb\html\legacy_mapcase_480\WebTIS\lib\openscales-geometry-2.2.swc</path-element>
+      <path-element>D:\seWeb\html\legacy_mapcase_480\WebTIS\lib\openscales-proj4as-2.2.swc</path-element>
+      <path-element>D:\seWeb\html\legacy_mapcase_480\WebTIS\lib\openscales-fx-2.2.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>
-    <path-element>D:\git_work\legacy_mapcase\WebTIS\src\jp\cyberjapan\webtis\Main.mxml</path-element>
+    <path-element>D:\seWeb\html\legacy_mapcase_480\WebTIS\src\jp\cyberjapan\webtis\Main.mxml</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>

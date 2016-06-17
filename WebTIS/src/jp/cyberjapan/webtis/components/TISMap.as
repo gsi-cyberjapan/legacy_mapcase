@@ -59,7 +59,7 @@ package jp.cyberjapan.webtis.components
 		/**
 		 * データオリジネータ
 		 */
-		private static const ORIGINATOR:DataOriginator = new DataOriginator("電子国土", "http://portal.cyberjapan.jp/", "image/icon01.gif");
+		private static const ORIGINATOR:DataOriginator = new DataOriginator("電子国土", "", "image/icon01.gif"); // deleted the old domain.
 
 		/**
 		 * ズームレベルごとの地図の種類の定義

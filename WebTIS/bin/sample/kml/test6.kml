@@ -4,7 +4,7 @@
     <Style id="Marker_Style1364450935316">
       <IconStyle>
         <Icon>
-          <href>http://portal.cyberjapan.jp/site/mapusef/icons/050.png</href>
+          <href>./site/mapusef/icons/050.png</href><!-- deleted the old domain. -->
         </Icon>
         <hotSpot x="0.5" xunits="fraction" y="0.5" yunits="fraction"/>
       </IconStyle>

@@ -92,7 +92,7 @@
 		<mx:Text styleName="mapTypeText">
 			<!--
 			<mx:htmlText>
-				<![CDATA[写真　(※日本全域をカバーしていない場合があります。)<br></br>　　　閲覧可能な縮尺の詳細は<a href="http://portal.cyberjapan.jp/site/mapuse4/attension2.html" target="_blank">こちら</a>]]>
+				<![CDATA[写真　(※日本全域をカバーしていない場合があります。)<br></br>　　　閲覧可能な縮尺の詳細は<a href="" target="_blank">こちら</a>]]> // deleted the old domain.
 			</mx:htmlText>
 			-->
 			<mx:htmlText>

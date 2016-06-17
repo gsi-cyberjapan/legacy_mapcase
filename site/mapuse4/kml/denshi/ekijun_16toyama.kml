@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0">
+  <Document>
+    <Style id="SYMBOLX2.symbolStyle">
+      <IconStyle>
+        <scale>0.6</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <color>ff000000</color>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOLX3.symbolStyle">
+      <IconStyle>
+        <scale>0.6</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <color>ff000000</color>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOLX4.symbolStyle">
+      <IconStyle>
+        <scale>0.6</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <color>ff000000</color>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOLX5.symbolStyle">
+      <IconStyle>
+        <scale>0.6</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <color>ff000000</color>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOLX6.symbolStyle">
+      <IconStyle>
+        <scale>0.6</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <color>ff000000</color>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOLX7.symbolStyle">
+      <IconStyle>
+        <scale>0.6</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <color>ff000000</color>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOLX8.symbolStyle">
+      <IconStyle>
+        <scale>0.6</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <color>ff000000</color>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOLX9.symbolStyle">
+      <IconStyle>
+        <scale>0.6</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <color>ff000000</color>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOLX10.symbolStyle">
+      <IconStyle>
+        <scale>0.6</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <color>ff000000</color>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOLX11.symbolStyle">
+      <IconStyle>
+        <scale>0.6</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <color>ff000000</color>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOLX12.symbolStyle">
+      <IconStyle>
+        <scale>0.6</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <color>ff000000</color>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOLX13.symbolStyle">
+      <IconStyle>
+        <scale>0.6</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <color>ff000000</color>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOLX14.symbolStyle">
+      <IconStyle>
+        <scale>0.6</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <color>ff000000</color>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Folder id="SYMBOLTEXT2.symbolStyle">
+      <name>SYMBOLTEXT2</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>電子基準点</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>氷見</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL05537300202</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/020966/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+        <styleUrl>#SYMBOLX2.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>137.02643464,36.91950833</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOLTEXT3.symbolStyle">
+      <name>SYMBOLTEXT3</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>電子基準点</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>宇奈月</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL05537243402</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/020967/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+        <styleUrl>#SYMBOLX3.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>137.55132956,36.86434483</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOLTEXT4.symbolStyle">
+      <name>SYMBOLTEXT4</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>電子基準点</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>新湊</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL05537110201</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/020968/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+        <styleUrl>#SYMBOLX4.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>137.15447597,36.75795094</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOLTEXT5.symbolStyle">
+      <name>SYMBOLTEXT5</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>電子基準点</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>福光</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL05436761403</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/020969/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+        <styleUrl>#SYMBOLX5.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>136.806404,36.59209119</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOLTEXT6.symbolStyle">
+      <name>SYMBOLTEXT6</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>電子基準点</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>細入</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL05437516901</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/020970/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+        <styleUrl>#SYMBOLX6.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>137.23922583,36.4728005</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOLTEXT7.symbolStyle">
+      <name>SYMBOLTEXT7</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>電子基準点</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>立山Ａ</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL05437649702</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/041138/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+        <styleUrl>#SYMBOLX7.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>137.59597328,36.57696844</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOLTEXT8.symbolStyle">
+      <name>SYMBOLTEXT8</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>電子基準点</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>入善</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL05537331802</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/940052/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+        <styleUrl>#SYMBOLX8.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>137.48723283,36.92895817</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOLTEXT9.symbolStyle">
+      <name>SYMBOLTEXT9</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>電子基準点</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>高岡</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL05536078901</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/950248/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+        <styleUrl>#SYMBOLX9.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>136.99612742,36.74062122</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOLTEXT10.symbolStyle">
+      <name>SYMBOLTEXT10</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>電子基準点</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>富山</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL05437716502</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/950249/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+        <styleUrl>#SYMBOLX10.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>137.19519908,36.63433689</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOLTEXT11.symbolStyle">
+      <name>SYMBOLTEXT11</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>電子基準点</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>大山</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL05437639503</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/950250/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+        <styleUrl>#SYMBOLX11.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>137.43989786,36.57870597</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOLTEXT12.symbolStyle">
+      <name>SYMBOLTEXT12</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>電子基準点</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>上平</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL05436478302</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/950251/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+        <styleUrl>#SYMBOLX12.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>136.92055903,36.40187972</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOLTEXT13.symbolStyle">
+      <name>SYMBOLTEXT13</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>電子基準点</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>滑川</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL05537028902</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960572/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+        <styleUrl>#SYMBOLX13.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>137.36951728,36.73695847</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOLTEXT14.symbolStyle">
+      <name>SYMBOLTEXT14</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>電子基準点</name>
+        <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>砺波</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL05437707202</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960573/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+        <styleUrl>#SYMBOLX14.symbolStyle</styleUrl>
+        <Point>
+          <coordinates>137.03189972,36.64956222</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

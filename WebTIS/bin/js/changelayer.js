@@ -1,6 +1,6 @@
 /** レイヤ表示用 JQueryプラグイン実装 **/
 var ShowLayer = {};
-var receiveDomain = 'http://gp.cyberjapan.jp';
+var receiveDomain = ''; // deleted the old domain.
 
 (function($){
 jQuery.fn.ShowLayer = function(config) {

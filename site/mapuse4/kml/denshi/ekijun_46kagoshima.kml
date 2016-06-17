@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0">
+  <Document>
+    <Style id="SYMBOLX2.symbolStyle">
+      <IconStyle>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+        </Icon>
+        <scale>1</scale>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+        <color>ff000000</color>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOLX17.symbolStyle">
+      <IconStyle>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+        </Icon>
+        <scale>0.5</scale>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+        <color>ff000000</color>
+      </LabelStyle>
+    </Style>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>隼人</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730459801</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/021089/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX2.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.73567208,31.74378322</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>大隅</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730277901</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/021090/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX2.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.99830128,31.56460744</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>金峰</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730124702</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/021091/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX2.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.34005178,31.45025483</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>喜入</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730045302</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/021092/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX2.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.54059083,31.37723997</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>大根占</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04630669901</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/021093/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX2.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.86710222,31.24275056</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>阿久根</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04830011501</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/940096/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX2.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.19012983,32.01324636</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>鹿児島１</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730230703</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/940097/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX2.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.46644828,31.50377244</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>枕崎</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04630721301</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/940098/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX2.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.29947817,31.26459411</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>内之浦</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04631701701</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/940099/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX2.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>131.08752944,31.25853633</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>鹿屋</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730171001</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/942004/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX2.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.878573,31.42531197</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>鹿児島大口</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04830046701</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/950485/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX2.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.59781233,32.05750447</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>牧園</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730662001</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/950486/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX2.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.75966958,31.85553014</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>鹿児島鹿島</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04729562302</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/950487/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX2.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>129.79543769,31.76868581</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>串木野</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730426203</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/950488/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX2.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.27814258,31.71738111</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>鹿児島福山</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730364601</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/950489/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX2.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.83606214,31.61737858</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>指宿</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04630658102</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/950490/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.64035408,31.23522725</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>佐多</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04630552702</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/950491/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.72305483,31.10620778</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>中種子</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04530673701</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/950492/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.96421514,30.53087003</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>上屋久１</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04530455103</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/950493/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.63837181,30.38172458</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>名瀬</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04229437903</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/950494/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>129.489021,28.39909125</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>与論</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04028433402</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/950495/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>128.43232256,27.03218756</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>東</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04830213401</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960717/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.17965117,32.19707544</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>宮之城</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730639503</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960718/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.43965372,31.90884203</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>桜島</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730354202</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960719/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.65188817,31.6241005</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>鹿児島２</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730351602</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960720/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.708536,31.59184469</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>鹿児島３</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730256001</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960721/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.63735203,31.55222475</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>垂水</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730159502</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960722/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.69939911,31.49615578</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>鹿児島三島</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04630124101</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960723/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.27497961,30.78465764</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>西之表</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04631100202</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960724/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>131.02859303,30.75332792</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>口永良部島</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04530515502</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960725/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.19824275,30.46139189</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>南種子</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04530477202</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960726/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.90322769,30.39867956</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>上屋久２</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04530437301</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960727/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.42437544,30.39575911</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>屋久</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04530248402</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960728/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.55454364,30.23635564</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>十島</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04429353602</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960729/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>129.70574014,29.61533242</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>笠利</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04229558501</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960730/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>129.69356964,28.48722119</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>喜界１</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04230404203</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960731/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.02895189,28.37113386</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>喜界２</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04229375302</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960732/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>129.92166736,28.29398342</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>瀬戸内</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04229126502</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960733/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>129.32044181,28.13758564</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>和泊</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04128058201</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960735/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>128.65072092,27.40124258</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>鹿児島郡山</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730431702</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960776/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.46944875,31.67510378</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>笠沙</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730019002</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/960777/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.13575906,31.41589414</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>出水</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04830121802</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/970834/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.36065783,32.09843658</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>鹿児島川内</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730618902</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/970835/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.23897186,31.90616656</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>樋脇</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730535201</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/970836/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.40799739,31.79602272</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>電子基準点</name>
+      <description><![CDATA[<table><tr><td style="color:#0000FF;padding-right:1em;">点名：</td><td>姶良</td></tr><tr><td style="color:#0000FF;padding-right:1em;">基準点コード：</td><td>EL04730548702</td></tr><tr><td style="color:#0000FF;padding-right:1em;">詳細：</td><td><a href="http://saigai.gsi.go.jp/GenChou/featurehtml/out/970837/index.html" target="_blank">リンク先へ</a></td></tr></table>]]></description>
+      <styleUrl>#SYMBOLX17.symbolStyle</styleUrl>
+      <Point>
+        <coordinates>130.59959053,31.82406303</coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>

@@ -31,7 +31,7 @@
 webtis.addImageLayer(
     "image",   // レイヤー名
 	140.083, 36.106, 140.088, 36.109,  // 緯度経度値（西端、南端、東端、北端）
-	"http://portal.cyberjapan.jp/image_0/photo.png",  // 画像のURL
+	"./image_0/photo.png",  // 画像のURL deleted the old domain.
 	true // 「true」固定
 	);
 		</code></pre>
@@ -44,7 +44,7 @@ webtis.addImageLayer(
 		webtis.setMetadata();
 		webtis.setZoomLevel(16);
 		webtis.setMapCenter(140.085278, 36.104167);
-		webtis.addImageLayer("image", 140.083, 36.106, 140.088, 36.109, "http://portal.cyberjapan.jp/image_0/photo.png", true);
+		webtis.addImageLayer("image", 140.083, 36.106, 140.088, 36.109, "./image_0/photo.png", true); // deleted the old domain.
 	}
   </script>
   <style type="text/css">

@@ -531,7 +531,7 @@
 			private function altitudeLoaded(event:jp.cyberjapan.webtis.event.AltitudeLoadEvent):void
 			{
 				this._altitudeLoader.removeEventListener(AltitudeLoadEvent.ALTITUDE_LOADED, altitudeLoaded);
-				var text:String = "<p>標高：" + event.altitude + "</p><p><font color=\"#FF0000\"><u><a href=\"http://portal.cyberjapan.jp/help/howtouse.html#h2-3\" target=\"_blank\">※注意　右クリックで得られる値等について</a></u></font></p>";
+				var text:String = "<p>標高：" + event.altitude + "</p><p><font color=\"#FF0000\"><u><a href=\"\" target=\"_blank\">※注意　右クリックで得られる値等について</a></u></font></p>"; // deleted the old domain.
 				this.mapAPI.showPopupMessage(text, "標高表示");
 			}
 			
@@ -547,7 +547,7 @@
 			private function addressLoaded(event:jp.cyberjapan.webtis.event.AddressLoadEvent):void
 			{
 				this._addressLoader.removeEventListener(AddressLoadEvent.ADDRESS_LOADED, addressLoaded);
-				var text:String = "<p>住所：" + event.address + "</p><p><font color=\"#FF0000\"><u><a href=\"http://portal.cyberjapan.jp/help/howtouse.html#h2-3\" target=\"_blank\">※注意　右クリックで得られる値等について</a></u></font></p>";
+				var text:String = "<p>住所：" + event.address + "</p><p><font color=\"#FF0000\"><u><a href=\"\" target=\"_blank\">※注意　右クリックで得られる値等について</a></u></font></p>"; // deleted the old domain.
 				this.mapAPI.showPopupMessage(text, "住所表示");
 			}
 			

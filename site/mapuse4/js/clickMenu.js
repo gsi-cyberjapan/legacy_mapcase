@@ -29,7 +29,7 @@ function httplink(lon, lat){
     http = hikisu_all[0] + "?lat=" + lat4 + "&lon=" + lon4 + "&z=" + zoom + "&did=" + str;
 
 	//現在表示位置情報(Twitter用)
-	var getURL = "http://portal.cyberjapan.jp/site/mapuse/index.html?lat=" + lat4 + "&lon=" + lon4 + "&z=" + zoom + "&did=" + str;
+	var getURL = "?lat=" + lat4 + "&lon=" + lon4 + "&z=" + zoom + "&did=" + str; //deleted the old domain.
 
 	// URLをセット
 	$("#twitter").html('<a href="https://twitter.com/share" id="twitter" class="twitter-share-button" data-url="'+ getURL + '" data-text="電子国土Web.Next" data-lang="ja" data-count="none" data-hashtags="cyberjapan_next">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>');
@@ -183,7 +183,7 @@ function utmPointDraw(px,py)	{
 	//000-000を正しく表示するため
 	var utmPx = Math.round(utmP.x);
 	var utmPy = Math.round(utmP.y);
-	var urlstr = "http://portal.cyberjapan.jp/site/mapuse4/grid/utm_point.php?utmx=" + utmPx + "&utmy=" + utmPy + "&utmzone=" + zone + "&lon=" + px + "&lat=" + py;
+	var urlstr = "?utmx=" + utmPx + "&utmy=" + utmPy + "&utmzone=" + zone + "&lon=" + px + "&lat=" + py; // deleted the old domain.
 	
 	//jQueryを経由して、JSONPを使用
 	$.ajax({
@@ -231,9 +231,9 @@ function utmPointClear()	{
 function utmGridDraw()	{
 	var rect = map.getExtent().transform(projection900913,projection4326);
 	if(map.getZoom() <= 13){
-		var url = "http://portal.cyberjapan.jp/site/mapuse4/grid/10k_grid.php?rectLonLat="+rect;
+		var url = "?rectLonLat="+rect; // deleted the old domain.
 	} else {
-		var url = "http://portal.cyberjapan.jp/site/mapuse4/grid/1k_grid.php?rectLonLat="+rect;
+		var url = "?rectLonLat="+rect; // deleted the old domain.
 	}
 	
 	var myutmgridStyles = new OpenLayers.StyleMap({
@@ -263,7 +263,7 @@ function utmGridDraw()	{
 	$.ajax({
 		dataType: "jsonp",
 		url: "./kml2jsonp.php?lf=0&url=" + encodeURIComponent(url),
-		//url: "http://portal.cyberjapan.jp/site/mapuse4/kml2jsonp.php?lf=0&url=" + encodeURIComponent(url),
+		//url: "?lf=0&url=" + encodeURIComponent(url), //deleted the old domain.
 		jsonpCallback: "kml_loaded",
 		success: function(json) {
 			var utmGridLayer = new OpenLayers.Layer.Vector("utmGrid", {
@@ -320,8 +320,8 @@ function lonlatGridDraw(interval)	{
 	lonlatGridClear();
 	
 	var rect = map.getExtent().transform(projection900913,projection4326);
-	var url1 = "http://portal.cyberjapan.jp/site/mapuse4/grid/lonlatline.php?rectLonLat="+rect + "&interval=" + interval;	//ライン用
-	var url2 = "http://portal.cyberjapan.jp/site/mapuse4/grid/lonlatstr.php?rectLonLat="+rect + "&interval=" + interval;	//ラベル用
+	var url1 = "?rectLonLat="+rect + "&interval=" + interval;	//ライン用 deleted the old domain.
+	var url2 = "?rectLonLat="+rect + "&interval=" + interval;	//ラベル用 deleted thd old domain.
 
 	// ラインスタイル
 	var myLineStyles = new OpenLayers.StyleMap({
@@ -347,7 +347,7 @@ function lonlatGridDraw(interval)	{
 	$.ajax({
 		dataType: "jsonp",
 		url: "./kml2jsonp.php?lf=1&url=" + encodeURIComponent(url1), jsonpCallback: "kml_loaded",
-		//url: "http://portal.cyberjapan.jp/site/mapuse4/kml2jsonp.php?lf=1&url=" + encodeURIComponent(url1), jsonpCallback: "kml_loaded",
+		//url: "?lf=1&url=" + encodeURIComponent(url1), jsonpCallback: "kml_loaded", // deleted the old domain.
 		success: function(json) {
 			var data1 = json.data.replace(/\\n/g, "\n");
 			var kmlLayer1 = new OpenLayers.Layer.Vector("LonLatLine", {
@@ -368,7 +368,7 @@ function lonlatGridDraw(interval)	{
 			$.ajax({
 				dataType: "jsonp",
 				url: "./kml2jsonp.php?lf=1&url=" + encodeURIComponent(url2),
-				//url: "http://portal.cyberjapan.jp/site/mapuse4/kml2jsonp.php?lf=1&url=" + encodeURIComponent(url2),
+				//url: "?lf=1&url=" + encodeURIComponent(url2), // deleted the old domain.
 				jsonpCallback: "kml_loaded",
 				success: function(json) {
 					var data2 = json.data.replace(/\\n/g, "\n");
@@ -513,7 +513,7 @@ function createLinkURL(cx, cy, scale, name)	{		//リンクのURLを作成する�
 			linkURL = "http://www.mapion.co.jp/m/" + cy + "_" + cx + "_" + zoomLevel(scale, 2) + "/?wgs=1";
 			break;
 		default:				//どこにも当てはまらない場合（エラー処理）
-			linkURL = "http://portal.cyberjapan.jp/";
+			linkURL = "http://maps.gsi.go.jp/"; // deleted the old domain.
 			break;
 	}
 	return linkURL;		//URLを返す

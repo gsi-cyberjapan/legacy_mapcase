@@ -1,9 +1,9 @@
 /** 作図用 JQueryプラグイン実装 **/
 var Sakuzu= {};
-var READURL = "http://gp.cyberjapan.jp/cjp4/service/gsi_convert_to_json";
-var SAVEURL = "http://gp.cyberjapan.jp/cjp4/service/gsi_convert_from_json";
+var READURL = ""; // deleted the old domain.
+var SAVEURL = ""; // deleted the old domain.
 
-Sakuzu.SERVER_ROOT = "http://portal.cyberjapan.jp";
+Sakuzu.SERVER_ROOT = "http://maps.gsi.go.jp"; // deleted the old domain.
 Sakuzu.IMAGE_ROOT = "http://cyberjapandata.gsi.go.jp/portal/sys/v4/image/";
 
 // アイコン
@@ -359,7 +359,7 @@ jQuery.fn.Sakuzu = function(config) {
 			saveForm.submit();
 
 			// URLを作成
-			var url = "http://portal.cyberjapan.jp/site/mapuse4/index.html?lat=" + mapinfo.lat + "&lon=" + mapinfo.lon + "&z=" + mapinfo.zoomLevel + "&did=" + mapinfo.did + "&fid=" + filename;
+			var url = "./site/mapuse4/index.html?lat=" + mapinfo.lat + "&lon=" + mapinfo.lon + "&z=" + mapinfo.zoomLevel + "&did=" + mapinfo.did + "&fid=" + filename; // deleted the old domain.
 			var ret = getSelectedLayerString(1);
 			if (ret){
 				url = url + ret.layerString;
@@ -1876,7 +1876,7 @@ jQuery.fn.Sakuzu = function(config) {
 		var lat = String(Math.floor(mapinfo.lat * 1000000) / 1000000);
 		var lon = String(Math.floor(mapinfo.lon * 1000000) / 1000000);
 		var url = getURL() + "?lat=" + lat + "&lon=" + lon + "&z=" + mapinfo.zoomLevel + "&did=" + mapinfo.did;
-//	    var url = "http://portal.cyberjapan.jp/site/mapuse4/index.html?lat=" + lat + "&lon=" + lon + "&z=" + mapinfo.zoomLevel + "&did=" + mapinfo.did;
+//	    var url = "./site/mapuse4/index.html?lat=" + lat + "&lon=" + lon + "&z=" + mapinfo.zoomLevel + "&did=" + mapinfo.did; // deleted the old domain.
 	    if (filename) url += ("&fid=" + filename);
 	    if (centercross) url += ("&crs=1");	// 中心位置の十字線
 	    var activeTab = $('#infoTabs').tabs("option", "selected");
@@ -1896,7 +1896,7 @@ jQuery.fn.Sakuzu = function(config) {
 	    window.hideIFRAME = isURL;
 	    var delimiter = "|";
 	    var windowParam = url + delimiter + hideURL + delimiter + hideIFRAME;
-	    window.open("http://portal.cyberjapan.jp/site/mapuse4/httplink.html?httplinkparam=" + windowParam,"httplink","width=480,height=200,menubar=no,toolbar=no,scrollbar=no");
+	    window.open("./site/mapuse4/httplink.html?httplinkparam=" + windowParam,"httplink","width=480,height=200,menubar=no,toolbar=no,scrollbar=no"); // deleted the old domain.
 
 	}
 	

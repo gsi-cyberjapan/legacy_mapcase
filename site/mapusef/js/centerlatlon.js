@@ -115,7 +115,7 @@ function moveto() {
 				pointY = center.substring(9,13);
 				
 				$.ajax({
-					url: 'http://portal.cyberjapan.jp/site/mapuse4/grid/mgrsXY.php?mgrs=' + newMgrs + '&mark=' + mark,
+					url: '?mgrs=' + newMgrs + '&mark=' + mark, // deleted the old domain.
 					type: 'GET',
 					dataType: 'jsonp',
 					/*返却されたJSONデータを処理*/

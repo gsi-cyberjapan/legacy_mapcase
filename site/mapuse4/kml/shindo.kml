@@ -1,0 +1,1391 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0">
+  <Document>
+    <Style id="SYMBOL2.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL3.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL4.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL5.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL6.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL7.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL8.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL9.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL10.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL11.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL12.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL13.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL14.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL15.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL16.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL17.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL18.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL19.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL20.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL21.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL22.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL23.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL24.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL25.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL26.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL27.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL28.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL29.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL30.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL31.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL32.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL33.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="SYMBOL34.symbolStyle">
+      <IconStyle>
+        <scale>0.9</scale>
+        <heading>0.0</heading>
+        <Icon>
+          <href></href> <!-- deleted the old domain. -->
+          <refreshInterval>0.0</refreshInterval>
+          <viewRefreshTime>0.0</viewRefreshTime>
+          <viewBoundScale>0.0</viewBoundScale>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0.0</scale>
+      </LabelStyle>
+    </Style>
+    <Folder id="SYMBOL2.symbolStyle">
+      <name>SYMBOL2</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>水戸市金町</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>水戸市金町1-4-6（水戸地方気象台）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL2.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"水戸市金町1-4-6（水戸地方気象台）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.467777777778,36.3813888888889</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL3.symbolStyle">
+      <name>SYMBOL3</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>水戸市千波町</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>水戸市千波町508番地内</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL3.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"水戸市千波町508番地内\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.452777777778,36.3688888888889</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL4.symbolStyle">
+      <name>SYMBOL4</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>日立市助川小学校</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6+</td></tr>
+<tr><td>住所</td><td>日立市助川町2-15番地内</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL4.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6+\",住所=\"日立市助川町2-15番地内\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.645277777778,36.5913888888889</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL5.symbolStyle">
+      <name>SYMBOL5</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>常陸太田市金井町</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>常陸太田市金井町3690（常陸太田市役所）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL5.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"常陸太田市金井町3690（常陸太田市役所）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.530555555556,36.5380555555556</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL6.symbolStyle">
+      <name>SYMBOL6</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>常陸太田市高柿町</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>常陸太田市高柿町272（常陸太田市金砂郷・交流センターふじ）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL6.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"常陸太田市高柿町272（常陸太田市金砂郷・交流センターふじ）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.461944444444,36.5536111111111</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL7.symbolStyle">
+      <name>SYMBOL7</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>高萩市安良川</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>高萩市大字安良川字北坂1002</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL7.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"高萩市大字安良川字北坂1002\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.706666666667,36.7058333333333</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL8.symbolStyle">
+      <name>SYMBOL8</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>北茨城市磯原町</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>北茨城市磯原町磯原1630（北茨城市役所）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL8.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"北茨城市磯原町磯原1630（北茨城市役所）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.751111111111,36.8019444444444</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL9.symbolStyle">
+      <name>SYMBOL9</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>笠間市中央</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6+</td></tr>
+<tr><td>住所</td><td>笠間市中央3-2-1（笠間市役所）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL9.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6+\",住所=\"笠間市中央3-2-1（笠間市役所）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.304166666667,36.345</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL10.symbolStyle">
+      <name>SYMBOL10</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>ひたちなか市南神敷台</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>ひたちなか市南神敷台7-1</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL10.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"ひたちなか市南神敷台7-1\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.595277777778,36.3522222222222</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL11.symbolStyle">
+      <name>SYMBOL11</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>ひたちなか市東石川</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>ひたちなか市東石川2-10-1（ひたちなか市役所）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL11.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"ひたちなか市東石川2-10-1（ひたちなか市役所）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.535,36.3969444444444</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL12.symbolStyle">
+      <name>SYMBOL12</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>茨城町小堤</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>東茨城郡茨城町大字小堤1080（茨城町役場）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL12.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"東茨城郡茨城町大字小堤1080（茨城町役場）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.424444444444,36.2863888888889</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL13.symbolStyle">
+      <name>SYMBOL13</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>東海村東海</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>那珂郡東海村東海3-7-1（東海村役場）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL13.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"那珂郡東海村東海3-7-1（東海村役場）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.566111111111,36.4719444444444</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL14.symbolStyle">
+      <name>SYMBOL14</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>常陸大宮市中富町</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>常陸大宮市中富町3135-6（常陸大宮市役所）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL14.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"常陸大宮市中富町3135-6（常陸大宮市役所）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.410833333333,36.5425</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL15.symbolStyle">
+      <name>SYMBOL15</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>城里町石塚</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>東茨城郡城里町大字石塚1428-1（城里町 コミュニティーセンター城里）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL15.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"東茨城郡城里町大字石塚1428-1（城里町 コミュニティーセンター城里）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.375555555556,36.4794444444444</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL16.symbolStyle">
+      <name>SYMBOL16</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>小美玉市小川</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>小美玉市小川4-11（小美玉市役所小川総合支所）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL16.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"小美玉市小川4-11（小美玉市役所小川総合支所）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.365,36.1808333333333</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL17.symbolStyle">
+      <name>SYMBOL17</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>小美玉市堅倉</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>小美玉市堅倉835（小美玉市役所）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL17.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"小美玉市堅倉835（小美玉市役所）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.352777777778,36.2391666666667</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL18.symbolStyle">
+      <name>SYMBOL18</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>土浦市常名</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>土浦市常名3090（土浦市立都和南小学校）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL18.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"土浦市常名3090（土浦市立都和南小学校）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.189166666667,36.1038888888889</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL19.symbolStyle">
+      <name>SYMBOL19</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>土浦市下高津</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>土浦市下高津1-20-35（土浦市役所）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL19.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"土浦市下高津1-20-35（土浦市役所）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.196111111111,36.0722222222222</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL20.symbolStyle">
+      <name>SYMBOL20</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>石岡市柿岡</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>石岡市柿岡595（地磁気観測所）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL20.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"石岡市柿岡595（地磁気観測所）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.189166666667,36.2341666666667</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL21.symbolStyle">
+      <name>SYMBOL21</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>石岡市石岡</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>石岡市石岡1-1-1（石岡市役所）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL21.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"石岡市石岡1-1-1（石岡市役所）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.286944444444,36.1902777777778</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL22.symbolStyle">
+      <name>SYMBOL22</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>取手市井野</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>取手市井野1264-1（取手市消防本部）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL22.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"取手市井野1264-1（取手市消防本部）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.070833333333,35.9083333333333</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL23.symbolStyle">
+      <name>SYMBOL23</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>つくば市天王台</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>つくば市天王台3-1</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL23.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"つくば市天王台3-1\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.090277777778,36.125</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL24.symbolStyle">
+      <name>SYMBOL24</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>つくば市苅間</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>つくば市苅間2530-2(つくば市役所）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL24.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"つくば市苅間2530-2(つくば市役所）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.075555555556,36.0833333333333</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL25.symbolStyle">
+      <name>SYMBOL25</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>茨城鹿嶋市鉢形</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>鹿嶋市鉢形1527-4（鹿嶋市交流会館）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL25.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"鹿嶋市鉢形1527-4（鹿嶋市交流会館）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.645833333333,35.9661111111111</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL26.symbolStyle">
+      <name>SYMBOL26</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>潮来市辻</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>潮来市辻626（潮来市役所）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL26.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"潮来市辻626（潮来市役所）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.555277777778,35.9469444444444</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL27.symbolStyle">
+      <name>SYMBOL27</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>坂東市山</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>坂東市山2730（坂東市役所猿島庁舎）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL27.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"坂東市山2730（坂東市役所猿島庁舎）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>139.885,36.1183333333333</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL28.symbolStyle">
+      <name>SYMBOL28</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>稲敷市役所</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>稲敷市江戸崎甲3277-1（稲敷市役所江戸崎庁舎）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL28.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"稲敷市江戸崎甲3277-1（稲敷市役所江戸崎庁舎）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.323888888889,35.9563888888889</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL29.symbolStyle">
+      <name>SYMBOL29</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>筑西市舟生</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6+</td></tr>
+<tr><td>住所</td><td>筑西市舟生1040（筑西市役所関城支所）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL29.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6+\",住所=\"筑西市舟生1040（筑西市役所関城支所）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>139.931944444444,36.2508333333333</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL30.symbolStyle">
+      <name>SYMBOL30</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>かすみがうら市上土田</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>かすみがうら市上土田461（かすみがうら市千代田庁舎）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL30.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"かすみがうら市上土田461（かすみがうら市千代田庁舎）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.236666666667,36.1516666666667</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL31.symbolStyle">
+      <name>SYMBOL31</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>行方市玉造</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>行方市玉造甲404（行方市役所玉造庁舎）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL31.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"行方市玉造甲404（行方市役所玉造庁舎）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.415,36.1047222222222</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL32.symbolStyle">
+      <name>SYMBOL32</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>桜川市岩瀬</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>桜川市岩瀬64-2（桜川市役所岩瀬庁舎）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL32.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"桜川市岩瀬64-2（桜川市役所岩瀬庁舎）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.110833333333,36.3616666666667</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL33.symbolStyle">
+      <name>SYMBOL33</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>鉾田市鉾田</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>鉾田市鉾田1444-1（鉾田市役所）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL33.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"鉾田市鉾田1444-1（鉾田市役所）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.516388888889,36.1586111111111</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder id="SYMBOL34.symbolStyle">
+      <name>SYMBOL34</name>
+      <visibility>1</visibility>
+      <Placemark>
+        <name>つくばみらい市加藤</name>
+        <description>
+        <![CDATA[
+<table border="1">
+<tr><td style="color:#0000FF;padding-right:1em;">震度</td><td>6-</td></tr>
+<tr><td>住所</td><td>つくばみらい市加藤237（つくばみらい市役所谷和原庁舎）</td></tr>
+</table>
+        ]]>
+        </description>
+        <styleUrl>#SYMBOL34.symbolStyle</styleUrl>
+        <ExtendedData>
+          <Data name="attribute">
+            <value>震度=\"6-\",住所=\"つくばみらい市加藤237（つくばみらい市役所谷和原庁舎）\"</value>
+          </Data>
+          <Data name="crs">
+            <value>JGD2011 / (L, B)</value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>140.010833333333,35.9894444444444</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

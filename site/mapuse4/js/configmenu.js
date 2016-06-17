@@ -216,8 +216,8 @@ jQuery.fn.ConfigMenu = function(config) {
 		var mapinfo = sakuzuModule.createParameter();
 		var lat = String(Math.floor(mapinfo.lat * 1000000) / 1000000);
 		var lon = String(Math.floor(mapinfo.lon * 1000000) / 1000000);
-		var url = "http://portal.cyberjapan.jp/site/mapusef/?lat=" + lat + "&lon=" + lon + "&z=" + mapinfo.zoomLevel;
-		window.open(url);
+		var url = "/?lat=" + lat + "&lon=" + lon + "&z=" + mapinfo.zoomLevel; // deleted the old domain.
+		//window.open(url); // deleted the old domain.
 		ConfigMenu.close();
 	}, this);
 

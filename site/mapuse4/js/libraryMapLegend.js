@@ -48,7 +48,7 @@ legendFuncObj.getLibraryLegend_meijiswale = function (dtnode, pluginID)
 	$("#plugin_library_name" + pluginID)[0].innerHTML = dtnode.data.title;
 	$("#plugin_library_subname" + pluginID)[0].innerHTML = "";
 	$("#plugin_library_legend" + pluginID)[0].innerHTML =
-		createPopupLink('http://cyberjapan.jp/legend/SWALE_hanrei.pdf', '凡例') + "<br/>" +
+		createPopupLink('./legend/SWALE_hanrei.pdf', '凡例') + "<br/>" + // deleted the old domain.
 		createPopupLink('http://www.gsi.go.jp/bousaichiri/lc_meiji.html', '解説') + "<br/><br/>(c)国土地理院";
 };
 
@@ -58,7 +58,7 @@ legendFuncObj.getLibraryLegend_LUM200K = function (dtnode, pluginID)
 	$("#plugin_library_name" + pluginID)[0].innerHTML = dtnode.data.title;
 	$("#plugin_library_subname" + pluginID)[0].innerHTML = "";
 	$("#plugin_library_legend" + pluginID)[0].innerHTML =
-		createPopupLink('http://cyberjapan.jp/legend/lum200k_legend.jpg', '凡例') + "<br/>" +
+		createPopupLink('./legend/lum200k_legend.jpg', '凡例') + "<br/>" + // deleted the old domain.
 		createPopupLink('http://www1.gsi.go.jp/geowww/LandUse/lum-200k.html', '解説') + "<br/><br/>(c)国土地理院";
 };
 
@@ -70,22 +70,22 @@ legendFuncObj.getLibraryLegend_lcm25k = function (dtnode, pluginID)
 	switch (dtnode.data.key) {
 	case "lcm25k":
 		$("#plugin_library_legend" + pluginID)[0].innerHTML =
-			createPopupLink('http://cyberjapan.jp/legend/LCM_hanrei.png', '凡例') + "<br/>" +
+			createPopupLink('./legend/LCM_hanrei.png', '凡例') + "<br/>" + // deleted the old domain.
 			createPopupLink('http://www.gsi.go.jp/bousaichiri/lc_index.html', '解説') + "<br/><br/>(c)国土地理院";
 		break;
 	case "lcm25k_2011":
 		$("#plugin_library_legend" + pluginID)[0].innerHTML =
-			createPopupLink('http://cyberjapan.jp/legend/LCM_2011_hanrei.jpg', '凡例') + "<br/>" +
+			createPopupLink('./legend/LCM_2011_hanrei.jpg', '凡例') + "<br/>" + // deleted the old domain.
 			createPopupLink('http://www.gsi.go.jp/bousaichiri/lc_index.html', '解説') + "<br/><br/>(c)国土地理院";
 		break;
 	case "lcm25k_2012":
 		$("#plugin_library_legend" + pluginID)[0].innerHTML =
-			createPopupLink('http://cyberjapan.jp/legend/lcm25k_2012/lc_legend.html', '凡例') + "<br/>" +
+			createPopupLink('./legend/lcm25k_2012/lc_legend.html', '凡例') + "<br/>" + // deleted the old domain.
 			createPopupLink('http://www.gsi.go.jp/bousaichiri/lc_cd25000.html', '解説') + "<br/><br/>(c)国土地理院";
 		break;
 	case "LCM25K_2012_2":
 		$("#plugin_library_legend" + pluginID)[0].innerHTML =
-			createPopupLink('http://cyberjapan.jp/legend/lcm25k_2012/lc_legend.html', '凡例') + "<br/>" +
+			createPopupLink('./legend/lcm25k_2012/lc_legend.html', '凡例') + "<br/>" + // deleted the old domain.
 			createPopupLink('http://www.gsi.go.jp/bousaichiri/lc_cd25000.html', '解説') + "<br/><br/>(c)国土地理院";
 		break;
 	}
@@ -100,12 +100,12 @@ legendFuncObj.getLibraryLegend_CCM = function (dtnode, pluginID)
 	switch (dtnode.data.key) {
 	case "ccm1":
 		$("#plugin_library_legend" + pluginID)[0].innerHTML =
-			createPopupLink('http://cyberjapan.jp/legend/CCM1_hanrei.pdf', '凡例') + "<br/>" +
+			createPopupLink('./legend/CCM1_hanrei.pdf', '凡例') + "<br/>" + // deleted the old domain.
 			createPopupLink('http://www1.gsi.go.jp/geowww/coastmap/index2.html', '解説') + "<br/><br/>(c)国土地理院";
 		break;
 	case "ccm2":
 		$("#plugin_library_legend" + pluginID)[0].innerHTML =
-			createPopupLink('http://cyberjapan.jp/legend/CCM2_hanrei.pdf', '凡例') + "<br/>" +
+			createPopupLink('./legend/CCM2_hanrei.pdf', '凡例') + "<br/>" + // deleted the old domain.
 			createPopupLink('http://www1.gsi.go.jp/geowww/coastmap/index2.html', '解説') + "<br/><br/>(c)国土地理院";
 		break;
 	}
@@ -118,41 +118,41 @@ legendFuncObj.getLibraryLegend_vbmc = function (dtnode, pluginID)
 
 	var legend = "";
 	switch(dtnode.data.key){
-		case 'vbm01meakan' : legend = "http://cyberjapan.jp/legend/l_vbm_meakan.jpg"; break;
-		case 'vbm02tokachi' : legend = "http://cyberjapan.jp/legend/l_vbm_tokachi.jpg"; break;
-		case 'vbm03tarumae' : legend = "http://cyberjapan.jp/legend/l_vbm_tarumae.jpg"; break;
-		case 'vbm04usu' : legend = "http://cyberjapan.jp/legend/l_vbm_usu.jpg"; break;
-		case 'vbm05hokkaidokoma' : legend = "http://cyberjapan.jp/legend/l_vbm_hokkaidokoma.jpg"; break;
-		case 'vbm06iwaki' : legend = "http://cyberjapan.jp/legend/l_vbm_iwaki.jpg"; break;
-		case 'vbm07akitayake' : legend = "http://cyberjapan.jp/legend/l_vbm_akitayake.jpg"; break;
-		case 'vbm08iwate' : legend = "http://cyberjapan.jp/legend/l_vbm_iwate.jpg"; break;
-		case 'vbm09kurikoma' : legend = "http://cyberjapan.jp/legend/l_vbm_kurikoma.jpg"; break;
-		case 'vbm10akitakoma' : legend = "http://cyberjapan.jp/legend/l_vbm_akitakoma.jpg"; break;
-		case 'vbm11chokai' : legend = "http://cyberjapan.jp/legend/l_vbm_chokai.jpg"; break;
-		case 'vbm12zao' : legend = "http://cyberjapan.jp/legend/l_vbm_zao.jpg"; break;
-		case 'vbm13azuma' : legend = "http://cyberjapan.jp/legend/l_vbm_azuma.jpg"; break;
-		case 'vbm14adatara' : legend = "http://cyberjapan.jp/legend/l_vbm_adatara.jpg"; break;
-		case 'vbm15bandai' : legend = "http://cyberjapan.jp/legend/l_vbm_bandai.jpg"; break;
-		case 'vbm16nasu' : legend = "http://cyberjapan.jp/legend/l_vbm_nasu.jpg"; break;
-		case 'vbm17kusatsushirane' : legend = "http://cyberjapan.jp/legend/l_vbm_kusatsushirane.jpg"; break;
-		case 'vbm18asama' : legend = "http://cyberjapan.jp/legend/l_vbm_asama.jpg"; break;
-		case 'vbm19hakone' : legend = "http://cyberjapan.jp/legend/l_vbm_hakone.jpg"; break;
-		case 'vbm20fuji' : legend = "http://cyberjapan.jp/legend/l_vbm_fuji.jpg"; break;
-		case 'vbm21eastizu' : legend = "http://cyberjapan.jp/legend/l_vbm_higashiizu.jpg"; break;
-		case 'vbm22izuoshima' : legend = "http://cyberjapan.jp/legend/l_vbm_izuoshima.jpg"; break;
-		case 'vbm23miyake' : legend = "http://cyberjapan.jp/legend/l_vbm_miyake.jpg"; break;
-		case 'vbm24yakedake' : legend = "http://cyberjapan.jp/legend/l_vbm_yakedake.jpg"; break;
-		case 'vbm25ontake' : legend = "http://cyberjapan.jp/legend/l_vbm_ontake.jpg"; break;
-		case 'vbm26tsurumi' : legend = "http://cyberjapan.jp/legend/l_vbm_tsurumi.jpg"; break;
-		case 'vbm27kujyu' : legend = "http://cyberjapan.jp/legend/l_vbm_kujyu.jpg"; break;
-		case 'vbm28aso' : legend = "http://cyberjapan.jp/legend/l_vbm_aso.jpg"; break;
-		case 'vbm29unzen' : legend = "http://cyberjapan.jp/legend/l_vbm_unzen.jpg"; break;
-		case 'vbm30kirishima' : legend = "http://cyberjapan.jp/legend/l_vbm_kirishima.jpg"; break;
-		case 'vbm31sakurajima' : legend = "http://cyberjapan.jp/legend/l_vbm_sakurajima.jpg"; break;
-		case 'vbm32satsumatakesima' : legend = "http://cyberjapan.jp/legend/l_vbm_satsumatakesima.jpg"; break;
-		case 'vbm33satsumaiojima' : legend = "http://cyberjapan.jp/legend/l_vbm_satsumaiojima.jpg"; break;
-		case 'vbm34suwanosejima' : legend = "http://cyberjapan.jp/legend/l_vbm_suwanosejima.jpg"; break;
-		case 'vbm35esan' : legend = "http://cyberjapan.jp/legend/l_vbm_esan.jpg"; break;
+		case 'vbm01meakan' : legend = "./legend/l_vbm_meakan.jpg"; break; // deleted the old domain.
+		case 'vbm02tokachi' : legend = "./legend/l_vbm_tokachi.jpg"; break; // deleted the old domain.
+		case 'vbm03tarumae' : legend = "./legend/l_vbm_tarumae.jpg"; break; // deleted the old domain.
+		case 'vbm04usu' : legend = "./legend/l_vbm_usu.jpg"; break; // deleted the old domain.
+		case 'vbm05hokkaidokoma' : legend = "./legend/l_vbm_hokkaidokoma.jpg"; break; // deleted the old domain.
+		case 'vbm06iwaki' : legend = "./legend/l_vbm_iwaki.jpg"; break; // deleted the old domain.
+		case 'vbm07akitayake' : legend = "./legend/l_vbm_akitayake.jpg"; break; // deleted the old domain.
+		case 'vbm08iwate' : legend = "./legend/l_vbm_iwate.jpg"; break; // deleted the old domain.
+		case 'vbm09kurikoma' : legend = "./legend/l_vbm_kurikoma.jpg"; break; // deleted the old domain.
+		case 'vbm10akitakoma' : legend = "./legend/l_vbm_akitakoma.jpg"; break; // deleted the old domain.
+		case 'vbm11chokai' : legend = "./legend/l_vbm_chokai.jpg"; break; // deleted the old domain.
+		case 'vbm12zao' : legend = "./legend/l_vbm_zao.jpg"; break; // deleted the old domain.
+		case 'vbm13azuma' : legend = "./legend/l_vbm_azuma.jpg"; break; // deleted the old domain.
+		case 'vbm14adatara' : legend = "./legend/l_vbm_adatara.jpg"; break; // deleted the old domain.
+		case 'vbm15bandai' : legend = "./legend/l_vbm_bandai.jpg"; break; // deleted the old domain.
+		case 'vbm16nasu' : legend = "./legend/l_vbm_nasu.jpg"; break; // deleted the old domain.
+		case 'vbm17kusatsushirane' : legend = "./legend/l_vbm_kusatsushirane.jpg"; break; // deleted the old domain.
+		case 'vbm18asama' : legend = "./legend/l_vbm_asama.jpg"; break; // deleted the old domain.
+		case 'vbm19hakone' : legend = "./legend/l_vbm_hakone.jpg"; break; // deleted the old domain.
+		case 'vbm20fuji' : legend = "./legend/l_vbm_fuji.jpg"; break; // deleted the old domain.
+		case 'vbm21eastizu' : legend = "./legend/l_vbm_higashiizu.jpg"; break; // deleted the old domain.
+		case 'vbm22izuoshima' : legend = "./legend/l_vbm_izuoshima.jpg"; break; // deleted the old domain.
+		case 'vbm23miyake' : legend = "./legend/l_vbm_miyake.jpg"; break; // deleted the old domain.
+		case 'vbm24yakedake' : legend = "./legend/l_vbm_yakedake.jpg"; break; // deleted the old domain.
+		case 'vbm25ontake' : legend = "./legend/l_vbm_ontake.jpg"; break; // deleted the old domain.
+		case 'vbm26tsurumi' : legend = "./legend/l_vbm_tsurumi.jpg"; break; // deleted the old domain.
+		case 'vbm27kujyu' : legend = "./legend/l_vbm_kujyu.jpg"; break; // deleted the old domain.
+		case 'vbm28aso' : legend = "./legend/l_vbm_aso.jpg"; break; // deleted the old domain.
+		case 'vbm29unzen' : legend = "./legend/l_vbm_unzen.jpg"; break; // deleted the old domain.
+		case 'vbm30kirishima' : legend = "./legend/l_vbm_kirishima.jpg"; break; // deleted the old domain.
+		case 'vbm31sakurajima' : legend = "./legend/l_vbm_sakurajima.jpg"; break; // deleted the old domain.
+		case 'vbm32satsumatakesima' : legend = "./legend/l_vbm_satsumatakesima.jpg"; break; // deleted the old domain.
+		case 'vbm33satsumaiojima' : legend = "./legend/l_vbm_satsumaiojima.jpg"; break; // deleted the old domain.
+		case 'vbm34suwanosejima' : legend = "./legend/l_vbm_suwanosejima.jpg"; break; // deleted the old domain.
+		case 'vbm35esan' : legend = "./legend/l_vbm_esan.jpg"; break; // deleted the old domain.
 	}
 
 	if (legend) legend = createPopupLink(legend, '凡例') + "<br/>";
@@ -170,67 +170,67 @@ legendFuncObj.getLibraryLegend_volcano = function (dtnode, pluginID)
 	var legend = "";
 	switch(dtnode.data.key){
 	case 'akandake':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_meakan.jpg";
+		legend = "./legend/l_vlcd_meakan.jpg"; // deleted the old domain.
 		break;
 	case 'tokachidake':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_2tkch.jpg";
+		legend = "./legend/l_vlcd_2tkch.jpg"; // deleted the old domain.
 		break;
 	case 'tarumaesan':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_10tarm.jpg";
+		legend = "./legend/l_vlcd_10tarm.jpg"; // deleted the old domain.
 		break;
 	case 'usuzan':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_9usu.jpg";
+		legend = "./legend/l_vlcd_9usu.jpg"; // deleted the old domain.
 		break;
 	case 'komagatake':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_5hkkm.jpg";
+		legend = "./legend/l_vlcd_5hkkm.jpg"; // deleted the old domain.
 		break;
 	case 'iwatesan':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_00iwatesan.jpg";
+		legend = "./legend/l_vlcd_00iwatesan.jpg"; // deleted the old domain.
 		break;
 	case 'kurikomayama':
-		legend = "http://cyberjapan.jp/legend/kurikoma_D2_58_legend.jpg";
+		legend = "./legend/kurikoma_D2_58_legend.jpg"; // deleted the old domain.
 		break;
 	case 'adatarayama':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_adatara.jpg";
+		legend = "./legend/l_vlcd_adatara.jpg"; // deleted the old domain.
 		break;
 	case 'bandaisan':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_11band.jpg";
+		legend = "./legend/l_vlcd_11band.jpg"; // deleted the old domain.
 		break;
 	case 'izuoshima':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_13izuo.jpg";
+		legend = "./legend/l_vlcd_13izuo.jpg"; // deleted the old domain.
 		break;
 	case 'miyakezima':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_6mykj.jpg";
+		legend = "./legend/l_vlcd_6mykj.jpg"; // deleted the old domain.
 		break;
 	case 'kusatsushiranesan':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_3ksrn.jpg";
+		legend = "./legend/l_vlcd_3ksrn.jpg"; // deleted the old domain.
 		break;
 	case 'yakiyama':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_niigatayakeyama.jpg";
+		legend = "./legend/l_vlcd_niigatayakeyama.jpg"; // deleted the old domain.
 		break;
 	case 'ontakesan':
-		legend = "http://cyberjapan.jp/legend/ontake_legend.jpg";
+		legend = "./legend/ontake_legend.jpg"; // deleted the old domain.
 		break;
 	case 'fujisan':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_12fuji.jpg";
+		legend = "./legend/l_vlcd_12fuji.jpg"; // deleted the old domain.
 		break;
 	case 'kujirenzan':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_kuju.jpg";
+		legend = "./legend/l_vlcd_kuju.jpg"; // deleted the old domain.
 		break;
 	case 'asosan':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_4aso.jpg";
+		legend = "./legend/l_vlcd_4aso.jpg"; // deleted the old domain.
 		break;
 	case 'unzendake':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_7unzn.jpg";
+		legend = "./legend/l_vlcd_7unzn.jpg"; // deleted the old domain.
 		break;
 	case 'kirishimayama':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_8krsm.jpg";
+		legend = "./legend/l_vlcd_8krsm.jpg"; // deleted the old domain.
 		break;
 	case 'sakurazima':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_1skrj.jpg";
+		legend = "./legend/l_vlcd_1skrj.jpg"; // deleted the old domain.
 		break;
 	case 'satsumaiojima':
-		legend = "http://cyberjapan.jp/legend/l_vlcd_satsumaiou.jpg";
+		legend = "./legend/l_vlcd_satsumaiou.jpg"; // deleted the old domain.
 		break;
 	}
 
@@ -246,7 +246,7 @@ legendFuncObj.getLibraryLegend_GLCNMO2 = function(dtnode, pluginID)
 	$("#plugin_library_name" + pluginID)[0].innerHTML = dtnode.data.title;
 	$("#plugin_library_subname" + pluginID)[0].innerHTML = "";
 	$("#plugin_library_legend" + pluginID)[0].innerHTML =
-		createPopupLink('http://cyberjapan.jp/legend/Legend_GLCNMO.pdf', '凡例') + "<br/><br/>" +
+		createPopupLink('./legend/Legend_GLCNMO.pdf', '凡例') + "<br/><br/>" + // deleted the old domain.
 		"(c)国土地理院、千葉大学、地球地図国際運営委員会、協働機関";
 };
 
@@ -256,7 +256,7 @@ legendFuncObj.getLibraryLegend_PTC2 = function(dtnode, pluginID)
 	$("#plugin_library_name" + pluginID)[0].innerHTML = dtnode.data.title;
 	$("#plugin_library_subname" + pluginID)[0].innerHTML = "";
 	$("#plugin_library_legend" + pluginID)[0].innerHTML =
-		createPopupLink('http://cyberjapan.jp/legend/Legend_PTC.pdf', '凡例') + "<br/><br/>" +
+		createPopupLink('./legend/Legend_PTC.pdf', '凡例') + "<br/><br/>" + // deleted the old domain.
 		"(c)国土地理院、千葉大学、地球地図国際運営委員会、協働機関";
 };
 
@@ -266,7 +266,7 @@ legendFuncObj.getLibraryLegend_takudo = function(dtnode, pluginID)
 	$("#plugin_library_name" + pluginID)[0].innerHTML = dtnode.parent.parent.data.title;
 	$("#plugin_library_subname" + pluginID)[0].innerHTML = "(" + dtnode.parent.data.title + "," + dtnode.data.title + ")";
 	$("#plugin_library_legend" + pluginID)[0].innerHTML =
-		createPopupLink('http://cyberjapan.jp/legend/takuchi_hanrei.png', '凡例') + "<br/>" +
+		createPopupLink('./legend/takuchi_hanrei.png', '凡例') + "<br/>" + // deleted the old domain.
 		createPopupLink('http://www1.gsi.go.jp/geowww/LandUse/lum-takudo.html', '解説') + "<br/><br/>(c)国土地理院";
 };
 
@@ -279,12 +279,12 @@ legendFuncObj.getLibraryLegend_LAKE = function(dtnode, pluginID)
 	switch (dtnode.data.key) {
 	case "lake1":
 		$("#plugin_library_legend" + pluginID)[0].innerHTML =
-			createPopupLink('http://cyberjapan.jp/legend/LAKE_beforeH2.png', '凡例') + "<br/>" +
+			createPopupLink('./legend/LAKE_beforeH2.png', '凡例') + "<br/>" + // deleted the old domain.
 			createPopupLink('http://www1.gsi.go.jp/geowww/lake/index.html', '解説') + "<br/><br/>(c)国土地理院";
 		break;
 	case "lake2":
 		$("#plugin_library_legend" + pluginID)[0].innerHTML =
-			createPopupLink('http://cyberjapan.jp/legend/LAKE_afterH3.png', '凡例') + "<br/>" +
+			createPopupLink('./legend/LAKE_afterH3.png', '凡例') + "<br/>" + // deleted the old domain.
 			createPopupLink('http://www1.gsi.go.jp/geowww/lake/index.html', '解説') + "<br/><br/>(c)国土地理院";
 		break;
 	}
@@ -354,7 +354,7 @@ legendFuncObj.getLibraryLegend_Y2K4air = function(dtnode, pluginID)
 
 	var div = '<div>' +
 	          'この画像は測量用写真として撮影したものではないため、測量に用いることはできません。<br/><br/>' +
-	          createPopupLink('http://cyberjapan.jp/legend/kannikuchu-description.pdf', '解説') + "<br/><br/>(c)国土地理院";
+	          createPopupLink('./legend/kannikuchu-description.pdf', '解説') + "<br/><br/>(c)国土地理院"; // deleted the old domain.
 
 	$("#plugin_library_legend" + pluginID)[0].innerHTML = div;
 };
@@ -377,8 +377,8 @@ legendFuncObj.getLibraryLegend_fukkokizu = function(dtnode, pluginID)
 	$("#plugin_library_name" + pluginID)[0].innerHTML = dtnode.data.title;
 	$("#plugin_library_subname" + pluginID)[0].innerHTML = "";
 
-	var div = createPopupLink("http://cyberjapan.jp/legend/fukkokizu.pdf", "凡例") + "<br/>" +
-			  createPopupLink("http://cyberjapan.jp/legend/fukkokizu_description.pdf", "解説") + "<br/><br/>(c)国土地理院";
+	var div = createPopupLink("./legend/fukkokizu.pdf", "凡例") + "<br/>" +  // deleted the old domain.
+			  createPopupLink("./legend/fukkokizu_description.pdf", "解説") + "<br/><br/>(c)国土地理院";  // deleted the old domain.
 
 	$("#plugin_library_legend" + pluginID)[0].innerHTML = div;
 
@@ -389,7 +389,7 @@ legendFuncObj.getLibraryLegend_toho = function(dtnode, pluginID)
 	$("#plugin_library_name" + pluginID)[0].innerHTML = dtnode.parent.data.title;
 	$("#plugin_library_subname" + pluginID)[0].innerHTML = "(" + dtnode.data.title + ")";
 
-	var div = createPopupLink("http://cyberjapan.jp/info/geje-ort.pdf", "解説") + "<br/><br/>(c)国土地理院";
+	var div = createPopupLink("./info/geje-ort.pdf", "解説") + "<br/><br/>(c)国土地理院"; // deleted the old domain.
 	$("#plugin_library_legend" + pluginID)[0].innerHTML = div;
 };
 
@@ -430,7 +430,7 @@ function onPhotoPoint_reload(key, pluginID)
 
 	$.ajax({
 		dataType: "jsonp",
-		url: "http://portal.cyberjapan.jp/site/mapuse4/kml2jsonp.php",
+		url: "./kml2jsonp.php", // deleted the old domain.
 		data: {
 			"lf": 0,
 			"url": url

@@ -1,19 +1,19 @@
 /** 地名検索用 JQueryプラグイン実装  **/
 var ChimeiSearch = {};
 ChimeiSearch.SIMPLE_GEOCODING = "http://geocode.csis.u-tokyo.ac.jp/cgi-bin/simple_geocode.cgi";
-/* ChimeiSearch.GEOCODE = "http://portal.cyberjapan.jp/GsiJsLibrary/geocode.php"; */
-/* ChimeiSearch.GEOCODE = "http://portal.cyberjapan.jp/GsiJsLibrary/geocode.php"; */
+/* ChimeiSearch.GEOCODE = ""; deleted the old domain. */
+/* ChimeiSearch.GEOCODE = ""; deleted the old domain. */
 /*
-ChimeiSearch.INTERFACE = "http://portal.cyberjapan.jp/GsiJsLibrary/interface.php";
+ChimeiSearch.INTERFACE = ""; // deleted the old domain.
 */
 ChimeiSearch.INTERFACE = "http://temp.cyberjapandata.gsi.go.jp/GsiJsLibrary/interface.php";
-ChimeiSearch.SHISETSU_SEARCH = "http://portal.cyberjapan.jp/GsiJsLibrary/shisetsu.php";
-ChimeiSearch.CHIMEI_SEARCH = "http://portal.cyberjapan.jp/GsiJsLibrary/chimei.php";
-ChimeiSearch.CENTER_SEARCH = "http://portal.cyberjapan.jp/GsiJsLibrary/LonLatToLv01.php";
+ChimeiSearch.SHISETSU_SEARCH = ""; // deleted the old domain.
+ChimeiSearch.CHIMEI_SEARCH = ""; // deleted the old domain.
+ChimeiSearch.CENTER_SEARCH = ""; // deleted the old domain.
 
 
 
-ChimeiSearch.SERVER_ROOT = "http://search.cyberjapan.jp/cs4/cs/";
+ChimeiSearch.SERVER_ROOT = ""; // deleted the old domain.
 
 var LON_LAT_SPLIT = ['・', '、', ',', ' ', '　'];
 
@@ -1501,7 +1501,7 @@ ChimeiSearch.OpenLayersDefaultHandler = ChimeiSearch.Class({
 			var mapMeta = webtisMap.getCurrentMetaData();
 			var str = "";
 			if (mapMeta) str = mapMeta.dataId;
-			var histURL = "http://portal.cyberjapan.jp/site/mapuse/index.html?lon=" + x + "&lat=" + y + "&z=" + (zoomLevel);	// -- merge1227
+			var histURL = "?lon=" + x + "&lat=" + y + "&z=" + (zoomLevel);	// deleted the old domain.
 			if (str!="") histURL += "&did=" + str;
 			document.cookie = "hist=" + encodeURIComponent(v) + "; expires=Tue, 1-Jan-2030 00:00:00 GMT; path=/";
 			document.cookie = "histURL=" + histURL + "; expires=Tue, 1-Jan-2030 00:00:00 GMT; path=/;";

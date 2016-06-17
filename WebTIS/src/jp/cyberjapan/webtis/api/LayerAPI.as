@@ -773,7 +773,7 @@ package jp.cyberjapan.webtis.api
 			
 			if ( visible ) {
 				var urlstr:String = "../mapuse4/grid/";
-				//var urlstr:String = "http://portal.cyberjapan.jp/site/mapuse4/grid/";
+				//var urlstr:String = "../mapuse4/grid/"; // deleted the old domain.
 				if( zoomLv <= 12 ){
 					urlstr += "10k_grid.php?rectLonLat="+rect;
 				} else {

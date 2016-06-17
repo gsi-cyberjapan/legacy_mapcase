@@ -62,8 +62,8 @@ var mapHandler = {
 
 		$.ajax({
 			dataType: "jsonp",
-//			url: "./kml2jsonp.php?lf=0&url=" + encodeURIComponent(data.path),
-			url: "http://portal.cyberjapan.jp/site/mapuse4/kml2jsonp.php?lf=0&url=" + encodeURIComponent(data.path),
+			url: "./kml2jsonp.php?lf=0&url=" + encodeURIComponent(data.path),
+//			url: "/kml2jsonp.php?lf=0&url=" + encodeURIComponent(data.path), // deleted the old domain.
 			jsonpCallback: "kml_loaded_" + data.key.replace(/-/g, "_"),
 			success: function(json) {
 				var format = new OpenLayers.Format.KML({

@@ -6,11 +6,11 @@
 <title>地理院地図（フラッシュ版）</title>
 <script type="text/javascript" src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<script type="text/javascript" src="http://portal.cyberjapan.jp/sys/v4/jquery/jquery-1.6.2.min.js" charset="UTF-8"></script>
-<script type="text/javascript" src="http://portal.cyberjapan.jp/sys/v4/jquery/jquery-ui-1.8.16.custom.min.js" charset="UTF-8"></script>
-<script type="text/javascript" src="http://portal.cyberjapan.jp/GsiJsLibrary/hokkaido.js" charset="UTF-8"></script>
-<script type="text/javascript" src="http://portal.cyberjapan.jp/GsiJsLibrary/muni.js" charset="UTF-8"></script>
-<script type="text/javascript" src="http://portal.cyberjapan.jp/GsiJsLibrary/GsiJsLibrary.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./sys/v4/jquery/jquery-1.6.2.min.js" charset="UTF-8"></script><!-- deleted the old domain. -->
+<script type="text/javascript" src="./sys/v4/jquery/jquery-ui-1.8.16.custom.min.js" charset="UTF-8"></script><!-- deleted the old domain. -->
+<script type="text/javascript" src="./GsiJsLibrary/hokkaido.js" charset="UTF-8"></script><!-- deleted the old domain. -->
+<script type="text/javascript" src="./GsiJsLibrary/muni.js" charset="UTF-8"></script><!-- deleted the old domain. -->
+<script type="text/javascript" src="./GsiJsLibrary/GsiJsLibrary.js" charset="UTF-8"></script><!-- deleted the old domain. -->
 <script type="text/javascript" src="./js/cs.js" charset="UTF-8"></script><!--検索パネル-->
 <script type="text/javascript" src="./js/changelayer.js" charset="UTF-8"></script><!--レイヤ切り替え表示-->
 <script type="text/javascript" src="./js/sakuzuslider.js" charset="UTF-8"></script>
@@ -32,8 +32,8 @@
 <script type="text/javascript" src="./js/jquery.ba-postmessage.js" charset="UTF-8"></script>
 <script type="text/javascript" src="./js/centerlatlon.js" charset="UTF-8"></script>
 
-<link rel="stylesheet" href="http://portal.cyberjapan.jp/shared/palette/css/reset.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="http://portal.cyberjapan.jp/shared/palette/css/ui-lightness/jquery-ui-1.8.16.custom.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="./shared/palette/css/reset.css" type="text/css" media="screen" /><!-- deleted the old domain. -->
+<link rel="stylesheet" href="./shared/palette/css/ui-lightness/jquery-ui-1.8.16.custom.css" type="text/css" media="screen" /><!-- deleted the old domain. -->
 <link rel="stylesheet" href="./css/cs.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="./css/TabbedPanels.css" type="text/css" />
 <link rel="stylesheet" href="./css/skin/ui.dynatree.css" type="text/css" />
@@ -211,8 +211,8 @@ var isFullscreen = false;
 var initialLibLayers = [];
 
 // 作図URL保存
-var READURL = "http://gp.cyberjapan.jp/cjp4/service/gsi_convert_to_json";
-var SAVEURL = "http://gp.cyberjapan.jp/cjp4/service/gsi_convert_from_json";
+var READURL = ""; // deleted the old domain.
+var SAVEURL = ""; // deleted the old domain.
 
 // true:表示 false:非表示
 var centerMarkFlag = false;	// 中心位置表示
@@ -313,7 +313,7 @@ function init(){
 
 		//都道府県からの検索の場合
 		if (execsearch == ""){
-			var histURL = "http://portal.cyberjapan.jp/testd/site/mapuse/index.html?lon=" + initCX + "&lat=" + initCY;
+			var histURL = "?lon=" + initCX + "&lat=" + initCY; // deleted the old domain.
 			document.cookie = "hist=" + keyword + "; expires=Tue, 1-Jan-2030 00:00:00 GMT; path=/";
 			document.cookie = "histURL=" + histURL + "; expires=Tue, 1-Jan-2030 00:00:00 GMT; path=/;";
 		}
@@ -522,7 +522,7 @@ function sleep(time){
 	return;
 }
  
-// 【メモ】 試験運用中のサイト(http://portal.cyberjapan.jp/site/mapuse/index.html)から移植
+// 【メモ】 試験運用中のサイトから移植 deleted the old domain.
 /*表示地図を再現するためのURL発行*/
 function httplink(){
 	//中心経緯度・ズームレベル取得
@@ -682,7 +682,7 @@ function layerAdded(layername) {
 <!-- ヘッダ部（検索窓など）　-->
 <div id="header">
 	<div style="padding-left:0px;padding-top:10px;">
-		<!--<a href="http://portal.cyberjapan.jp/">--><img src="./image/title05+.png" width="238px" height="40px"><!--</a>-->
+		<!-- logo image --><!-- deleted the old domain. -->
 	</div>
 	<div style="position:absolute;top:30px;left:255px;" id="centerform">
 	</div><!--
@@ -690,7 +690,7 @@ function layerAdded(layername) {
 		<font style="font-size:10px; color:red; font-weight:bold;">平成25年10月30日「電子国土Web.NEXT+」は「地理院地図（フラッシュ版）」として正式公開されました。</font>
 	</div>-->
 	<div style="position:absolute;top:5px;right:10px;">
-		<font size="2"><a href="http://portal.cyberjapan.jp/help/termsofuse.html" target="_blank">利用規約</a>｜<a href="http://portal.cyberjapan.jp/help/faq.html" target="_blank">ヘルプ</a>｜<a href="https://twitter.com/gsi_cyberjapan" target="_blank">お知らせ</a>｜<a href="https://geoinfo2.gsi.go.jp/contact/Inquiry2.aspx?pcode=1005&bcode=100503&mcode=10050302" target="_blank">お問い合わせ</a></font>
+		<font size="2"><a href="" target="_blank">利用規約</a>｜<a href="" target="_blank">ヘルプ</a>｜<a href="https://twitter.com/gsi_cyberjapan" target="_blank">お知らせ</a>｜<a href="https://geoinfo2.gsi.go.jp/contact/Inquiry2.aspx?pcode=1005&bcode=100503&mcode=10050302" target="_blank">お問い合わせ</a></font><!-- deleted the old domain. -->
 	</div>
 	<!--
 	<div style="position:absolute;top:25px;right:10px;">
@@ -743,7 +743,7 @@ function layerAdded(layername) {
 
 		<!--アクセスカウンタ-->
 		<div id="accesscounter" clear="both">
-			<iframe src="http://portal.cyberjapan.jp/count/count.php?id=013" height="50" width="180" frameborder="0" scrolling="no" align="left"></iframe><br>
+			<!-- deleted the old domain. -->
 			<font size="2" color="#555555">since 2013.10.30</font> <!-- merge1227 -->
 		</div>
 	</div>

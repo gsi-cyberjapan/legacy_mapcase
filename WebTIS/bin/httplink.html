@@ -4,9 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>地理院地図</title>
 <script src="http://platform.twitter.com/widgets.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript" src="http://portal.cyberjapan.jp/sys/v4/jquery/jquery-1.6.2.min.js" charset="UTF-8"></script>
-<script type="text/javascript" src="http://portal.cyberjapan.jp/site/mapuse4/js/ZeroClipboard.js"></script>
-<script type="text/javascript" src="http://portal.cyberjapan.jp/site/mapuse4/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="./sys/v4/jquery/jquery-1.6.2.min.js" charset="UTF-8"></script><!-- deleted the old domain. -->
+<script type="text/javascript" src="./site/mapuse4/js/ZeroClipboard.js"></script><!-- deleted the old domain. -->
+<script type="text/javascript" src="./site/mapuse4/js/jquery.zclip.min.js"></script><!-- deleted the old domain. -->
 <style type="text/css">
 .copybutton {
 	margin-left: 23px;
@@ -56,7 +56,7 @@ document.open();
 ////// URL
 if (!hideURL) {
 	document.write('<table><tr><td valign=top>');
-	document.write('<img src="http://portal.cyberjapan.jp/sys/v4/symbols/082.png">');
+	document.write('<img src="./sys/v4/symbols/082.png">'); // deleted the old domain.
 	document.write('</td><td>');
 	document.write('次のURLをメール等で送付することで、現在表示されている<br>');
 	document.write('地図を共有することができます。');
@@ -66,13 +66,13 @@ if (!hideURL) {
 	document.write('</td></tr></table>');
 	document.write('<span id="urlCopy" class="copybutton nonpushed">クリップボードにコピー</span> ');
 
-	document.write('<span><a href="https://twitter.com/share" id="twitter" class="twitter-share-button" data-url=' + 'http://portal.cyberjapan.jp/site/mapuse4/index.html?' + getURL + ' data-text="電子国土Web.Next" data-lang="ja" data-count="none" data-hashtags="cyberjapan_next">Tweet</a></span>');
+	document.write('<span><a href="https://twitter.com/share" id="twitter" class="twitter-share-button" data-url=' + './site/mapuse4/index.html?' + getURL + ' data-text="電子国土Web.Next" data-lang="ja" data-count="none" data-hashtags="cyberjapan_next">Tweet</a></span>');// deleted the old domain.
 	document.write('<div style="clear:both; height:12px;"></div>');
 	
 	var urlCopy = $("#urlCopy");
 
 	urlCopy.zclip({
-	    path: "http://portal.cyberjapan.jp/site/mapuse4/js/ZeroClipboard.swf",
+	    path: "./site/mapuse4/js/ZeroClipboard.swf", // deleted the old domain.
 	    setHandCursor: true,
 	    copy: function(){
 	    	return $("#httplink").val();
@@ -91,7 +91,7 @@ if (!hideURL) {
 ////// IFRAME
 if (!hideIFRAME) {
 	document.write('<table><tr><td valign=top>');
-	document.write('<img src="http://portal.cyberjapan.jp/sys/v4/symbols/082.png">');
+	document.write('<img src="./sys/v4/symbols/082.png">'); // deleted the old domain.
 	document.write('</td><td>');
 	document.write('次のタグをHTMLファイルに加えることで、地理院地図を<br>');
 	document.write('ウェブサイトに埋め込むことができます。');
@@ -108,7 +108,7 @@ if (!hideIFRAME) {
 	var iframeCopy = $("#iframeCopy");
 
 	iframeCopy.zclip({
-	    path: "http://portal.cyberjapan.jp/site/mapuse4/js/ZeroClipboard.swf",
+	    path: "./site/mapuse4/js/ZeroClipboard.swf", // deleted the old domain.
 	    setHandCursor: true,
 	    copy: function(){
 	    	return $("#iframecode").val();

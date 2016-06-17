@@ -756,9 +756,9 @@ var webtis = {
 	// 住所取得 --------------------------------------------------------
 	// JavaScript側でJSONPで取ってきて、Flashに渡す。
 	getAddress : function(lat, lon) {
-		var urlstr = "http://portal.cyberjapan.jp/GsiJsLibrary/LonLatToLv01.php?longitude=" + lon + "&latitude=" + lat;
+		var urlstr = "?longitude=" + lon + "&latitude=" + lat; // deleted the old domain.
 		
-		//var ulr_chimei_search_interface = "http://portal.cyberjapan.jp/GsiJsLibrary/interface.php";
+		//var ulr_chimei_search_interface = ""; // deleted the old domain.
 		var ulr_chimei_search_interface = "http://temp.cyberjapandata.gsi.go.jp/GsiJsLibrary/interface.php";
 		
 		var parameter = {};
@@ -880,7 +880,7 @@ var webtis = {
 		var utmPx = Math.round(utmP.x);
 		var utmPy = Math.round(utmP.y);
 
-		var urlstr = "http://portal.cyberjapan.jp/site/mapuse4/grid/utm_point.php?utmx=" + utmPx + "&utmy=" + utmPy + "&utmzone=" + zone + "&lon=" + px + "&lat=" + py;
+		var urlstr = "?utmx=" + utmPx + "&utmy=" + utmPy + "&utmzone=" + zone + "&lon=" + px + "&lat=" + py; // deleted the old domain.
 		
 		function utmPointHandler(mgrs_id){
 			if (mgrs_id){

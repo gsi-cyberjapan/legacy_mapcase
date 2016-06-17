@@ -2453,7 +2453,7 @@ dataSetObj.getURL_photoPoint = function(data){
 
 	var photoYearFromTo = data.key.split("_");
 	var extent = null;
-	var urlPhotoList = "http://portal.cyberjapan.jp/GsiJsLibrary/photoprot.php?topLat=";
+	var urlPhotoList = "?topLat="; // deleted the old domain.
 
 	if (data.extent) {
 		extent = data.extent.split("_");

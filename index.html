@@ -511,7 +511,7 @@ webtis.Control.djplogo = OpenLayers.Class(OpenLayers.Control, {
 			this.div.style.left = 10 + "px";
 			
 			this.createCtrlImage("site/mapuse4/image/icon01.gif", 0, function(e) {
-				window.open("http://portal.cyberjapan.jp/", "_blank");
+				window.open("http://maps.gsi.go.jp/", "_blank"); // deleted the old domain.
 				OpenLayers.Event.stop(e);
 				return false;
 			});
@@ -1541,7 +1541,7 @@ function moveto() {
 				pointY = center.substring(9,13);
 				
 				$.ajax({
-					url: 'http://portal.cyberjapan.jp/site/mapuse4/grid/mgrsXY.php?mgrs=' + newMgrs + '&mark=' + mark,
+					url: '?mgrs=' + newMgrs + '&mark=' + mark, // deleted the old domain.
 					type: 'GET',
 					dataType: 'jsonp',
 					/*返却されたJSONデータを処理*/
@@ -2413,7 +2413,7 @@ onPopup = function(e) {
 
 	// 備考
 	popupText += "<TR><TD colspan='2' " + liststyle1 + ">";
-	popupText += "	<FONT style='font-size:12px;'><a href='http://portal.cyberjapan.jp/help/howtouse.html#h2-3' style='color:#FF0000' target='_blank'>※注意　右クリックで得られる値等について</a></FONT></TD></TR>";
+	popupText += "	<FONT style='font-size:12px;'><a href='' style='color:#FF0000' target='_blank'>※注意　右クリックで得られる値等について</a></FONT></TD></TR>"; // deleted the old domain.
 	popupText += "</TABLE>";
 
 	// 右クリックメニューを右クリック位置の右下に表示する為、表示位置を調整
@@ -2471,17 +2471,16 @@ function setInitialRect() {
 </head>
 <body onresize="styleSetting();funcCrosshairs();"><!-- スタイル設定を変更 -->
 <div id="header" style="display:none;">
-<!--
+<!-- deleted the old domain.
 <div id="header" style="display:none;background-color:yellow;">
 	<div style="margin: 10px; font-size: 12px;">
 		電子国土Web.NEXTのInternet Explorer 10対応は、現在準備中です。<br>
 		このページは、IE10で電子国土地図をご覧いただけるよう最小限の機能で構築しています。<br>
-		IE10以外の<a href="http://www.google.co.jp/intl/ja/chrome/" target="_blank">Chrome</a>や<a href="http://www.mozilla.jp/firefox/" target="_blank">Firefox</a>であれば、電子国土Web.NEXT(http://portal.cyberjapan.jp/site/mapuse4/)の全機能をご利用頂くことが可能です。
 	</div>
 -->
 	<div style="display: block">
 		<div style="padding-left:10px;padding-top:5px;">
-			<!--<a href="http://portal.cyberjapan.jp/">--><img src="./logo.png" width="240px" height="40px"><!--</a>-->
+			<a href="http://maps.gsi.go.jp/"><!-- logo image --></a><!-- deleted the old domain.-->
 		</div>
 		<div style="position:absolute;top:25px;left:270px;" id="centerform">
 		</div>
@@ -2742,7 +2741,7 @@ $(document).ready(function(){
 
 		//都道府県からの検索の場合
 		if (execsearch == ""){
-			var histURL = "http://portal.cyberjapan.jp/site/mapuse4/index.html?lon=" + initCX + "&lat=" + initCY;
+			var histURL = "./site/mapuse4/index.html?lon=" + initCX + "&lat=" + initCY; // deleted the old domain.
 			document.cookie = "hist=" + keyword + "; expires=Tue, 1-Jan-2030 00:00:00 GMT; path=/";
 			document.cookie = "histURL=" + histURL + "; expires=Tue, 1-Jan-2030 00:00:00 GMT; path=/;";
 		}

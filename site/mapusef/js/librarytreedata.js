@@ -9,57 +9,57 @@ var libraryTreeData = [
 	{
 		title: "観測点", isFolder: true, hideCheckbox: true, expand: true,
 		children: [
-			{ title: "験潮場", type: "kml", key: "kenchou", icon: "obj_kenchou.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/kenchou.kml" },
+			{ title: "験潮場", type: "kml", key: "kenchou", icon: "obj_kenchou.png", path: "./site/mapuse4/kml/kenchou.kml" }, // deleted the old domain.
 			{
 				title: "電子基準点", isFolder: true, hideCheckbox: true, expand: false, legendFunc: getLibraryLegend_denshi,
 				children: [
-					{ title: "北海道", type: "kml", key: "ekijun_01hokkaido", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_01hokkaido.kml" },
-					{ title: "青森県", type: "kml", key: "ekijun_02aomori", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_02aomori.kml" },
-					{ title: "岩手県", type: "kml", key: "ekijun_03iwate", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_03iwate.kml" },
-					{ title: "宮城県", type: "kml", key: "ekijun_04miyagi", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_04miyagi.kml" },
-					{ title: "秋田県", type: "kml", key: "ekijun_05akita", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_05akita.kml" },
-					{ title: "山形県", type: "kml", key: "ekijun_06yamagata", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_06yamagata.kml" },
-					{ title: "福島県", type: "kml", key: "ekijun_07fukushima", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_07fukushima.kml" },
-					{ title: "茨城県", type: "kml", key: "ekijun_08ibaraki", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_08ibaraki.kml" },
-					{ title: "栃木県", type: "kml", key: "ekijun_09tochigi", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_09tochigi.kml" },
-					{ title: "群馬県", type: "kml", key: "ekijun_10gunma", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_10gunma.kml" },
-					{ title: "埼玉県", type: "kml", key: "ekijun_11saitama", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_11saitama.kml" },
-					{ title: "千葉県", type: "kml", key: "ekijun_12chiba", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_12chiba.kml" },
-					{ title: "東京都", type: "kml", key: "ekijun_13tokyo", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_13tokyo.kml" },
-					{ title: "神奈川県", type: "kml", key: "ekijun_14kanagawa", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_14kanagawa.kml" },
-					{ title: "新潟県", type: "kml", key: "ekijun_15niigata", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_15niigata.kml" },
-					{ title: "富山県", type: "kml", key: "ekijun_16toyama", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_16toyama.kml" },
-					{ title: "石川県", type: "kml", key: "ekijun_17ishikawa", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_17ishikawa.kml" },
-					{ title: "福井県", type: "kml", key: "ekijun_18fukui", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_18fukui.kml" },
-					{ title: "山梨県", type: "kml", key: "ekijun_19yamanashi", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_19yamanashi.kml" },
-					{ title: "長野県", type: "kml", key: "ekijun_20nagano", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_20nagano.kml" },
-					{ title: "岐阜県", type: "kml", key: "ekijun_21gifu", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_21gifu.kml" },
-					{ title: "静岡県", type: "kml", key: "ekijun_22shizuoka", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_22shizuoka.kml" },
-					{ title: "愛知県", type: "kml", key: "ekijun_23aichi", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_23aichi.kml" },
-					{ title: "三重県", type: "kml", key: "ekijun_24mie", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_24mie.kml" },
-					{ title: "滋賀県", type: "kml", key: "ekijun_25shiga", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_25shiga.kml" },
-					{ title: "京都府", type: "kml", key: "ekijun_26kyoto", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_26kyoto.kml" },
-					{ title: "大阪府", type: "kml", key: "ekijun_27oosaka", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_27oosaka.kml" },
-					{ title: "兵庫県", type: "kml", key: "ekijun_28hyogo", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_28hyogo.kml" },
-					{ title: "奈良県", type: "kml", key: "ekijun_29nara", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_29nara.kml" },
-					{ title: "和歌山県", type: "kml", key: "ekijun_30wakayama", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_30wakayama.kml" },
-					{ title: "鳥取県", type: "kml", key: "ekijun_31tottori", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_31tottori.kml" },
-					{ title: "島根県", type: "kml", key: "ekijun_32shimane", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_32shimane.kml" },
-					{ title: "岡山県", type: "kml", key: "ekijun_33okayama", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_33okayama.kml" },
-					{ title: "広島県", type: "kml", key: "ekijun_34hiroshima", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_34hiroshima.kml" },
-					{ title: "山口県", type: "kml", key: "ekijun_35yamaguchi", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_35yamaguchi.kml" },
-					{ title: "徳島県", type: "kml", key: "ekijun_36tokushima", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_36tokushima.kml" },
-					{ title: "香川県", type: "kml", key: "ekijun_37kagawa", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_37kagawa.kml" },
-					{ title: "愛媛県", type: "kml", key: "ekijun_38ehime", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_38ehime.kml" },
-					{ title: "高知県", type: "kml", key: "ekijun_39kouchi", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_39kouchi.kml" },
-					{ title: "福岡県", type: "kml", key: "ekijun_40fukuoka", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_40fukuoka.kml" },
-					{ title: "佐賀県", type: "kml", key: "ekijun_41saga", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_41saga.kml" },
-					{ title: "長崎県", type: "kml", key: "ekijun_42nagasaki", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_42nagasaki.kml" },
-					{ title: "熊本県", type: "kml", key: "ekijun_43kumamoto", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_43kumamoto.kml" },
-					{ title: "大分県", type: "kml", key: "ekijun_44ooita", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_44ooita.kml" },
-					{ title: "宮崎県", type: "kml", key: "ekijun_45miyazaki", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_45miyazaki.kml" },
-					{ title: "鹿児島県", type: "kml", key: "ekijun_46kagoshima", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_46kagoshima.kml" },
-					{ title: "沖縄県", type: "kml", key: "ekijun_47okinawa", icon: "obj_denshi.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/denshi/ekijun_47okinawa.kml" }
+					{ title: "北海道", type: "kml", key: "ekijun_01hokkaido", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_01hokkaido.kml" }, // deleted the old domain.
+					{ title: "青森県", type: "kml", key: "ekijun_02aomori", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_02aomori.kml" }, // deleted the old domain.
+					{ title: "岩手県", type: "kml", key: "ekijun_03iwate", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_03iwate.kml" }, // deleted the old domain.
+					{ title: "宮城県", type: "kml", key: "ekijun_04miyagi", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_04miyagi.kml" }, // deleted the old domain.
+					{ title: "秋田県", type: "kml", key: "ekijun_05akita", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_05akita.kml" }, // deleted the old domain.
+					{ title: "山形県", type: "kml", key: "ekijun_06yamagata", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_06yamagata.kml" }, // deleted the old domain.
+					{ title: "福島県", type: "kml", key: "ekijun_07fukushima", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_07fukushima.kml" }, // deleted the old domain.
+					{ title: "茨城県", type: "kml", key: "ekijun_08ibaraki", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_08ibaraki.kml" }, // deleted the old domain.
+					{ title: "栃木県", type: "kml", key: "ekijun_09tochigi", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_09tochigi.kml" }, // deleted the old domain.
+					{ title: "群馬県", type: "kml", key: "ekijun_10gunma", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_10gunma.kml" }, // deleted the old domain.
+					{ title: "埼玉県", type: "kml", key: "ekijun_11saitama", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_11saitama.kml" }, // deleted the old domain.
+					{ title: "千葉県", type: "kml", key: "ekijun_12chiba", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_12chiba.kml" }, // deleted the old domain.
+					{ title: "東京都", type: "kml", key: "ekijun_13tokyo", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_13tokyo.kml" }, // deleted the old domain.
+					{ title: "神奈川県", type: "kml", key: "ekijun_14kanagawa", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_14kanagawa.kml" }, // deleted the old domain.
+					{ title: "新潟県", type: "kml", key: "ekijun_15niigata", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_15niigata.kml" }, // deleted the old domain.
+					{ title: "富山県", type: "kml", key: "ekijun_16toyama", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_16toyama.kml" }, // deleted the old domain.
+					{ title: "石川県", type: "kml", key: "ekijun_17ishikawa", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_17ishikawa.kml" }, // deleted the old domain.
+					{ title: "福井県", type: "kml", key: "ekijun_18fukui", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_18fukui.kml" }, // deleted the old domain.
+					{ title: "山梨県", type: "kml", key: "ekijun_19yamanashi", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_19yamanashi.kml" }, // deleted the old domain.
+					{ title: "長野県", type: "kml", key: "ekijun_20nagano", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_20nagano.kml" }, // deleted the old domain.
+					{ title: "岐阜県", type: "kml", key: "ekijun_21gifu", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_21gifu.kml" }, // deleted the old domain.
+					{ title: "静岡県", type: "kml", key: "ekijun_22shizuoka", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_22shizuoka.kml" }, // deleted the old domain.
+					{ title: "愛知県", type: "kml", key: "ekijun_23aichi", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_23aichi.kml" }, // deleted the old domain.
+					{ title: "三重県", type: "kml", key: "ekijun_24mie", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_24mie.kml" }, // deleted the old domain.
+					{ title: "滋賀県", type: "kml", key: "ekijun_25shiga", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_25shiga.kml" }, // deleted the old domain.
+					{ title: "京都府", type: "kml", key: "ekijun_26kyoto", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_26kyoto.kml" }, // deleted the old domain.
+					{ title: "大阪府", type: "kml", key: "ekijun_27oosaka", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_27oosaka.kml" }, // deleted the old domain.
+					{ title: "兵庫県", type: "kml", key: "ekijun_28hyogo", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_28hyogo.kml" }, // deleted the old domain.
+					{ title: "奈良県", type: "kml", key: "ekijun_29nara", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_29nara.kml" }, // deleted the old domain.
+					{ title: "和歌山県", type: "kml", key: "ekijun_30wakayama", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_30wakayama.kml" }, // deleted the old domain.
+					{ title: "鳥取県", type: "kml", key: "ekijun_31tottori", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_31tottori.kml" }, // deleted the old domain.
+					{ title: "島根県", type: "kml", key: "ekijun_32shimane", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_32shimane.kml" }, // deleted the old domain.
+					{ title: "岡山県", type: "kml", key: "ekijun_33okayama", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_33okayama.kml" }, // deleted the old domain.
+					{ title: "広島県", type: "kml", key: "ekijun_34hiroshima", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_34hiroshima.kml" }, // deleted the old domain.
+					{ title: "山口県", type: "kml", key: "ekijun_35yamaguchi", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_35yamaguchi.kml" }, // deleted the old domain.
+					{ title: "徳島県", type: "kml", key: "ekijun_36tokushima", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_36tokushima.kml" }, // deleted the old domain.
+					{ title: "香川県", type: "kml", key: "ekijun_37kagawa", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_37kagawa.kml" }, // deleted the old domain.
+					{ title: "愛媛県", type: "kml", key: "ekijun_38ehime", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_38ehime.kml" }, // deleted the old domain.
+					{ title: "高知県", type: "kml", key: "ekijun_39kouchi", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_39kouchi.kml" }, // deleted the old domain.
+					{ title: "福岡県", type: "kml", key: "ekijun_40fukuoka", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_40fukuoka.kml" }, // deleted the old domain.
+					{ title: "佐賀県", type: "kml", key: "ekijun_41saga", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_41saga.kml" }, // deleted the old domain.
+					{ title: "長崎県", type: "kml", key: "ekijun_42nagasaki", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_42nagasaki.kml" }, // deleted the old domain.
+					{ title: "熊本県", type: "kml", key: "ekijun_43kumamoto", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_43kumamoto.kml" }, // deleted the old domain.
+					{ title: "大分県", type: "kml", key: "ekijun_44ooita", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_44ooita.kml" }, // deleted the old domain.
+					{ title: "宮崎県", type: "kml", key: "ekijun_45miyazaki", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_45miyazaki.kml" }, // deleted the old domain.
+					{ title: "鹿児島県", type: "kml", key: "ekijun_46kagoshima", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_46kagoshima.kml" }, // deleted the old domain.
+					{ title: "沖縄県", type: "kml", key: "ekijun_47okinawa", icon: "obj_denshi.png", path: "./site/mapuse4/kml/denshi/ekijun_47okinawa.kml" } // deleted the old domain.
 				]
 			}
 		]
@@ -164,7 +164,7 @@ var libraryTreeData = [
 	{
 		title: "気象庁(サンプル)", isFolder: true, hideCheckbox: true, expand: true,
 		children: [
-			{ title: "東日本大震災の震度分布(茨城県)", type: "kml", key: "shindo", icon: "5+.png", path: "http://portal.cyberjapan.jp/site/mapuse4/kml/shindo.kml" }
+			{ title: "東日本大震災の震度分布(茨城県)", type: "kml", key: "shindo", icon: "5+.png", path: "./site/mapuse4/kml/shindo.kml" } // deleted the old domain.
 		]
 	}]
 }];
